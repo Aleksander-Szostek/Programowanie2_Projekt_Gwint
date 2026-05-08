@@ -13,6 +13,7 @@ qt_add_executable(Gwint
     mainwindow.ui
     karta.cpp
     karta.h
+    kontener_kart.h kontener_kart.cpp
 )
 
 target_link_libraries(Gwint
