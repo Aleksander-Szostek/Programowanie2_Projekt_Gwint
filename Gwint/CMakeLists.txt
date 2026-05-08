@@ -14,6 +14,13 @@ qt_add_executable(Gwint
     karta.cpp
     karta.h
     kontener_kart.h kontener_kart.cpp
+    plansza.h plansza.cpp
+    plansza_linia.h plansza_linia.cpp
+    talia.h talia.cpp
+    card_loader.h card_loader.cpp
+    deck_saver.h deck_saver.cpp
+    deck_loader.h deck_loader.cpp
+    keyword.h keyword.cpp
 )
 
 target_link_libraries(Gwint
