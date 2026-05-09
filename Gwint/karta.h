@@ -9,7 +9,7 @@ enum Frakcja {
 };
 
 enum Kategoria {
-    Spell, Melee, Siege, Ranged, Agile, Leader
+    Spell, Melee, Siege, Ranged, Agile, Leader, Undefined
 };
 
 class karta
@@ -47,20 +47,24 @@ public:
 //  legenda - ogreśla czy karta jest kartą legendarną czy nie
 //  czyli taką na którą nie działają efekty innych kart
 //
+//  flavor_text - dodatkowy teks na karcie który na nią nie wpływa
+//  ale po prostu jest dla ozdoby
+//
     struct Card{
-        unsigned int id;
-        QString nazwa;
-        Frakcja frakcja;
-        Kategoria kategoria;
-        int sila_bazowa;
-        int sila;
-        keyword *efekt;
+        unsigned int id = 0;
+        QString nazwa = "null";
+        Frakcja frakcja = Frakcja::Neutral;
+        Kategoria kategoria = Kategoria::Undefined;
+        int sila_bazowa = 0;
+        int sila = 0;
+        keyword *efekt = nullptr;
         std::vector<int> cele;
-        unsigned int max_w_talii;
-        bool legendarna;
+        unsigned int max_w_talii = 0;
+        bool legendarna = false;
+        QString flavor_text = "";
     };
 
-    ~karta();
+    //~karta();
 };
 
 
