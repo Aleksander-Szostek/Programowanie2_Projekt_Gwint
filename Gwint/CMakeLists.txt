@@ -21,6 +21,8 @@ qt_add_executable(Gwint
     deck_saver.h deck_saver.cpp
     deck_loader.h deck_loader.cpp
     keyword.h keyword.cpp
+    graveyard.h graveyard.cpp
+    player_hand.h player_hand.cpp
 )
 
 target_link_libraries(Gwint

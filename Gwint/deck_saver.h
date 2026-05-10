@@ -6,6 +6,8 @@ class deck_saver
 {
 public:
     deck_saver();
+
+    void save_deck(kontener_kart::Lista_kart talia,QString deck_file_name);
 };
 
 #endif // DECK_SAVER_H

@@ -1,6 +1,6 @@
 #ifndef CARD_LOADER_H
 #define CARD_LOADER_H
-#include "kontener_kart.h"
+#include "karta.h"
 
 class card_loader
 {
