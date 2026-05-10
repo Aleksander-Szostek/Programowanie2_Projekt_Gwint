@@ -6,6 +6,11 @@ class kontener_kart
 {
 public:
     kontener_kart();
+
+    struct Lista_kart
+    {
+        std::vector<karta::Card> Ciag_kart;
+    };
 };
 
 #endif // KONTENER_KART_H

@@ -2,7 +2,7 @@
 #include <QFile>
 #include <QTextStream> //biblioteki umożliwiająca
 //sczytywanie pliku bezpośrednio do QString (który ma polskie znaki)
-#include <QDebug>
+//#include <QDebug>
 
 
 

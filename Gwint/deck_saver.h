@@ -1,5 +1,6 @@
 #ifndef DECK_SAVER_H
 #define DECK_SAVER_H
+#include "kontener_kart.h"
 
 class deck_saver
 {
