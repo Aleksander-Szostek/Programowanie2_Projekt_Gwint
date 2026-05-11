@@ -50,19 +50,20 @@ public:
 //  flavor_text - dodatkowy teks na karcie który na nią nie wpływa
 //  ale po prostu jest dla ozdoby
 //
-    struct Card{
-        unsigned int id = 0;
-        QString nazwa = "null";
-        Frakcja frakcja = Frakcja::Neutral;
-        Kategoria kategoria = Kategoria::Undefined;
-        int sila_bazowa = 0;
-        int sila = 0;
-        keyword *efekt = nullptr;
-        std::vector<int> cele;
-        unsigned int max_w_talii = 0;
-        bool legendarna = false;
-        QString flavor_text = "";
-    };
+//private:         to do private wpierdzielić ale na razie chcę żęby po prostu działało
+
+    unsigned int id = 0;
+    QString nazwa = "null";
+    Frakcja frakcja = Frakcja::Neutral;
+    Kategoria kategoria = Kategoria::Undefined;
+    int sila_bazowa = 0;
+    int sila = 0;
+    keyword *efekt = nullptr;
+    std::vector<int> cele;
+    unsigned int max_w_talii = 0;
+    bool legendarna = false;
+    QString flavor_text = "";
+
 
     //~karta();
 };

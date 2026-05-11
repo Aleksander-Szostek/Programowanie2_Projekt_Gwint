@@ -10,7 +10,7 @@ public:
 //private:
 
 
-    karta::Card zaladuj_karte(int id);
+    void zaladuj_karte(int id, karta* Karta);
 
     //~card_loader();
 };

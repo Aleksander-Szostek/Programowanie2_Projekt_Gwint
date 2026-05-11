@@ -15,16 +15,15 @@ card_loader::card_loader() {}
 
 
 //  funkcja odczytuje kartę z pliku i zwraca do funkcji która wywołała
-karta::Card card_loader::zaladuj_karte(int id) {
+void card_loader::zaladuj_karte(int id, karta* Karta) {
 
     QString fileName = "cards_list.txt";
     QFile file(fileName);
-    karta::Card odczytana_karta;
 
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
-        odczytana_karta.nazwa = "error: File not found";
-        return odczytana_karta;
+        Karta->nazwa = "error: File not found";
+        return;
     }
 
     QTextStream in(&file);
@@ -34,8 +33,8 @@ karta::Card card_loader::zaladuj_karte(int id) {
     for (int i = 0; i <= id; i++)
     {
         if (in.atEnd()){
-            odczytana_karta.nazwa = "error: end of file";
-            return odczytana_karta;
+            Karta->nazwa = "error: end of file";
+            return;
         }
 
         line = in.readLine();
@@ -45,57 +44,58 @@ karta::Card card_loader::zaladuj_karte(int id) {
 
     QStringList dane = line.split(';'); //rozdziela tekst na listę używając znaku ; jako separator
 
-    odczytana_karta.id = dane[0].toInt(nullptr, 10);
+    Karta->id = dane[0].toInt(nullptr, 10);
     //na wszelki wypadek odczytuję id z pliku żeby upewnić
     //się czy odpowiednia karta zosała odczytana
 
-    odczytana_karta.nazwa = dane[1];
+    Karta->nazwa = dane[1];
 
 
 
     //wiem że to wygląda tragicznie i jakby to zrobił jaskiniowiec
     //ale c++ nie akceptuje stringów do SWITCHa
     if (dane[2] == "NORTHERN")
-        odczytana_karta.frakcja = Frakcja::Polnoc;
+        Karta->frakcja = Frakcja::Polnoc;
     else if (dane[2] == "SCOIA'TAEL")
-        odczytana_karta.frakcja = Frakcja::Elfy;
+        Karta->frakcja = Frakcja::Elfy;
     else if (dane[2] == "MONSTERS")
-        odczytana_karta.frakcja = Frakcja::Potwory;
+        Karta->frakcja = Frakcja::Potwory;
     else if (dane[2] == "NILFGAARD")
-        odczytana_karta.frakcja = Frakcja::Niflgard;
+        Karta->frakcja = Frakcja::Niflgard;
     else if (dane[2] == "SKELLIGE")
-        odczytana_karta.frakcja = Frakcja::Skelige;
+        Karta->frakcja = Frakcja::Skelige;
     else
-        odczytana_karta.frakcja = Frakcja::Neutral;
+        Karta->frakcja = Frakcja::Neutral;
 
     if (dane[3] == "MELEE")
-        odczytana_karta.kategoria = Kategoria::Melee;
+        Karta->kategoria = Kategoria::Melee;
     else if (dane[3] == "RANGED")
-        odczytana_karta.kategoria = Kategoria::Ranged;
+        Karta->kategoria = Kategoria::Ranged;
     else if (dane[3] == "SIEGE")
-        odczytana_karta.kategoria = Kategoria::Siege;
+        Karta->kategoria = Kategoria::Siege;
     else if (dane[3] == "SPELL")
-        odczytana_karta.kategoria = Kategoria::Spell;
+        Karta->kategoria = Kategoria::Spell;
     else if (dane[3] == "LEADER")
-        odczytana_karta.kategoria = Kategoria::Leader;
+        Karta->kategoria = Kategoria::Leader;
     else if (dane[3] == "AGILE")
-        odczytana_karta.kategoria = Kategoria::Agile;
+        Karta->kategoria = Kategoria::Agile;
     else {
-        odczytana_karta.kategoria = Kategoria::Undefined;
-        return odczytana_karta;
+        Karta->kategoria = Kategoria::Undefined;
+        Karta->nazwa = "Error: typ karty niezdefiniowany";
+        return;
         //jeśli odczytana karta nie ma typu to nie jest działająca karta
     }
 
 
-    odczytana_karta.sila_bazowa = dane[4].toInt(nullptr, 10);
-    odczytana_karta.sila = odczytana_karta.sila_bazowa;
-    odczytana_karta.efekt = nullptr;  //to do zrobienia jak zostaną zaimplementowane keywordy
+    Karta->sila_bazowa = dane[4].toInt(nullptr, 10);
+    Karta->sila = Karta->sila_bazowa;
+
+    Karta->efekt = nullptr;  //to do zrobienia jak zostaną zaimplementowane keywordy
 //    odczytana_karta.cele = dane[6];  //to tak samo
-    odczytana_karta.max_w_talii = dane[7].toInt(nullptr, 10);
-    if (dane[8] == '1') odczytana_karta.legendarna = true;
+    Karta->max_w_talii = dane[7].toInt(nullptr, 10);
+    if (dane[8] == '1') Karta->legendarna = true;
 
-    odczytana_karta.flavor_text = dane[9];
+    Karta->flavor_text = dane[9];
 
-    return odczytana_karta;
-
+    return;
 }

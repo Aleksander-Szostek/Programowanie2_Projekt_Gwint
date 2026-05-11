@@ -17,7 +17,11 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
+private slots:
+    void on_verticalSlider_sliderMoved(int position);
+
 private:
     Ui::MainWindow *ui;
+
 };
 #endif // MAINWINDOW_H

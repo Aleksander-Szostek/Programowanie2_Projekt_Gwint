@@ -8,7 +8,7 @@ class deck_loader
 public:
     deck_loader();
 
-    kontener_kart::Lista_kart load_deck(QString deck_file_name);
+    void load_deck(kontener_kart &talia_do_wczytania, QString fileName);
 };
 
 #endif // DECK_LOADER_H
