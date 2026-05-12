@@ -25,6 +25,8 @@ qt_add_executable(Gwint
     player_hand.h player_hand.cpp
 )
 
+configure_file(cards_list.txt cards_list.txt COPYONLY)
+
 target_link_libraries(Gwint
     PRIVATE
         Qt::Core

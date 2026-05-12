@@ -41,6 +41,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
 void MainWindow::on_verticalSlider_sliderMoved(int position)
 {
     kontener_kart Azbest;
