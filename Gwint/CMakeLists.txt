@@ -23,6 +23,7 @@ qt_add_executable(Gwint
     keyword.h keyword.cpp
     graveyard.h graveyard.cpp
     player_hand.h player_hand.cpp
+    textury.qrc
 )
 
 configure_file(cards_list.txt cards_list.txt COPYONLY)
