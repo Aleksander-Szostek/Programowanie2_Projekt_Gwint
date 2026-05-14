@@ -25,6 +25,8 @@ qt_add_executable(Gwint
     player_hand.h player_hand.cpp
     textury.qrc
     deck.h deck.cpp
+    card_button.h card_button.cpp
+
 )
 
 configure_file(cards_list.txt cards_list.txt COPYONLY)
