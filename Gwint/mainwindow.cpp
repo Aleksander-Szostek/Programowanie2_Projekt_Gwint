@@ -17,6 +17,11 @@ MainWindow::MainWindow(QWidget *parent)
     zaladuj.zaladuj_karte(test, testowa_karta);
 
 
+    ui->Plansza->setStyleSheet(
+        "border-image: url(:/gwont_plansza_templatka.png) 0 0 0 0 stretch stretch;"
+        );
+
+
     //    ui->label->setText(karci.nazwa);
     //else
     //    ui->label->setText("To nie melee");
