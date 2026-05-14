@@ -27,7 +27,7 @@
        <enum>Qt::FocusPolicy::StrongFocus</enum>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">border-image: url(:/gwont_plansza_templatka.png);</string>
       </property>
       <property name="currentIndex">
        <number>0</number>
@@ -49,7 +49,7 @@
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">image: url(:/gwont_plansza_templatka.png);</string>
+         <string notr="true">background-image: url(:/gwont_plansza_templatka.png);</string>
         </property>
         <property name="text">
          <string>TextLabel</string>
@@ -84,6 +84,19 @@
          <string>Tworzenie Talii</string>
         </property>
        </widget>
+       <widget class="QGraphicsView" name="graphicsView">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>30</y>
+          <width>256</width>
+          <height>192</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/gwont_plansza_templatka.png);</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QWidget" name="Plansza"/>
      </widget>
@@ -99,6 +112,12 @@
      <height>17</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menugwint">
+    <property name="title">
+     <string>gwint</string>
+    </property>
+   </widget>
+   <addaction name="menugwint"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

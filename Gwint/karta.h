@@ -17,6 +17,47 @@ class karta
 public:
     karta();
 
+    void setID(unsigned int id_s);
+    void setName(QString nazwa_s);
+    void setFrakcja(QString Nazwa_frakcji);
+    void setKategoria(QString Nazwa_kategorii);
+    void setSilaBaz(unsigned int sila_bazowa_s);
+    void setKeywordAdress(keyword* efekt_s);
+    void setCele(std::vector<int> cele_s);
+    void setMax(unsigned int max_w_talii_s);
+    void setLeg(bool leg_s);
+    void setFlavor(QString flavor_s);
+
+    void updateSila(bool pogoda, bool horn, int boost);
+
+    unsigned int getID();
+    QString getNazwa();
+    Frakcja getFrakcja();
+    Kategoria getKategoria();
+    unsigned int getSila();
+
+    //tu coś z keywordem jak to zrobię
+
+    unsigned int getMax();
+    bool getLeg();
+    QString getFlavor();
+
+private:
+    unsigned int id;
+    QString nazwa = "null";
+    Frakcja frakcja = Frakcja::Neutral;
+    Kategoria kategoria = Kategoria::Undefined;
+    int sila_bazowa = 0;
+    int sila = 0;
+    keyword *efekt = nullptr;
+    std::vector<int> cele;
+    unsigned int max_w_talii = 0;
+    bool legendarna = false;
+    QString flavor_text = "";
+
+    //~karta();
+};
+
 //
 //  dla uniknięcia pomyłek stuktury z klasą stuktura ma nazwę po angielsku
 //
@@ -50,25 +91,5 @@ public:
 //  flavor_text - dodatkowy teks na karcie który na nią nie wpływa
 //  ale po prostu jest dla ozdoby
 //
-//private:         to do private wpierdzielić ale na razie chcę żęby po prostu działało
-
-    unsigned int id = 0;
-    QString nazwa = "null";
-    Frakcja frakcja = Frakcja::Neutral;
-    Kategoria kategoria = Kategoria::Undefined;
-    int sila_bazowa = 0;
-    int sila = 0;
-    keyword *efekt = nullptr;
-    std::vector<int> cele;
-    unsigned int max_w_talii = 0;
-    bool legendarna = false;
-    QString flavor_text = "";
-
-
-    //~karta();
-};
-
-
-//testuję czy dział
 
 #endif // KARTA_H

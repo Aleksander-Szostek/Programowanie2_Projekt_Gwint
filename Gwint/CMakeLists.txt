@@ -16,7 +16,7 @@ qt_add_executable(Gwint
     kontener_kart.h kontener_kart.cpp
     plansza.h plansza.cpp
     plansza_linia.h plansza_linia.cpp
-    talia.h talia.cpp
+
     card_loader.h card_loader.cpp
     deck_saver.h deck_saver.cpp
     deck_loader.h deck_loader.cpp
@@ -24,6 +24,7 @@ qt_add_executable(Gwint
     graveyard.h graveyard.cpp
     player_hand.h player_hand.cpp
     textury.qrc
+    deck.h deck.cpp
 )
 
 configure_file(cards_list.txt cards_list.txt COPYONLY)

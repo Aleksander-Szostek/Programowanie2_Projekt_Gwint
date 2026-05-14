@@ -2,18 +2,21 @@
 #include <QFile>
 #include <QTextStream>
 #include "card_loader.h"
-#include "kontener_kart.h"
 
 deck_loader::deck_loader() {}
 
-void deck_loader::load_deck(kontener_kart &talia_do_wczytania, QString fileName){
+std::vector<karta*> deck_loader::load_deck(QString fileName){
 
     QFile file(fileName);
 
+    std::vector<karta*> Zaladowane;
+
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
-        talia_do_wczytania.Ciag_kart[0]->nazwa = "Error: lack od deck file";
-        return;
+        karta* z_karta = new karta;
+        z_karta->setName("Error: lack of deck file");
+        Zaladowane.push_back(z_karta);
+        return Zaladowane;
     }
 
     QTextStream in(&file);
@@ -21,8 +24,10 @@ void deck_loader::load_deck(kontener_kart &talia_do_wczytania, QString fileName)
     QString line;
 
     if (in.atEnd()){
-        talia_do_wczytania.Ciag_kart[0]->nazwa = "Error: empty deck file";
-        return;
+        karta* z_karta = new karta;
+        z_karta->setName("Error: empty deck file");
+        Zaladowane.push_back(z_karta);
+        return Zaladowane;
     }
 
     line = in.readLine();
@@ -34,11 +39,11 @@ void deck_loader::load_deck(kontener_kart &talia_do_wczytania, QString fileName)
     card_loader wtasowyacz_kart;
 
     for (int i = 0; i < dane.size(); i++) {
-        karta* zaladowana_karta = new karta;
-        wtasowyacz_kart.zaladuj_karte(dane[i].toInt(nullptr, 10), zaladowana_karta);
-        talia_do_wczytania.Ciag_kart.push_back(zaladowana_karta);
+        karta* z_karta = new karta;
+        wtasowyacz_kart.zaladuj_karte(dane[i].toInt(nullptr, 10), z_karta);
+        Zaladowane.push_back(z_karta);
     }
 
 
-    return;
+    return Zaladowane;
 }

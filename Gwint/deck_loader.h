@@ -8,7 +8,7 @@ class deck_loader
 public:
     deck_loader();
 
-    void load_deck(kontener_kart &talia_do_wczytania, QString fileName);
+    std::vector<karta*> load_deck(QString fileName);
 };
 
 #endif // DECK_LOADER_H

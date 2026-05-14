@@ -7,8 +7,6 @@ class kontener_kart
 public:
     kontener_kart();
 
-    std::vector<karta*> Ciag_kart;
-
     void add_card_to(karta* dodawana_karta, int pozycja);
 
     void move_card(int pozycja_startowa, kontener_kart* output_deck_adress, int pozycja_koncowa);
@@ -18,6 +16,12 @@ public:
     void shulfe_list();
 
     void sort_list();
+
+    void getKartaFromList(int poz);
+
+protected:
+
+    std::vector<karta*> Ciag_kart;
 
 };
 

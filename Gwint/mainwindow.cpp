@@ -17,24 +17,12 @@ MainWindow::MainWindow(QWidget *parent)
     zaladuj.zaladuj_karte(test, testowa_karta);
 
 
-    kontener_kart Azbest;
-
-    deck_loader Mieszacz_azbestu;
-
-    Mieszacz_azbestu.load_deck(Azbest, "deck1.txt");
-
-    deck_saver Wylewacz_azbestu;
-
-    Wylewacz_azbestu.save_deck(Azbest, "deck2.txt");
-
-
     //    ui->label->setText(karci.nazwa);
     //else
     //    ui->label->setText("To nie melee");
     //testowałem czy odczyt kategorii i frakcji działa (działa)
 
-    ui->label->setText(testowa_karta->nazwa + " " + QString::number(testowa_karta->sila) + " " + testowa_karta->flavor_text);
-
+    ui->label->setText(testowa_karta->getNazwa() + " " + QString::number(testowa_karta->getSila()) + " " + testowa_karta->getFlavor());
 }
 
 MainWindow::~MainWindow()
@@ -44,12 +32,5 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_verticalSlider_sliderMoved(int position)
 {
-    kontener_kart Azbest;
 
-    deck_loader Mieszacz_azbestu;
-
-    Mieszacz_azbestu.load_deck(Azbest, "deck1.txt");
-
-    ui->label->setText(QString::number(position) + "    " + Azbest.Ciag_kart[position]->nazwa);
 }
-
