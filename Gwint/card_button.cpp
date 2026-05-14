@@ -24,6 +24,10 @@ void Card_Button::refresh(){
                         "  border: 2px solid black;"
                         "  border-radius: 5px;"
                         "}"
+                        ":hover { border:#ffffff ; }"
+                        "QPushButton:hover {"
+                        "  border: 3px solid #f2eded;"
+                        "}"
                         ).arg(borderStyle);
 
     this->setStyleSheet(style);

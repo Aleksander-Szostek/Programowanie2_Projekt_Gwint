@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
     // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-    // ui->layout_reki->layout()->setSpacing(20);
+    //  ui->layout_reki->layout()->setSpacing(20);
     int test = 42;
 
     card_loader zaladuj;
@@ -51,11 +51,11 @@ void MainWindow::on_button_dobierz_clicked()
 {
     //tworze testwa karte czy się dodają poprawnie
     karta* nowaKartaDane = new karta();
-    nowaKartaDane->setName("Bogata Kurcze Piechota");
+    nowaKartaDane->setName("Bogata kurcze piechota");
     nowaKartaDane->setSilaBaz(100);
     nowaKartaDane->updateSila(false, false, 0); //updatuje sile na 1
 
-    nowaKartaDane->setLeg(true);
+    nowaKartaDane->setLeg(false);
 
     Card_Button *przyciskKarty = new Card_Button(nowaKartaDane, this);
     przyciskKarty->getCardData();
