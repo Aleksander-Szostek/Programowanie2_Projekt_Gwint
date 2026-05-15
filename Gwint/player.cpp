@@ -2,12 +2,34 @@
 
 player::player() {}
 
+plansza_linia* player::getMelee(){
+    return melee_l;
+}
+
+plansza_linia* player::getRanged(){
+    return ranged_l;
+}
+
+plansza_linia* player::getSiege(){
+    return siege_l;
+}
+
+deck* player::getDeck(){
+    return Talia;
+}
+
+player_hand* player::getReka(){
+    return reka;
+}
+
 void player::dobierzKarte(){
     Talia->move_card(0, reka);
 }
 
-void player::zagrajKarte(int nr_w_rece){
+karta* player::zagrajKarte(int nr_w_rece){
     Kategoria typ_karty = reka->getKartaFromList(nr_w_rece)->getKategoria();
+
+    karta* karta_g = nullptr;
 
     if (typ_karty == Kategoria::Melee){
         reka->move_card(nr_w_rece, melee_l);
@@ -19,15 +41,16 @@ void player::zagrajKarte(int nr_w_rece){
         reka->move_card(nr_w_rece, siege_l);
     }
     else if (typ_karty == Kategoria::Spell){
-
+        karta_g = reka->getKartaFromList(nr_w_rece);
     }
     else if (typ_karty == Kategoria::Agile){
-
+        karta_g = reka->getKartaFromList(nr_w_rece);
     }
     else {
         //tutaj ma wywalić errora
     }
 
+    return karta_g;
 }
 
 void player::uzyjLidera(){

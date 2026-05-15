@@ -13,11 +13,16 @@ public:
     player();
 
     int getPoints();
-    karta* getKontener(kontener typKontenera);
+
+    plansza_linia* getMelee();
+    plansza_linia* getRanged();
+    plansza_linia* getSiege();
+    deck* getDeck();
+    player_hand* getReka();
 
     void dobierzKarte();
 
-    void zagrajKarte(int nr_w_rece);
+    karta* zagrajKarte(int nr_w_rece);
 
     void uzyjLidera();
 
