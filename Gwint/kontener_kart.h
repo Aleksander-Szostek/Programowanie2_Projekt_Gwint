@@ -9,7 +9,7 @@ public:
 
     void add_card_to(karta* dodawana_karta, int pozycja);
 
-    void move_card(int pozycja_startowa, kontener_kart* output_deck_adress, int pozycja_koncowa);
+    void move_card(int poz_start, kontener_kart *output_list);
 
     void delete_card(int pozycja);
 
@@ -23,6 +23,8 @@ protected:
 
     std::vector<karta*> Ciag_kart;
 
+    virtual const bool isDeck() = 0;    //jeśli kontenery nie działają to trzeba to zmienić
+                                        //robię z tym gambling bo nie chce mi się myśleć
 };
 
 #endif // KONTENER_KART_H

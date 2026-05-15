@@ -9,11 +9,14 @@ public:
 
     void makeDeck(QString deckFile);
 
+    void validifyDeck();
+
 private:
 
-    void unvalidifyDeck();
+    kontener_kart Leader;           //pomimo że to pole nie powinno zawierać więcej niż 1 karta
+                                    //to jest kontenerem żeby kożystało z tych samych funkcji co taliia
 
-    karta* Leader = nullptr;
+    const bool isDeck() override;
 
     Frakcja FrakcjaTalii = Frakcja::Neutral;
 
