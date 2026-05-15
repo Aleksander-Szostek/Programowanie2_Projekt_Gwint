@@ -6,9 +6,6 @@ class card_loader
 {
 public:
     card_loader();
-//    void wsadz_karte(kontener_kart *directory, int id, int pozycja);
-//private:
-
 
     void zaladuj_karte(int id, karta* Karta);
 

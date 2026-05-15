@@ -11,20 +11,23 @@ public:
 
     void move_card(int poz_start, kontener_kart *output_list);
 
-    void delete_card(int pozycja);
+    karta* getKartaFromList(int poz);
+
+    int getDeckSize();
 
     void shulfe_list();
 
     void sort_list();
 
-    void getKartaFromList(int poz);
-
 protected:
 
     std::vector<karta*> Ciag_kart;
 
-    virtual const bool isDeck() = 0;    //jeśli kontenery nie działają to trzeba to zmienić
-                                        //robię z tym gambling bo nie chce mi się myśleć
+    bool isDeck = false;
+
+private:
+
+    void delete_card(int pozycja);
 };
 
 #endif // KONTENER_KART_H

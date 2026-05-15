@@ -9,9 +9,13 @@ void deck::makeDeck(QString deckFile){
     Ciag_kart = DL.load_deck(deckFile);
 
     validifyDeck();
+
+    shulfe_list();
 }
 
 void deck::validifyDeck(){
+
+    //nie ma tutaj uwzględnione liczeni czy nie ma więcej kart niż max w talii, do zrobienia później
 
     FrakcjaTalii = Frakcja::Neutral;
 
@@ -46,7 +50,7 @@ void deck::validifyDeck(){
     }
 
     if (indeksLidera >= 0) {
-        move_card(indeksLidera, Leader, 0);
+        move_card(indeksLidera, Leader);
     }
     else if(indeksLidera == -1) {
         karta *returnVal = new karta;
@@ -79,8 +83,4 @@ void deck::validifyDeck(){
 //    FrakcjaTalii = Frakcja::Neutral;
 //
 //    DeckValid = false;
-}
-
-const bool deck::isDeck() {
-    return true;
 }
