@@ -23,15 +23,20 @@ qt_add_executable(Gwint
     keyword.h keyword.cpp
     graveyard.h graveyard.cpp
     player_hand.h player_hand.cpp
-    textury.qrc
+
     deck.h deck.cpp
     card_button.h card_button.cpp
 
     player.h player.cpp
     gra.h gra.cpp
     efekty_pogodowe.h efekty_pogodowe.cpp
+
 )
 
+qt_add_resources(Gwint textury
+    FILES
+        plansza.jpg
+)
 configure_file(cards_list.txt cards_list.txt COPYONLY)
 
 target_link_libraries(Gwint

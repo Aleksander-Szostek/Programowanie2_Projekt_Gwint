@@ -17,17 +17,25 @@ MainWindow::MainWindow(QWidget *parent)
     // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     //  ui->layout_reki->layout()->setSpacing(20);
+    QPixmap bg(":/plansza.jpg");
+
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bg);
+
+    this->setAutoFillBackground(true);
+    this->setPalette(palette);
     int test = 42;
 
     card_loader zaladuj;
     karta* testowa_karta = new karta;
     zaladuj.zaladuj_karte(test, testowa_karta);
 
-    ui->Plansza->setStyleSheet(
-        "border-image: url(:/gwont_plansza_templatka.png) 0 0 0 0 stretch stretch;"
-    );
+    // ui->stackedWidget->setStyleSheet(
+    //     "border-image: url(:/gwont_plansza_templatka.png) 0 0 0 0 stretch stretch;"
+    // );
     qDebug() << QPixmap(":/plansza.jpg").isNull();
-    qDebug() << QPixmap(":/gwont_plansza_templatka.png").isNull();
+
+    // qDebug() << QPixmap(":/gwont_plansza_templatka.png").isNull();
 
     //    ui->label->setText(karci.nazwa);
     //else

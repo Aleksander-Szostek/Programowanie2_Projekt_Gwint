@@ -6,14 +6,17 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>919</width>
-    <height>582</height>
+    <width>950</width>
+    <height>579</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
@@ -28,6 +31,9 @@
       </property>
       <property name="focusPolicy">
        <enum>Qt::FocusPolicy::StrongFocus</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
@@ -52,7 +58,7 @@
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/plansza.jpg);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>TextLabel</string>
@@ -68,7 +74,7 @@
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">border-image: url(:/plansza.jpg);</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Start</string>
@@ -103,9 +109,9 @@
        <widget class="QWidget" name="horizontalLayoutWidget">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>20</x>
           <y>320</y>
-          <width>871</width>
+          <width>901</width>
           <height>191</height>
          </rect>
         </property>
@@ -141,7 +147,7 @@
         <bool>false</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-image: url(:/gwont_plansza_templatka.png);</string>
+        <string notr="true">border-image: url(:/plansza.jpg);</string>
        </property>
       </widget>
      </widget>
@@ -153,7 +159,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>919</width>
+     <width>950</width>
      <height>21</height>
     </rect>
    </property>
