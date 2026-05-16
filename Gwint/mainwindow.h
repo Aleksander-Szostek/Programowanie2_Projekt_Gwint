@@ -20,6 +20,8 @@ public:
 private slots:
     void on_verticalSlider_sliderMoved(int position);
 
+    void on_button_dobierz_clicked();
+
 private:
     Ui::MainWindow *ui;
 

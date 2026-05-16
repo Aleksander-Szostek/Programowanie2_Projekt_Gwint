@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>gwont_plansza_templatka.png</file>
+        <file>plansza.jpg</file>
     </qresource>
 </RCC>
