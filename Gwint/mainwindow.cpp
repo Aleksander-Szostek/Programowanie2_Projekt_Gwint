@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    Gra = new gra();
     //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
     // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -65,22 +66,26 @@ void MainWindow::on_button_dobierz_clicked()
 
 
     connect(przyciskKarty, &Card_Button::clicked, this, [=]() {
-        qDebug() << "Wybrano karte: " << nowaKartaDane->getNazwa();
-
-
         //usuwanie karty po kliknieciu, tak jakbyś ja przeniósł na planszę
-        ui->layout_plansza_test->addWidget(przyciskKarty);
-        kartyNaPlanszy.push_back(przyciskKarty);
-        ui->layout_reki->removeWidget(przyciskKarty); //przenosi karty na testową planszę
+        //ui->layout_plansza_test->addWidget(przyciskKarty);
+        // kartyNaPlanszy.push_back(przyciskKarty);
+        // ui->layout_reki->removeWidget(przyciskKarty); //przenosi karty na testową planszę
+        qDebug() << "Wybrano karte: " << nowaKartaDane->getNazwa();
+        ui->layout_reki->removeWidget(przyciskKarty);
+        przyciskKarty->hide();
+        przyciskKarty->deleteLater();
 
-        //przyciskKarty->hide();
+        Gra->zagranoKarte(nowaKartaDane,kartyNaPlanszy,ui->layout_plansza_test,this);
+        //Gra->przerysowaniePlanszy(kartyNaPlanszy, ui->layout_plansza_test, this);
+
+
+
     });
 }
 
 
 void MainWindow::on_wyczysc_button_clicked()
 {
-    gra Gra;
-    Gra.czyszczeniePlanszy(kartyNaPlanszy, ui->layout_plansza_test);
+    Gra->gameClear(kartyNaPlanszy, ui->layout_plansza_test);
 }
 

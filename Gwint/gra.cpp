@@ -4,9 +4,8 @@
 #include <QLayout>
 
 gra::gra() {}
-
-void gra::redrawBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){
-
+void gra::clearBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){
+    /*
     for(int i =0; i< kartyPlansza.size();i++){//usuwa karte z planszy
         if(kartyPlansza[i]!=nullptr){
             plansza->removeWidget(kartyPlansza[i]);
@@ -23,23 +22,39 @@ void gra::redrawBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){
     //robisz nowy przycisk, pobierzasz dane z karty, i refreshujesz aby przycisk jakos wyglądał
     // a i jeszcze tą pętlę for z tej funckcji mozna zastąpic takim zapisem, gemini mi go wypluł jak wpisałem swoj kod
     //podobno jest lepszy to można go użyć
-    /*
-    void gra::czyscPlansze(std::vector<Card_Button*>& planszaKarty, QLayout* planszaLayout) {
-    if (!planszaLayout) return;
+    */
+    if (!plansza) return;
 
 
-    for (Card_Button* karta : planszaKarty) {
+    for (Card_Button* karta : kartyPlansza) {
         if (karta != nullptr) {
-            planszaLayout->removeWidget(karta);
+            plansza->removeWidget(karta);
             karta->hide();
             karta->deleteLater();
+            qDebug() << "Usunieto karte: "<<karta->getCardData()->getNazwa();
         }
     }
 
 
-    planszaKarty.clear();
+    kartyPlansza.clear();
+}
+
+
+void gra::redrawBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent){
+
+    //std::vector<Card_Button*> kopia_kartyPlansza = kartyPlansza;
+    clearBoard(kartyPlansza,plansza);
+    for (karta* daneKarty : daneKartNaPlanszy) {
+        if (daneKarty != nullptr) {
+            Card_Button* nowaKarta = new Card_Button(daneKarty, parent);
+            nowaKarta->refresh();
+            plansza->addWidget(nowaKarta);
+            kartyPlansza.push_back(nowaKarta);
+            qDebug() << "Narysowano karte: "<<nowaKarta->getCardData()->getNazwa();
+
+        }
     }
-     */
+
 }
 
 void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
@@ -85,6 +100,20 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
     }
     return;
 }
-void gra::czyszczeniePlanszy(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){
-    redrawBoard(kartyPlansza,plansza);
+void gra::zagranoKarte(karta* nowaKarta, std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent){
+    if(!nowaKarta){
+        qDebug()<<"nie zagrano karty";
+        return;
+    }
+
+    daneKartNaPlanszy.push_back(nowaKarta);//dodaje dane zagranej karty do vectora
+    redrawBoard(kartyPlansza,plansza,parent);//wywołuje przeryswanie
+}
+void gra::przerysowaniePlanszy(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent){
+    redrawBoard(kartyPlansza,plansza, parent);
+}
+void gra::gameClear(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){//jest to funkcja tymczasowa która pozwala na absolutne wyczyszczenie planszy
+    clearBoard(kartyPlansza,plansza);
+    daneKartNaPlanszy.clear();
+    qDebug()<<"Wszystko usuniete";
 }
