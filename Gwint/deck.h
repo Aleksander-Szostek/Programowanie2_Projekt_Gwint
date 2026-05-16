@@ -9,15 +9,17 @@ public:
 
     void makeDeck(QString deckFile);
 
+    void validifyDeck();
+
+    kontener_kart *Leader;      //pomimo że to pole nie powinno zawierać więcej niż 1 karta
+                                //to jest kontenerem żeby kożystało z tych samych funkcji co każdy inny kontener kart
+    bool DeckValid = false;
+
 private:
 
-    void unvalidifyDeck();
-
-    karta* Leader = nullptr;
+    bool isDeck = true;
 
     Frakcja FrakcjaTalii = Frakcja::Neutral;
-
-    bool DeckValid = false;
 };
 
 #endif // DECK_H

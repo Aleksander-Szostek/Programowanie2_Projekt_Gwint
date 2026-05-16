@@ -9,20 +9,25 @@ public:
 
     void add_card_to(karta* dodawana_karta, int pozycja);
 
-    void move_card(int pozycja_startowa, kontener_kart* output_deck_adress, int pozycja_koncowa);
+    void move_card(int poz_start, kontener_kart *output_list);
 
-    void delete_card(int pozycja);
+    karta* getKartaFromList(int poz);
+
+    int getDeckSize();
 
     void shulfe_list();
 
     void sort_list();
 
-    void getKartaFromList(int poz);
-
 protected:
 
     std::vector<karta*> Ciag_kart;
 
+    bool isDeck = false;
+
+private:
+
+    void delete_card(int pozycja);
 };
 
 #endif // KONTENER_KART_H

@@ -27,6 +27,9 @@ qt_add_executable(Gwint
     deck.h deck.cpp
     card_button.h card_button.cpp
 
+    player.h player.cpp
+    gra.h gra.cpp
+    efekty_pogodowe.h efekty_pogodowe.cpp
 )
 
 configure_file(cards_list.txt cards_list.txt COPYONLY)

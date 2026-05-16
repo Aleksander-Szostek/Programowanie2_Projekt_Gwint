@@ -1,9 +1,6 @@
 #ifndef PLANSZA_H
 #define PLANSZA_H
-#include "plansza_linia.h"
-#include "talia.h"
-#include "graveyard.h"
-#include "player_hand.h"
+#include "player.h"
 
 
 class plansza
