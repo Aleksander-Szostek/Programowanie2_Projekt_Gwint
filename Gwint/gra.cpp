@@ -1,10 +1,45 @@
 #include "gra.h"
 #include <random>
+#include <QPushButton>
+#include <QLayout>
 
 gra::gra() {}
 
-void gra::redrawBoard(){
+void gra::redrawBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){
 
+    for(int i =0; i< kartyPlansza.size();i++){//usuwa karte z planszy
+        if(kartyPlansza[i]!=nullptr){
+            plansza->removeWidget(kartyPlansza[i]);
+            kartyPlansza[i]->hide();
+            kartyPlansza[i]->deleteLater(); // ta funkcja zwalnia RAM w bezpiecznym momencie, aby nie zcrushwalo programu
+            qDebug() << "Usunieto karte: " << kartyPlansza[i]->getCardData()->getNazwa();
+        }
+    }
+    kartyPlansza.clear();
+    //ta funkcja usuwa wszystkie karty które obecnie znajdują się na planszy(dodałem testową planszę(layout),
+    //aby przetestwac czy działa, nie usuwa ona kart z ręki gracza)
+    //ta funkcja jest private wiec dodalem czyszczeniePlanszy w public
+    //przyciski generujesz za pomocą kalsy Card_Button, masz przykład w mainwindow.cpp jak to wygląda
+    //robisz nowy przycisk, pobierzasz dane z karty, i refreshujesz aby przycisk jakos wyglądał
+    // a i jeszcze tą pętlę for z tej funckcji mozna zastąpic takim zapisem, gemini mi go wypluł jak wpisałem swoj kod
+    //podobno jest lepszy to można go użyć
+    /*
+    void gra::czyscPlansze(std::vector<Card_Button*>& planszaKarty, QLayout* planszaLayout) {
+    if (!planszaLayout) return;
+
+
+    for (Card_Button* karta : planszaKarty) {
+        if (karta != nullptr) {
+            planszaLayout->removeWidget(karta);
+            karta->hide();
+            karta->deleteLater();
+        }
+    }
+
+
+    planszaKarty.clear();
+    }
+     */
 }
 
 void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
@@ -49,4 +84,7 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
 
     }
     return;
+}
+void gra::czyszczeniePlanszy(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){
+    redrawBoard(kartyPlansza,plansza);
 }

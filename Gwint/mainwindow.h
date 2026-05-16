@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "card_button.h"
+#include <vector>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -22,8 +23,11 @@ private slots:
 
     void on_button_dobierz_clicked();
 
+    void on_wyczysc_button_clicked();
+
 private:
     Ui::MainWindow *ui;
+    std::vector<Card_Button*> kartyNaPlanszy; // dodaje karty ktore są już na planszy do vectora
 
 };
 #endif // MAINWINDOW_H

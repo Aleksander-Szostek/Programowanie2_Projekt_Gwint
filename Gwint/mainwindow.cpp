@@ -4,6 +4,7 @@
 #include "deck_loader.h"
 #include "deck_saver.h"
 #include "card_button.h"
+#include "gra.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -21,7 +22,6 @@ MainWindow::MainWindow(QWidget *parent)
     karta* testowa_karta = new karta;
     zaladuj.zaladuj_karte(test, testowa_karta);
 
-
     ui->Plansza->setStyleSheet(
         "border-image: url(:/gwont_plansza_templatka.png) 0 0 0 0 stretch stretch;"
     );
@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     //testowałem czy odczyt kategorii i frakcji działa (działa)
 
     ui->label->setText(testowa_karta->getNazwa() + " " + QString::number(testowa_karta->getSila()) + " " + testowa_karta->getFlavor());
+
 }
 
 MainWindow::~MainWindow()
@@ -53,7 +54,7 @@ void MainWindow::on_button_dobierz_clicked()
     karta* nowaKartaDane = new karta();
     nowaKartaDane->setName("Bogata kurcze piechota");
     nowaKartaDane->setSilaBaz(100);
-    nowaKartaDane->updateSila(false, false, 0); //updatuje sile na 1
+    nowaKartaDane->updateSila(false, false, 0); //updatuje sile na 100
 
     nowaKartaDane->setLeg(false);
 
@@ -68,8 +69,18 @@ void MainWindow::on_button_dobierz_clicked()
 
 
         //usuwanie karty po kliknieciu, tak jakbyś ja przeniósł na planszę
-        ui->layout_reki->removeWidget(przyciskKarty);
-        przyciskKarty->hide();
+        ui->layout_plansza_test->addWidget(przyciskKarty);
+        kartyNaPlanszy.push_back(przyciskKarty);
+        ui->layout_reki->removeWidget(przyciskKarty); //przenosi karty na testową planszę
+
+        //przyciskKarty->hide();
     });
+}
+
+
+void MainWindow::on_wyczysc_button_clicked()
+{
+    gra Gra;
+    Gra.czyszczeniePlanszy(kartyNaPlanszy, ui->layout_plansza_test);
 }
 

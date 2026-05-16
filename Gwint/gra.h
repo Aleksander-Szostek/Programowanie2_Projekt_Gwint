@@ -2,6 +2,10 @@
 #define GRA_H
 #include "player.h"
 #include "efekty_pogodowe.h"
+#include "card_button.h"
+
+#include <QPushButton>
+#include <vector>
 
 enum StanGry {
     Tura1, Tura2, KoniecRundy, KoniecGry, Nierozpoczeta
@@ -21,7 +25,7 @@ public:
     //tą funkcję podepniemy do przycisków
 
     void globalCardPlayed(karta* karta_g, int nr_gracza);
-
+    void czyszczeniePlanszy(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza);
 private:
     player *gracz_1;
     player *gracz_2;
@@ -29,7 +33,7 @@ private:
 
     StanGry GameState = Nierozpoczeta;
 
-    void redrawBoard();
+    void redrawBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza);
 };
 
 #endif // GRA_H
