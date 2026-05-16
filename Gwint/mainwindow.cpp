@@ -12,30 +12,32 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->stackedWidget->setCurrentIndex(0);
     Gra = new gra();
     //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
     // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     //  ui->layout_reki->layout()->setSpacing(20);
-    QPixmap bg(":/plansza.jpg");
+    // QPixmap bg(":/plansza.jpg");
 
-    QPalette palette;
-    palette.setBrush(QPalette::Window, bg);
+    //do dodania odległości miedzy layooutami aby były na stałe plus skalowanie całej planszy łącznie z kartami
+    //ui->layout_plansza_test->addSpacing(150);
 
-    this->setAutoFillBackground(true);
-    this->setPalette(palette);
+    this->setStyleSheet(
+        "#centralwidget {"
+        "background-color: #686965;"
+        "}"
+        );
+
     int test = 42;
 
     card_loader zaladuj;
     karta* testowa_karta = new karta;
     zaladuj.zaladuj_karte(test, testowa_karta);
 
-    // ui->stackedWidget->setStyleSheet(
-    //     "border-image: url(:/gwont_plansza_templatka.png) 0 0 0 0 stretch stretch;"
-    // );
+
     qDebug() << QPixmap(":/plansza.jpg").isNull();
 
-    // qDebug() << QPixmap(":/gwont_plansza_templatka.png").isNull();
 
     //    ui->label->setText(karci.nazwa);
     //else
@@ -60,9 +62,12 @@ void MainWindow::on_verticalSlider_sliderMoved(int position)
 void MainWindow::on_button_dobierz_clicked()
 {
     //tworze testwa karte czy się dodają poprawnie
+    //tak sobie dodałem wczytywanie kart losowych
     karta* nowaKartaDane = new karta();
-    nowaKartaDane->setName("Bogata kurcze piechota");
-    nowaKartaDane->setSilaBaz(100);
+    //nowaKartaDane->setName("Bogata kurcze piechota");
+    //nowaKartaDane->setSilaBaz(100);
+    card_loader karta;
+    karta.zaladuj_karte((rand()%50 + 1),nowaKartaDane);
     nowaKartaDane->updateSila(false, false, 0); //updatuje sile na 100
 
     nowaKartaDane->setLeg(false);
@@ -74,20 +79,13 @@ void MainWindow::on_button_dobierz_clicked()
 
 
     connect(przyciskKarty, &Card_Button::clicked, this, [=]() {
-        //usuwanie karty po kliknieciu, tak jakbyś ja przeniósł na planszę
-        //ui->layout_plansza_test->addWidget(przyciskKarty);
-        // kartyNaPlanszy.push_back(przyciskKarty);
-        // ui->layout_reki->removeWidget(przyciskKarty); //przenosi karty na testową planszę
+
         qDebug() << "Wybrano karte: " << nowaKartaDane->getNazwa();
         ui->layout_reki->removeWidget(przyciskKarty);
         przyciskKarty->hide();
         przyciskKarty->deleteLater();
 
         Gra->zagranoKarte(nowaKartaDane,kartyNaPlanszy,ui->layout_plansza_test,this);
-        //Gra->przerysowaniePlanszy(kartyNaPlanszy, ui->layout_plansza_test, this);
-
-
-
     });
 }
 
@@ -95,5 +93,19 @@ void MainWindow::on_button_dobierz_clicked()
 void MainWindow::on_wyczysc_button_clicked()
 {
     Gra->gameClear(kartyNaPlanszy, ui->layout_plansza_test);
+}
+
+
+
+//funkcja pozwala na przejście z menu do planszy po kliknięciu start
+void MainWindow::on_Start_Button_clicked()
+{
+    this->showMaximized();
+    ui->stackedWidget->setCurrentIndex(1);
+    this->setStyleSheet(
+        "#centralwidget {"
+        "border-image: url(:/plansza.jpg) 0 0 0 0 stretch stretch;"
+        "}"
+        );
 }
 

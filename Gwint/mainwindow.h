@@ -26,6 +26,8 @@ private slots:
 
     void on_wyczysc_button_clicked();
 
+    void on_Start_Button_clicked();
+
 private:
     Ui::MainWindow *ui;
     std::vector<Card_Button*> kartyNaPlanszy; // dodaje karty ktore są już na planszy do vectora
