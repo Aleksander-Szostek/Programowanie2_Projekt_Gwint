@@ -31,12 +31,6 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
       <property name="enabled">
        <bool>true</bool>
       </property>
-      <property name="minimumSize">
-       <size>
-        <width>788</width>
-        <height>0</height>
-       </size>
-      </property>
       <property name="focusPolicy">
        <enum>Qt::FocusPolicy::StrongFocus</enum>
       </property>
@@ -263,6 +257,9 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
           </item>
           <item row="10" column="5">
            <layout class="QHBoxLayout" name="layout_reki">
+            <property name="sizeConstraint">
+             <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+            </property>
             <item>
              <spacer name="wier7_wys">
               <property name="orientation">

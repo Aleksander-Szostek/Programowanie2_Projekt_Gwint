@@ -14,6 +14,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
+
+    //blokuje na sztywno rozmiar, karty nie rozwalauja ui ale nie da się zwiększyć ekranu
+    //this->setMinimumSize(this->size());
+    //this->setMaximumSize(this->size());
+
     Gra = new gra();
     //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
     // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
@@ -73,7 +78,7 @@ void MainWindow::on_button_dobierz_clicked()
 
     nowaKartaDane->setLeg(false);
 
-    Card_Button *przyciskKarty = new Card_Button(nowaKartaDane, this);
+    Card_Button *przyciskKarty = new Card_Button(nowaKartaDane, ui->layout_reki->parentWidget());
     przyciskKarty->getCardData();
     przyciskKarty->refresh();
     ui->layout_reki->addWidget(przyciskKarty);
@@ -101,7 +106,7 @@ void MainWindow::on_wyczysc_button_clicked()
 //funkcja pozwala na przejście z menu do planszy po kliknięciu start
 void MainWindow::on_Start_Button_clicked()
 {
-    this->showMaximized();
+    //this->showMaximized();
     ui->stackedWidget->setCurrentIndex(1);
     this->setStyleSheet(
         "#centralwidget {"
