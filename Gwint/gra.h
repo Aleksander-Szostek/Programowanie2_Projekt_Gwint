@@ -29,7 +29,8 @@ public:
     void globalCardPlayed(karta* karta_g, int nr_gracza);
     void przerysowaniePlanszy(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent);
     void gameClear(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza);
-    void zagranoKarte(karta* nowaKarta, std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent); //nie wiem czy to nie powinno byc w private i dodatkowa funkcja w publicu,
+    void zagranoKarte(karta* nowaKarta, std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent);
+    //nie wiem czy to nie powinno byc w private i dodatkowa funkcja w publicu,
     //żeby było bardziej akademicko czy coś, ale na razie zostawiam
     //dodałem do tej funkcji że ona od razy wywłuje przeryswanie
 

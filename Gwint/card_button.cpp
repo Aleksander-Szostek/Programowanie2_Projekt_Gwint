@@ -1,8 +1,8 @@
 #include "card_button.h"
-
+#include "i_constant_valuse.h"
 Card_Button::Card_Button(karta* daneKarty, QWidget *parent) : QPushButton(parent), k_dane(daneKarty)
 {
-    setFixedSize(130,180); // rozmiar karty
+    setFixedSize(wysokosc_karty/proporcje_karty,wysokosc_karty); // rozmiar karty
 }
 void Card_Button::refresh(){
     if(!k_dane)

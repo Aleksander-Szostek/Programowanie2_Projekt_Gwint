@@ -96,7 +96,7 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
 
 void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
     if (karta_g != nullptr) {
-
+        //tutaj będą robione karty pogody i szpiedzy
     }
     return;
 }

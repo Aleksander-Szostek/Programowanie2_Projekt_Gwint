@@ -14,7 +14,7 @@ qt_add_executable(Gwint
     karta.cpp
     karta.h
     kontener_kart.h kontener_kart.cpp
-    plansza.h plansza.cpp
+
     plansza_linia.h plansza_linia.cpp
 
     card_loader.h card_loader.cpp
@@ -30,6 +30,7 @@ qt_add_executable(Gwint
     player.h player.cpp
     gra.h gra.cpp
     efekty_pogodowe.h efekty_pogodowe.cpp
+    i_constant_valuse.h
 
 )
 

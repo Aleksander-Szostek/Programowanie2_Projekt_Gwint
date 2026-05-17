@@ -5,6 +5,7 @@
 #include "deck_saver.h"
 #include "card_button.h"
 #include "gra.h"
+#include "i_constant_valuse.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -85,14 +86,14 @@ void MainWindow::on_button_dobierz_clicked()
         przyciskKarty->hide();
         przyciskKarty->deleteLater();
 
-        Gra->zagranoKarte(nowaKartaDane,kartyNaPlanszy,ui->layout_plansza_test,this);
+        Gra->zagranoKarte(nowaKartaDane,kartyNaPlanszy,ui->player1_melee,this);
     });
 }
 
 
 void MainWindow::on_wyczysc_button_clicked()
 {
-    Gra->gameClear(kartyNaPlanszy, ui->layout_plansza_test);
+    Gra->gameClear(kartyNaPlanszy, ui->player1_melee);
 }
 
 
@@ -107,5 +108,48 @@ void MainWindow::on_Start_Button_clicked()
         "border-image: url(:/plansza.jpg) 0 0 0 0 stretch stretch;"
         "}"
         );
+
+    QSize Size = this->size();
+    ui->kol0_szer->changeSize(kol0 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol1_szer->changeSize(kol1 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol2_szer->changeSize(kol2 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol3_szer->changeSize(kol3 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol4_szer->changeSize(kol4 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+//    ui->kol5_szer->changeSize(kol5 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol6_szer->changeSize(kol6 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol7_szer->changeSize(kol7 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol8_szer->changeSize(kol8 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+
+    ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Preferred);
 }
 
+void MainWindow::resizeEvent(QResizeEvent *a){
+
+    QSize Size = this->size();
+    ui->kol0_szer->changeSize(kol0 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol1_szer->changeSize(kol1 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol2_szer->changeSize(kol2 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol3_szer->changeSize(kol3 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol4_szer->changeSize(kol4 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+//    ui->kol5_szer->changeSize(kol5 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol6_szer->changeSize(kol6 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol7_szer->changeSize(kol7 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol8_szer->changeSize(kol8 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+
+    ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Preferred);
+
+}
