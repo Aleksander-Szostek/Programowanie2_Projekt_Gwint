@@ -16,8 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
 
     //blokuje na sztywno rozmiar, karty nie rozwalauja ui ale nie da się zwiększyć ekranu
-    this->setMinimumSize(this->size());
-    this->setMaximumSize(this->size());
+    //this->setMinimumSize(this->size());
+    //this->setMaximumSize(this->size());
 
     Gra = new gra();
     //connect(Gra, &gra::dodanieKarty, this, &MainWindow::obsugaDodanejKarty);
@@ -75,10 +75,12 @@ void MainWindow::on_button_dobierz_clicked()
     karta* nowaKartaDane = new karta();
     //nowaKartaDane->setName("Bogata kurcze piechota");
     //nowaKartaDane->setSilaBaz(100);
+
+
     card_loader karta;
     karta.zaladuj_karte((rand()%50 + 1),nowaKartaDane);
     nowaKartaDane->updateSila(false, false, 0); //updatuje sile na 100
-
+    qDebug()<<"kategoria:" <<nowaKartaDane->getKategoria();
     nowaKartaDane->setLeg(false);
 
     Card_Button *przyciskKarty = new Card_Button(nowaKartaDane, ui->layout_reki->parentWidget());
