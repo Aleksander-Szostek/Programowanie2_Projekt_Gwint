@@ -16,8 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
 
     //blokuje na sztywno rozmiar, karty nie rozwalauja ui ale nie da się zwiększyć ekranu
-    //this->setMinimumSize(this->size());
-    //this->setMaximumSize(this->size());
+    this->setMinimumSize(this->size());
+    this->setMaximumSize(this->size());
 
     Gra = new gra();
     //connect(Gra, &gra::dodanieKarty, this, &MainWindow::obsugaDodanejKarty);
@@ -205,6 +205,7 @@ QLayout* MainWindow::getLayoutByEnum(gra::RzadPlanszy rzad) {
     case gra::P2_Melee: return ui->player2_melee;
     case gra::P2_Range: return ui->player2_ranged;
     case gra::P2_Siege: return ui->player2_siege;
+    //case gra::P1_Spell: return ui->player2_siege_horn; aby na razie sie nie pokazywala reszta
     default: return nullptr;
     }
 }

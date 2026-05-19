@@ -131,35 +131,6 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="11" column="6">
-           <spacer name="kol6_szer">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="2" column="3">
-           <widget class="QLabel" name="player2_melee_nr">
-            <property name="text">
-             <string>sila melee</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <layout class="QHBoxLayout" name="player2_leader"/>
-          </item>
-          <item row="10" column="6">
-           <layout class="QHBoxLayout" name="player1_graveyard"/>
-          </item>
           <item row="11" column="8">
            <spacer name="kol8_szer">
             <property name="orientation">
@@ -176,17 +147,173 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
             </property>
            </spacer>
           </item>
-          <item row="0" column="6">
-           <layout class="QHBoxLayout" name="player2_graveyard"/>
+          <item row="5" column="3">
+           <layout class="QVBoxLayout" name="verticalLayout_10">
+            <item>
+             <widget class="QLabel" name="player1_melee_nr">
+              <property name="text">
+               <string>sila melee</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="player1_ranged_nr">
+              <property name="text">
+               <string>sila ranged</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="8">
+           <widget class="QLabel" name="player2_kart_w_talii">
+            <property name="text">
+             <string>talia: 0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="3">
+           <widget class="QLabel" name="player2_melee_nr">
+            <property name="text">
+             <string>sila melee</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="5">
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <spacer name="kol5_szer">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Policy::Expanding</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <spacer name="wier8_wys">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Policy::Preferred</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="5" column="1">
+           <layout class="QHBoxLayout" name="pogoda"/>
+          </item>
+          <item row="1" column="1">
+           <layout class="QHBoxLayout" name="player2_leader"/>
+          </item>
+          <item row="11" column="7">
+           <spacer name="kol7_szer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="10" column="1">
+           <layout class="QHBoxLayout" name="player1_leader"/>
+          </item>
+          <item row="11" column="4">
+           <spacer name="kol4_szer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="11" column="0">
+           <spacer name="kol0_szer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
           <item row="1" column="4">
            <layout class="QHBoxLayout" name="player2_ranged_horn"/>
           </item>
-          <item row="0" column="4">
-           <layout class="QHBoxLayout" name="player2_siege_horn"/>
+          <item row="11" column="3">
+           <spacer name="kol3_szer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
-          <item row="0" column="8">
-           <layout class="QHBoxLayout" name="player2_talia"/>
+          <item row="2" column="8">
+           <widget class="QPushButton" name="button_dobierz">
+            <property name="text">
+             <string>karta</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="8">
+           <widget class="QPushButton" name="wyczysc_button">
+            <property name="text">
+             <string>clear</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="4">
+           <layout class="QVBoxLayout" name="verticalLayout_9">
+            <item>
+             <layout class="QHBoxLayout" name="player1_melee_horn"/>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="player1_ranged_horn"/>
+            </item>
+           </layout>
           </item>
           <item row="0" column="5">
            <layout class="QHBoxLayout" name="player2_siege">
@@ -205,11 +332,102 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
             </item>
            </layout>
           </item>
-          <item row="5" column="1">
-           <layout class="QHBoxLayout" name="pogoda"/>
+          <item row="9" column="4">
+           <layout class="QHBoxLayout" name="player1_siege_horn"/>
           </item>
-          <item row="10" column="8">
-           <layout class="QHBoxLayout" name="player1_talia"/>
+          <item row="9" column="1">
+           <widget class="QLabel" name="player1_name">
+            <property name="text">
+             <string>Kupiec korzenny</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <layout class="QHBoxLayout" name="player2_siege_horn"/>
+          </item>
+          <item row="11" column="6">
+           <spacer name="kol6_szer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="3">
+           <widget class="QLabel" name="player2_siege_nr">
+            <property name="text">
+             <string>sila siege</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="5">
+           <layout class="QHBoxLayout" name="player2_ranged">
+            <item>
+             <spacer name="wier2_wys">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLabel" name="player2_kart_w_rece">
+            <property name="text">
+             <string>kart w ręce:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="11" column="2">
+           <spacer name="kol2_szer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="9" column="8">
+           <widget class="QLabel" name="player1_kart_w_talii">
+            <property name="text">
+             <string>talia: 0</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="3">
+           <widget class="QLabel" name="player1_sieger_nr">
+            <property name="text">
+             <string>sila siege</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="player2_name">
+            <property name="text">
+             <string>Kurczący się tato</string>
+            </property>
+           </widget>
           </item>
           <item row="5" column="5">
            <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -255,48 +473,15 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
             </item>
            </layout>
           </item>
-          <item row="10" column="5">
-           <layout class="QHBoxLayout" name="layout_reki">
-            <property name="sizeConstraint">
-             <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
-            </property>
-            <item>
-             <spacer name="wier7_wys">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="3">
-           <widget class="QLabel" name="player2_siege_nr">
+          <item row="10" column="2">
+           <widget class="QLabel" name="player1_kart_w_rece">
             <property name="text">
-             <string>sila siege</string>
+             <string>kart w ręce:</string>
             </property>
            </widget>
           </item>
-          <item row="11" column="4">
-           <spacer name="kol4_szer">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
+          <item row="0" column="8">
+           <layout class="QHBoxLayout" name="player2_talia"/>
           </item>
           <item row="2" column="5">
            <layout class="QHBoxLayout" name="player2_melee">
@@ -318,29 +503,18 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
             </item>
            </layout>
           </item>
-          <item row="1" column="2">
-           <widget class="QLabel" name="player2_kart_w_rece">
+          <item row="10" column="8">
+           <layout class="QHBoxLayout" name="player1_talia"/>
+          </item>
+          <item row="1" column="3">
+           <widget class="QLabel" name="player2_ranged_nr">
             <property name="text">
-             <string>kart w ręce:</string>
+             <string>sila ranged</string>
             </property>
            </widget>
           </item>
-          <item row="9" column="1">
-           <widget class="QLabel" name="player1_name">
-            <property name="text">
-             <string>Kupiec korzenny</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="player2_name">
-            <property name="text">
-             <string>Kurczący się tato</string>
-            </property>
-           </widget>
-          </item>
-          <item row="11" column="0">
-           <spacer name="kol0_szer">
+          <item row="11" column="1">
+           <spacer name="kol1_szer">
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
@@ -354,65 +528,6 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
              </size>
             </property>
            </spacer>
-          </item>
-          <item row="9" column="3">
-           <widget class="QLabel" name="player1_sieger_nr">
-            <property name="text">
-             <string>sila siege</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="4">
-           <layout class="QVBoxLayout" name="verticalLayout_9">
-            <item>
-             <layout class="QHBoxLayout" name="player1_melee_horn"/>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="player1_ranged_horn"/>
-            </item>
-           </layout>
-          </item>
-          <item row="5" column="3">
-           <layout class="QVBoxLayout" name="verticalLayout_10">
-            <item>
-             <widget class="QLabel" name="player1_melee_nr">
-              <property name="text">
-               <string>sila melee</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="player1_ranged_nr">
-              <property name="text">
-               <string>sila ranged</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="1" column="5">
-           <layout class="QHBoxLayout" name="player2_ranged">
-            <item>
-             <spacer name="wier2_wys">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
-          </item>
-          <item row="1" column="8">
-           <widget class="QLabel" name="player2_kart_w_talii">
-            <property name="text">
-             <string>talia: 0</string>
-            </property>
-           </widget>
           </item>
           <item row="9" column="5">
            <layout class="QHBoxLayout" name="player1_siege">
@@ -431,60 +546,24 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
             </item>
            </layout>
           </item>
-          <item row="9" column="8">
-           <widget class="QLabel" name="player1_kart_w_talii">
-            <property name="text">
-             <string>talia: 0</string>
-            </property>
-           </widget>
+          <item row="2" column="4">
+           <layout class="QHBoxLayout" name="player2_melee_horn"/>
           </item>
-          <item row="9" column="4">
-           <layout class="QHBoxLayout" name="player1_siege_horn"/>
+          <item row="10" column="6">
+           <layout class="QHBoxLayout" name="player1_graveyard"/>
           </item>
-          <item row="10" column="1">
-           <layout class="QHBoxLayout" name="player1_leader"/>
+          <item row="0" column="6">
+           <layout class="QHBoxLayout" name="player2_graveyard"/>
           </item>
-          <item row="11" column="7">
-           <spacer name="kol7_szer">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
+          <item row="10" column="5">
+           <layout class="QHBoxLayout" name="layout_reki">
+            <property name="sizeConstraint">
+             <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
             </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="11" column="5">
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
             <item>
-             <spacer name="kol5_szer">
-              <property name="orientation">
-               <enum>Qt::Orientation::Horizontal</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Policy::Expanding</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <spacer name="wier8_wys">
+             <spacer name="wier7_wys">
               <property name="orientation">
                <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Policy::Preferred</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -495,85 +574,6 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
              </spacer>
             </item>
            </layout>
-          </item>
-          <item row="1" column="3">
-           <widget class="QLabel" name="player2_ranged_nr">
-            <property name="text">
-             <string>sila ranged</string>
-            </property>
-           </widget>
-          </item>
-          <item row="11" column="3">
-           <spacer name="kol3_szer">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="10" column="2">
-           <widget class="QLabel" name="player1_kart_w_rece">
-            <property name="text">
-             <string>kart w ręce:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="4">
-           <layout class="QHBoxLayout" name="player2_melee_horn"/>
-          </item>
-          <item row="2" column="8">
-           <widget class="QPushButton" name="button_dobierz">
-            <property name="text">
-             <string>karta</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="8">
-           <widget class="QPushButton" name="wyczysc_button">
-            <property name="text">
-             <string>clear</string>
-            </property>
-           </widget>
-          </item>
-          <item row="11" column="2">
-           <spacer name="kol2_szer">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="11" column="1">
-           <spacer name="kol1_szer">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
         </item>

@@ -169,7 +169,7 @@ void gra::clearBoard() {
     emit nakazCzyszczeniaLayoutu(P2_Melee);
     emit nakazCzyszczeniaLayoutu(P2_Range);
     emit nakazCzyszczeniaLayoutu(P2_Siege);
-
+    emit nakazCzyszczeniaLayoutu(P1_Spell);
     qDebug() << "Czyszczenie wszystkiego";
 }
 
@@ -181,24 +181,32 @@ void gra::redrawBoard(int nr_gracza) {
         if (daneKarty != nullptr) {
 
             Kategoria category = daneKarty->getKategoria();
-            RzadPlanszy docelowyRzad=P2_Range;
+            RzadPlanszy docelowyRzad=P1_Spell;
+            //do dodania reszta możliwych pozycji
             qDebug()<<"kategoria: "<<category;
-            // if(nr_gracza==1){
-            //     switch(category){
-            //     case Kategoria::Melee:  docelowyRzad=P1_Melee; break;
-            //     case Kategoria::Ranged: docelowyRzad=P1_Range; break;
-            //     case Kategoria::Siege:  docelowyRzad=P1_Siege; break;
-            //     }
+            if(nr_gracza==1){
+                switch(category){
+                case Kategoria::Melee:  docelowyRzad=P1_Melee; break;
+                case Kategoria::Ranged: docelowyRzad=P1_Range; break;
+                case Kategoria::Siege:  docelowyRzad=P1_Siege; break;
+                }
+            }
+            else if(nr_gracza==2){
+                switch(category){
+                case Kategoria::Melee:  docelowyRzad=P2_Melee; break;
+                case Kategoria::Ranged: docelowyRzad=P2_Range; break;
+                case Kategoria::Siege:  docelowyRzad=P2_Siege; break;
+                }
+            }
+            // if(category==Kategoria::Melee){
+            //     docelowyRzad = P1_Melee;
             // }
-            if(category==Kategoria::Melee){
-                docelowyRzad = P1_Melee;
-            }
-            else if (category==Kategoria::Ranged){
-                docelowyRzad = P2_Range;
-            }
-            else if (category==Kategoria::Siege){
-                docelowyRzad= P1_Siege;
-            }
+            // else if (category==Kategoria::Ranged){
+            //     docelowyRzad = P1_Range;
+            // }
+            // else if (category==Kategoria::Siege){
+            //     docelowyRzad= P1_Siege;
+            // }
             emit nakazRysowaniaKarty(daneKarty, docelowyRzad);
         }
     }
