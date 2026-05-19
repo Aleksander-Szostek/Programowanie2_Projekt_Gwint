@@ -16,10 +16,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentIndex(0);
 
     //blokuje na sztywno rozmiar, karty nie rozwalauja ui ale nie da się zwiększyć ekranu
-    //this->setMinimumSize(this->size());
-    //this->setMaximumSize(this->size());
+    this->setMinimumSize(this->size());
+    this->setMaximumSize(this->size());
 
     Gra = new gra();
+    //connect(Gra, &gra::dodanieKarty, this, &MainWindow::obsugaDodanejKarty);
+    connect(Gra, &gra::nakazRysowaniaKarty, this, &MainWindow::obslugaRysowaniaKarty);
+    connect(Gra, &gra::nakazCzyszczeniaLayoutu, this, &MainWindow::obslugaCzyszczeniaLayoutu);
     //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
     // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -91,14 +94,15 @@ void MainWindow::on_button_dobierz_clicked()
         przyciskKarty->hide();
         przyciskKarty->deleteLater();
 
-        Gra->zagranoKarte(nowaKartaDane,kartyNaPlanszy,ui->player1_melee,this);
+        Gra->zagranoKarte(nowaKartaDane,1);
     });
 }
 
 
 void MainWindow::on_wyczysc_button_clicked()
 {
-    Gra->gameClear(kartyNaPlanszy, ui->player1_melee);
+    //Gra->gameClear(kartyNaPlanszy, ui->player1_melee);
+    Gra->gameClear();
 }
 
 
@@ -157,4 +161,74 @@ void MainWindow::resizeEvent(QResizeEvent *a){
     ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Preferred);
     ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Preferred);
 
+}/*
+void MainWindow::obsugaDodanejKarty(karta* nowaKarta, gra::RzadPlanszy rzad){
+    QLayout* docelowyLayout = nullptr;
+    switch(rzad) {
+    case gra::P1_Melee: docelowyLayout = ui->player1_melee; break;
+    // Założyłem przykładowe nazwy dla pozostałych Twoich layoutów:
+    case gra::P1_Range: docelowyLayout = ui->player1_ranged; break;
+    case gra::P1_Siege: docelowyLayout = ui->player1_siege; break;
+
+    case gra::P2_Melee: docelowyLayout = ui->player2_melee; break;
+    case gra::P2_Range: docelowyLayout = ui->player2_ranged; break;
+    case gra::P2_Siege: docelowyLayout = ui->player2_siege; break;
+
+    default: return;
+    }
+
+    if (!docelowyLayout) return;
+
+    // 2. Tworzymy nowy fizyczny przycisk na planszy (wskazujemy centralwidget lub 'this' jako parent)
+    Card_Button* nowyPrzycisk = new Card_Button(nowaKarta, this);
+    nowyPrzycisk->refresh();
+
+    // 3. Dodajemy go do widoku i zapamiętujemy w wektorze w MainWindow
+    docelowyLayout->addWidget(nowyPrzycisk);
+
+    // Zamiast jednego wektora, najlepiej trzymać je globalnie w MainWindow,
+    // aby móc je później łatwo wyczyścić przy gameClear
+    kartyNaPlanszy.push_back(nowyPrzycisk);
+
+    qDebug() << "Narysowano karte w GUI:" << nowaKarta->getNazwa();
+
+};*/
+// Funkcja pomocnicza zwracająca wskaźnik do layoutu na podstawie enuma
+QLayout* MainWindow::getLayoutByEnum(gra::RzadPlanszy rzad) {
+    //return ui->player2_melee; testowalem czy w ogole dziala
+    switch(rzad) {
+    case gra::P1_Melee: return ui->player1_melee;
+    case gra::P1_Range: return ui->player1_ranged;
+    case gra::P1_Siege: return ui->player1_siege;
+    case gra::P2_Melee: return ui->player2_melee;
+    case gra::P2_Range: return ui->player2_ranged;
+    case gra::P2_Siege: return ui->player2_siege;
+    default: return nullptr;
+    }
+}
+
+void MainWindow::obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad) {
+    QLayout* layout = getLayoutByEnum(rzad);
+    if (!layout) return;
+
+
+    QLayoutItem* item;
+    while ((item = layout->takeAt(0)) != nullptr) {
+        if (item->widget()) {
+            QWidget* widget = item->widget();
+            widget->hide();
+            widget->deleteLater();
+        }
+        delete item;
+    }
+}
+
+void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad) {
+    QLayout* docelowyLayout = getLayoutByEnum(rzad);
+    if (!docelowyLayout) return;
+
+
+    Card_Button* nowyPrzycisk = new Card_Button(nowaKarta, this);
+    nowyPrzycisk->refresh();
+    docelowyLayout->addWidget(nowyPrzycisk);
 }
