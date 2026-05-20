@@ -120,21 +120,22 @@ void MainWindow::on_Start_Button_clicked()
     ui->kol2_szer->changeSize(kol2 * Size.rwidth() , 0 , QSizePolicy::Preferred);
     ui->kol3_szer->changeSize(kol3 * Size.rwidth() , 0 , QSizePolicy::Preferred);
     ui->kol4_szer->changeSize(kol4 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-//    ui->kol5_szer->changeSize(kol5 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol5_szer->changeSize(kol5 * Size.rwidth() , 0 , QSizePolicy::Fixed);
     ui->kol6_szer->changeSize(kol6 * Size.rwidth() , 0 , QSizePolicy::Preferred);
     ui->kol7_szer->changeSize(kol7 * Size.rwidth() , 0 , QSizePolicy::Preferred);
     ui->kol8_szer->changeSize(kol8 * Size.rwidth() , 0 , QSizePolicy::Preferred);
 
-    ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Fixed);
+    ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Fixed);
+    ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Fixed);
+    ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Fixed);
+    ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Fixed);
+    ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Fixed);
+    ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Fixed);
+    ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Fixed);
 }
 
+/*
 void MainWindow::resizeEvent(QResizeEvent *a){
 
     QSize Size = this->size();
@@ -158,3 +159,4 @@ void MainWindow::resizeEvent(QResizeEvent *a){
     ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Preferred);
 
 }
+*/

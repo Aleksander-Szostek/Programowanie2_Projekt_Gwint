@@ -34,7 +34,7 @@ private:
     std::vector<karta*> daneKartNaPlanszy; // zapisuje dane kart obecnie na planszy aby moc je na nowo narysowac
     gra *Gra; // dodaje tutaj Gra aby nie znikała tak jak to zrobiłem wcześniej
 
-    void resizeEvent(QResizeEvent *a) override;
+//    void resizeEvent(QResizeEvent *a) override;
 
 };
 #endif // MAINWINDOW_H

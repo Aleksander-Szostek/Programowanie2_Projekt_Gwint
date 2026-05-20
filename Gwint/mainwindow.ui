@@ -189,21 +189,7 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
            <layout class="QHBoxLayout" name="player2_talia"/>
           </item>
           <item row="0" column="5">
-           <layout class="QHBoxLayout" name="player2_siege">
-            <item>
-             <spacer name="wier1_wys">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
+           <layout class="QHBoxLayout" name="player2_siege"/>
           </item>
           <item row="5" column="1">
            <layout class="QHBoxLayout" name="pogoda"/>
@@ -260,19 +246,6 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
             <property name="sizeConstraint">
              <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
             </property>
-            <item>
-             <spacer name="wier7_wys">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
            </layout>
           </item>
           <item row="0" column="3">
@@ -299,24 +272,7 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
            </spacer>
           </item>
           <item row="2" column="5">
-           <layout class="QHBoxLayout" name="player2_melee">
-            <item>
-             <spacer name="wier3_wys">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeType">
-               <enum>QSizePolicy::Policy::Expanding</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
+           <layout class="QHBoxLayout" name="player2_melee"/>
           </item>
           <item row="1" column="2">
            <widget class="QLabel" name="player2_kart_w_rece">
@@ -391,21 +347,7 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
            </layout>
           </item>
           <item row="1" column="5">
-           <layout class="QHBoxLayout" name="player2_ranged">
-            <item>
-             <spacer name="wier2_wys">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
+           <layout class="QHBoxLayout" name="player2_ranged"/>
           </item>
           <item row="1" column="8">
            <widget class="QLabel" name="player2_kart_w_talii">
@@ -415,21 +357,7 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
            </widget>
           </item>
           <item row="9" column="5">
-           <layout class="QHBoxLayout" name="player1_siege">
-            <item>
-             <spacer name="wier6_wys">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
+           <layout class="QHBoxLayout" name="player1_siege"/>
           </item>
           <item row="9" column="8">
            <widget class="QLabel" name="player1_kart_w_talii">
@@ -571,6 +499,74 @@ font: 350 9pt &quot;Segoe UI&quot;;</string>
              <size>
               <width>40</width>
               <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="0" column="7">
+           <spacer name="wier1_wys">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="7">
+           <spacer name="wier2_wys">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="7">
+           <spacer name="wier3_wys">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="9" column="7">
+           <spacer name="wier6_wys">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="10" column="7">
+           <spacer name="wier7_wys">
+            <property name="orientation">
+             <enum>Qt::Orientation::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
              </size>
             </property>
            </spacer>
