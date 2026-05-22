@@ -58,6 +58,7 @@ karta* player::zagrajKarte(int nr_w_rece){
     }
     else {
         qDebug("Zagrana karta nie ma typu.");
+        reka->delete_card(nr_w_rece);
     }
 
     return karta_g;

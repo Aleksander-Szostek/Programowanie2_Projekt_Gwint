@@ -19,6 +19,8 @@ public:
 
     void sort_list();
 
+    void delete_card(int pozycja);
+
 protected:
 
     std::vector<karta*> Ciag_kart;
@@ -27,7 +29,7 @@ protected:
 
 private:
 
-    void delete_card(int pozycja);
+//    void delete_card(int pozycja);
 };
 
 #endif // KONTENER_KART_H

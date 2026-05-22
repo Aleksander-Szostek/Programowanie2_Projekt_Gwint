@@ -8,7 +8,7 @@ void deck::makeDeck(QString deckFile){
     deck_loader DL;
     Ciag_kart = DL.load_deck(deckFile);
 
-    validifyDeck();
+    //validifyDeck();
 
     shulfe_list();
 }

@@ -69,7 +69,7 @@ void MainWindow::on_verticalSlider_sliderMoved(int position)
 
 
 void MainWindow::on_button_dobierz_clicked() {
-    Gra->dobierzKarte(1);
+    Gra->graczZagrajKarte(0,1);
 }
 //{
 //    //tworze testwa karte czy się dodają poprawnie
@@ -232,12 +232,16 @@ void MainWindow::obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad) {
     }
 }
 
-void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks) {
+void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr) {
     QLayout* docelowyLayout = getLayoutByEnum(rzad);
     if (!docelowyLayout) return;
 
 
     Card_Button* nowyPrzycisk = new Card_Button(nowaKarta, this);
+    connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
+        Gra->graczZagrajKarte(indeks, nr_gr);
+    });
     nowyPrzycisk->refresh();
     docelowyLayout->addWidget(nowyPrzycisk);
+
 }

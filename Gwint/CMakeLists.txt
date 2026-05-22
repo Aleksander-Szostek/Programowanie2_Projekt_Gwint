@@ -39,6 +39,7 @@ qt_add_resources(Gwint textury
         plansza.jpg
 )
 configure_file(cards_list.txt cards_list.txt COPYONLY)
+configure_file(deck1.txt deck1.txt COPYONLY)
 
 target_link_libraries(Gwint
     PRIVATE

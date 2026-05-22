@@ -70,7 +70,7 @@ private:
 
 signals:
     //void dodanieKarty(karta* nowaKarta, gra::RzadPlanszy rzad);
-    void nakazRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks);
+    void nakazRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr);
 
     // Rozkaz: "Wyczyść fizycznie ten konkretny rząd/layout z przycisków"
     void nakazCzyszczeniaLayoutu(gra::RzadPlanszy rzad);

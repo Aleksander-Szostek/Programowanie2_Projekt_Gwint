@@ -34,7 +34,7 @@ private:
 
     void resizeEvent(QResizeEvent *a) override;
     //void obsugaDodanejKarty(karta* daneKarty, gra::RzadPlanszy rzad);
-    void obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks);
+    void obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr);
     void obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
     QLayout* getLayoutByEnum(gra::RzadPlanszy rzad);
 

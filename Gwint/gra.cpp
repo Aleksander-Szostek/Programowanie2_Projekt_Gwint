@@ -65,17 +65,23 @@ void gra::redrawBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, 
 void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
     gracz_1->getDeck()->makeDeck(nazwa_talii_1);
     gracz_2->getDeck()->makeDeck(nazwa_talii_2);
-    gracz_1->getDeck()->validifyDeck();
-    gracz_2->getDeck()->validifyDeck();
-    if (gracz_1->getDeck()->DeckValid && gracz_2->getDeck()->DeckValid) {
+//    gracz_1->getDeck()->validifyDeck();
+//    gracz_2->getDeck()->validifyDeck();
+    if (true){  //gracz_1->getDeck()->DeckValid && gracz_2->getDeck()->DeckValid) {
         int losowanie_start = rand()%2 + 1;
-            if (losowanie_start == 1)
+            if (losowanie_start == 1) {
                 GameState = Tura1;
-            else
-                GameState = Tura2;
+                qDebug() << "Tura 1";
+            }
+            else {
+                GameState = Tura1;
+                qDebug() << "Tura 2 overriten";
+            }
     }
-    else
+    else {
+        qDebug() << "Invalid deck";
         koniec_gry();
+    }
 
     dobierzKarte(1, 10);
     dobierzKarte(2, 10);
@@ -93,14 +99,16 @@ void gra::koniec_gry(){
 void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
     if (nr_gracza == 1 && GameState == Tura1){
         globalCardPlayed(gracz_1->zagrajKarte(nr_w_rece), 1);
-        if (!gracz_2->isPas())
-            GameState = Tura2;
+        if (!gracz_2->isPas()){
+            //GameState = Tura2;
+        }
     }
 
     if (nr_gracza == 2 && GameState == Tura2){
         globalCardPlayed(gracz_2->zagrajKarte(nr_w_rece), 2);
-        if (!gracz_1->isPas())
-            GameState = Tura1;
+        if (!gracz_1->isPas()){
+            //GameState = Tura1;
+        }
     }
 
 
@@ -111,6 +119,7 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
     if (karta_g != nullptr) {
         //tutaj będą robione karty pogody i szpiedzy
     }
+    redrawBoard();
     return;
 }
 // void gra::zagranoKarte(karta* nowaKarta, std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent){
@@ -190,42 +199,41 @@ void gra::redrawBoard() {
 
     clearBoard();
 
+    qDebug() << "Przerysowywanie planszy";
+
     for (int i = 0; i<gracz_1->getReka()->getDeckSize(); i++) {
-        karta* daneKarty = nullptr; // gracz_1->getReka()->getKartaFromList(i);
-        qDebug() << "Rysowanie na planszy P1";
-        emit nakazRysowaniaKarty(daneKarty, P1_Hand, i);
+        karta* daneKarty = gracz_1->getReka()->getKartaFromList(i);
+        emit nakazRysowaniaKarty(daneKarty, P1_Hand, i, 1);
     }
 
     for (int i = 0; i < gracz_1->getMelee()->getDeckSize(); i++) {
-        qDebug() << "Wykonano pętle z " + QString::number(i);
         karta* daneKarty = gracz_1->getMelee()->getKartaFromList(0);
-        emit nakazRysowaniaKarty(daneKarty, P1_Melee, i);
+        emit nakazRysowaniaKarty(daneKarty, P1_Melee, i, 1);
     }
 
     for (int i = 0; i<gracz_1->getRanged()->getDeckSize(); i++) {
         karta* daneKarty = gracz_1->getRanged()->getKartaFromList(i);
-        qDebug() << "Rysowanie na range P1";
-        emit nakazRysowaniaKarty(daneKarty, P1_Range, i);
+        emit nakazRysowaniaKarty(daneKarty, P1_Range, i, 1);
     }
 
     for (int i = 0; i<gracz_2->getMelee()->getDeckSize(); i++) {
         karta* daneKarty = gracz_2->getMelee()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P2_Melee, i);
+        emit nakazRysowaniaKarty(daneKarty, P2_Melee, i, 2);
     }
 
     for (int i = 0; i < gracz_2->getRanged()->getDeckSize(); i++) {
         karta* daneKarty = gracz_2->getRanged()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P2_Range, i);
+        emit nakazRysowaniaKarty(daneKarty, P2_Range, i, 2);
     }
 
     for (int i = 0; i < gracz_1->getSiege()->getDeckSize(); i++) {
         karta* daneKarty = gracz_1->getSiege()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P1_Siege, i);
+        emit nakazRysowaniaKarty(daneKarty, P1_Siege, i, 1);
     }
 
     for (int i = 0; i < gracz_2->getSiege()->getDeckSize(); i++) {
         karta* daneKarty = gracz_2->getSiege()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P2_Siege, i);
+        emit nakazRysowaniaKarty(daneKarty, P2_Siege, i, 2);
     }
 
 }
