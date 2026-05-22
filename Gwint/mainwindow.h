@@ -2,8 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "card_button.h"
-#include <vector>
 #include "gra.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -36,7 +34,7 @@ private:
 
     void resizeEvent(QResizeEvent *a) override;
     //void obsugaDodanejKarty(karta* daneKarty, gra::RzadPlanszy rzad);
-    void obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad);
+    void obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks);
     void obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
     QLayout* getLayoutByEnum(gra::RzadPlanszy rzad);
 

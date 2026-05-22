@@ -1,6 +1,13 @@
 #include "player.h"
 
-player::player() {}
+player::player() {
+    Talia = new deck;
+    reka = new player_hand;
+    melee_l = new plansza_linia;
+    ranged_l = new plansza_linia;
+    siege_l = new plansza_linia;
+    cmentarzysko = new graveyard;
+}
 
 plansza_linia* player::getMelee(){
     return melee_l;
@@ -23,7 +30,8 @@ player_hand* player::getReka(){
 }
 
 void player::dobierzKarte(){
-    Talia->move_card(0, reka);
+    if (Talia->getDeckSize() > 0)
+        Talia->move_card(0, reka);
 }
 
 karta* player::zagrajKarte(int nr_w_rece){
@@ -42,12 +50,14 @@ karta* player::zagrajKarte(int nr_w_rece){
     }
     else if (typ_karty == Kategoria::Spell){
         karta_g = reka->getKartaFromList(nr_w_rece);
+        qDebug("Zagrano zaklęcie (idzie do shadow realm)");
     }
     else if (typ_karty == Kategoria::Agile){
         karta_g = reka->getKartaFromList(nr_w_rece);
+        qDebug("Zagrano agile (idzie do shadow realm)");
     }
     else {
-        //tutaj ma wywalić errora
+        qDebug("Zagrana karta nie ma typu.");
     }
 
     return karta_g;

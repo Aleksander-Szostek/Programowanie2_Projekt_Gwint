@@ -68,42 +68,44 @@ void MainWindow::on_verticalSlider_sliderMoved(int position)
 }
 
 
-void MainWindow::on_button_dobierz_clicked()
-{
-    //tworze testwa karte czy się dodają poprawnie
-    //tak sobie dodałem wczytywanie kart losowych
-    karta* nowaKartaDane = new karta();
-    //nowaKartaDane->setName("Bogata kurcze piechota");
-    //nowaKartaDane->setSilaBaz(100);
-
-
-    card_loader karta;
-    karta.zaladuj_karte((rand()%50 + 1),nowaKartaDane);
-    nowaKartaDane->updateSila(false, false, 0); //updatuje sile na 100
-    qDebug()<<"kategoria:" <<nowaKartaDane->getKategoria();
-    nowaKartaDane->setLeg(false);
-
-    Card_Button *przyciskKarty = new Card_Button(nowaKartaDane, ui->layout_reki->parentWidget());
-    przyciskKarty->getCardData();
-    przyciskKarty->refresh();
-    ui->layout_reki->addWidget(przyciskKarty);
-
-
-    connect(przyciskKarty, &Card_Button::clicked, this, [=]() {
-
-        qDebug() << "Wybrano karte: " << nowaKartaDane->getNazwa();
-        ui->layout_reki->removeWidget(przyciskKarty);
-        przyciskKarty->hide();
-        przyciskKarty->deleteLater();
-
-        Gra->zagranoKarte(nowaKartaDane,1);
-    });
+void MainWindow::on_button_dobierz_clicked() {
+    Gra->dobierzKarte(1);
 }
+//{
+//    //tworze testwa karte czy się dodają poprawnie
+//    //tak sobie dodałem wczytywanie kart losowych
+//    karta* nowaKartaDane = new karta();
+//    //nowaKartaDane->setName("Bogata kurcze piechota");
+//    //nowaKartaDane->setSilaBaz(100);
+//
+//
+//    card_loader karta;
+//    karta.zaladuj_karte((rand()%250 + 1),nowaKartaDane);
+//    //nowaKartaDane->updateSila(false, false, 0);   niepotrzebne bo card loader to też robi
+//    qDebug()<<"kategoria:" <<nowaKartaDane->getKategoria();
+//    //nowaKartaDane->setLeg(false);
+//
+//    Card_Button *przyciskKarty = new Card_Button(nowaKartaDane, ui->layout_reki->parentWidget());
+//    przyciskKarty->getCardData();
+//    przyciskKarty->refresh();
+//    ui->layout_reki->addWidget(przyciskKarty);
+//
+//
+//connect(przyciskKarty, &Card_Button::clicked, this, [=]() {
+//
+//    qDebug() << "Wybrano karte: " << nowaKartaDane->getNazwa();
+//    ui->layout_reki->removeWidget(przyciskKarty);
+//    przyciskKarty->hide();
+//    przyciskKarty->deleteLater();
+//
+//    Gra->zagranoKarte(przyciskKarty->getIndeks(),1);
+//
+//}
 
 
 void MainWindow::on_wyczysc_button_clicked()
 {
-    //Gra->gameClear(kartyNaPlanszy, ui->player1_melee);
+//    Gra->gameClear(kartyNaPlanszy, ui->player1_melee);
     Gra->gameClear();
 }
 
@@ -139,6 +141,8 @@ void MainWindow::on_Start_Button_clicked()
     ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
     ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Preferred);
     ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Preferred);
+
+    Gra->zainicjalizuj_gre("deck1.txt","deck1.txt");
 }
 
 void MainWindow::resizeEvent(QResizeEvent *a){
@@ -199,12 +203,14 @@ void MainWindow::obsugaDodanejKarty(karta* nowaKarta, gra::RzadPlanszy rzad){
 QLayout* MainWindow::getLayoutByEnum(gra::RzadPlanszy rzad) {
     //return ui->player2_melee; testowalem czy w ogole dziala
     switch(rzad) {
+    case gra::P1_Hand: return ui->layout_reki;
     case gra::P1_Melee: return ui->player1_melee;
     case gra::P1_Range: return ui->player1_ranged;
     case gra::P1_Siege: return ui->player1_siege;
     case gra::P2_Melee: return ui->player2_melee;
     case gra::P2_Range: return ui->player2_ranged;
     case gra::P2_Siege: return ui->player2_siege;
+    //case gra::P2_Hand: return ;
     //case gra::P1_Spell: return ui->player2_siege_horn; aby na razie sie nie pokazywala reszta
     default: return nullptr;
     }
@@ -226,7 +232,7 @@ void MainWindow::obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad) {
     }
 }
 
-void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad) {
+void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks) {
     QLayout* docelowyLayout = getLayoutByEnum(rzad);
     if (!docelowyLayout) return;
 

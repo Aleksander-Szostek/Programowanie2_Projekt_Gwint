@@ -13,8 +13,12 @@ public:
     void refresh(); //do aktualizacji wyglądu karty, np siły po jakiś efektach
 
     karta* getCardData() {return k_dane;}
+
+    int getIndeks();
 private:
     karta* k_dane;
+
+    int indeks = 0;
 };
 
 #endif // CARD_BUTTON_H

@@ -1,10 +1,12 @@
 #include "gra.h"
 #include "karta.h"
-#include <random>
 #include <QPushButton>
 #include <QLayout>
 
-gra::gra() {}
+gra::gra() {
+    gracz_1 = new player;
+    gracz_2 = new player;
+}
 /*
 void gra::clearBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){
     /*
@@ -74,6 +76,9 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
     }
     else
         koniec_gry();
+
+    dobierzKarte(1, 10);
+    dobierzKarte(2, 10);
 }
 
 void gra::koniec_rundy(){
@@ -88,11 +93,16 @@ void gra::koniec_gry(){
 void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
     if (nr_gracza == 1 && GameState == Tura1){
         globalCardPlayed(gracz_1->zagrajKarte(nr_w_rece), 1);
+        if (!gracz_2->isPas())
+            GameState = Tura2;
     }
 
     if (nr_gracza == 2 && GameState == Tura2){
         globalCardPlayed(gracz_2->zagrajKarte(nr_w_rece), 2);
+        if (!gracz_1->isPas())
+            GameState = Tura1;
     }
+
 
     return;
 }
@@ -170,59 +180,93 @@ void gra::clearBoard() {
     emit nakazCzyszczeniaLayoutu(P2_Range);
     emit nakazCzyszczeniaLayoutu(P2_Siege);
     emit nakazCzyszczeniaLayoutu(P1_Spell);
+    emit nakazCzyszczeniaLayoutu(P1_Leader);
+    emit nakazCzyszczeniaLayoutu(P2_Leader);
+    emit nakazCzyszczeniaLayoutu(P1_Hand);
     qDebug() << "Czyszczenie wszystkiego";
 }
 
-void gra::redrawBoard(int nr_gracza) {
+void gra::redrawBoard() {
 
     clearBoard();
 
-    for (karta* daneKarty : daneKartNaPlanszy) {
-        if (daneKarty != nullptr) {
-
-            Kategoria category = daneKarty->getKategoria();
-            RzadPlanszy docelowyRzad=P1_Spell;
-            //do dodania reszta możliwych pozycji
-            qDebug()<<"kategoria: "<<category;
-            if(nr_gracza==1){
-                switch(category){
-                case Kategoria::Melee:  docelowyRzad=P1_Melee; break;
-                case Kategoria::Ranged: docelowyRzad=P1_Range; break;
-                case Kategoria::Siege:  docelowyRzad=P1_Siege; break;
-                }
-            }
-            else if(nr_gracza==2){
-                switch(category){
-                case Kategoria::Melee:  docelowyRzad=P2_Melee; break;
-                case Kategoria::Ranged: docelowyRzad=P2_Range; break;
-                case Kategoria::Siege:  docelowyRzad=P2_Siege; break;
-                }
-            }
-            // if(category==Kategoria::Melee){
-            //     docelowyRzad = P1_Melee;
-            // }
-            // else if (category==Kategoria::Ranged){
-            //     docelowyRzad = P1_Range;
-            // }
-            // else if (category==Kategoria::Siege){
-            //     docelowyRzad= P1_Siege;
-            // }
-            emit nakazRysowaniaKarty(daneKarty, docelowyRzad);
-        }
+    for (int i = 0; i<gracz_1->getReka()->getDeckSize(); i++) {
+        karta* daneKarty = nullptr; // gracz_1->getReka()->getKartaFromList(i);
+        qDebug() << "Rysowanie na planszy P1";
+        emit nakazRysowaniaKarty(daneKarty, P1_Hand, i);
     }
-    qDebug() << "Przerysowanie";
+
+    for (int i = 0; i < gracz_1->getMelee()->getDeckSize(); i++) {
+        qDebug() << "Wykonano pętle z " + QString::number(i);
+        karta* daneKarty = gracz_1->getMelee()->getKartaFromList(0);
+        emit nakazRysowaniaKarty(daneKarty, P1_Melee, i);
+    }
+
+    for (int i = 0; i<gracz_1->getRanged()->getDeckSize(); i++) {
+        karta* daneKarty = gracz_1->getRanged()->getKartaFromList(i);
+        qDebug() << "Rysowanie na range P1";
+        emit nakazRysowaniaKarty(daneKarty, P1_Range, i);
+    }
+
+    for (int i = 0; i<gracz_2->getMelee()->getDeckSize(); i++) {
+        karta* daneKarty = gracz_2->getMelee()->getKartaFromList(i);
+        emit nakazRysowaniaKarty(daneKarty, P2_Melee, i);
+    }
+
+    for (int i = 0; i < gracz_2->getRanged()->getDeckSize(); i++) {
+        karta* daneKarty = gracz_2->getRanged()->getKartaFromList(i);
+        emit nakazRysowaniaKarty(daneKarty, P2_Range, i);
+    }
+
+    for (int i = 0; i < gracz_1->getSiege()->getDeckSize(); i++) {
+        karta* daneKarty = gracz_1->getSiege()->getKartaFromList(i);
+        emit nakazRysowaniaKarty(daneKarty, P1_Siege, i);
+    }
+
+    for (int i = 0; i < gracz_2->getSiege()->getDeckSize(); i++) {
+        karta* daneKarty = gracz_2->getSiege()->getKartaFromList(i);
+        emit nakazRysowaniaKarty(daneKarty, P2_Siege, i);
+    }
+
 }
 
-void gra::zagranoKarte(karta* nowaKarta, int nr_gracza) {
-    if(!nowaKarta) return;
+void gra::zagranoKarte(int indeks, int nr_gracza) {
+    if(GameState == Tura1 && nr_gracza != 1) return;
+    if(GameState == Tura2 && nr_gracza != 2) return;
+    karta* odczyt = nullptr;
+    if (nr_gracza == 1) {
+        karta* odczyt = gracz_1->getReka()->getKartaFromList(indeks);
+        if (odczyt == nullptr) return;
+        gracz_1->zagrajKarte(indeks);
+    }
+    if (nr_gracza == 2) {
+        karta* odczyt = gracz_2->getReka()->getKartaFromList(indeks);
+        if (odczyt == nullptr) return;
+        gracz_2->zagrajKarte(indeks);
+    }
 
-    daneKartNaPlanszy.push_back(nowaKarta);
-
-
-    redrawBoard(nr_gracza);
+    redrawBoard();
 }
 
 void gra::gameClear() {
     daneKartNaPlanszy.clear();
     clearBoard();
+}
+
+void gra::dobierzKarte(int nr_gracza, int n){
+    if (nr_gracza == 1) {
+        qDebug() << "Gracz 1 dobiera";
+        for (int i = 0 ; i < n ; i++)
+        {
+            gracz_1->dobierzKarte();
+        }
+    }
+    else if (nr_gracza == 2) {
+        qDebug() << "Gracz 2 dobiera";
+        for (int i = 0 ; i < n ; i++)
+        {
+            gracz_2->dobierzKarte();
+        }
+    }
+    redrawBoard();
 }

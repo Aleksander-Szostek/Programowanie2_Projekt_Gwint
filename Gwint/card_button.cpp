@@ -33,3 +33,7 @@ void Card_Button::refresh(){
     this->setStyleSheet(style);
     this->setText(k_dane->getNazwa() + "\nSiła: " + QString::number(k_dane->getSila()));
 }
+
+int Card_Button::getIndeks(){
+    return indeks;
+}

@@ -28,13 +28,16 @@ public:
         P2_Spell,
         P1_Leader,
         P2_Leader,
-
+        P1_Hand,
+        P2_Hand
     };
     gra();
 
     void zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2);
     void koniec_rundy();
     void koniec_gry();
+
+    void dobierzKarte(int nr_gracza, int n = 1);
 
     void graczZagrajKarte(int nr_w_rece, int nr_gracza);
     //jeśli zostanie zagrana karta która ma effekt globalny to musi zostać resolvowana w tym obiekcie
@@ -48,7 +51,7 @@ public:
     //nie wiem czy to nie powinno byc w private i dodatkowa funkcja w publicu,
     //żeby było bardziej akademicko czy coś, ale na razie zostawiam
     //dodałem do tej funkcji że ona od razy wywłuje przeryswanie
-    void zagranoKarte(karta* nowakarta, int nr_gracza);
+    void zagranoKarte(int indeks, int nr_gracza);
     void gameClear();
 private:
     player *gracz_1;
@@ -60,14 +63,14 @@ private:
   // void redrawBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent);
  //   void clearBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza);
     void clearBoard();
-    void redrawBoard(int nr_gracza);
+    void redrawBoard();
 
 
     std::vector<karta*> daneKartNaPlanszy; //przenosze te dane z mainwindow do gry aby tak jak mówiłeś to był mózg
 
 signals:
     //void dodanieKarty(karta* nowaKarta, gra::RzadPlanszy rzad);
-    void nakazRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad);
+    void nakazRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks);
 
     // Rozkaz: "Wyczyść fizycznie ten konkretny rząd/layout z przycisków"
     void nakazCzyszczeniaLayoutu(gra::RzadPlanszy rzad);

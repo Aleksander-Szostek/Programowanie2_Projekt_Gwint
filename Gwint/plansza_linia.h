@@ -9,7 +9,7 @@ public:
 
     int getPoints();
 
-    kontener_kart linia;
+//    kontener_kart linia;
 
     void emptyLinia();
 

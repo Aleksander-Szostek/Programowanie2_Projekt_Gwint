@@ -1,6 +1,9 @@
 #include "kontener_kart.h"
 
-kontener_kart::kontener_kart() {}
+kontener_kart::kontener_kart() {
+    Ciag_kart.push_back(nullptr);
+    Ciag_kart.clear();
+}
 
 void kontener_kart::add_card_to(karta* dodawana_karta, int pozycja){
     Ciag_kart.insert(std::next(Ciag_kart.begin(), pozycja), dodawana_karta);
