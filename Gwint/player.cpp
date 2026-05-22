@@ -51,6 +51,7 @@ karta* player::zagrajKarte(int nr_w_rece){
     else if (typ_karty == Kategoria::Spell){
         karta_g = reka->getKartaFromList(nr_w_rece);
         qDebug("Zagrano zaklęcie (idzie do shadow realm)");
+        //reka->delete_card(nr_w_rece);
     }
     else if (typ_karty == Kategoria::Agile){
         karta_g = reka->getKartaFromList(nr_w_rece);
@@ -82,4 +83,10 @@ void player::startRundy(){
     siege_l->emptyLinia();
 
     czyPas = false;
+}
+
+void player::wyczysc(){
+    melee_l->emptyLinia();
+    ranged_l->emptyLinia();
+    siege_l->emptyLinia();
 }

@@ -207,7 +207,7 @@ void gra::redrawBoard() {
     }
 
     for (int i = 0; i < gracz_1->getMelee()->getDeckSize(); i++) {
-        karta* daneKarty = gracz_1->getMelee()->getKartaFromList(0);
+        karta* daneKarty = gracz_1->getMelee()->getKartaFromList(i);
         emit nakazRysowaniaKarty(daneKarty, P1_Melee, i, 1);
     }
 
@@ -258,7 +258,11 @@ void gra::zagranoKarte(int indeks, int nr_gracza) {
 
 void gra::gameClear() {
     daneKartNaPlanszy.clear();
-    clearBoard();
+    gracz_1->wyczysc();
+    gracz_2->wyczysc();
+    //clearBoard();
+    //z redrawBoard ręka gracza nie znika(bo koorzystając z clearBoard ręka gracza znika do następnej akcji typu kliknięcie przycisku karty)
+    redrawBoard();
 }
 
 void gra::dobierzKarte(int nr_gracza, int n){

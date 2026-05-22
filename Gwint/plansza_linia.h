@@ -11,7 +11,11 @@ public:
 
 //    kontener_kart linia;
 
+    //nie wiem do czego chciałeś używać ale zakładam że do czyszczenia linii więc tak użyję w razie co daj mój kod do jakiejś funkcji typu czysczeniLini czy cos w tym stylu
     void emptyLinia();
+
+
+
 
 private:
 

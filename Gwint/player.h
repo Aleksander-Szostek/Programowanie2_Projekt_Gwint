@@ -32,6 +32,7 @@ public:
 
     void startRundy();
 
+    void wyczysc();
 private:
     deck *Talia;
     player_hand *reka;
