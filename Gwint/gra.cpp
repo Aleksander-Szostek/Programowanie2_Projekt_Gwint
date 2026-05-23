@@ -2,6 +2,7 @@
 #include "karta.h"
 #include <QPushButton>
 #include <QLayout>
+#include "i_constant_valuse.h"
 
 gra::gra() {
     gracz_1 = new player;
@@ -83,8 +84,8 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
         koniec_gry();
     }
 
-    dobierzKarte(1, 10);
-    dobierzKarte(2, 10);
+    dobierzKarte(1, startHand);
+    dobierzKarte(2, startHand);
 }
 
 void gra::koniec_rundy(){
@@ -110,7 +111,6 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
             //GameState = Tura1;
         }
     }
-
 
     return;
 }
@@ -236,6 +236,7 @@ void gra::redrawBoard() {
         emit nakazRysowaniaKarty(daneKarty, P2_Siege, i, 2);
     }
 
+    countPoints();
 }
 
 void gra::zagranoKarte(int indeks, int nr_gracza) {
@@ -281,4 +282,26 @@ void gra::dobierzKarte(int nr_gracza, int n){
         }
     }
     redrawBoard();
+}
+
+void gra::wybranoKarte(RzadPlanszy lokacja, int indeks){
+
+}
+
+void gra::countPoints() {
+    int punkty[10];
+
+    punkty[0] = gracz_1->getMelee()->getPoints(0);
+    punkty[1] = gracz_1->getRanged()->getPoints(0);
+    punkty[2] = gracz_1->getSiege()->getPoints(0);
+    punkty[3] = gracz_2->getMelee()->getPoints(0);
+    punkty[4] = gracz_2->getRanged()->getPoints(0);
+    punkty[5] = gracz_2->getSiege()->getPoints(0);
+
+    punkty[6] = gracz_1->getDeck()->getDeckSize();
+    punkty[7] = gracz_2->getDeck()->getDeckSize();
+    punkty[8] = gracz_1->getReka()->getDeckSize();
+    punkty[9] = gracz_2->getReka()->getDeckSize();
+
+    nakazAktualizacjiPunkt(punkty);
 }

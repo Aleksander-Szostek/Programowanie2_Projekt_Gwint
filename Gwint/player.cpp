@@ -90,3 +90,9 @@ void player::wyczysc(){
     ranged_l->emptyLinia();
     siege_l->emptyLinia();
 }
+
+void player::getPoints(int return_val[3], bool Pogoda[3]){
+    return_val[0] = melee_l->getPoints(Pogoda[0]);
+    return_val[1] = ranged_l->getPoints(Pogoda[1]);
+    return_val[2] = siege_l->getPoints(Pogoda[2]);
+}

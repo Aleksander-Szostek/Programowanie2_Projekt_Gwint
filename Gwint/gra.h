@@ -53,6 +53,9 @@ public:
     //dodałem do tej funkcji że ona od razy wywłuje przeryswanie
     void zagranoKarte(int indeks, int nr_gracza);
     void gameClear();
+    void wybranoKarte(RzadPlanszy lokacja, int indeks);
+    void countPoints();
+
 private:
     player *gracz_1;
     player *gracz_2;
@@ -74,6 +77,8 @@ signals:
 
     // Rozkaz: "Wyczyść fizycznie ten konkretny rząd/layout z przycisków"
     void nakazCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
+
+    void nakazAktualizacjiPunkt(int punkty[10]);
 };
 
 #endif // GRA_H

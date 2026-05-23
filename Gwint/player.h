@@ -12,7 +12,7 @@ class player
 public:
     player();
 
-    int getPoints();
+    void getPoints(int return_val[3], bool Pogoda[3]);
 
     plansza_linia* getMelee();
     plansza_linia* getRanged();
@@ -33,6 +33,7 @@ public:
     void startRundy();
 
     void wyczysc();
+
 private:
     deck *Talia;
     player_hand *reka;

@@ -36,7 +36,7 @@ private:
     //void obsugaDodanejKarty(karta* daneKarty, gra::RzadPlanszy rzad);
     void obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr);
     void obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
+    void obslugaAktualizacjiPunkt(int punkty[6]);
     QLayout* getLayoutByEnum(gra::RzadPlanszy rzad);
-
 };
 #endif // MAINWINDOW_H
