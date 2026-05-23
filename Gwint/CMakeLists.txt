@@ -31,6 +31,8 @@ qt_add_executable(Gwint
     gra.h gra.cpp
     efekty_pogodowe.h efekty_pogodowe.cpp
     i_constant_valuse.h
+    bot_player.h bot_player.cpp
+    stan_gry.h stan_gry.cpp
 
 )
 

@@ -239,7 +239,8 @@ void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, 
 
     Card_Button* nowyPrzycisk = new Card_Button(nowaKarta, this);
     connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
-        Gra->graczZagrajKarte(indeks, nr_gr);
+        //Gra->graczZagrajKarte(indeks, nr_gr);
+        Gra->zagranoKarte(indeks,nr_gr);
     });
     nowyPrzycisk->refresh();
     docelowyLayout->addWidget(nowyPrzycisk);

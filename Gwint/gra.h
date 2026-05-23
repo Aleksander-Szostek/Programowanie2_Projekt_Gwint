@@ -8,10 +8,12 @@
 
 #include <QPushButton>
 #include <vector>
+#include <QTimer>
 
-enum StanGry {
-    Tura1, Tura2, KoniecRundy, KoniecGry, Nierozpoczeta
-};
+#include "stan_gry.h"
+// enum StanGry {
+//     Tura1, Tura2, KoniecRundy, KoniecGry, Nierozpoczeta
+// };
 
 class gra : public QObject
 {
@@ -53,6 +55,8 @@ public:
     //dodałem do tej funkcji że ona od razy wywłuje przeryswanie
     void zagranoKarte(int indeks, int nr_gracza);
     void gameClear();
+
+    void tura_bota();
 private:
     player *gracz_1;
     player *gracz_2;

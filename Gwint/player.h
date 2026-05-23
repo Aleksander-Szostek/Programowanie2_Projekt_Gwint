@@ -5,12 +5,22 @@
 #include "plansza_linia.h"
 #include "graveyard.h"
 
+
 enum kontener{talia, reka, linia_melee, linia_ranged, linia_siege, cmentarz, lider};
+
+struct decyzjaRuchu{
+    bool pasuje;
+    int nr_karty;
+};
 
 class player
 {
 public:
     player();
+
+    virtual ~player() = default;
+
+    virtual decyzjaRuchu podjecieDecyzji(player* przeciwnik) = 0; //przekazuje wskaźnik do planszy gracza,a by bot mógł sobie policzyć co zagra
 
     int getPoints();
 
@@ -33,6 +43,7 @@ public:
     void startRundy();
 
     void wyczysc();
+
 private:
     deck *Talia;
     player_hand *reka;

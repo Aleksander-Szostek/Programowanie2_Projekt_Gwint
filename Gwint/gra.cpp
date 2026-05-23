@@ -1,11 +1,13 @@
 #include "gra.h"
+#include "bot_player.h"
 #include "karta.h"
 #include <QPushButton>
 #include <QLayout>
 
+
 gra::gra() {
-    gracz_1 = new player;
-    gracz_2 = new player;
+    gracz_1 = new bot_player; // musimy zrbic klase np gracz_player
+    gracz_2 = new bot_player;
 }
 /*
 void gra::clearBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){
@@ -238,22 +240,64 @@ void gra::redrawBoard() {
 
 }
 
-void gra::zagranoKarte(int indeks, int nr_gracza) {
-    if(GameState == Tura1 && nr_gracza != 1) return;
-    if(GameState == Tura2 && nr_gracza != 2) return;
-    karta* odczyt = nullptr;
-    if (nr_gracza == 1) {
-        karta* odczyt = gracz_1->getReka()->getKartaFromList(indeks);
-        if (odczyt == nullptr) return;
-        gracz_1->zagrajKarte(indeks);
+// void gra::zagranoKarte(int indeks, int nr_gracza) {
+//     if(GameState == Tura1 && nr_gracza != 1) return;
+//     if(GameState == Tura2 && nr_gracza != 2) return;
+//     karta* odczyt = nullptr;
+//     if (nr_gracza == 1) {
+//         karta* odczyt = gracz_1->getReka()->getKartaFromList(indeks);
+//         if (odczyt == nullptr) return;
+//         gracz_1->zagrajKarte(indeks);
+//     }
+//     if (nr_gracza == 2) {
+//         karta* odczyt = gracz_2->getReka()->getKartaFromList(indeks);
+//         if (odczyt == nullptr) return;
+//         gracz_2->zagrajKarte(indeks);
+//     }
+
+//     redrawBoard();
+// }
+
+void gra::zagranoKarte(int indeks, int nr_gracza){
+    if (GameState == Tura1 && nr_gracza != 1){
+        return;
     }
-    if (nr_gracza == 2) {
-        karta* odczyt = gracz_2->getReka()->getKartaFromList(indeks);
-        if (odczyt == nullptr) return;
-        gracz_2->zagrajKarte(indeks);
+    if (GameState == Tura2 && nr_gracza != 2){
+        return;
+    }
+    karta* zagranaKarta = nullptr;
+
+    if(nr_gracza==1){
+        zagranaKarta= gracz_1->zagrajKarte(indeks);
+    }
+    else if(nr_gracza==2){
+        zagranaKarta = gracz_2->zagrajKarte(indeks);
     }
 
-    redrawBoard();
+    if(nr_gracza==1){
+        if(!gracz_2->isPas()){
+            GameState = Tura2;
+            qDebug()<<"Teraz tura bota";
+            QTimer::singleShot(1000, this, &gra::tura_bota);
+            redrawBoard();
+        }
+        else{
+            qDebug()<<"Gracz spaswal, bot gra dalej";
+            redrawBoard();
+        }
+    }
+    else if(nr_gracza==2){
+        if(!gracz_1->isPas()){
+            GameState = Tura1;
+            qDebug()<<"Tura gracza";
+            redrawBoard();
+        }
+        else{
+            qDebug()<<"Bot spaswal, bot gra dalej";
+            QTimer::singleShot(1000, this, &gra::tura_bota);
+            redrawBoard();
+        }
+    }
 }
 
 void gra::gameClear() {
@@ -281,4 +325,28 @@ void gra::dobierzKarte(int nr_gracza, int n){
         }
     }
     redrawBoard();
+}
+
+
+void gra::tura_bota() {
+    if (GameState != Tura2){
+        return;
+    }
+
+    decyzjaRuchu decyzja = gracz_2->podjecieDecyzji(gracz_1);
+
+    if (decyzja.pasuje) {
+        gracz_2->Spasuj();
+        qDebug() << "Bot zdecydował się na PAS.";
+
+        if (!gracz_1->isPas()) {
+            GameState = Tura1;
+        } else {
+            koniec_rundy();
+        }
+        redrawBoard();
+    } else {
+
+        zagranoKarte(decyzja.nr_karty, 2);
+    }
 }

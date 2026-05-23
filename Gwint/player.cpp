@@ -90,3 +90,7 @@ void player::wyczysc(){
     ranged_l->emptyLinia();
     siege_l->emptyLinia();
 }
+
+int player::getPoints(){
+    return 1;//tymczasowo
+}
