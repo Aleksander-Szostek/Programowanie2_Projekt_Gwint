@@ -9,7 +9,13 @@ enum Frakcja {
 };
 
 enum Kategoria {
-    Spell, Melee, Siege, Ranged, Agile, Leader, Undefined
+    Spell,
+    Melee,
+    Siege,
+    Ranged,
+    Agile,
+    Leader,
+    Undefined
 };
 
 class karta

@@ -20,7 +20,7 @@ const double kol8 = 7.33 / 100;
 
 const double wier1_6 = 12.75 / 100;
 const double wier7 = 13.8 / 100;
-const double wier8 = 9.7 / 100;
+const double wier8 = 5 / 100;
     // wysokość wierszy w GUIu
 
-const int startHand = 20;
+const int startHand = 10;

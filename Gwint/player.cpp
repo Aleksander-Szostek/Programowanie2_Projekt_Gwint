@@ -69,8 +69,8 @@ void player::uzyjLidera(){
 
 }
 
-void player::Spasuj(){
-    czyPas = true;
+void player::Spasuj(bool reverse){
+    czyPas = true - reverse;
 }
 
 bool player::isPas(){
@@ -85,10 +85,19 @@ void player::startRundy(){
     czyPas = false;
 }
 
-void player::wyczysc(){
-    melee_l->emptyLinia();
-    ranged_l->emptyLinia();
-    siege_l->emptyLinia();
+void player::wyczysc() {
+    while (melee_l->getDeckSize() > 0) {
+        melee_l->move_card(0 , cmentarzysko);
+    }
+
+    while (ranged_l->getDeckSize() > 0) {
+        ranged_l->move_card(0 , cmentarzysko);
+    }
+
+    while (siege_l->getDeckSize() > 0) {
+
+        siege_l->move_card(0 , cmentarzysko);
+    }
 }
 
 void player::getPoints(int return_val[3], bool Pogoda[3]){

@@ -8,60 +8,6 @@ gra::gra() {
     gracz_1 = new player;
     gracz_2 = new player;
 }
-/*
-void gra::clearBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){
-    /*
-    for(int i =0; i< kartyPlansza.size();i++){//usuwa karte z planszy
-        if(kartyPlansza[i]!=nullptr){
-            plansza->removeWidget(kartyPlansza[i]);
-            kartyPlansza[i]->hide();
-            kartyPlansza[i]->deleteLater(); // ta funkcja zwalnia RAM w bezpiecznym momencie, aby nie zcrushwalo programu
-            qDebug() << "Usunieto karte: " << kartyPlansza[i]->getCardData()->getNazwa();
-        }
-    }
-    kartyPlansza.clear();
-    //ta funkcja usuwa wszystkie karty które obecnie znajdują się na planszy(dodałem testową planszę(layout),
-    //aby przetestwac czy działa, nie usuwa ona kart z ręki gracza)
-    //ta funkcja jest private wiec dodalem czyszczeniePlanszy w public
-    //przyciski generujesz za pomocą kalsy Card_Button, masz przykład w mainwindow.cpp jak to wygląda
-    //robisz nowy przycisk, pobierzasz dane z karty, i refreshujesz aby przycisk jakos wyglądał
-    // a i jeszcze tą pętlę for z tej funckcji mozna zastąpic takim zapisem, gemini mi go wypluł jak wpisałem swoj kod
-    //podobno jest lepszy to można go użyć
-
-    if (!plansza) return;
-
-
-    for (Card_Button* karta : kartyPlansza) {
-        if (karta != nullptr) {
-            plansza->removeWidget(karta);
-            karta->hide();
-            karta->deleteLater();
-            qDebug() << "Usunieto karte: "<<karta->getCardData()->getNazwa();
-        }
-    }
-
-
-    kartyPlansza.clear();
-}
-
-
-void gra::redrawBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent){
-
-    //std::vector<Card_Button*> kopia_kartyPlansza = kartyPlansza;
-    clearBoard(kartyPlansza,plansza);
-    for (karta* daneKarty : daneKartNaPlanszy) {
-        if (daneKarty != nullptr) {
-            Card_Button* nowaKarta = new Card_Button(daneKarty, parent);
-            nowaKarta->refresh();
-            plansza->addWidget(nowaKarta);
-            kartyPlansza.push_back(nowaKarta);
-            qDebug() << "Narysowano karte: "<<nowaKarta->getCardData()->getNazwa();
-
-        }
-    }
-
-}
-*/
 
 void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
     gracz_1->getDeck()->makeDeck(nazwa_talii_1);
@@ -75,8 +21,8 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
                 qDebug() << "Tura 1";
             }
             else {
-                GameState = Tura1;
-                qDebug() << "Tura 2 overriten";
+                GameState = Tura2;
+                qDebug() << "Tura 2";
             }
     }
     else {
@@ -89,8 +35,47 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
 }
 
 void gra::koniec_rundy(){
+    GameState = KoniecRundy;
 
+    countPoints();
+    //na wszelki wypadek edge caseów liczymy jeszcze raza
 
+    int zwyciezca = 0;
+
+    if (p1_pkt > p2_pkt) {
+        p1_gamescore++;
+        zwyciezca = 1;
+
+    }
+    else if (p1_pkt < p2_pkt) {
+        p2_gamescore++;
+        zwyciezca = 2;
+    }
+    else {
+        p1_gamescore++;
+        p2_gamescore++;
+    }
+
+    qDebug() << "Sprawdzanie co po końcu rundy. Wynik: " + QString::number(p1_gamescore) + "   " + QString::number(p2_gamescore);
+    if (p1_gamescore == 2 || p2_gamescore == 2) {
+        koniec_gry();
+    }
+    else {
+        clearPlansza();
+        gracz_1->Spasuj(true);
+        gracz_2->Spasuj(true);
+
+        if (zwyciezca == 1)
+            GameState = Tura1;
+        else if (zwyciezca == 2)
+            GameState = Tura2;
+        else {
+            if (rand()%2 == 1)
+                GameState = Tura1;
+            else
+                GameState = Tura2;
+        }
+    }
 }
 
 void gra::koniec_gry(){
@@ -101,14 +86,14 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
     if (nr_gracza == 1 && GameState == Tura1){
         globalCardPlayed(gracz_1->zagrajKarte(nr_w_rece), 1);
         if (!gracz_2->isPas()){
-            //GameState = Tura2;
+            GameState = Tura2;
         }
     }
 
     if (nr_gracza == 2 && GameState == Tura2){
         globalCardPlayed(gracz_2->zagrajKarte(nr_w_rece), 2);
         if (!gracz_1->isPas()){
-            //GameState = Tura1;
+            GameState = Tura1;
         }
     }
 
@@ -122,64 +107,7 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
     redrawBoard();
     return;
 }
-// void gra::zagranoKarte(karta* nowaKarta, std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent){
-//     if(!nowaKarta){
-//         qDebug()<<"nie zagrano karty";
-//         return;
-//     }
 
-//     daneKartNaPlanszy.push_back(nowaKarta);//dodaje dane zagranej karty do vectora
-//     redrawBoard(kartyPlansza,plansza,parent);//wywołuje przeryswanie
-// }
-/*
-void gra::zagranoKarte(karta* nowaKarta,int nr_gracza){
-    if(!nowaKarta){
-        qDebug()<<"nie zagrano karty";
-        return;
-    }
-    daneKartNaPlanszy.push_back(nowaKarta);
-    Kategoria category = nowaKarta->getKategoria();
-    RzadPlanszy docelowyRzad = P1_Melee;
-    //do dodania reszta mozliwych pozycji
-    if(nr_gracza==1){
-        switch(category){
-            case Kategoria::Melee:
-                docelowyRzad=P1_Melee;
-                break;
-
-            case Kategoria::Ranged:
-                docelowyRzad=P1_Range;
-                break;
-            case Kategoria::Siege:
-                docelowyRzad = P1_Siege;
-                break;
-        }
-    }
-    if(nr_gracza==2){
-        switch(category){
-        case Kategoria::Melee:
-            docelowyRzad=P2_Melee;
-            break;
-
-        case Kategoria::Ranged:
-            docelowyRzad=P2_Range;
-            break;
-        case Kategoria::Siege:
-            docelowyRzad = P2_Siege;
-            break;
-        }
-    }
-    emit dodanieKarty(nowaKarta,docelowyRzad);
-
-}*/
-// void gra::przerysowaniePlanszy(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent){
-//     redrawBoard(kartyPlansza,plansza, parent);
-// }
-// void gra::gameClear(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza){//jest to funkcja tymczasowa która pozwala na absolutne wyczyszczenie planszy
-//     clearBoard(kartyPlansza,plansza);
-//     daneKartNaPlanszy.clear();
-//     qDebug()<<"Wszystko usuniete";
-// }
 void gra::clearBoard() {
 
     emit nakazCzyszczeniaLayoutu(P1_Melee);
@@ -289,7 +217,7 @@ void gra::wybranoKarte(RzadPlanszy lokacja, int indeks){
 }
 
 void gra::countPoints() {
-    int punkty[10];
+    int punkty[12];
 
     punkty[0] = gracz_1->getMelee()->getPoints(0);
     punkty[1] = gracz_1->getRanged()->getPoints(0);
@@ -298,10 +226,43 @@ void gra::countPoints() {
     punkty[4] = gracz_2->getRanged()->getPoints(0);
     punkty[5] = gracz_2->getSiege()->getPoints(0);
 
+    p1_pkt = punkty[0] + punkty[1] + punkty[2];
+    p2_pkt = punkty[3] + punkty[4] + punkty[5];
+
     punkty[6] = gracz_1->getDeck()->getDeckSize();
     punkty[7] = gracz_2->getDeck()->getDeckSize();
     punkty[8] = gracz_1->getReka()->getDeckSize();
     punkty[9] = gracz_2->getReka()->getDeckSize();
 
+    punkty[10] = p1_gamescore;
+    punkty[11] = p1_gamescore;
+
     nakazAktualizacjiPunkt(punkty);
+}
+
+void gra::graczPas(int nr_gr) {
+    if (nr_gr == 1 && GameState == Tura1) {
+        gracz_1->Spasuj();
+        if (gracz_2->isPas()) {
+            koniec_rundy();
+        }
+        else {
+            GameState = Tura2;
+        }
+    }
+    else if (nr_gr == 2 && GameState == Tura2) {
+        gracz_2->Spasuj();
+        if (gracz_1->isPas()) {
+            koniec_rundy();
+        }
+        else {
+            GameState = Tura1;
+        }
+    }
+}
+
+void gra::clearPlansza() {
+    gracz_1->wyczysc();
+    gracz_2->wyczysc();
+    redrawBoard();
 }

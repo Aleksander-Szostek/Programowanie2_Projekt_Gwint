@@ -26,7 +26,7 @@ public:
 
     void uzyjLidera();
 
-    void Spasuj();
+    void Spasuj(bool reverse = false);
 
     bool isPas();
 
