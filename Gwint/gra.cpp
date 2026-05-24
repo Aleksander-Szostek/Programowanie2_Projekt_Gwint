@@ -12,6 +12,7 @@ gra::gra() {
 }
 
 void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
+    std::srand(time(NULL));
     gracz_1->getDeck()->makeDeck(nazwa_talii_1);
     gracz_2->getDeck()->makeDeck(nazwa_talii_2);
 //    gracz_1->getDeck()->validifyDeck();
@@ -25,6 +26,7 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
             else {
                 GameState = Tura2;
                 qDebug() << "Tura 2";
+
             }
     }
     else {
@@ -34,6 +36,10 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
 
     dobierzKarte(1, startHand);
     dobierzKarte(2, startHand);
+
+    if (GameState == Tura2) {
+        QTimer::singleShot(1000, this, &gra::tura_bota);
+    }
 }
 
 void gra::koniec_rundy(){
@@ -71,6 +77,7 @@ void gra::koniec_rundy(){
             GameState = Tura1;
         else if (zwyciezca == 2)
             GameState = Tura2;
+
         else {
             if (rand()%2 == 1)
                 GameState = Tura1;
@@ -78,6 +85,10 @@ void gra::koniec_rundy(){
                 GameState = Tura2;
         }
     }
+    if (GameState == Tura2) {
+        QTimer::singleShot(1000, this, &gra::tura_bota);
+    }
+
 }
 
 void gra::koniec_gry(){

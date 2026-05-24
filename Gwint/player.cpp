@@ -100,9 +100,7 @@ void player::wyczysc() {
     }
 }
 
-// int player::getPoints(){
-//     return 1;//tymczasowo
-// }
+
 void player::getPoints(int return_val[3], bool Pogoda[3]){
     return_val[0] = melee_l->getPoints(Pogoda[0]);
     return_val[1] = ranged_l->getPoints(Pogoda[1]);

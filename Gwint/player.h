@@ -24,7 +24,6 @@ public:
 
     virtual decyzjaRuchu podjecieDecyzji(player* przeciwnik) = 0; //przekazuje wskaźnik do planszy gracza,a by bot mógł sobie policzyć co zagra
 
-    //int getPoints();
     plansza_linia* getMelee();
     plansza_linia* getRanged();
     plansza_linia* getSiege();
