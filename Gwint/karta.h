@@ -3,6 +3,7 @@
 #include <QString>
 #include "keyword.h"
 #include <vector>
+#include <QDebug>
 
 enum Frakcja {
     Neutral, Elfy, Polnoc, Niflgard, Skelige, Potwory

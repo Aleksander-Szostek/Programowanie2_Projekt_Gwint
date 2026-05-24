@@ -18,8 +18,6 @@ public:
     ~MainWindow() override;
 
 private slots:
-    void on_verticalSlider_sliderMoved(int position);
-
     void on_button_dobierz_clicked();
 
     void on_wyczysc_button_clicked();
@@ -30,17 +28,20 @@ private slots:
 
     void on_p1_pas_clicked();
 
+    void on_nextRundaBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
-   // std::vector<Card_Button*> kartyNaPlanszy; // dodaje karty ktore są już na planszy do vectora
-    //std::vector<karta*> daneKartNaPlanszy; // zapisuje dane kart obecnie na planszy aby moc je na nowo narysowac
     gra *Gra; // dodaje tutaj Gra aby nie znikała tak jak to zrobiłem wcześniej
 
-    void resizeEvent(QResizeEvent *a) override;
-    //void obsugaDodanejKarty(karta* daneKarty, gra::RzadPlanszy rzad);
     void obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr);
     void obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
     void obslugaAktualizacjiPunkt(int punkty[6]);
     QLayout* getLayoutByEnum(gra::RzadPlanszy rzad);
+    void zmianaStrony(int indeks);
+    void zmianaGSLabel(StanGry GameState, bool p1_pas, bool p2_pas);
+
+    int pointsStorage[12];
+
 };
 #endif // MAINWINDOW_H

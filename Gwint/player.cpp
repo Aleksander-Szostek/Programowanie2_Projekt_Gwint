@@ -35,18 +35,22 @@ void player::dobierzKarte(){
 }
 
 karta* player::zagrajKarte(int nr_w_rece){
+    qDebug() << "Gracz zagrał lokalnie";
     Kategoria typ_karty = reka->getKartaFromList(nr_w_rece)->getKategoria();
 
     karta* karta_g = nullptr;
 
     if (typ_karty == Kategoria::Melee){
         reka->move_card(nr_w_rece, melee_l);
+        qDebug("Zagrano melee");
     }
     else if (typ_karty == Kategoria::Ranged){
         reka->move_card(nr_w_rece, ranged_l);
+        qDebug("Zagrano ranged");
     }
     else if (typ_karty == Kategoria::Siege){
         reka->move_card(nr_w_rece, siege_l);
+        qDebug("Zagrano siege");
     }
     else if (typ_karty == Kategoria::Spell){
         karta_g = reka->getKartaFromList(nr_w_rece);
@@ -62,6 +66,7 @@ karta* player::zagrajKarte(int nr_w_rece){
         reka->delete_card(nr_w_rece);
     }
 
+    qDebug() << "Zwracanie card ptr";
     return karta_g;
 }
 
