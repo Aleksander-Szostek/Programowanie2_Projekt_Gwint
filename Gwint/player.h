@@ -18,12 +18,13 @@ class player
 public:
     player();
 
+    
+    void getPoints(int return_val[3], bool Pogoda[3]);
     virtual ~player() = default;
 
     virtual decyzjaRuchu podjecieDecyzji(player* przeciwnik) = 0; //przekazuje wskaźnik do planszy gracza,a by bot mógł sobie policzyć co zagra
 
-    int getPoints();
-
+    //int getPoints();
     plansza_linia* getMelee();
     plansza_linia* getRanged();
     plansza_linia* getSiege();
@@ -36,7 +37,7 @@ public:
 
     void uzyjLidera();
 
-    void Spasuj();
+    void Spasuj(bool reverse = false);
 
     bool isPas();
 

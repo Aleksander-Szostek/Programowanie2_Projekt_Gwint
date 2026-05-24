@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     //connect(Gra, &gra::dodanieKarty, this, &MainWindow::obsugaDodanejKarty);
     connect(Gra, &gra::nakazRysowaniaKarty, this, &MainWindow::obslugaRysowaniaKarty);
     connect(Gra, &gra::nakazCzyszczeniaLayoutu, this, &MainWindow::obslugaCzyszczeniaLayoutu);
+    connect(Gra, &gra::nakazAktualizacjiPunkt, this, &MainWindow::obslugaAktualizacjiPunkt);
     //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
     // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -38,12 +39,6 @@ MainWindow::MainWindow(QWidget *parent)
         "}"
         );
 
-    int test = 42;
-
-    card_loader zaladuj;
-    karta* testowa_karta = new karta;
-    zaladuj.zaladuj_karte(test, testowa_karta);
-
 
     qDebug() << QPixmap(":/plansza.jpg").isNull();
 
@@ -52,6 +47,14 @@ MainWindow::MainWindow(QWidget *parent)
     //else
     //    ui->label->setText("To nie melee");
     //testowałem czy odczyt kategorii i frakcji działa (działa)
+
+
+                    // ten frakment daje nam vernona rocha, co za temerię zrobi wszystko
+    int test = 42;
+
+    card_loader zaladuj;
+    karta* testowa_karta = new karta;
+    zaladuj.zaladuj_karte(test, testowa_karta);
 
     ui->label->setText(testowa_karta->getNazwa() + " " + QString::number(testowa_karta->getSila()) + " " + testowa_karta->getFlavor());
 
@@ -69,7 +72,7 @@ void MainWindow::on_verticalSlider_sliderMoved(int position)
 
 
 void MainWindow::on_button_dobierz_clicked() {
-    Gra->graczZagrajKarte(0,1);
+    Gra->graczZagrajKarte(0,2);
 }
 //{
 //    //tworze testwa karte czy się dodają poprawnie
@@ -123,24 +126,24 @@ void MainWindow::on_Start_Button_clicked()
         );
 
     QSize Size = this->size();
-    ui->kol0_szer->changeSize(kol0 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol1_szer->changeSize(kol1 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol2_szer->changeSize(kol2 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol3_szer->changeSize(kol3 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol4_szer->changeSize(kol4 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-//    ui->kol5_szer->changeSize(kol5 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol6_szer->changeSize(kol6 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol7_szer->changeSize(kol7 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol8_szer->changeSize(kol8 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol0_szer->changeSize(kol0 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol1_szer->changeSize(kol1 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol2_szer->changeSize(kol2 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol3_szer->changeSize(kol3 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol4_szer->changeSize(kol4 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+//    ui->kol5_szer->changeSize(kol5 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol6_szer->changeSize(kol6 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol7_szer->changeSize(kol7 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol8_szer->changeSize(kol8 * Size.rwidth() , 0 , QSizePolicy::Fixed);
 
-    ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Fixed);
 
     Gra->zainicjalizuj_gre("deck1.txt","deck1.txt");
 }
@@ -148,24 +151,24 @@ void MainWindow::on_Start_Button_clicked()
 void MainWindow::resizeEvent(QResizeEvent *a){
 
     QSize Size = this->size();
-    ui->kol0_szer->changeSize(kol0 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol1_szer->changeSize(kol1 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol2_szer->changeSize(kol2 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol3_szer->changeSize(kol3 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol4_szer->changeSize(kol4 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-//    ui->kol5_szer->changeSize(kol5 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol6_szer->changeSize(kol6 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol7_szer->changeSize(kol7 * Size.rwidth() , 0 , QSizePolicy::Preferred);
-    ui->kol8_szer->changeSize(kol8 * Size.rwidth() , 0 , QSizePolicy::Preferred);
+    ui->kol0_szer->changeSize(kol0 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol1_szer->changeSize(kol1 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol2_szer->changeSize(kol2 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol3_szer->changeSize(kol3 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol4_szer->changeSize(kol4 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+//    ui->kol5_szer->changeSize(kol5 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol6_szer->changeSize(kol6 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol7_szer->changeSize(kol7 * Size.rwidth() , 0 , QSizePolicy::Fixed);
+    ui->kol8_szer->changeSize(kol8 * Size.rwidth() , 0 , QSizePolicy::Fixed);
 
-    ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Preferred);
-    ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Preferred);
+    ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Expanding);
+    ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Fixed);
 
 }/*
 void MainWindow::obsugaDodanejKarty(karta* nowaKarta, gra::RzadPlanszy rzad){
@@ -199,6 +202,7 @@ void MainWindow::obsugaDodanejKarty(karta* nowaKarta, gra::RzadPlanszy rzad){
     qDebug() << "Narysowano karte w GUI:" << nowaKarta->getNazwa();
 
 };*/
+
 // Funkcja pomocnicza zwracająca wskaźnik do layoutu na podstawie enuma
 QLayout* MainWindow::getLayoutByEnum(gra::RzadPlanszy rzad) {
     //return ui->player2_melee; testowalem czy w ogole dziala
@@ -242,7 +246,44 @@ void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, 
         //Gra->graczZagrajKarte(indeks, nr_gr);
         Gra->zagranoKarte(indeks,nr_gr);
     });
+    if (rzad == gra::P1_Hand) {
+        connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
+            Gra->graczZagrajKarte(indeks, nr_gr);
+        });
+    }
+    else {
+        connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
+            Gra->wybranoKarte(rzad, indeks);
+        });
+    }
+
     nowyPrzycisk->refresh();
     docelowyLayout->addWidget(nowyPrzycisk);
 
 }
+
+void MainWindow::obslugaAktualizacjiPunkt(int punkty[12]){
+    ui->player1_melee_nr->setText(QString::number(punkty[0]));
+    ui->player1_ranged_nr->setText(QString::number(punkty[1]));
+    ui->player1_siege_nr->setText(QString::number(punkty[2]));
+    ui->player2_melee_nr->setText(QString::number(punkty[3]));
+    ui->player2_ranged_nr->setText(QString::number(punkty[4]));
+    ui->player2_siege_nr->setText(QString::number(punkty[5]));
+
+    ui->player1_kart_w_talii->setText("Talia: " + QString::number(punkty[6]));
+    ui->player2_kart_w_talii->setText("Talia: " + QString::number(punkty[7]));
+    ui->player1_kart_w_rece->setText("Karty: " + QString::number(punkty[8]) + "\n" + "Punkty: " + QString::number(punkty[10]));
+    ui->player2_kart_w_rece->setText("Karty: " + QString::number(punkty[9]) + "\n" + "Punkty: " + QString::number(punkty[11]));
+
+}
+void MainWindow::on_p1_pas_clicked()
+{
+    Gra->graczPas(1);
+}
+
+
+void MainWindow::on_p2_pas_clicked()
+{
+    Gra->graczPas(2);
+}
+

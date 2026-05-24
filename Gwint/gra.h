@@ -43,24 +43,27 @@ public:
 
     void graczZagrajKarte(int nr_w_rece, int nr_gracza);
     //jeśli zostanie zagrana karta która ma effekt globalny to musi zostać resolvowana w tym obiekcie
-    //tą funkcję podepniemy do przycisków
 
     void globalCardPlayed(karta* karta_g, int nr_gracza);
-    //void przerysowaniePlanszy(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent);
-    //void gameClear(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza);
-    //void zagranoKarte(karta* nowaKarta, std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent);
-    //void zagranoKarte(karta* nowaKarta, int nr_gracza);
-    //nie wiem czy to nie powinno byc w private i dodatkowa funkcja w publicu,
-    //żeby było bardziej akademicko czy coś, ale na razie zostawiam
-    //dodałem do tej funkcji że ona od razy wywłuje przeryswanie
     void zagranoKarte(int indeks, int nr_gracza);
     void gameClear();
 
     void tura_bota();
+    void wybranoKarte(RzadPlanszy lokacja, int indeks);
+    void countPoints();
+
+    void graczPas(int nr_gr);
+
 private:
     player *gracz_1;
     player *gracz_2;
     efekty_pogodowe pogoda;
+
+    int p1_pkt = 0;
+    int p2_pkt = 0;
+
+    int p1_gamescore = 0;
+    int p2_gamescore = 0;
 
     StanGry GameState = Nierozpoczeta;
 
@@ -68,6 +71,8 @@ private:
  //   void clearBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza);
     void clearBoard();
     void redrawBoard();
+
+    void clearPlansza();
 
 
     std::vector<karta*> daneKartNaPlanszy; //przenosze te dane z mainwindow do gry aby tak jak mówiłeś to był mózg
@@ -78,6 +83,8 @@ signals:
 
     // Rozkaz: "Wyczyść fizycznie ten konkretny rząd/layout z przycisków"
     void nakazCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
+
+    void nakazAktualizacjiPunkt(int punkty[12]);
 };
 
 #endif // GRA_H
