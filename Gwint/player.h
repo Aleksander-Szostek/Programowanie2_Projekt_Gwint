@@ -46,7 +46,13 @@ public:
 
     void wyczysc();
 
+    int getPunktyK();
+    void setPunktyK(int a);
+
 private:
+
+    int punkty=0;
+
     deck *Talia;
     player_hand *reka;
     plansza_linia *melee_l;

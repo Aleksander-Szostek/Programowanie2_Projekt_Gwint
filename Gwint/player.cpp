@@ -110,3 +110,12 @@ void player::getPoints(int return_val[3], bool Pogoda[3]){
     return_val[1] = ranged_l->getPoints(Pogoda[1]);
     return_val[2] = siege_l->getPoints(Pogoda[2]);
 }
+
+
+void player::setPunktyK(int a){
+    punkty=a;
+}
+
+int player::getPunktyK(){
+    return punkty;
+}

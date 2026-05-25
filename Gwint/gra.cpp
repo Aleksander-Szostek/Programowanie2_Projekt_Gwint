@@ -55,22 +55,32 @@ void gra::koniec_rundy(){
     int zwyciezca = 0;
 
     if (p1_pkt > p2_pkt) {
+
         p1_gamescore++;
+        gracz_1->setPunktyK(p1_gamescore);
         zwyciezca = 1;
 
     }
     else if (p1_pkt < p2_pkt) {
         p2_gamescore++;
+        gracz_2->setPunktyK(p2_gamescore);
         zwyciezca = 2;
     }
     else {
         p1_gamescore++;
+        gracz_1->setPunktyK(p1_gamescore);
         p2_gamescore++;
+        gracz_2->setPunktyK(p2_gamescore);
     }
 
-    qDebug() << "Sprawdzanie co po końcu rundy. Wynik: " + QString::number(p1_gamescore) + "   " + QString::number(p2_gamescore);
+    qDebug() << "Sprawdzanie co po końcu rundy. Wynik: " + QString::number(gracz_1->getPunktyK()) + "   " + QString::number(gracz_2->getPunktyK());
     if (p1_gamescore == 2 || p2_gamescore == 2) {
         koniec_gry();
+    }
+    //jak ja nie mam kart i bot nie ma to automatycznie konczy sie gra
+    else if((p1_gamescore==1 && gracz_1->getReka()->getDeckSize()==0)&&(p2_gamescore==1 && gracz_2->getReka()->getDeckSize()==0)){
+        koniec_gry();
+
     }
     else {
         clearPlansza();
@@ -144,6 +154,15 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
             QTimer::singleShot(1000, this, &gra::tura_bota);
         }
     }
+    if(gracz_1->getReka()->getDeckSize()==0){
+        gracz_1->Pasuj();
+        qDebug()<<"Gracz ma tyle kart: "<<gracz_1->getReka()->getDeckSize();
+        if(gracz_2->isPas()){
+            koniec_rundy();
+        }
+    }
+
+
 }
 void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
     if (karta_g != nullptr) {
