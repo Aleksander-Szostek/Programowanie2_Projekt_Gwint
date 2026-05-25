@@ -236,30 +236,54 @@ void MainWindow::obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad) {
     }
 }
 
-void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr) {
+// void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr) {
+//     QLayout* docelowyLayout = getLayoutByEnum(rzad);
+//     if (!docelowyLayout) return;
+
+
+//     Card_Button* nowyPrzycisk = new Card_Button(nowaKarta, this);
+//     connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
+//         //Gra->graczZagrajKarte(indeks, nr_gr);
+//         Gra->zagranoKarte(indeks,nr_gr);
+//     });
+//     if (rzad == gra::P1_Hand) {
+//         connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
+//             Gra->graczZagrajKarte(indeks, nr_gr);
+//         });
+//     }
+//     else {
+//         connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
+//             Gra->wybranoKarte(rzad, indeks);
+//         });
+//     }
+
+//     nowyPrzycisk->refresh();
+//     docelowyLayout->addWidget(nowyPrzycisk);
+
+// }
+void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta,gra::RzadPlanszy rzad,int indeks,int nr_gr){
     QLayout* docelowyLayout = getLayoutByEnum(rzad);
     if (!docelowyLayout) return;
 
-
     Card_Button* nowyPrzycisk = new Card_Button(nowaKarta, this);
-    connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
-        //Gra->graczZagrajKarte(indeks, nr_gr);
-        Gra->zagranoKarte(indeks,nr_gr);
-    });
+
     if (rzad == gra::P1_Hand) {
+
         connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
             Gra->graczZagrajKarte(indeks, nr_gr);
         });
+
     }
     else {
+
         connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
             Gra->wybranoKarte(rzad, indeks);
         });
+
     }
 
     nowyPrzycisk->refresh();
     docelowyLayout->addWidget(nowyPrzycisk);
-
 }
 
 void MainWindow::obslugaAktualizacjiPunkt(int punkty[12]){

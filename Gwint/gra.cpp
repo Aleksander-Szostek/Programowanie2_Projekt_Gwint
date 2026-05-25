@@ -42,6 +42,10 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
     }
 }
 
+
+
+
+
 void gra::koniec_rundy(){
     GameState = KoniecRundy;
 
@@ -70,8 +74,8 @@ void gra::koniec_rundy(){
     }
     else {
         clearPlansza();
-        gracz_1->Spasuj(true);
-        gracz_2->Spasuj(true);
+        gracz_1->ResetPasa();
+        gracz_2->ResetPasa();
 
         if (zwyciezca == 1)
             GameState = Tura1;
@@ -84,40 +88,68 @@ void gra::koniec_rundy(){
             else
                 GameState = Tura2;
         }
+        if (GameState == Tura2) {
+            QTimer::singleShot(1000, this, &gra::tura_bota);
+        }
     }
-    if (GameState == Tura2) {
-        QTimer::singleShot(1000, this, &gra::tura_bota);
-    }
+
 
 }
 
 void gra::koniec_gry(){
-
+    qDebug()<<"Koniec gry";
 }
 
+// void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
+//     if (nr_gracza == 1 && GameState == Tura1){
+//         globalCardPlayed(gracz_1->zagrajKarte(nr_w_rece), 1);
+//         if (!gracz_2->isPas()){
+//             GameState = Tura2;
+//         }
+//     }
+
+//     if (nr_gracza == 2 && GameState == Tura2){
+//         globalCardPlayed(gracz_2->zagrajKarte(nr_w_rece), 2);
+//         if (!gracz_1->isPas()){
+//             GameState = Tura1;
+//         }
+//     }
+
+//     return;
+// }
 void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
+
     if (nr_gracza == 1 && GameState == Tura1){
+
         globalCardPlayed(gracz_1->zagrajKarte(nr_w_rece), 1);
+
+        redrawBoard();
+
         if (!gracz_2->isPas()){
             GameState = Tura2;
+            QTimer::singleShot(1000, this, &gra::tura_bota);
         }
     }
 
-    if (nr_gracza == 2 && GameState == Tura2){
+    else if (nr_gracza == 2 && GameState == Tura2){
+
         globalCardPlayed(gracz_2->zagrajKarte(nr_w_rece), 2);
+
+        redrawBoard();
+
         if (!gracz_1->isPas()){
             GameState = Tura1;
         }
+        else {
+            QTimer::singleShot(1000, this, &gra::tura_bota);
+        }
     }
-
-    return;
 }
-
 void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
     if (karta_g != nullptr) {
         //tutaj będą robione karty pogody i szpiedzy
     }
-    redrawBoard();
+    //redrawBoard();
     return;
 }
 
@@ -198,47 +230,50 @@ void gra::redrawBoard() {
 //     redrawBoard();
 // }
 
-void gra::zagranoKarte(int indeks, int nr_gracza){
-    if (GameState == Tura1 && nr_gracza != 1){
-        return;
-    }
-    if (GameState == Tura2 && nr_gracza != 2){
-        return;
-    }
-    karta* zagranaKarta = nullptr;
+// void gra::zagranoKarte(int indeks, int nr_gracza){
+//     if (GameState == Tura1 && nr_gracza != 1){
+//         return;
+//     }
+//     if (GameState == Tura2 && nr_gracza != 2){
+//         return;
+//     }
+//     karta* zagranaKarta = nullptr;
 
-    if(nr_gracza==1){
-        zagranaKarta= gracz_1->zagrajKarte(indeks);
-    }
-    else if(nr_gracza==2){
-        zagranaKarta = gracz_2->zagrajKarte(indeks);
-    }
+//     if(nr_gracza==1){
+//         zagranaKarta= gracz_1->zagrajKarte(indeks);
+//     }
+//     else if(nr_gracza==2){
+//         zagranaKarta = gracz_2->zagrajKarte(indeks);
+//     }
 
-    if(nr_gracza==1){
-        if(!gracz_2->isPas()){
-            GameState = Tura2;
-            qDebug()<<"Teraz tura bota";
-            QTimer::singleShot(1000, this, &gra::tura_bota);
-            redrawBoard();
-        }
-        else{
-            qDebug()<<"Gracz spaswal, bot gra dalej";
-            redrawBoard();
-        }
-    }
-    else if(nr_gracza==2){
-        if(!gracz_1->isPas()){
-            GameState = Tura1;
-            qDebug()<<"Tura gracza";
-            redrawBoard();
-        }
-        else{
-            qDebug()<<"Bot spaswal, bot gra dalej";
-            QTimer::singleShot(1000, this, &gra::tura_bota);
-            redrawBoard();
-        }
-    }
-}
+//     if(nr_gracza==1){
+//         if(!gracz_2->isPas()){
+//             GameState = Tura2;
+//             qDebug()<<"Teraz tura bota";
+//             QTimer::singleShot(1000, this, &gra::tura_bota);
+//             redrawBoard();
+//         }
+//         else{
+//             qDebug()<<"Gracz spaswal, bot gra dalej";
+//             redrawBoard();
+//         }
+//     }
+//     else if(nr_gracza==2){
+//         if(!gracz_1->isPas()){
+//             GameState = Tura1;
+//             qDebug()<<"Tura gracza";
+//             redrawBoard();
+//         }
+//         else{
+//             qDebug()<<"Gracz spaswal, bot gra dalej";
+//             QTimer::singleShot(1000, this, &gra::tura_bota);
+//             redrawBoard();
+//         }
+//     }
+//     if(gracz_1->getReka()->getDeckSize()==0){
+//         gracz_1->Spasuj();
+//     }
+// }
 
 void gra::gameClear() {
     daneKartNaPlanszy.clear();
@@ -269,6 +304,7 @@ void gra::dobierzKarte(int nr_gracza, int n){
 
 
 void gra::tura_bota() {
+
     if (GameState != Tura2){
         return;
     }
@@ -276,19 +312,23 @@ void gra::tura_bota() {
     decyzjaRuchu decyzja = gracz_2->podjecieDecyzji(gracz_1);
 
     if (decyzja.pasuje) {
-        gracz_2->Spasuj();
-        qDebug() << "Bot zdecydował się na PAS.";
 
-        if (!gracz_1->isPas()) {
-            GameState = Tura1;
-        } else {
+        gracz_2->Pasuj();
+
+        qDebug() << "Bot spasował";
+
+        if (gracz_1->isPas()) {
             koniec_rundy();
         }
-        redrawBoard();
-    } else {
+        else {
+            GameState = Tura1;
+        }
 
-        zagranoKarte(decyzja.nr_karty, 2);
+        redrawBoard();
+        return;
     }
+
+    graczZagrajKarte(decyzja.nr_karty, 2);
 }
 void gra::wybranoKarte(RzadPlanszy lokacja, int indeks){
 
@@ -313,23 +353,24 @@ void gra::countPoints() {
     punkty[9] = gracz_2->getReka()->getDeckSize();
 
     punkty[10] = p1_gamescore;
-    punkty[11] = p1_gamescore;
+    punkty[11] = p2_gamescore;
 
     nakazAktualizacjiPunkt(punkty);
 }
 
 void gra::graczPas(int nr_gr) {
     if (nr_gr == 1 && GameState == Tura1) {
-        gracz_1->Spasuj();
+        gracz_1->Pasuj();
         if (gracz_2->isPas()) {
             koniec_rundy();
         }
         else {
             GameState = Tura2;
+            QTimer::singleShot(1000, this, &gra::tura_bota);
         }
     }
     else if (nr_gr == 2 && GameState == Tura2) {
-        gracz_2->Spasuj();
+        gracz_2->Pasuj();
         if (gracz_1->isPas()) {
             koniec_rundy();
         }
@@ -338,7 +379,6 @@ void gra::graczPas(int nr_gr) {
         }
     }
 }
-
 void gra::clearPlansza() {
     gracz_1->wyczysc();
     gracz_2->wyczysc();

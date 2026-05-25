@@ -60,6 +60,10 @@ bool bot_player::czyPasowac(player* przeciwnik){
     if(suma_bota>suma_przeciwnika && przeciwnik->isPas()){
         return true;
     }
+
+    if(getReka()->getDeckSize()==0){
+        return true;
+    }
     // if(){ //aby nie pasował w ostatniej
     //    return false;
     // }

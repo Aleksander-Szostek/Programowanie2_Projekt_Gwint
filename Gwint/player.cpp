@@ -68,9 +68,13 @@ karta* player::zagrajKarte(int nr_w_rece){
 void player::uzyjLidera(){
 
 }
+//zmieniłem na te dwie funkcje bo tamto było jakieś dziwne i nie działało z jakiegoś powodu (nadal nie działa)
+void player::Pasuj(){
+    czyPas = true;
+}
 
-void player::Spasuj(bool reverse){
-    czyPas = true - reverse;
+void player::ResetPasa(){
+    czyPas = false;
 }
 
 bool player::isPas(){

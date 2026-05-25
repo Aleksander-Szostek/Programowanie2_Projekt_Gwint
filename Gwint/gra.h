@@ -74,7 +74,6 @@ private:
 
     void clearPlansza();
 
-
     std::vector<karta*> daneKartNaPlanszy; //przenosze te dane z mainwindow do gry aby tak jak mówiłeś to był mózg
 
 signals:

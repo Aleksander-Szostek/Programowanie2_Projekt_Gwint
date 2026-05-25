@@ -37,6 +37,8 @@ public:
     void uzyjLidera();
 
     void Spasuj(bool reverse = false);
+    void ResetPasa();
+    void Pasuj();
 
     bool isPas();
 
