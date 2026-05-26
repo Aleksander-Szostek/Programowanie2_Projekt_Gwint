@@ -70,6 +70,7 @@ public:
     StanGry getGameState();
     int getNrRundy();
 
+
 private:
     player *gracz_1;
     player *gracz_2;

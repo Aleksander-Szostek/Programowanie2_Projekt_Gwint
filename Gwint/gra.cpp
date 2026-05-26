@@ -49,6 +49,8 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
 void gra::koniec_rundy(){
     GameState = KoniecRundy;
 
+    nr_rundy ++;
+
     countPoints();
     //na wszelki wypadek edge caseów liczymy jeszcze raza
 
@@ -72,6 +74,9 @@ void gra::koniec_rundy(){
         p2_gamescore++;
         gracz_2->setPunktyK(p2_gamescore);
     }
+
+    countPoints();
+    nakazZmianyStrony(2);
 
     qDebug() << "Sprawdzanie co po końcu rundy. Wynik: " + QString::number(gracz_1->getPunktyK()) + "   " + QString::number(gracz_2->getPunktyK());
     if (p1_gamescore == 2 || p2_gamescore == 2) {
