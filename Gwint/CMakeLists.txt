@@ -34,6 +34,7 @@ qt_add_executable(Gwint
     bot_player.h bot_player.cpp
     stan_gry.h stan_gry.cpp
 
+
 )
 
 qt_add_resources(Gwint textury

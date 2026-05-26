@@ -60,7 +60,7 @@ private:
     plansza_linia *siege_l;
     graveyard *cmentarzysko;
 
-    bool czyPas;
+    bool czyPas = false;
 };
 
 #endif // PLAYER_H
