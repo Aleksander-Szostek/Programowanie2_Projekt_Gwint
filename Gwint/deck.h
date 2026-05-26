@@ -1,6 +1,7 @@
 #ifndef DECK_H
 #define DECK_H
 #include "kontener_kart.h"
+#include "deck_loader.h"
 
 class deck : public kontener_kart {
 

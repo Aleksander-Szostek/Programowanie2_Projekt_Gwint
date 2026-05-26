@@ -263,7 +263,6 @@ void gra::redrawBoard() {
 }
 
 void gra::gameClear() {
-    daneKartNaPlanszy.clear();
     gracz_1->wyczysc();
     gracz_2->wyczysc();
     //clearBoard();

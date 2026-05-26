@@ -58,6 +58,7 @@ public:
     void koniec_gry();
     void dobierzKarte(int nr_gracza, int n = 1);
     void graczZagrajKarte(int nr_w_rece, int nr_gracza);
+
     //jeśli zostanie zagrana karta która ma effekt globalny to musi zostać resolvowana w tym obiekcie
     void globalCardPlayed(karta* karta_g, int nr_gracza);
     void zagranoKarte(int indeks, int nr_gracza);
@@ -84,14 +85,10 @@ private:
 
     StanGry GameState = Nierozpoczeta;
 
-  // void redrawBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza, QWidget* parent);
- //   void clearBoard(std::vector<Card_Button*>& kartyPlansza,QLayout* plansza);
     void clearBoard();
     void redrawBoard();
 
     void clearPlansza();
-
-    std::vector<karta*> daneKartNaPlanszy; //przenosze te dane z mainwindow do gry aby tak jak mówiłeś to był mózg
 
     int nr_rundy = 0;
 

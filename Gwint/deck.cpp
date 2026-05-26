@@ -1,5 +1,4 @@
 #include "deck.h"
-#include "deck_loader.h"
 
 deck::deck() : kontener_kart() {}
 
