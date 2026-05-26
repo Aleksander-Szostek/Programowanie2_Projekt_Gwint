@@ -32,6 +32,7 @@ qt_add_executable(Gwint
     efekty_pogodowe.h efekty_pogodowe.cpp
     i_constant_valuse.h
 
+
 )
 
 qt_add_resources(Gwint textury

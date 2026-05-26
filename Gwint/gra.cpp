@@ -135,6 +135,8 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
         }
     }
 
+    qDebug() << "Koniec logiki zagrania karty.";
+
     return;
 }
 
@@ -148,6 +150,8 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
 }
 
 void gra::clearBoard() {
+
+    qDebug() << "Czyszczenie planszy";
 
     emit nakazCzyszczeniaLayoutu(P1_Melee);
     emit nakazCzyszczeniaLayoutu(P1_Range);

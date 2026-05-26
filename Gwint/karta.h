@@ -57,7 +57,6 @@ private:
     int sila_bazowa = 0;
     int sila = 0;
     keyword *efekt = nullptr;
-    std::vector<int> cele;
     unsigned int max_w_talii = 0;
     bool legendarna = false;
     QString flavor_text = "";
