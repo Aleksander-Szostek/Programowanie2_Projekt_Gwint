@@ -7,7 +7,15 @@ class keyword
 public:
     keyword();
 
-    enum efektyKart
+    enum class efektyKart {
+        brak = 0,
+        summon = 1,
+        braterstwo = 2,
+        szpieg = 3,
+        horn = 4,
+        kill = 5,
+        pogoda = 6
+    };
 
     ~keyword();
 

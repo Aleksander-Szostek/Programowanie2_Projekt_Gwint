@@ -54,7 +54,7 @@ void karta::setKeywordAdress(keyword* efekt_s){
     return;
 }
 void karta::setCele(std::vector<int> cele_s){
-    cele = cele_s;
+    //cele = cele_s;
     return;
 }
 void karta::setMax(unsigned int max_w_talii_s){
