@@ -30,6 +30,12 @@ private slots:
 
     void on_p1_pas_clicked();
 
+    void on_Talia_Button_clicked();
+
+    void on_powrot_Button_clicked();
+
+    void on_zapisz_Button_clicked();
+
 private:
     Ui::MainWindow *ui;
    // std::vector<Card_Button*> kartyNaPlanszy; // dodaje karty ktore są już na planszy do vectora
@@ -41,6 +47,8 @@ private:
     void obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr);
     void obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
     void obslugaAktualizacjiPunkt(int punkty[6]);
+
+    void obslugaRysowaniaKartDoTalii(); //to do zrobienia jeszcze
     QLayout* getLayoutByEnum(gra::RzadPlanszy rzad);
 };
 #endif // MAINWINDOW_H

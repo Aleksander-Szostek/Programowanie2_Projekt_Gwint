@@ -24,6 +24,16 @@ MainWindow::MainWindow(QWidget *parent)
     connect(Gra, &gra::nakazRysowaniaKarty, this, &MainWindow::obslugaRysowaniaKarty);
     connect(Gra, &gra::nakazCzyszczeniaLayoutu, this, &MainWindow::obslugaCzyszczeniaLayoutu);
     connect(Gra, &gra::nakazAktualizacjiPunkt, this, &MainWindow::obslugaAktualizacjiPunkt);
+
+    ui->comboBox->addItem("Królestwa Północy");
+    ui->comboBox->addItem("Nilfgard");
+    ui->comboBox->addItem("Potwory");
+    ui->comboBox->addItem("Scoia'tael");
+    ui->comboBox->addItem("Skelige");
+
+
+
+
     //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
     // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -309,5 +319,28 @@ void MainWindow::on_p1_pas_clicked()
 void MainWindow::on_p2_pas_clicked()
 {
     Gra->graczPas(2);
+}
+
+
+void MainWindow::on_Talia_Button_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_powrot_Button_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_zapisz_Button_clicked()
+{
+    //tu bedzie zapisywanie talli dla gracza, mozna do pliku i w grze bedzie oczytywało z pliku,
+    //a w program bedzie zapisywal talię między grami
+}
+
+void MainWindow::obslugaRysowaniaKartDoTalii(){
+    //bedzie rysowalo wszystkie karty z danej talii
 }
 
