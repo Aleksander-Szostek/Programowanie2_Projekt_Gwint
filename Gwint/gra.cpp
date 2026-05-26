@@ -1,5 +1,6 @@
 #include "gra.h"
 #include "bot_player.h"
+#include "human_player.h"
 #include "karta.h"
 #include <QPushButton>
 #include <QLayout>
@@ -7,7 +8,7 @@
 
 
 gra::gra() {
-    gracz_1 = new bot_player; // musimy zrbic klase np gracz_player
+    gracz_1 = new human_player; // musimy zrbic klase np gracz_player
     gracz_2 = new bot_player;
 }
 
@@ -111,8 +112,33 @@ void gra::koniec_rundy(){
 
 }
 
-void gra::koniec_gry(){
-    qDebug()<<"Koniec gry";
+void gra::koniec_gry(){ 
+    GameState = KoniecGry;
+
+    if (p1_gamescore == 0 && p2_gamescore == 0) {
+        nakazZmianyStrony(0);
+        qDebug() << "Gra nierozpoczęta ze względu na niewłaściewośc 1 z talii";
+        return;
+    }
+    else {
+        nakazZmianyStrony(2);
+    }
+
+    p1_gamescore = 0;
+    p2_gamescore = 0;
+
+    player* temp_p1 = gracz_1;
+    player* temp_p2 = gracz_2;
+
+    gracz_1 = new human_player;
+    gracz_2 = new bot_player;
+
+    delete temp_p1;
+    delete temp_p2;
+
+    nr_rundy = 0;
+
+    qDebug() << "Koniec gry";
 }
 
 // void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
