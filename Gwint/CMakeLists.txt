@@ -33,6 +33,7 @@ qt_add_executable(Gwint
     i_constant_valuse.h
     bot_player.h bot_player.cpp
     stan_gry.h stan_gry.cpp
+    card_button_talia.h card_button_talia.cpp
 
 )
 

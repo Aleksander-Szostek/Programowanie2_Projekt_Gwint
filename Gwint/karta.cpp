@@ -18,7 +18,7 @@ void karta::setFrakcja(QString Nazwa_frakcji){
     else if (Nazwa_frakcji == "MONSTERS")
         frakcja = Frakcja::Potwory;
     else if (Nazwa_frakcji == "NILFGAARD")
-        frakcja = Frakcja::Niflgard;
+        frakcja = Frakcja::Nilfgard;
     else if (Nazwa_frakcji == "SKELLIGE")
         frakcja = Frakcja::Skelige;
     else

@@ -36,6 +36,11 @@ private slots:
 
     void on_zapisz_Button_clicked();
 
+    void odswierzanieKartWTalii();
+
+
+    void on_comboBox_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
    // std::vector<Card_Button*> kartyNaPlanszy; // dodaje karty ktore są już na planszy do vectora

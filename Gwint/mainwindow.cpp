@@ -4,6 +4,7 @@
 #include "deck_loader.h"
 #include "deck_saver.h"
 #include "card_button.h"
+#include "card_button_talia.h"
 #include "gra.h"
 #include "i_constant_valuse.h"
 
@@ -31,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox->addItem("Scoia'tael");
     ui->comboBox->addItem("Skelige");
 
-
+    //ui->layout_prawy->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
 
     //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
@@ -321,10 +322,67 @@ void MainWindow::on_p2_pas_clicked()
     Gra->graczPas(2);
 }
 
+void MainWindow::odswierzanieKartWTalii(){
+    QString wybranaFrakcja = ui->comboBox->currentText();
+    Frakcja szukanaFrakcja=Frakcja::Polnoc;
+    if(wybranaFrakcja=="Królestwa Północy"){
+        szukanaFrakcja = Frakcja::Polnoc;
+    }
+    else if(wybranaFrakcja=="Nilfgard"){
+        szukanaFrakcja = Frakcja::Nilfgard;
+    }
+    else if(wybranaFrakcja=="Potwory"){
+        szukanaFrakcja = Frakcja::Potwory;
+    }
+    else if(wybranaFrakcja=="Scoia'tael"){
+        szukanaFrakcja = Frakcja::Elfy;
+    }
+    else if(wybranaFrakcja=="Skelige"){
+        szukanaFrakcja = Frakcja::Skelige;
+    }
+    QGridLayout* layoutPrawy = ui->layout_prawy;
+
+    if (!layoutPrawy) return;
+
+
+    QLayoutItem* item;
+    while ((item = layoutPrawy->takeAt(0)) != nullptr) {
+        if (item->widget()) {
+            QWidget* widget = item->widget();
+            widget->hide();
+            widget->deleteLater();
+        }
+        delete item;
+    }
+
+    card_loader zaladuj;
+    int i=0;
+    for(int idKarty=0; idKarty<=328;idKarty++){
+
+        karta* sprawdzanaKarta = new karta();
+        zaladuj.zaladuj_karte(idKarty, sprawdzanaKarta);
+
+        if(sprawdzanaKarta->getFrakcja()==szukanaFrakcja || sprawdzanaKarta->getFrakcja()==Frakcja::Neutral){
+
+            Card_Button_Talia* nowaKartaFrakcji = new Card_Button_Talia(sprawdzanaKarta,this);
+            nowaKartaFrakcji->refresh();
+            layoutPrawy->addWidget(nowaKartaFrakcji,i/7,i%7);
+            i++;
+        }
+        else{
+            delete sprawdzanaKarta;
+        }
+    }
+
+}
+
+
+
 
 void MainWindow::on_Talia_Button_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
+    odswierzanieKartWTalii();
 }
 
 
@@ -336,11 +394,26 @@ void MainWindow::on_powrot_Button_clicked()
 
 void MainWindow::on_zapisz_Button_clicked()
 {
+    QString nazwa_pliku=ui->zapisz_tekst->toPlainText();
+    qDebug()<<"Nazwa pliku: "<<nazwa_pliku;
+
+    //tu jeszcze musze zrobic sprawdzanie poprawnosci nazwy pliku czy np nie ma enterow, spacji albo czy w ogole jest
+    if(1==1){
+        ui->zapisz_tekst->setStyleSheet("background-color:#a63535;");
+        qDebug()<<"Niepoprawna nazwa pliku";
+    }
+
     //tu bedzie zapisywanie talli dla gracza, mozna do pliku i w grze bedzie oczytywało z pliku,
     //a w program bedzie zapisywal talię między grami
 }
 
 void MainWindow::obslugaRysowaniaKartDoTalii(){
     //bedzie rysowalo wszystkie karty z danej talii
+}
+
+
+void MainWindow::on_comboBox_currentIndexChanged(int index)
+{
+    odswierzanieKartWTalii();
 }
 

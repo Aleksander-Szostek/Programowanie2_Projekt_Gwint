@@ -5,7 +5,7 @@
 #include <vector>
 
 enum Frakcja {
-    Neutral, Elfy, Polnoc, Niflgard, Skelige, Potwory
+    Neutral, Elfy, Polnoc, Nilfgard, Skelige, Potwory
 };
 
 enum Kategoria {
