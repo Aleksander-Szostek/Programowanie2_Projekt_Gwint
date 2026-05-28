@@ -115,3 +115,7 @@ bool karta::getLeg(){
 QString karta::getFlavor(){
     return flavor_text;
 }
+
+keyword* karta::getKeyword(){
+    return efekt;
+}

@@ -65,22 +65,22 @@ void MainWindow::on_Start_Button_clicked()
 }
 
 // Funkcja pomocnicza zwracająca wskaźnik do layoutu na podstawie enuma
-QLayout* MainWindow::getLayoutByEnum(gra::RzadPlanszy rzad) {
+QLayout* MainWindow::getLayoutByEnum(RzadPlanszy rzad) {
     //return ui->player2_melee; testowalem czy w ogole dziala
     switch(rzad) {
-    case gra::P1_Hand: return ui->layout_reki;
-    case gra::P1_Melee: return ui->player1_melee;
-    case gra::P1_Range: return ui->player1_ranged;
-    case gra::P1_Siege: return ui->player1_siege;
-    case gra::P2_Melee: return ui->player2_melee;
-    case gra::P2_Range: return ui->player2_ranged;
-    case gra::P2_Siege: return ui->player2_siege;
+    case P1_Hand: return ui->layout_reki;
+    case P1_Melee: return ui->player1_melee;
+    case P1_Range: return ui->player1_ranged;
+    case P1_Siege: return ui->player1_siege;
+    case P2_Melee: return ui->player2_melee;
+    case P2_Range: return ui->player2_ranged;
+    case P2_Siege: return ui->player2_siege;
     //case gra::P1_Spell: return ui->player2_siege_horn; aby na razie sie nie pokazywala reszta
     default: return nullptr;
     }
 }
 
-void MainWindow::obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad) {
+void MainWindow::obslugaCzyszczeniaLayoutu(RzadPlanszy rzad) {
     QLayout* layout = getLayoutByEnum(rzad);
     if (!layout) return;
 
@@ -121,13 +121,13 @@ void MainWindow::obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad) {
 //     docelowyLayout->addWidget(nowyPrzycisk);
 
 // }
-void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta,gra::RzadPlanszy rzad,int indeks,int nr_gr){
+void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta,RzadPlanszy rzad,int indeks,int nr_gr){
     QLayout* docelowyLayout = getLayoutByEnum(rzad);
     if (!docelowyLayout) return;
 
     Card_Button* nowyPrzycisk = new Card_Button(nowaKarta, this);
 
-    if (rzad == gra::P1_Hand) {
+    if (rzad == P1_Hand) {
 
         connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
             qDebug() << "Zagrano karte: " + nowaKarta->getNazwa();
@@ -151,17 +151,19 @@ void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta,gra::RzadPlanszy rzad,in
 }
 
 void MainWindow::obslugaAktualizacjiPunkt(int punkty[12]){
-    ui->player1_melee_nr->setText(QString::number(punkty[int(gra::Pkt::p1_M)]));
-    ui->player1_ranged_nr->setText(QString::number(punkty[int(gra::Pkt::p1_R)]));
-    ui->player1_siege_nr->setText(QString::number(punkty[int(gra::Pkt::p1_S)]));
-    ui->player2_melee_nr->setText(QString::number(punkty[int(gra::Pkt::p2_M)]));
-    ui->player2_ranged_nr->setText(QString::number(punkty[int(gra::Pkt::p2_R)]));
-    ui->player2_siege_nr->setText(QString::number(punkty[int(gra::Pkt::p2_S)]));
+    ui->player1_melee_nr->setText(QString::number(punkty[int(Pkt::p1_M)]));
+    ui->player1_ranged_nr->setText(QString::number(punkty[int(Pkt::p1_R)]));
+    ui->player1_siege_nr->setText(QString::number(punkty[int(Pkt::p1_S)]));
+    ui->player2_melee_nr->setText(QString::number(punkty[int(Pkt::p2_M)]));
+    ui->player2_ranged_nr->setText(QString::number(punkty[int(Pkt::p2_R)]));
+    ui->player2_siege_nr->setText(QString::number(punkty[int(Pkt::p2_S)]));
 
-    ui->player1_kart_w_talii->setText("Talia: " + QString::number(punkty[int(gra::Pkt::p1_DS)]));
-    ui->player2_kart_w_talii->setText("Talia: " + QString::number(punkty[int(gra::Pkt::p2_DS)]));
-    ui->player1_kart_w_rece->setText("Karty: " + QString::number(punkty[int(gra::Pkt::p1_HS)]) + "\n" + "Punkty: " + QString::number(punkty[int(gra::Pkt::p1_GS)]));
-    ui->player2_kart_w_rece->setText("Karty: " + QString::number(punkty[int(gra::Pkt::p2_HS)]) + "\n" + "Punkty: " + QString::number(punkty[int(gra::Pkt::p2_GS)]));
+    ui->player1_kart_w_talii->setText("Talia: " + QString::number(punkty[int(Pkt::p1_DS)]));
+    ui->player2_kart_w_talii->setText("Talia: " + QString::number(punkty[int(Pkt::p2_DS)]));
+    ui->player1_kart_w_rece->setText("Karty: " + QString::number(punkty[int(Pkt::p1_HS)]) + "\n" +
+                                     "Punkty: " + QString::number(punkty[int(Pkt::p1_GS)]));
+    ui->player2_kart_w_rece->setText("Karty: " + QString::number(punkty[int(Pkt::p2_HS)]) + "\n" +
+                                     "Punkty: " + QString::number(punkty[int(Pkt::p2_GS)]));
 
     for (int i = 0; i < 12; i++) {
         pointsStorage[i] = punkty[i];
@@ -242,60 +244,60 @@ void MainWindow::zmianaStrony(int indeks){
 
             switch(Gra->getNrRundy()){
                 case 1: {
-                    ui->WM_1->setText(QString::number(pointsStorage[int(gra::Pkt::p1_M)]) +
+                    ui->WM_1->setText(QString::number(pointsStorage[int(Pkt::p1_M)]) +
                                       " / " +
-                                      QString::number(pointsStorage[int(gra::Pkt::p2_M)]));
+                                      QString::number(pointsStorage[int(Pkt::p2_M)]));
 
-                    ui->WR_1->setText(QString::number(pointsStorage[int(gra::Pkt::p1_R)]) +
+                    ui->WR_1->setText(QString::number(pointsStorage[int(Pkt::p1_R)]) +
                                       " / " +
-                                      QString::number(pointsStorage[int(gra::Pkt::p2_R)]));
+                                      QString::number(pointsStorage[int(Pkt::p2_R)]));
 
-                    ui->WS_1->setText(QString::number(pointsStorage[int(gra::Pkt::p1_S)]) +
+                    ui->WS_1->setText(QString::number(pointsStorage[int(Pkt::p1_S)]) +
                                       " / " +
-                                      QString::number(pointsStorage[int(gra::Pkt::p2_S)]));
+                                      QString::number(pointsStorage[int(Pkt::p2_S)]));
 
-                    ui->WRundy_1->setText(QString::number(pointsStorage[int(gra::Pkt::p1_GS)]) +
+                    ui->WRundy_1->setText(QString::number(pointsStorage[int(Pkt::p1_GS)]) +
                                           " / " +
-                                          QString::number(pointsStorage[int(gra::Pkt::p2_GS)])
+                                          QString::number(pointsStorage[int(Pkt::p2_GS)])
                                           );
                     break;
                 }
 
                 case 2: {
-                    ui->WM_2->setText(QString::number(pointsStorage[int(gra::Pkt::p1_M)]) +
+                    ui->WM_2->setText(QString::number(pointsStorage[int(Pkt::p1_M)]) +
                                       " / " +
-                                      QString::number(pointsStorage[int(gra::Pkt::p2_M)]));
+                                      QString::number(pointsStorage[int(Pkt::p2_M)]));
 
-                    ui->WR_2->setText(QString::number(pointsStorage[int(gra::Pkt::p1_R)]) +
+                    ui->WR_2->setText(QString::number(pointsStorage[int(Pkt::p1_R)]) +
                                       " / " +
-                                      QString::number(pointsStorage[int(gra::Pkt::p2_R)]));
+                                      QString::number(pointsStorage[int(Pkt::p2_R)]));
 
-                    ui->WS_2->setText(QString::number(pointsStorage[int(gra::Pkt::p1_S)]) +
+                    ui->WS_2->setText(QString::number(pointsStorage[int(Pkt::p1_S)]) +
                                       " / " +
-                                      QString::number(pointsStorage[int(gra::Pkt::p2_S)]));
+                                      QString::number(pointsStorage[int(Pkt::p2_S)]));
 
-                    ui->WRundy_2->setText(QString::number(pointsStorage[int(gra::Pkt::p1_GS)]) +
+                    ui->WRundy_2->setText(QString::number(pointsStorage[int(Pkt::p1_GS)]) +
                                           " / " +
-                                          QString::number(pointsStorage[int(gra::Pkt::p2_GS)]));
+                                          QString::number(pointsStorage[int(Pkt::p2_GS)]));
                     break;
                 }
 
                 case 3: {
-                    ui->WM_3->setText(QString::number(pointsStorage[int(gra::Pkt::p1_M)]) +
+                    ui->WM_3->setText(QString::number(pointsStorage[int(Pkt::p1_M)]) +
                                       " / " +
-                                      QString::number(pointsStorage[int(gra::Pkt::p2_M)]));
+                                      QString::number(pointsStorage[int(Pkt::p2_M)]));
 
-                    ui->WR_3->setText(QString::number(pointsStorage[int(gra::Pkt::p1_R)]) +
+                    ui->WR_3->setText(QString::number(pointsStorage[int(Pkt::p1_R)]) +
                                       " / " +
-                                      QString::number(pointsStorage[int(gra::Pkt::p2_R)]));
+                                      QString::number(pointsStorage[int(Pkt::p2_R)]));
 
-                    ui->WS_3->setText(QString::number(pointsStorage[int(gra::Pkt::p1_S)]) +
+                    ui->WS_3->setText(QString::number(pointsStorage[int(Pkt::p1_S)]) +
                                       " / " +
-                                      QString::number(pointsStorage[int(gra::Pkt::p2_S)]));
+                                      QString::number(pointsStorage[int(Pkt::p2_S)]));
 
-                    ui->WRundy_3->setText(QString::number(pointsStorage[int(gra::Pkt::p1_GS)]) +
+                    ui->WRundy_3->setText(QString::number(pointsStorage[int(Pkt::p1_GS)]) +
                                           " / " +
-                                          QString::number(pointsStorage[int(gra::Pkt::p2_GS)]));
+                                          QString::number(pointsStorage[int(Pkt::p2_GS)]));
                     break;
                 }
 

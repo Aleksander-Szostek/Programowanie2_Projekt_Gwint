@@ -43,7 +43,7 @@ public:
     Kategoria getKategoria();
     unsigned int getSila();
 
-    //tu coś z keywordem jak to zrobię
+    keyword* getKeyword();
 
     unsigned int getMax();
     bool getLeg();

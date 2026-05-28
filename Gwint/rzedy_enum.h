@@ -1,0 +1,44 @@
+#ifndef RZEDY_ENUM_H
+#define RZEDY_ENUM_H
+
+enum RzadPlanszy{
+    Unknown,
+    P1_Melee,
+    P1_Range,
+    P1_Siege,
+    P2_Melee,
+    P2_Range,
+    P2_Siege,
+    P1_Spell,
+    P2_Spell,
+    P1_Leader,
+    P2_Leader,
+    P1_Hand,
+    P2_Hand
+};
+
+enum class Pkt{
+    p1_M = 0,
+    p1_R = 1,
+    p1_S = 2,
+    p2_M = 3,
+    p2_R = 4,
+    p2_S = 5,
+
+    p1_DS = 6,
+    p2_DS = 7,
+    p1_HS = 8,
+    p2_HS = 9,
+
+    p1_GS = 10,
+    p2_GS = 11
+};
+
+class rzedy_enum
+{
+public:
+    rzedy_enum();
+
+};
+
+#endif // RZEDY_ENUM_H

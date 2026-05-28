@@ -34,10 +34,10 @@ private:
     Ui::MainWindow *ui;
     gra *Gra; // dodaje tutaj Gra aby nie znikała tak jak to zrobiłem wcześniej
 
-    void obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr);
-    void obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
+    void obslugaRysowaniaKarty(karta* nowaKarta, RzadPlanszy rzad, int indeks, int nr_gr);
+    void obslugaCzyszczeniaLayoutu(RzadPlanszy rzad);
     void obslugaAktualizacjiPunkt(int punkty[6]);
-    QLayout* getLayoutByEnum(gra::RzadPlanszy rzad);
+    QLayout* getLayoutByEnum(RzadPlanszy rzad);
     void zmianaStrony(int indeks);
     void zmianaGSLabel(StanGry GameState, bool p1_pas, bool p2_pas);
 

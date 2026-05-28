@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QLayout>
 #include "i_constant_valuse.h"
+#include "keyword.h"
 
 
 gra::gra() {
@@ -27,7 +28,6 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
             else {
                 GameState = Tura2;
                 qDebug() << "Tura 2";
-
             }
     }
     else {
@@ -197,6 +197,16 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
 }
 void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
     if (karta_g != nullptr) {
+        /*
+        connect(karta_g->getKeyword(), &keyword::nakazRusz, this, &gra::sygnalRusz);
+        connect(karta_g->getKeyword(), &keyword::nakazSzukaj, this, &gra::sygnalSzukaj);
+        connect(karta_g->getKeyword(), &keyword::nakazGrzybek, this, &gra::sygnalGrzybek);
+        connect(karta_g->getKeyword(), &keyword::nakazDobierz, this, &gra::dobierzKarte);
+
+
+
+         */
+
         //tutaj będą robione karty pogody i szpiedzy
     }
     //redrawBoard();

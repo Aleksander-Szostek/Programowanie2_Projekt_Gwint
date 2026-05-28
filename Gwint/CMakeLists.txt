@@ -34,6 +34,8 @@ qt_add_executable(Gwint
     bot_player.h bot_player.cpp
     stan_gry.h stan_gry.cpp
     human_player.h human_player.cpp
+    rzedy_enum.h rzedy_enum.cpp
+    kw_szpieg.h kw_szpieg.cpp
 
 
 )
