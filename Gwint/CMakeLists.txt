@@ -20,7 +20,7 @@ qt_add_executable(Gwint
     card_loader.h card_loader.cpp
     deck_saver.h deck_saver.cpp
     deck_loader.h deck_loader.cpp
-    keyword.h keyword.cpp
+
     graveyard.h graveyard.cpp
     player_hand.h player_hand.cpp
 
@@ -35,7 +35,7 @@ qt_add_executable(Gwint
     stan_gry.h stan_gry.cpp
     human_player.h human_player.cpp
     rzedy_enum.h rzedy_enum.cpp
-    kw_szpieg.h kw_szpieg.cpp
+
 
 
 )

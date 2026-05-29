@@ -1,5 +1,6 @@
 #ifndef RZEDY_ENUM_H
 #define RZEDY_ENUM_H
+#include "karta.h"
 
 enum RzadPlanszy{
     Unknown,
@@ -14,7 +15,9 @@ enum RzadPlanszy{
     P1_Leader,
     P2_Leader,
     P1_Hand,
-    P2_Hand
+    P2_Hand,
+    P1_Deck,
+    P2_Deck
 };
 
 enum class Pkt{
@@ -34,10 +37,20 @@ enum class Pkt{
     p2_GS = 11
 };
 
+struct nakaz {
+
+};
+
+
 class rzedy_enum
 {
 public:
     rzedy_enum();
+
+    bool isPlayer1(RzadPlanszy rzad);
+    RzadPlanszy reverseRzad(RzadPlanszy rzad);
+
+    RzadPlanszy convertTypToRzad(Kategoria typ, int nr_gracza);
 
 };
 

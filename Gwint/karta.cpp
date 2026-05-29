@@ -49,12 +49,70 @@ void karta::setSilaBaz(unsigned int sila_bazowa_s){
     sila_bazowa = sila_bazowa_s;
     return;
 }
-void karta::setKeywordAdress(keyword* efekt_s){
-    efekt = efekt_s;
+void karta::setKeyword(QString efekt_s){
+    if (efekt_s == "")
+        keyword = Brak;
+    else if (efekt_s == "SPY")
+        keyword = Szpieg;
+    else if (efekt_s == "SUMMON")
+        keyword = Przyzwij;
+    else if (efekt_s == "LINKED")
+        keyword = Linked;
+    else if (efekt_s == "REBIRTH")
+        keyword = Reborn;
+    else if (efekt_s == "MEDIC")
+        keyword = Medyk;
+    else if (efekt_s == "WEATHER")
+        keyword = Pogoda;
+    else if (efekt_s == "SCORCH")
+        keyword = Porzoga;
+    else if (efekt_s == "HORN")
+        keyword = Horn;
+    else if (efekt_s == "BOOST")
+        keyword = Boost;
+    else if (efekt_s == "MORPH")
+        keyword = Morph;
+    else if (efekt_s == "MUSHROOM")
+        keyword = Grzyb;
+    else
+        keyword = Brak;
     return;
+
 }
-void karta::setCele(std::vector<int> cele_s){
-    //cele = cele_s;
+void karta::setCele(QString cele_s){
+    qDebug() << "Wywołano setCele";
+    if (cele_s == "") {
+        qDebug() << "Brak celi";
+        return;
+    }
+
+    QStringList dane = cele_s.split(' ');
+
+    //dałem celom będących liniami indeksy negatywne żeby zapisać w 1 liście
+    //żeby to samo można był używać do efektów targetujących karty jak i linie
+    //  (-1) - MELEE
+    //  (-2) - RANGED
+    //  (-3) - SIEGE
+
+    for (int i = 0 ; i < dane.size() ; i++)
+    {
+        qDebug() << "Zapisywanie celu: " + dane[i];
+        if (dane[i] == "MELEE")
+            cele.push_back(-1);
+        else if (dane[i] == "RANGED")
+            cele.push_back(-2);
+        else if (dane[i] == "SIEGE")
+            cele.push_back(-3);
+        else {
+            qDebug() << "Zapisywanie tego";
+            int ID = dane[i].toInt(nullptr, 10);
+            cele.push_back(ID);
+            //dane[i].toInt(nullptr, 10)
+            qDebug() << "Zapisało";
+        }
+    }
+
+    qDebug() << "Koniec setCele";
     return;
 }
 void karta::setMax(unsigned int max_w_talii_s){
@@ -72,6 +130,7 @@ void karta::setFlavor(QString flavor_s){
 
 //jeśli dodane zostaną kart o negatywnym booście trzeba zaaktualizować tą funkcję
 //przy dodawaniu kart typu biedna ******* piechota zaaktualizować funkcję
+//i gracza też zmodyfikować
 void karta::updateSila(bool pogoda, bool horn, int boost){
     if (pogoda && sila_bazowa > 0){
         sila = (1 + boost) * (1 + horn);
@@ -102,8 +161,6 @@ unsigned int karta::getSila(){
     return sila;
 }
 
-//tu coś z keywordem jak to zrobię
-
 unsigned int karta::getMax(){
     return max_w_talii;
 }
@@ -116,6 +173,10 @@ QString karta::getFlavor(){
     return flavor_text;
 }
 
-keyword* karta::getKeyword(){
-    return efekt;
+Efekt karta::getKeyword(){
+    return keyword;
+}
+
+std::vector<int> karta::getCele(){
+    return cele;
 }

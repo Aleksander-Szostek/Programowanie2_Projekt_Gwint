@@ -30,6 +30,7 @@ public:
     deck* getDeck();
     player_hand* getReka();
 
+
     void dobierzKarte();
 
     karta* zagrajKarte(int nr_w_rece);

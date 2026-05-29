@@ -8,10 +8,10 @@ class szpieg : public keyword
 public:
     szpieg();
 
-    void whenPlayed(RzadPlanszy rzad = Unknown, int indeks = 0) override;
-    void whenKilled(RzadPlanszy rzad = Unknown, int indeks = 0) override;
+    void whenPlayed() override;
+    void whenKilled() override;
 private:
-    RzadPlanszy getReverseRzada(RzadPlanszy rzad);
+    RzadPlanszy getReverseRzad(RzadPlanszy rzad);
 };
 
 #endif // KW_SZPIEG_H

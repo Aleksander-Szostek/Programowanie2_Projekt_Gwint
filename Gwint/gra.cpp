@@ -5,7 +5,6 @@
 #include <QPushButton>
 #include <QLayout>
 #include "i_constant_valuse.h"
-#include "keyword.h"
 
 
 gra::gra() {
@@ -42,10 +41,6 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
         QTimer::singleShot(1000, this, &gra::tura_bota);
     }
 }
-
-
-
-
 
 void gra::koniec_rundy(){
     GameState = KoniecRundy;
@@ -141,23 +136,6 @@ void gra::koniec_gry(){
     qDebug() << "Koniec gry";
 }
 
-// void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
-//     if (nr_gracza == 1 && GameState == Tura1){
-//         globalCardPlayed(gracz_1->zagrajKarte(nr_w_rece), 1);
-//         if (!gracz_2->isPas()){
-//             GameState = Tura2;
-//         }
-//     }
-
-//     if (nr_gracza == 2 && GameState == Tura2){
-//         globalCardPlayed(gracz_2->zagrajKarte(nr_w_rece), 2);
-//         if (!gracz_1->isPas()){
-//             GameState = Tura1;
-//         }
-//     }
-
-//     return;
-// }
 void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
 
     if (nr_gracza == 1 && GameState == Tura1){
@@ -196,20 +174,56 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
 
 }
 void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
-    if (karta_g != nullptr) {
-        /*
-        connect(karta_g->getKeyword(), &keyword::nakazRusz, this, &gra::sygnalRusz);
-        connect(karta_g->getKeyword(), &keyword::nakazSzukaj, this, &gra::sygnalSzukaj);
-        connect(karta_g->getKeyword(), &keyword::nakazGrzybek, this, &gra::sygnalGrzybek);
-        connect(karta_g->getKeyword(), &keyword::nakazDobierz, this, &gra::dobierzKarte);
+    switch (karta_g->getKeyword()) {
+        case Szpieg:{
+            szpieg(karta_g, nr_gracza);
+            break;
+        }
 
+        case Przyzwij:{
+            przyzwij(karta_g, nr_gracza);
+            break;
+        }
 
+        case Linked:{
+            linked(karta_g, nr_gracza);
+            break;
+        }
 
-         */
+        case Medyk:{
+            medyk(karta_g, nr_gracza);
+            break;
+        }
 
-        //tutaj będą robione karty pogody i szpiedzy
+        case Pogoda:{
+            pogodaPlay(karta_g, nr_gracza);
+            break;
+        }
+
+        case Porzoga:{
+            porzoga(karta_g, nr_gracza);
+            break;
+        }
+
+        case Horn:{
+            horn(karta_g, nr_gracza);
+            break;
+        }
+
+        case Boost:{
+            boost(karta_g, nr_gracza);
+            break;
+        }
+
+        case Grzyb:{
+            grzyb(karta_g, nr_gracza);
+            break;
+        }
+
+        default:
+            break;
     }
-    //redrawBoard();
+
     return;
 }
 
@@ -275,8 +289,6 @@ void gra::redrawBoard() {
 void gra::gameClear() {
     gracz_1->wyczysc();
     gracz_2->wyczysc();
-    //clearBoard();
-    //z redrawBoard ręka gracza nie znika(bo koorzystając z clearBoard ręka gracza znika do następnej akcji typu kliknięcie przycisku karty)
     redrawBoard();
 }
 
@@ -326,8 +338,10 @@ void gra::tura_bota() {
 
     graczZagrajKarte(decyzja.nr_karty, 2);
 }
-void gra::wybranoKarte(RzadPlanszy lokacja, int indeks){
 
+
+void gra::wybranoKarte(RzadPlanszy lokacja, int indeks){
+    //tutaj będzie trzeba dodać implementacje
 }
 
 void gra::countPoints() {
@@ -353,7 +367,6 @@ void gra::countPoints() {
 
     nakazAktualizacjiPunkt(punkty);
 }
-
 void gra::graczPas(int nr_gr) {
     if (nr_gr == 1 && GameState == Tura1) {
         gracz_1->Pasuj();
@@ -380,10 +393,206 @@ void gra::clearPlansza() {
     gracz_2->wyczysc();
     redrawBoard();
 }
-
 StanGry gra::getGameState() {
     return GameState;
 }
 int gra::getNrRundy() {
     return nr_rundy;
+}
+
+
+/*
+keyword::lokacjaKarty gra::sygnalSzukaj(int ID, RzadPlanszy gdzieSzukac){
+    keyword::lokacjaKarty znalezione;
+    znalezione.miejsce = Unknown;
+
+    kontener_kart* adres;
+
+    for (int i = 0 ; i > adres->getDeckSize() ; i++) {
+        if (adres->getKartaFromList(i)->getID() == ID) {
+            znalezione.indeks = i;
+            znalezione.miejsce = gdzieSzukac;
+            break;
+        }
+    }
+
+    return znalezione;
+}
+*/
+
+kontener_kart* gra::getKontenerByEnum(RzadPlanszy rzad) {
+
+    kontener_kart* kontener = nullptr;
+    switch (rzad) {
+        case P1_Melee: {
+            kontener = gracz_1->getMelee();
+            break;
+        }
+        case P1_Range: {
+            kontener = gracz_1->getRanged();
+            break;
+        }
+        case P1_Siege: {
+            kontener = gracz_1->getSiege();
+            break;
+        }
+        case P2_Melee: {
+            kontener = gracz_2->getMelee();
+            break;
+        }
+        case P2_Range: {
+            kontener = gracz_2->getRanged();
+            break;
+        }
+        case P2_Siege: {
+            kontener = gracz_2->getSiege();
+            break;
+        }
+        case P1_Spell: {
+            kontener = nullptr;
+            break;
+        }
+        case P2_Spell: {
+            kontener = nullptr;
+            break;
+        }
+        case P1_Leader: {
+            kontener = nullptr;
+            break;
+        }
+        case P2_Leader: {
+            kontener = nullptr;
+            break;
+        }
+        case P1_Hand: {
+            kontener = gracz_1->getReka();
+            break;
+        }
+        case P2_Hand: {
+            kontener = gracz_1->getReka();
+            break;
+        }
+        case P1_Deck: {
+            kontener = gracz_1->getDeck();
+            break;
+        }
+        case P2_Deck: {
+            kontener = gracz_2->getDeck();
+            break;
+        }
+        default: {
+            kontener = nullptr;
+        }
+    }
+
+return kontener;
+}
+
+void gra::szpieg(karta* active, int nr_gracza){
+    qDebug() << "Szpiegowanie";
+
+    dobierzKarte(nr_gracza, 2);
+
+    rzedy_enum konwersje;
+    RzadPlanszy lokacja = konwersje.convertTypToRzad(active->getKategoria(), nr_gracza);
+
+    moveCardByEnum(lokacja , konwersje.reverseRzad(lokacja) , active->getID());
+}
+
+void gra::przyzwij(karta* active, int nr_gracza){
+    qDebug() << "Przyzywanie";
+
+    player* gracz;
+
+
+
+    qDebug() << "wybieranie gracza";
+    if (nr_gracza == 1)
+        gracz = gracz_1;
+    else
+        gracz = gracz_2;
+
+    deck* talia = gracz->getDeck();
+
+    int size = active->getCele().size();
+
+    //dobiera karty z talii do natychmiastowego zagrania
+    qDebug() << "Sprawdzanie talii";
+    for (int indeks = talia->getDeckSize() - 1; indeks >= 0 ; indeks--) {
+        for (int cel = 0; cel < size; cel++) {
+            if (active->getCele().at(cel) == talia->getKartaFromList(indeks)->getID()) {
+                talia->move_card(indeks, gracz->getReka());
+            }
+        }
+    }
+
+    qDebug() << "Zagrywanie syfu";
+    player_hand *reka = gracz->getReka();
+    for (int indeks = gracz->getReka()->getDeckSize() - 1; indeks >= 0 ; indeks--) {
+        for (int cel = 0; cel < size; cel++) {
+            if (active->getCele().at(cel) == reka->getKartaFromList(indeks)->getID()
+                && indeks < gracz->getReka()->getDeckSize()) {
+                //dodatkowy warunek musi być sprawdzany bo każda karta aktywuje swój efekt
+                //więc inaczej by zagrywało n^2 kart zamiast n kart
+                //(przyzywało całą artylerię imperium ludzkości)
+                globalCardPlayed(gracz->zagrajKarte(indeks), nr_gracza);
+            }
+        }
+    }
+}
+
+void gra::linked(karta* active, int nr_gracza){
+
+}
+
+void gra::medyk(karta* active, int nr_gracza){
+
+}
+
+void gra::rebornDEAD(karta* active, int nr_gracza){
+
+}
+
+void gra::porzoga(karta* active, int nr_gracza){
+
+}
+
+void gra::pogodaPlay(karta* active, int nr_gracza){
+
+}
+
+void gra::horn(karta* active, int nr_gracza){
+
+}
+
+void gra::boost(karta* active, int nr_gracza){
+
+}
+
+void gra::grzyb(karta* active, int nr_gracza){
+
+}
+
+void gra::moveCardByEnum(RzadPlanszy rzad_start, RzadPlanszy rzad_end, int ID){
+    int indeks = findCardByID(rzad_start, ID);
+
+    if (indeks >= 0) {
+        kontener_kart* lokacja_start = getKontenerByEnum(rzad_start);
+        kontener_kart* lokacja_end = getKontenerByEnum(rzad_end);
+        lokacja_start->move_card(indeks, lokacja_end);
+    }
+}
+
+int gra::findCardByID(RzadPlanszy rzad, int ID) {
+    int indeks = -1;
+    kontener_kart* lokacja = getKontenerByEnum(rzad);
+
+    for (int i = 0 ; i < lokacja->getDeckSize() ; i++) {
+        if (lokacja->getKartaFromList(i)->getID() == ID) {
+            indeks = i;
+            break;
+        }
+    }
+
+    return indeks;
 }

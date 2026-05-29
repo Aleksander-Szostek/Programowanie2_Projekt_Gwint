@@ -10,8 +10,8 @@ class keyword
 public:
     keyword();
 
-    virtual void whenPlayed(RzadPlanszy rzad = Unknown, int indeks = 0) = 0;
-    virtual void whenKilled(RzadPlanszy rzad = Unknown, int indeks = 0) = 0;
+    virtual void whenPlayed() = 0;
+    virtual void whenKilled() = 0;
 
     struct lokacjaKarty {
         RzadPlanszy miejsce;
@@ -28,7 +28,7 @@ protected:
 
 signals:
     void nakazRusz(RzadPlanszy poz_start, int indeks, RzadPlanszy poz_kon);
-    std::vector<lokacjaKarty> nakazSzukaj(RzadPlanszy gdzieSzukac, int ID);
+    int nakazSzukaj(int ID, RzadPlanszy gdzieSzukac = Unknown);
     void nakazGrzybek();
     void nakazDobierz(int nr_gracza, int liczba = 1);
 

@@ -3,11 +3,9 @@
 
 #include "player.h"
 #include "efekty_pogodowe.h"
-#include "card_button.h"
 #include "karta.h"
 
 #include <QPushButton>
-#include <vector>
 #include <QTimer>
 
 #include "stan_gry.h"
@@ -62,9 +60,21 @@ private:
 
     int nr_rundy = 0;
 
-    void sygnalRusz(RzadPlanszy poz_start, int indeks, RzadPlanszy poz_kon);
-    std::vector<keyword::lokacjaKarty> sygnalSzukaj(RzadPlanszy gdzieSzukac, int ID);
-    void sygnalGrzybek();
+    void moveCardByEnum(RzadPlanszy rzad_start, RzadPlanszy rzad_end, int ID);
+    int findCardByID(RzadPlanszy rzad, int ID);
+
+    kontener_kart* getKontenerByEnum(RzadPlanszy rzad);
+
+    void szpieg(karta* active, int nr_gracza);
+    void przyzwij(karta* active, int nr_gracza);
+    void linked(karta* active, int nr_gracza);
+    void medyk(karta* active, int nr_gracza);
+    void rebornDEAD(karta* active, int nr_gracza);
+    void porzoga(karta* active, int nr_gracza);
+    void pogodaPlay(karta* active, int nr_gracza);
+    void horn(karta* active, int nr_gracza);
+    void boost(karta* active, int nr_gracza);
+    void grzyb(karta* active, int nr_gracza);
 
 signals:
     //void dodanieKarty(karta* nowaKarta, gra::RzadPlanszy rzad);

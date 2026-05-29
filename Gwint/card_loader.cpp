@@ -50,8 +50,8 @@ void card_loader::zaladuj_karte(int id, karta* Karta) {
     Karta->setKategoria(dane[3]);
     Karta->setSilaBaz(dane[4].toInt(nullptr, 10));
     Karta->updateSila(0,0,0);
-//    Karta->efekt = nullptr;  //to do zrobienia jak zostaną zaimplementowane keywordy
-//    odczytana_karta.cele = dane[6];
+    Karta->setKeyword(dane[5]);
+    Karta->setCele(dane[6]);
     Karta->setMax(dane[7].toInt(nullptr, 10));
     if (dane[8] == '1') Karta->setLeg(true);
     Karta->setFlavor(dane[9]);

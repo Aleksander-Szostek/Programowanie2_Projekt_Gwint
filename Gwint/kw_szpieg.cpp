@@ -2,25 +2,26 @@
 
 szpieg::szpieg() {}
 
-void szpieg::whenPlayed(RzadPlanszy rzad, int indeks) {
-    if (isPlayer1(rzad)) {
+void szpieg::whenPlayed() {
+    if (isPlayer1(P1_Melee)) {
         //nakazDobierz(1, 2);
         }
     else
         {
         //nakazDobierz(2, 2);
         }
+    //dobierz(1, 1);
 
     //nakazRusz(rzad, indeks, getReverseRzada(rzad));
 }
 
-void szpieg::whenKilled(RzadPlanszy rzad, int indeks) {
+void szpieg::whenKilled() {
     return;
     //szpieg umiera jak każdy, ewentualnie zamienia się w stonkę
 }
 
 
-RzadPlanszy szpieg::getReverseRzada(RzadPlanszy rzad) {
+RzadPlanszy szpieg::getReverseRzad(RzadPlanszy rzad) {
     switch (rzad) {
 
     case P1_Melee:{

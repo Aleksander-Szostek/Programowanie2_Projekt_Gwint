@@ -1,12 +1,16 @@
 #ifndef KARTA_H
 #define KARTA_H
 #include <QString>
-#include "keyword.h"
 #include <vector>
 #include <QDebug>
 
 enum Frakcja {
-    Neutral, Elfy, Polnoc, Niflgard, Skelige, Potwory
+    Neutral,
+    Elfy,
+    Polnoc,
+    Niflgard,
+    Skelige,
+    Potwory
 };
 
 enum Kategoria {
@@ -19,6 +23,21 @@ enum Kategoria {
     Undefined
 };
 
+enum Efekt {
+    Brak,
+    Szpieg,
+    Przyzwij,
+    Linked,
+    Medyk,
+    Reborn,
+    Pogoda,
+    Porzoga,
+    Horn,
+    Boost,
+    Morph,
+    Grzyb
+};
+
 class karta
 {
 public:
@@ -29,8 +48,8 @@ public:
     void setFrakcja(QString Nazwa_frakcji);
     void setKategoria(QString Nazwa_kategorii);
     void setSilaBaz(unsigned int sila_bazowa_s);
-    void setKeywordAdress(keyword* efekt_s);
-    void setCele(std::vector<int> cele_s);
+    void setKeyword(QString efekt_s);
+    void setCele(QString cele_s);
     void setMax(unsigned int max_w_talii_s);
     void setLeg(bool leg_s);
     void setFlavor(QString flavor_s);
@@ -42,8 +61,9 @@ public:
     Frakcja getFrakcja();
     Kategoria getKategoria();
     unsigned int getSila();
+    std::vector<int> getCele();
 
-    keyword* getKeyword();
+    Efekt getKeyword();
 
     unsigned int getMax();
     bool getLeg();
@@ -56,7 +76,8 @@ private:
     Kategoria kategoria = Kategoria::Undefined;
     int sila_bazowa = 0;
     int sila = 0;
-    keyword *efekt = nullptr;
+    Efekt keyword = Brak;
+    std::vector<int> cele;
     unsigned int max_w_talii = 0;
     bool legendarna = false;
     QString flavor_text = "";

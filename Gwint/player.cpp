@@ -35,11 +35,12 @@ void player::dobierzKarte(){
 }
 
 karta* player::zagrajKarte(int nr_w_rece){
-    qDebug() << "Gracz zagrał lokalnie";
+    qDebug() << "Gracz zagrał lokalnie. nr: " + QString::number(nr_w_rece);
     Kategoria typ_karty = reka->getKartaFromList(nr_w_rece)->getKategoria();
+    qDebug() << "Zapisywanie pointera";
+    karta* karta_g = reka->getKartaFromList(nr_w_rece);
 
-    karta* karta_g = nullptr;
-
+    qDebug() << "Sprawdzanie lokacji";
     if (typ_karty == Kategoria::Melee){
         reka->move_card(nr_w_rece, melee_l);
         qDebug("Zagrano melee");
@@ -53,12 +54,10 @@ karta* player::zagrajKarte(int nr_w_rece){
         qDebug("Zagrano siege");
     }
     else if (typ_karty == Kategoria::Spell){
-        karta_g = reka->getKartaFromList(nr_w_rece);
         qDebug("Zagrano zaklęcie (idzie do shadow realm)");
         //reka->delete_card(nr_w_rece);
     }
     else if (typ_karty == Kategoria::Agile){
-        karta_g = reka->getKartaFromList(nr_w_rece);
         qDebug("Zagrano agile (idzie do shadow realm)");
     }
     else {
