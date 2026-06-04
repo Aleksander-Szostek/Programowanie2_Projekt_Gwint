@@ -12,11 +12,13 @@ public:
 
     void validifyDeck();
 
-    kontener_kart *Leader;      //pomimo że to pole nie powinno zawierać więcej niż 1 karta
+    kontener_kart* getLeader();      //pomimo że to pole nie powinno zawierać więcej niż 1 karta
                                 //to jest kontenerem żeby kożystało z tych samych funkcji co każdy inny kontener kart
-    bool DeckValid = false;
+    bool DeckValid = true; //false;
 
 private:
+
+    kontener_kart *Leader;
 
     bool isDeck = true;
 

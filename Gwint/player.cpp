@@ -7,6 +7,7 @@ player::player() {
     ranged_l = new plansza_linia;
     siege_l = new plansza_linia;
     cmentarzysko = new graveyard;
+    limbo = new kontener_kart;
 }
 
 plansza_linia* player::getMelee(){
@@ -29,12 +30,23 @@ player_hand* player::getReka(){
     return reka;
 }
 
+graveyard* player::getGraveyard(){
+    return cmentarzysko;
+}
+
+kontener_kart* player::getLimbo(){
+    return limbo;
+}
+
 void player::dobierzKarte(){
     if (Talia->getDeckSize() > 0)
         Talia->move_card(0, reka);
 }
 
 karta* player::zagrajKarte(int nr_w_rece){
+    if (nr_w_rece < 0)
+        return nullptr;
+
     qDebug() << "Gracz zagrał lokalnie. nr: " + QString::number(nr_w_rece);
     Kategoria typ_karty = reka->getKartaFromList(nr_w_rece)->getKategoria();
     qDebug() << "Zapisywanie pointera";
@@ -94,17 +106,21 @@ void player::startRundy(){
 }
 
 void player::wyczysc() {
-    while (melee_l->getDeckSize() > 0) {
-        melee_l->move_card(0 , cmentarzysko);
-    }
+    wyczysc_linia(melee_l);
+    wyczysc_linia(ranged_l);
+    wyczysc_linia(siege_l);
 
-    while (ranged_l->getDeckSize() > 0) {
-        ranged_l->move_card(0 , cmentarzysko);
-    }
+    wyczysc_linia(melee_l->getHorn());
+    wyczysc_linia(ranged_l->getHorn());
+    wyczysc_linia(siege_l->getHorn());
+}
 
-    while (siege_l->getDeckSize() > 0) {
-
-        siege_l->move_card(0 , cmentarzysko);
+void player::wyczysc_linia(kontener_kart* linia) {
+    while (linia->getDeckSize() > 0) {
+        if (linia->getKartaFromList(0)->getKategoria() == Spell)
+            linia->delete_card(0);
+        else
+            linia->move_card(0 , limbo);
     }
 }
 
@@ -122,4 +138,14 @@ void player::setPunktyK(int a){
 
 int player::getPunktyK(){
     return punkty;
+}
+
+int player::getPendingSelection() {
+    return PendingSelection;
+}
+
+void player::setPendingSelection(int indeks) {
+    qDebug() << "ustawianie selekcji: " + QString::number(indeks);
+    PendingSelection = indeks;
+    return;
 }

@@ -4,20 +4,40 @@
 
 enum RzadPlanszy{
     Unknown,
+
     P1_Melee,
     P1_Range,
     P1_Siege,
     P2_Melee,
     P2_Range,
     P2_Siege,
+
     P1_Spell,
     P2_Spell,
+
     P1_Leader,
     P2_Leader,
+
     P1_Hand,
     P2_Hand,
+
     P1_Deck,
-    P2_Deck
+    P2_Deck,
+
+    P1_Graveyard,
+    P2_Graveyard,
+
+    P1_Limbo,
+    P2_Limbo,
+
+    Weather,
+
+    P1_Melee_Horn,
+    P1_Range_Horn,
+    P1_Siege_Horn,
+    P2_Melee_Horn,
+    P2_Range_Horn,
+    P2_Siege_Horn
 };
 
 enum class Pkt{

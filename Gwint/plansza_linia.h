@@ -9,18 +9,29 @@ public:
 
     int getPoints(bool Pogoda);
 
-//    kontener_kart linia;
-
-    //nie wiem do czego chciałeś używać ale zakładam że do czyszczenia linii więc tak użyję w razie co daj mój kod do jakiejś funkcji typu czysczeniLini czy cos w tym stylu
     void emptyLinia();
 
-    karta* getHorn();
+    kontener_kart* getHorn();
+
+    bool isCloudy();
+
+    void setCloudy();
 
 private:
 
-    kontener_kart horn;
+    kontener_kart* horn;
 
     bool getHornBool();
+
+    bool Cloudy();
+
+    bool isHorny();
+
+    void updateSilaBraterstwa(int indeks, bool pogoda, bool horn, int boost);
+
+    int boost = 0;
+
+    void testBoost();
 };
 
 #endif // PLANSZA_LINIA_H

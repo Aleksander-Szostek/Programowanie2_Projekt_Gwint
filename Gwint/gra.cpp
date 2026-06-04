@@ -10,6 +10,7 @@
 gra::gra() {
     gracz_1 = new human_player; // musimy zrbic klase np gracz_player
     gracz_2 = new bot_player;
+    pogoda = new efekty_pogodowe;
 }
 
 void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
@@ -18,7 +19,7 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
     gracz_2->getDeck()->makeDeck(nazwa_talii_2);
 //    gracz_1->getDeck()->validifyDeck();
 //    gracz_2->getDeck()->validifyDeck();
-    if (true){  //gracz_1->getDeck()->DeckValid && gracz_2->getDeck()->DeckValid) {
+    if (gracz_1->getDeck()->DeckValid && gracz_2->getDeck()->DeckValid) {
         int losowanie_start = rand()%2 + 1;
             if (losowanie_start == 1) {
                 GameState = Tura1;
@@ -136,27 +137,32 @@ void gra::koniec_gry(){
     qDebug() << "Koniec gry";
 }
 
-void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
+void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza) {
+
+    qDebug() << "Czyszczenie selekcji";
+    gracz_1->setPendingSelection();
+    gracz_2->setPendingSelection();
 
     if (nr_gracza == 1 && GameState == Tura1){
 
+        qDebug() << "Gracz 1 zagrywać bedzie";
         globalCardPlayed(gracz_1->zagrajKarte(nr_w_rece), 1);
 
         redrawBoard();
 
-        if (!gracz_2->isPas()){
+        if ((!gracz_2->isPas()) && gracz_1->getPendingSelection() < 0){
             GameState = Tura2;
             QTimer::singleShot(1000, this, &gra::tura_bota);
         }
     }
-
     else if (nr_gracza == 2 && GameState == Tura2){
 
+        qDebug() << "Gracz 2 zagrywać bedzie";
         globalCardPlayed(gracz_2->zagrajKarte(nr_w_rece), 2);
 
         redrawBoard();
 
-        if (!gracz_1->isPas()){
+        if ((!gracz_1->isPas()) && gracz_2->getPendingSelection() < 0){
             GameState = Tura1;
         }
         else {
@@ -170,10 +176,13 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza){
             koniec_rundy();
         }
     }
-
-
 }
+
 void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
+    qDebug() << "Globalnie zagrał: " + QString::number(nr_gracza);
+    if (karta_g == nullptr)
+        return;
+
     switch (karta_g->getKeyword()) {
         case Szpieg:{
             szpieg(karta_g, nr_gracza);
@@ -220,6 +229,15 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
             break;
         }
 
+        case Kukla:{
+            player* gracz = getGracz(nr_gracza);
+
+            qDebug() << "Ustawianie selekcji";
+            gracz->setPendingSelection(0);
+
+            break;
+        }
+
         default:
             break;
     }
@@ -235,10 +253,19 @@ void gra::clearBoard() {
     emit nakazCzyszczeniaLayoutu(P2_Melee);
     emit nakazCzyszczeniaLayoutu(P2_Range);
     emit nakazCzyszczeniaLayoutu(P2_Siege);
-    emit nakazCzyszczeniaLayoutu(P1_Spell);
+
+    emit nakazCzyszczeniaLayoutu(P1_Melee_Horn);
+    emit nakazCzyszczeniaLayoutu(P1_Range_Horn);
+    emit nakazCzyszczeniaLayoutu(P1_Siege_Horn);
+    emit nakazCzyszczeniaLayoutu(P2_Melee_Horn);
+    emit nakazCzyszczeniaLayoutu(P2_Range_Horn);
+    emit nakazCzyszczeniaLayoutu(P2_Siege_Horn);
+
+    emit nakazCzyszczeniaLayoutu(Weather);
     emit nakazCzyszczeniaLayoutu(P1_Leader);
     emit nakazCzyszczeniaLayoutu(P2_Leader);
     emit nakazCzyszczeniaLayoutu(P1_Hand);
+
     qDebug() << "Czyszczenie wszystkiego";
 }
 
@@ -246,44 +273,51 @@ void gra::redrawBoard() {
 
     clearBoard();
 
+    countPoints();
+
     qDebug() << "Przerysowywanie planszy";
 
-    for (int i = 0; i<gracz_1->getReka()->getDeckSize(); i++) {
-        karta* daneKarty = gracz_1->getReka()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P1_Hand, i, 1);
-    }
+    redrawLine(P1_Melee);
+    redrawLine(P1_Range);
+    redrawLine(P1_Siege);
+    redrawLine(P2_Melee);
+    redrawLine(P2_Range);
+    redrawLine(P2_Siege);
 
-    for (int i = 0; i < gracz_1->getMelee()->getDeckSize(); i++) {
-        karta* daneKarty = gracz_1->getMelee()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P1_Melee, i, 1);
-    }
+    qDebug() << "Narysowano linie";
 
-    for (int i = 0; i<gracz_1->getRanged()->getDeckSize(); i++) {
-        karta* daneKarty = gracz_1->getRanged()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P1_Range, i, 1);
-    }
+    redrawLine(P1_Melee_Horn);
+    redrawLine(P1_Range_Horn);
+    redrawLine(P1_Siege_Horn);
+    redrawLine(P2_Melee_Horn);
+    redrawLine(P2_Range_Horn);
+    redrawLine(P2_Siege_Horn);
 
-    for (int i = 0; i<gracz_2->getMelee()->getDeckSize(); i++) {
-        karta* daneKarty = gracz_2->getMelee()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P2_Melee, i, 2);
-    }
+    qDebug() << "Narysowano rogi";
 
-    for (int i = 0; i < gracz_2->getRanged()->getDeckSize(); i++) {
-        karta* daneKarty = gracz_2->getRanged()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P2_Range, i, 2);
-    }
+    redrawLine(P1_Hand);
+    redrawLine(P1_Leader);
+    redrawLine(P2_Leader);
+    redrawLine(Weather);
 
-    for (int i = 0; i < gracz_1->getSiege()->getDeckSize(); i++) {
-        karta* daneKarty = gracz_1->getSiege()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P1_Siege, i, 1);
-    }
-
-    for (int i = 0; i < gracz_2->getSiege()->getDeckSize(); i++) {
-        karta* daneKarty = gracz_2->getSiege()->getKartaFromList(i);
-        emit nakazRysowaniaKarty(daneKarty, P2_Siege, i, 2);
-    }
+    qDebug() << "Narysowano wszystko";
 
     countPoints();
+}
+
+void gra::redrawLine(RzadPlanszy gdzieRysowac) {
+    qDebug() << "Rysowanie linii";
+    kontener_kart* Linia = getKontenerByEnum(gdzieRysowac);
+
+    rzedy_enum konwersje;
+    int nr_gracza = 2;
+    if (konwersje.isPlayer1(gdzieRysowac))
+        nr_gracza = 1;
+
+    for (int i = 0; i < Linia->getDeckSize(); i++) {
+        karta* daneKarty = Linia->getKartaFromList(i);
+        emit nakazRysowaniaKarty(daneKarty, gdzieRysowac, i, nr_gracza);
+    }
 }
 
 void gra::gameClear() {
@@ -292,7 +326,7 @@ void gra::gameClear() {
     redrawBoard();
 }
 
-void gra::dobierzKarte(int nr_gracza, int n){
+void gra::dobierzKarte(int nr_gracza, int n) {
     if (nr_gracza == 1) {
         qDebug() << "Gracz 1 dobiera";
         for (int i = 0 ; i < n ; i++)
@@ -309,7 +343,6 @@ void gra::dobierzKarte(int nr_gracza, int n){
     }
     redrawBoard();
 }
-
 
 void gra::tura_bota() {
 
@@ -339,20 +372,83 @@ void gra::tura_bota() {
     graczZagrajKarte(decyzja.nr_karty, 2);
 }
 
+void gra::wybranoKarte(RzadPlanszy lokacja, int indeks ){
+    qDebug() << "Wybrano karte";
 
-void gra::wybranoKarte(RzadPlanszy lokacja, int indeks){
-    //tutaj będzie trzeba dodać implementacje
+    player* gracz = nullptr;
+    int nr_gracza = 0;
+    if (GameState == Tura1) {
+        gracz = gracz_1;
+        nr_gracza = 1;
+        qDebug() << "Sprawdzanie selekcji gracza 1";
+    }
+    else if (GameState == Tura2) {
+        gracz = gracz_2;
+        nr_gracza = 2;
+        qDebug() << "Sprawdzanie selekcji gracza 1";
+    }
+    else
+        return;
+
+    int indeks_aktora = gracz->getPendingSelection();
+    qDebug() << "Indeks aktora: " + QString::number(indeks_aktora);
+    if (indeks_aktora < 0) {
+        qDebug() << "Brak selekcji";
+        return;
+    }
+
+    karta* aktor = gracz->getReka()->getKartaFromList(indeks_aktora);
+
+    switch (aktor->getKeyword()) {
+    case Kukla: {
+        qDebug() << "Kukła zagrywa sie";
+        if (getKontenerByEnum(lokacja)->getKartaFromList(indeks)->getLeg() == true ||
+            getKontenerByEnum(lokacja)->getKartaFromList(indeks)->getKategoria() == Spell)
+        {
+            qDebug() << "Wybrano kartę legendarną. Nic się nie dzieje.";
+            return;
+        }
+
+        kukla(indeks_aktora, lokacja, indeks, nr_gracza);
+        graczZagrajKarte(-10, nr_gracza);   //zagrywam fikcyjną kartę żeby uruchomić sekwecję zakończenia tury
+    }
+    default: {
+        break;
+    }
+    }
+}
+
+void gra::wybranoLinie(RzadPlanszy lokacja) {
+    player* gracz = nullptr;
+    if (GameState == Tura1)
+        gracz = gracz_1;
+    else if (GameState == Tura2)
+        gracz = gracz_2;
+    else
+        return;
+
+    qDebug() << "Wybrano linie";
+
+    int indeks_aktora = gracz->getPendingSelection();
+    karta* aktor = gracz->getReka()->getKartaFromList(indeks_aktora);
+
+    switch (aktor->getKeyword()) {
+
+    default: {
+        break;
+    }
+    }
 }
 
 void gra::countPoints() {
     int punkty[12];
 
-    punkty[0] = gracz_1->getMelee()->getPoints(0);
-    punkty[1] = gracz_1->getRanged()->getPoints(0);
-    punkty[2] = gracz_1->getSiege()->getPoints(0);
-    punkty[3] = gracz_2->getMelee()->getPoints(0);
-    punkty[4] = gracz_2->getRanged()->getPoints(0);
-    punkty[5] = gracz_2->getSiege()->getPoints(0);
+    punkty[0] = gracz_1->getMelee()->getPoints(pogoda->isMeleePogoda());
+    punkty[1] = gracz_1->getRanged()->getPoints(pogoda->isRangePogoda());
+    punkty[2] = gracz_1->getSiege()->getPoints(pogoda->isSiegePogoda());
+    punkty[3] = gracz_2->getMelee()->getPoints(pogoda->isMeleePogoda());
+    punkty[4] = gracz_2->getRanged()->getPoints(pogoda->isRangePogoda());
+    punkty[5] = gracz_2->getSiege()->getPoints(pogoda->isSiegePogoda());
 
     p1_pkt = punkty[0] + punkty[1] + punkty[2];
     p2_pkt = punkty[3] + punkty[4] + punkty[5];
@@ -366,6 +462,7 @@ void gra::countPoints() {
     punkty[11] = p2_gamescore;
 
     nakazAktualizacjiPunkt(punkty);
+
 }
 void gra::graczPas(int nr_gr) {
     if (nr_gr == 1 && GameState == Tura1) {
@@ -391,6 +488,8 @@ void gra::graczPas(int nr_gr) {
 void gra::clearPlansza() {
     gracz_1->wyczysc();
     gracz_2->wyczysc();
+    pogoda->wyczysc();
+    clearLimbo();
     redrawBoard();
 }
 StanGry gra::getGameState() {
@@ -399,26 +498,6 @@ StanGry gra::getGameState() {
 int gra::getNrRundy() {
     return nr_rundy;
 }
-
-
-/*
-keyword::lokacjaKarty gra::sygnalSzukaj(int ID, RzadPlanszy gdzieSzukac){
-    keyword::lokacjaKarty znalezione;
-    znalezione.miejsce = Unknown;
-
-    kontener_kart* adres;
-
-    for (int i = 0 ; i > adres->getDeckSize() ; i++) {
-        if (adres->getKartaFromList(i)->getID() == ID) {
-            znalezione.indeks = i;
-            znalezione.miejsce = gdzieSzukac;
-            break;
-        }
-    }
-
-    return znalezione;
-}
-*/
 
 kontener_kart* gra::getKontenerByEnum(RzadPlanszy rzad) {
 
@@ -457,11 +536,11 @@ kontener_kart* gra::getKontenerByEnum(RzadPlanszy rzad) {
             break;
         }
         case P1_Leader: {
-            kontener = nullptr;
+            kontener = gracz_1->getDeck()->getLeader();
             break;
         }
         case P2_Leader: {
-            kontener = nullptr;
+            kontener = gracz_2->getDeck()->getLeader();
             break;
         }
         case P1_Hand: {
@@ -469,7 +548,7 @@ kontener_kart* gra::getKontenerByEnum(RzadPlanszy rzad) {
             break;
         }
         case P2_Hand: {
-            kontener = gracz_1->getReka();
+            kontener = gracz_2->getReka();
             break;
         }
         case P1_Deck: {
@@ -480,7 +559,52 @@ kontener_kart* gra::getKontenerByEnum(RzadPlanszy rzad) {
             kontener = gracz_2->getDeck();
             break;
         }
+        case P1_Graveyard: {
+            kontener = gracz_1->getGraveyard();
+            break;
+        }
+        case P2_Graveyard: {
+            kontener = gracz_2->getGraveyard();
+            break;
+        }
+        case P1_Limbo: {
+            kontener = gracz_1->getLimbo();
+            break;
+        }
+        case P2_Limbo: {
+            kontener = gracz_2->getLimbo();
+            break;
+        }
+        case Weather: {
+            kontener = pogoda;
+            break;
+        }
+        case P1_Melee_Horn: {
+            kontener = gracz_1->getMelee()->getHorn();
+            break;
+        }
+        case P1_Range_Horn: {
+            kontener = gracz_1->getRanged()->getHorn();
+            break;
+        }
+        case P1_Siege_Horn: {
+            kontener = gracz_1->getSiege()->getHorn();
+            break;
+        }
+        case P2_Melee_Horn: {
+            kontener = gracz_2->getMelee()->getHorn();
+            break;
+        }
+        case P2_Range_Horn: {
+            kontener = gracz_2->getRanged()->getHorn();
+            break;
+        }
+        case P2_Siege_Horn: {
+            kontener = gracz_2->getSiege()->getHorn();
+            break;
+        }
         default: {
+            qDebug() << "Nie znaleziono kontenera.";
             kontener = nullptr;
         }
     }
@@ -498,19 +622,10 @@ void gra::szpieg(karta* active, int nr_gracza){
 
     moveCardByEnum(lokacja , konwersje.reverseRzad(lokacja) , active->getID());
 }
-
 void gra::przyzwij(karta* active, int nr_gracza){
     qDebug() << "Przyzywanie";
 
-    player* gracz;
-
-
-
-    qDebug() << "wybieranie gracza";
-    if (nr_gracza == 1)
-        gracz = gracz_1;
-    else
-        gracz = gracz_2;
+    player* gracz = getGracz(nr_gracza);
 
     deck* talia = gracz->getDeck();
 
@@ -540,37 +655,70 @@ void gra::przyzwij(karta* active, int nr_gracza){
         }
     }
 }
-
 void gra::linked(karta* active, int nr_gracza){
 
 }
-
 void gra::medyk(karta* active, int nr_gracza){
 
 }
-
 void gra::rebornDEAD(karta* active, int nr_gracza){
 
 }
-
 void gra::porzoga(karta* active, int nr_gracza){
 
-}
+    qDebug() << "Pożoga aktywowana.";
+    int sila_max = 0;
+    std::vector<Lokacje> hit_list;
 
+    porzogaTestLinia(P1_Melee, hit_list, sila_max);
+    porzogaTestLinia(P1_Range, hit_list, sila_max);
+    porzogaTestLinia(P1_Siege, hit_list, sila_max);
+    porzogaTestLinia(P2_Melee, hit_list, sila_max);
+    porzogaTestLinia(P2_Range, hit_list, sila_max);
+    porzogaTestLinia(P2_Siege, hit_list, sila_max);
+
+    for (int i = hit_list.size() - 1; i >= 0 ; i--) {
+        kill(hit_list[i].rzad, hit_list[i].indeks);
+        qDebug () << "koniec pętli";
+    }
+
+    clearLimbo();
+}
 void gra::pogodaPlay(karta* active, int nr_gracza){
+    RzadPlanszy reka_g;
+    if (nr_gracza == 1)
+        reka_g = P1_Hand;
+    else if (nr_gracza == 2)
+        reka_g = P2_Hand;
+    else
+        return;
 
+    moveCardByEnum(reka_g, Weather, active->getID());
+
+    if (active->getID() == 6) {     // 6 to ID czystego nieba
+        pogoda->wyczysc();
+    }
 }
-
 void gra::horn(karta* active, int nr_gracza){
 
 }
-
 void gra::boost(karta* active, int nr_gracza){
 
 }
-
 void gra::grzyb(karta* active, int nr_gracza){
 
+}
+void gra::kukla(int indeks_reki, RzadPlanszy miejsce_celu, int indeks_celu, int nr_gracza){
+
+    player* gracz = getGracz(nr_gracza);
+    RzadPlanszy reka_gracz;
+
+//    karta* kukla = gracz->getReka()->getKartaFromList(indeks_reki);
+
+    gracz->getReka()->move_card(indeks_reki, gracz->getLimbo());
+    getKontenerByEnum(miejsce_celu)->move_card(indeks_celu, gracz->getReka());
+
+    gracz->getLimbo()->move_card(0, getKontenerByEnum(miejsce_celu));
 }
 
 void gra::moveCardByEnum(RzadPlanszy rzad_start, RzadPlanszy rzad_end, int ID){
@@ -595,4 +743,96 @@ int gra::findCardByID(RzadPlanszy rzad, int ID) {
     }
 
     return indeks;
+}
+
+void gra::porzogaTestLinia(RzadPlanszy badane, std::vector<Lokacje> &lista, int &sila_max) {
+    for (int i = 0; i < getKontenerByEnum(badane)->getDeckSize(); i++) {
+        if (getKontenerByEnum(badane)->getKartaFromList(i)->getSila() > sila_max
+            && getKontenerByEnum(badane)->getKartaFromList(i)->getLeg() != true) {
+
+            sila_max = getKontenerByEnum(badane)->getKartaFromList(i)->getSila();
+
+            Lokacje karta;
+            karta.indeks = i;
+            karta.rzad = badane;
+            lista.clear();
+            lista.push_back(karta);
+        }
+        else if (getKontenerByEnum(badane)->getKartaFromList(i)->getSila() == sila_max
+                 && getKontenerByEnum(badane)->getKartaFromList(i)->getLeg() != true) {
+
+            Lokacje karta;
+            karta.indeks = i;
+            karta.rzad = badane;
+            lista.push_back(karta);
+        }
+    }
+}
+
+void gra::kill(RzadPlanszy rzad, int indeks) {
+
+    kontener_kart* Linia = getKontenerByEnum(rzad);
+    //karta* mordowana = Linia->getKartaFromList(indeks);
+    rzedy_enum konwersja;
+    if (konwersja.isPlayer1(rzad)) {
+        qDebug() << "Mordowanie u gracza 1." + Linia->getKartaFromList(indeks)->getNazwa() + QString::number(indeks);
+        Linia->move_card(indeks, getKontenerByEnum(P1_Limbo));
+    }
+    else {
+        qDebug() << "Mordowanie u gracza 2." + Linia->getKartaFromList(indeks)->getNazwa() + QString::number(indeks);
+        Linia->move_card(indeks, getKontenerByEnum(P2_Limbo));
+    }
+}
+
+void gra::clearLimbo() {
+    qDebug() << "Czyszczenie Limbo";
+
+    kontener_kart* Limbo = getKontenerByEnum(P1_Limbo);
+    int size = Limbo->getDeckSize();
+    card_loader* nekromanta = new card_loader;
+
+    for (int i = size - 1 ; i >= 0 ; i--) {
+        if (Limbo->getKartaFromList(i)->getKeyword() == Reborn) {
+            karta* new_karta = new karta;
+            nekromanta->zaladuj_karte(Limbo->getKartaFromList(i)->getCele().at(0), new_karta);
+            qDebug() << "Załadowano dziedzica: " + new_karta->getNazwa();
+
+            Limbo->move_card(i, getKontenerByEnum(P1_Graveyard));
+
+            getKontenerByEnum(P1_Hand)->add_card_to(new_karta, 0);
+            globalCardPlayed(gracz_1->zagrajKarte(0) , 1);
+        }
+
+        else
+            Limbo->move_card(i, getKontenerByEnum(P1_Graveyard));
+    }
+
+    Limbo = getKontenerByEnum(P2_Limbo);
+    size = Limbo->getDeckSize();
+
+    for (int i = size - 1 ; i >= 0 ; i--) {
+        if (Limbo->getKartaFromList(i)->getKeyword() == Reborn) {
+            karta* new_karta = new karta;
+            nekromanta->zaladuj_karte(Limbo->getKartaFromList(i)->getCele().at(0), new_karta);  //Ładuje do pamięci karte do zagrania.
+            Limbo->move_card(i, getKontenerByEnum(P2_Graveyard));   //przed aktywacją wskszeszenia wywalam karte do cmentarza żeby nie powstała nieprzewidziana pętla
+            getKontenerByEnum(P2_Hand)->add_card_to(new_karta, 0);  //doaje karte bozpośrednio na początek przy użyciu funkcji która nie tasuje
+            globalCardPlayed(gracz_2->zagrajKarte(0) , 2);
+        }
+
+        else {
+            Limbo->move_card(i, getKontenerByEnum(P1_Graveyard));
+        }
+    }
+
+    delete nekromanta;
+}
+
+player* gra::getGracz(int nr) {
+    player *gracz = nullptr;
+    if (nr == 1)
+        gracz = gracz_1;
+    else if (nr == 2)
+        gracz = gracz_2;
+
+    return gracz;
 }

@@ -9,7 +9,7 @@ void deck_saver::save_deck(deck talia_do_zapisania, QString fileName){
     //pracuje na stringach bo są znacznie lepiej udokumentowane niż QStringi i łatwiej się robi
     talia_do_zapisania.validifyDeck();
 
-    if (talia_do_zapisania.getDeckSize() == 0 || talia_do_zapisania.DeckValid != true || talia_do_zapisania.Leader->getKartaFromList(0)->getNazwa() == "")
+    if (talia_do_zapisania.getDeckSize() == 0 || talia_do_zapisania.DeckValid != true || talia_do_zapisania.getLeader()->getKartaFromList(0)->getNazwa() == "")
         return;
 
     std::string file_string = "";

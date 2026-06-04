@@ -1,6 +1,7 @@
 #ifndef DECK_LOADER_H
 #define DECK_LOADER_H
 #include "kontener_kart.h"
+#include "card_loader.h"
 
 
 class deck_loader

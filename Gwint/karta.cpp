@@ -74,11 +74,13 @@ void karta::setKeyword(QString efekt_s){
         keyword = Morph;
     else if (efekt_s == "MUSHROOM")
         keyword = Grzyb;
+    else if (efekt_s == "UNSUMMON")
+        keyword = Kukla;
     else
         keyword = Brak;
     return;
-
 }
+
 void karta::setCele(QString cele_s){
     qDebug() << "Wywołano setCele";
     if (cele_s == "") {
@@ -128,15 +130,16 @@ void karta::setFlavor(QString flavor_s){
     return;
 }
 
-//jeśli dodane zostaną kart o negatywnym booście trzeba zaaktualizować tą funkcję
-//przy dodawaniu kart typu biedna ******* piechota zaaktualizować funkcję
-//i gracza też zmodyfikować
-void karta::updateSila(bool pogoda, bool horn, int boost){
-    if (pogoda && sila_bazowa > 0){
-        sila = (1 + boost) * (1 + horn);
+void karta::updateSila(bool pogoda, bool horn, int boost, int moc_braterstwa){
+    if (kategoria == Spell)
+        sila = 0;   //to jest na wypadek kukły ale na wszelki wypadek implementuje dla wszystkich spelli
+    else if (legendarna)
+        sila = sila_bazowa;
+    else if (pogoda && sila_bazowa > 0){
+        sila = (1 + boost) * (1 + horn) * (moc_braterstwa + 1);
     }
     else {
-        sila = (sila_bazowa + boost) * (1 + horn);
+        sila = (sila_bazowa + boost) * (1 + horn) * (moc_braterstwa + 1);
     }
     return;
 }

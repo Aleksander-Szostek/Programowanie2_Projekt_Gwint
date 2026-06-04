@@ -24,18 +24,19 @@ enum Kategoria {
 };
 
 enum Efekt {
-    Brak,
-    Szpieg,
-    Przyzwij,
-    Linked,
-    Medyk,
-    Reborn,
-    Pogoda,
-    Porzoga,
-    Horn,
-    Boost,
-    Morph,
-    Grzyb
+    Brak,       // zrobione
+    Szpieg,     // zrobione
+    Przyzwij,   // zrobione
+    Linked,     // zrobione
+    Medyk,      //
+    Reborn,     // zrobione
+    Pogoda,     //
+    Porzoga,    // zrobione (jeszcze spelle zrobić)
+    Horn,       // zrobione (jeszcze spelle zrobić)
+    Boost,      // zrobione
+    Morph,      //
+    Grzyb,      //
+    Kukla       // zrobione
 };
 
 class karta
@@ -54,7 +55,7 @@ public:
     void setLeg(bool leg_s);
     void setFlavor(QString flavor_s);
 
-    void updateSila(bool pogoda, bool horn, int boost);
+    void updateSila(bool pogoda, bool horn, int boost, int moc_braterstwa = 0);
 
     unsigned int getID();
     QString getNazwa();

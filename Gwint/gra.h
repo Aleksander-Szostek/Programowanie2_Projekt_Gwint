@@ -34,6 +34,7 @@ public:
 
     void tura_bota();
     void wybranoKarte(RzadPlanszy lokacja, int indeks);
+    void wybranoLinie(RzadPlanszy lokacja);
     void countPoints();
     void graczPas(int nr_gr);
     StanGry getGameState();
@@ -43,7 +44,12 @@ public:
 private:
     player *gracz_1;
     player *gracz_2;
-    efekty_pogodowe pogoda;
+    efekty_pogodowe *pogoda;
+
+    struct Lokacje{
+        RzadPlanszy rzad;
+        int indeks;
+    };
 
     int p1_pkt = 0;
     int p2_pkt = 0;
@@ -55,6 +61,7 @@ private:
 
     void clearBoard();
     void redrawBoard();
+    void redrawLine(RzadPlanszy gdzieRysowac);
 
     void clearPlansza();
 
@@ -75,6 +82,13 @@ private:
     void horn(karta* active, int nr_gracza);
     void boost(karta* active, int nr_gracza);
     void grzyb(karta* active, int nr_gracza);
+    void kukla(int indeks_reki, RzadPlanszy miejsce_celu, int indeks_celu, int nr_gracza);
+
+    void porzogaTestLinia(RzadPlanszy badane, std::vector<Lokacje> &lista, int &sila_max);
+    void kill(RzadPlanszy rzad, int indeks);
+    void clearLimbo();
+
+    player* getGracz(int nr);
 
 signals:
     //void dodanieKarty(karta* nowaKarta, gra::RzadPlanszy rzad);

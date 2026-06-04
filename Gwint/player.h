@@ -29,7 +29,13 @@ public:
     plansza_linia* getSiege();
     deck* getDeck();
     player_hand* getReka();
+    graveyard* getGraveyard();
+    kontener_kart* getLimbo();
+    //tutaj wysyłam karty które będą coś robić po śmierci
+    //wysyłam je do limbo żeby przyzywane karty nie przeszkadzały przy eksterminowaniu kart 😅
 
+    int getPendingSelection();
+    void setPendingSelection(int indeks = -1);
 
     void dobierzKarte();
 
@@ -60,8 +66,13 @@ private:
     plansza_linia *ranged_l;
     plansza_linia *siege_l;
     graveyard *cmentarzysko;
+    kontener_kart *limbo;
+
+    void wyczysc_linia(kontener_kart* linia);
 
     bool czyPas = false;
+
+    int PendingSelection = -1;
 };
 
 #endif // PLAYER_H

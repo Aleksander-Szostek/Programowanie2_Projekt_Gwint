@@ -18,7 +18,7 @@ const double kol7 = 6.04 / 100;
 const double kol8 = 7.33 / 100;
     // szerokości kolumn w GUIu
 
-const double wier1_6 = 12.75 / 100;
+const double wier1_6 = 10.5 / 100;
 const double wier7 = 13.8 / 100;
 const double wier8 = 5 / 100;
     // wysokość wierszy w GUIu

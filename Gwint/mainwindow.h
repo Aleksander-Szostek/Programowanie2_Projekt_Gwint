@@ -30,6 +30,18 @@ private slots:
 
     void on_nextRundaBtn_clicked();
 
+    void on_player2_siege_nr_clicked();
+
+    void on_player2_ranged_nr_clicked();
+
+    void on_player2_melee_nr_clicked();
+
+    void on_player1_melee_nr_clicked();
+
+    void on_player1_ranged_nr_clicked();
+
+    void on_player1_siege_nr_clicked();
+
 private:
     Ui::MainWindow *ui;
     gra *Gra; // dodaje tutaj Gra aby nie znikała tak jak to zrobiłem wcześniej

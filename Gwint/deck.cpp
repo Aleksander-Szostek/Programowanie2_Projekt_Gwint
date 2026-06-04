@@ -4,6 +4,8 @@ deck::deck() : kontener_kart() {}
 
 void deck::makeDeck(QString deckFile){
 
+    Leader = new kontener_kart;
+
     deck_loader DL;
     Ciag_kart = DL.load_deck(deckFile);
 
@@ -82,4 +84,8 @@ void deck::validifyDeck(){
 //    FrakcjaTalii = Frakcja::Neutral;
 //
 //    DeckValid = false;
+}
+
+kontener_kart* deck::getLeader() {
+    return Leader;
 }

@@ -1,7 +1,6 @@
 #include "deck_loader.h"
 #include <QFile>
 #include <QTextStream>
-#include "card_loader.h"
 
 deck_loader::deck_loader() {}
 

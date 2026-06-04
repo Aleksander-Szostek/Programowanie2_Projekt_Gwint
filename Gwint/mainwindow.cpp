@@ -66,16 +66,28 @@ void MainWindow::on_Start_Button_clicked()
 
 // Funkcja pomocnicza zwracająca wskaźnik do layoutu na podstawie enuma
 QLayout* MainWindow::getLayoutByEnum(RzadPlanszy rzad) {
-    //return ui->player2_melee; testowalem czy w ogole dziala
     switch(rzad) {
     case P1_Hand: return ui->layout_reki;
+
     case P1_Melee: return ui->player1_melee;
     case P1_Range: return ui->player1_ranged;
     case P1_Siege: return ui->player1_siege;
     case P2_Melee: return ui->player2_melee;
     case P2_Range: return ui->player2_ranged;
     case P2_Siege: return ui->player2_siege;
-    //case gra::P1_Spell: return ui->player2_siege_horn; aby na razie sie nie pokazywala reszta
+
+    case P1_Melee_Horn: return ui->player1_melee_horn;
+    case P1_Range_Horn: return ui->player1_ranged_horn;
+    case P1_Siege_Horn: return ui->player1_siege_horn;
+    case P2_Melee_Horn: return ui->player2_melee_horn;
+    case P2_Range_Horn: return ui->player2_ranged_horn;
+    case P2_Siege_Horn: return ui->player2_siege_horn;
+
+    case Weather: return ui->pogoda;
+
+    case P1_Leader: return ui->player1_leader;
+    case P2_Leader: return ui->player2_leader;
+
     default: return nullptr;
     }
 }
@@ -96,32 +108,7 @@ void MainWindow::obslugaCzyszczeniaLayoutu(RzadPlanszy rzad) {
     }
 }
 
-// void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, gra::RzadPlanszy rzad, int indeks, int nr_gr) {
-//     QLayout* docelowyLayout = getLayoutByEnum(rzad);
-//     if (!docelowyLayout) return;
-
-
-//     Card_Button* nowyPrzycisk = new Card_Button(nowaKarta, this);
-//     connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
-//         //Gra->graczZagrajKarte(indeks, nr_gr);
-//         Gra->zagranoKarte(indeks,nr_gr);
-//     });
-//     if (rzad == gra::P1_Hand) {
-//         connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
-//             Gra->graczZagrajKarte(indeks, nr_gr);
-//         });
-//     }
-//     else {
-//         connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
-//             Gra->wybranoKarte(rzad, indeks);
-//         });
-//     }
-
-//     nowyPrzycisk->refresh();
-//     docelowyLayout->addWidget(nowyPrzycisk);
-
-// }
-void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta,RzadPlanszy rzad,int indeks,int nr_gr){
+void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta, RzadPlanszy rzad, int indeks, int nr_gr){
     QLayout* docelowyLayout = getLayoutByEnum(rzad);
     if (!docelowyLayout) return;
 
@@ -130,7 +117,7 @@ void MainWindow::obslugaRysowaniaKarty(karta* nowaKarta,RzadPlanszy rzad,int ind
     if (rzad == P1_Hand) {
 
         connect(nowyPrzycisk, &Card_Button::clicked, Gra, [=](){
-            qDebug() << "Zagrano karte: " + nowaKarta->getNazwa();
+            qDebug() << "Zagrano karte: " + nowaKarta->getNazwa() + "   Gracz: " + QString::number(nr_gr);
             Gra->graczZagrajKarte(indeks, nr_gr);
             qDebug() << "Koniec connecta";
         });
@@ -169,18 +156,14 @@ void MainWindow::obslugaAktualizacjiPunkt(int punkty[12]){
         pointsStorage[i] = punkty[i];
     }
 }
-void MainWindow::on_p1_pas_clicked()
-{
+void MainWindow::on_p1_pas_clicked() {
     Gra->graczPas(1);
 }
-
-
-void MainWindow::on_p2_pas_clicked()
-{
+void MainWindow::on_p2_pas_clicked() {
     Gra->graczPas(2);
 }
 
-void MainWindow::zmianaStrony(int indeks){
+void MainWindow::zmianaStrony(int indeks) {
     ui->stackedWidget->setCurrentIndex(indeks);
 
     switch (indeks) {
@@ -224,14 +207,20 @@ void MainWindow::zmianaStrony(int indeks){
             ui->kol7_szer->changeSize(kol7 * Size.rwidth() , 0 , QSizePolicy::Fixed);
             ui->kol8_szer->changeSize(kol8 * Size.rwidth() , 0 , QSizePolicy::Fixed);
 
-            ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
-            ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
-            ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
-            ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
-            ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
-            ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
-            ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Expanding);
-            ui->wier8_wys->changeSize(0 , wier8 * Size.rheight() , QSizePolicy::Fixed);
+            //ui->wier1_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+            //ui->wier2_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+            //ui->wier3_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+            //ui->wier4_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+            //ui->wier5_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+            //ui->wier6_wys->changeSize(0 , wier1_6 * Size.rheight() , QSizePolicy::Expanding);
+            //ui->wier7_wys->changeSize(0 , wier7 * Size.rheight() , QSizePolicy::Expanding);
+
+            ui->player2_melee_nr->setMinimumSize(0 , (wier1_6 * Size.rheight()));
+            ui->player2_ranged_nr->setMinimumSize(0 , (wier1_6 * Size.rheight()));
+            ui->player2_siege_nr->setMinimumSize(0 , (wier1_6 * Size.rheight()));
+            ui->player1_melee_nr->setMinimumSize(0 , (wier1_6 * Size.rheight()));
+            ui->player1_ranged_nr->setMinimumSize(0 , (wier1_6 * Size.rheight()));
+            ui->player1_siege_nr->setMinimumSize(0 , (wier1_6 * Size.rheight()));
             break;
         }
 
@@ -316,8 +305,7 @@ void MainWindow::zmianaStrony(int indeks){
             break;
 }
 }
-void MainWindow::on_nextRundaBtn_clicked()
-{
+void MainWindow::on_nextRundaBtn_clicked() {
     if (Gra->getGameState() == KoniecGry)
         zmianaStrony(0);
     else
@@ -334,5 +322,29 @@ void MainWindow::zmianaGSLabel(StanGry GameState, bool p1_pas, bool p2_pas){
         this->ui->p2_pas->setStyleSheet("background-color: darkgray");
     else
         this->ui->p2_pas->setStyleSheet("background-color: white");
+}
 
+void MainWindow::on_player2_siege_nr_clicked() {
+    Gra->wybranoLinie(P2_Siege);
+    return;
+}
+void MainWindow::on_player2_ranged_nr_clicked() {
+    Gra->wybranoLinie(P2_Range);
+    return;
+}
+void MainWindow::on_player2_melee_nr_clicked() {
+    Gra->wybranoLinie(P2_Melee);
+    return;
+}
+void MainWindow::on_player1_melee_nr_clicked() {
+    Gra->wybranoLinie(P1_Melee);
+    return;
+}
+void MainWindow::on_player1_ranged_nr_clicked() {
+    Gra->wybranoLinie(P1_Range);
+    return;
+}
+void MainWindow::on_player1_siege_nr_clicked() {
+    Gra->wybranoLinie(P1_Siege);
+    return;
 }

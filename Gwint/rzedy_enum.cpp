@@ -9,13 +9,15 @@ bool rzedy_enum::isPlayer1(RzadPlanszy rzad){
         rzad == P1_Hand ||
         rzad == P1_Deck ||
         rzad == P1_Spell ||
-        rzad == P1_Leader)
+        rzad == P1_Leader ||
+        rzad == P1_Graveyard ||
+        rzad == P1_Limbo)
         return true;
     else
         return false;
 }
 
-RzadPlanszy rzedy_enum::reverseRzad(RzadPlanszy rzad){
+RzadPlanszy rzedy_enum::reverseRzad(RzadPlanszy rzad) {
     RzadPlanszy reverse = Unknown;
 
     switch (rzad){
@@ -75,6 +77,14 @@ RzadPlanszy rzedy_enum::reverseRzad(RzadPlanszy rzad){
             reverse = P1_Deck;
             break;
         }
+        case P1_Graveyard: {
+            reverse = P2_Graveyard;
+            break;
+        }
+        case P2_Graveyard: {
+            reverse = P1_Graveyard;
+            break;
+        }
         default:
             break;
     }
@@ -82,7 +92,7 @@ RzadPlanszy rzedy_enum::reverseRzad(RzadPlanszy rzad){
     return reverse;
 }
 
-RzadPlanszy rzedy_enum::convertTypToRzad(Kategoria typ, int nr_gracza){
+RzadPlanszy rzedy_enum::convertTypToRzad(Kategoria typ, int nr_gracza) {
     RzadPlanszy konwersja = Unknown;
 
     switch (typ) {
