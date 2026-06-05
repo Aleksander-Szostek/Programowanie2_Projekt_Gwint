@@ -66,7 +66,10 @@ karta* player::zagrajKarte(int nr_w_rece){
         qDebug("Zagrano siege");
     }
     else if (typ_karty == Kategoria::Spell){
-        qDebug("Zagrano zaklęcie (idzie do shadow realm)");
+        qDebug("Zagrano zaklęcie");
+        if (reka->getKartaFromList(nr_w_rece)->getKeyword() == Horn ||
+            reka->getKartaFromList(nr_w_rece)->getKeyword() == Grzyb)
+            PendingSelection = nr_w_rece;
         //reka->delete_card(nr_w_rece);
     }
     else if (typ_karty == Kategoria::Agile){

@@ -306,7 +306,6 @@ void gra::redrawBoard() {
 }
 
 void gra::redrawLine(RzadPlanszy gdzieRysowac) {
-    qDebug() << "Rysowanie linii";
     kontener_kart* Linia = getKontenerByEnum(gdzieRysowac);
 
     rzedy_enum konwersje;
@@ -420,10 +419,18 @@ void gra::wybranoKarte(RzadPlanszy lokacja, int indeks ){
 
 void gra::wybranoLinie(RzadPlanszy lokacja) {
     player* gracz = nullptr;
-    if (GameState == Tura1)
+    RzadPlanszy reka;
+    int nr_gracz;
+    if (GameState == Tura1) {
         gracz = gracz_1;
-    else if (GameState == Tura2)
+        reka = P1_Hand;
+        nr_gracz = 1;
+    }
+    else if (GameState == Tura2) {
         gracz = gracz_2;
+        reka = P2_Hand;
+        nr_gracz = 2;
+    }
     else
         return;
 
@@ -433,7 +440,61 @@ void gra::wybranoLinie(RzadPlanszy lokacja) {
     karta* aktor = gracz->getReka()->getKartaFromList(indeks_aktora);
 
     switch (aktor->getKeyword()) {
+    case Horn: {
+        RzadPlanszy rog_poz;
+        switch (lokacja) {
+        case P1_Melee: {
+            rog_poz = P1_Melee_Horn;
+            break;
+        }
+        case P1_Range: {
+            rog_poz = P1_Range_Horn;
+            break;
+        }
+        case P1_Siege: {
+            rog_poz = P1_Siege_Horn;
+            break;
+        }
+        case P2_Melee: {
+            rog_poz = P2_Melee_Horn;
+            break;
+        }
+        case P2_Range: {
+            rog_poz = P2_Range_Horn;
+            break;
+        }
+        case P2_Siege: {
+            rog_poz = P2_Siege_Horn;
+            break;
+        }
+        default: {
+            return;
+        }
+        }
 
+        moveCardByEnum(reka, rog_poz, aktor->getID());
+        graczZagrajKarte(-10, nr_gracz);
+        break;
+    }
+    case Grzyb: {
+        kontener_kart* linia = getKontenerByEnum(lokacja);
+        for (int i = linia->getDeckSize() - 1; i >= 0 ; i--) {
+            if (linia->getKartaFromList(i)->getKeyword() == Morph) {
+                linia->move_card(i, gracz->getLimbo());
+            }
+        }
+
+        for(int i = 0; i < gracz->getLimbo()->getDeckSize(); i++) {
+            gracz->getLimbo()->getKartaFromList(i)->setKeyword("REBIRTH");
+        }
+
+        clearLimbo();
+
+        gracz->getReka()->delete_card(indeks_aktora);
+        graczZagrajKarte(-10, nr_gracz);
+
+        break;
+    }
     default: {
         break;
     }
@@ -656,7 +717,7 @@ void gra::przyzwij(karta* active, int nr_gracza){
     }
 }
 void gra::linked(karta* active, int nr_gracza){
-
+    qDebug() << "Zagrano bratka";
 }
 void gra::medyk(karta* active, int nr_gracza){
 
@@ -682,6 +743,22 @@ void gra::porzoga(karta* active, int nr_gracza){
         qDebug () << "koniec pętli";
     }
 
+    if (active->getKategoria() == Spell) {
+        RzadPlanszy reka;
+        RzadPlanszy limbo;
+
+        if (nr_gracza == 1) {
+            reka = P1_Hand;
+            limbo = P1_Limbo;
+        }
+        else if (nr_gracza == 2) {
+            reka = P2_Hand;
+            limbo = P2_Limbo;
+        }
+
+        moveCardByEnum(reka, limbo, active->getID());
+    }
+
     clearLimbo();
 }
 void gra::pogodaPlay(karta* active, int nr_gracza){
@@ -700,13 +777,44 @@ void gra::pogodaPlay(karta* active, int nr_gracza){
     }
 }
 void gra::horn(karta* active, int nr_gracza){
-
+    qDebug() << "Zagrano róg";
 }
 void gra::boost(karta* active, int nr_gracza){
-
+    qDebug() << "Zagrano boościarza";
 }
 void gra::grzyb(karta* active, int nr_gracza){
+    player* gracz = getGracz(nr_gracza);
+    qDebug() << "Zagrano grzybiarza";
+    kontener_kart* linia;
+    switch (active->getKategoria()) {
+    case Melee: {
+        linia = gracz->getMelee();
+        break;
+    }
+    case Ranged: {
+        linia = gracz->getRanged();
+        break;
+    }
+    case Siege: {
+        linia = gracz->getSiege();
+        break;
+    }
+    default:
+        return;
+    }
 
+    for (int i = linia->getDeckSize() - 1; i >= 0 ; i--) {
+        if (linia->getKartaFromList(i)->getKeyword() == Morph) {
+            linia->move_card(i, gracz->getLimbo());
+        }
+    }
+
+    for(int i = 0; i < gracz->getLimbo()->getDeckSize(); i++) {
+        gracz->getLimbo()->getKartaFromList(i)->setKeyword("REBIRTH");
+    }
+
+    clearLimbo();
+    return;
 }
 void gra::kukla(int indeks_reki, RzadPlanszy miejsce_celu, int indeks_celu, int nr_gracza){
 

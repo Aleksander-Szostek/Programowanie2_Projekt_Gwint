@@ -30,12 +30,12 @@ enum Efekt {
     Linked,     // zrobione
     Medyk,      //
     Reborn,     // zrobione
-    Pogoda,     //
-    Porzoga,    // zrobione (jeszcze spelle zrobić)
-    Horn,       // zrobione (jeszcze spelle zrobić)
+    Pogoda,     // zrobione
+    Porzoga,    // zrobione
+    Horn,       // zrobione
     Boost,      // zrobione
-    Morph,      //
-    Grzyb,      //
+    Morph,      // zrobione
+    Grzyb,      // zrobione
     Kukla       // zrobione
 };
 

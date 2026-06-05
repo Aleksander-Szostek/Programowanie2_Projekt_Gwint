@@ -1,4 +1,5 @@
 #include "kontener_kart.h"
+#include <random>
 
 kontener_kart::kontener_kart() {
     Ciag_kart.push_back(nullptr);
@@ -12,7 +13,7 @@ void kontener_kart::add_card_to(karta* dodawana_karta, int pozycja){
 
 void kontener_kart::move_card(int poz_start, kontener_kart *output_list){
     output_list->add_card_to(Ciag_kart[poz_start], 0);
-    if (output_list->isDeck)                  //jeśli przekładamy kartę do posortowanej talii to ją jeszcze raz tasujemy
+    if (output_list->isDeck)                    //jeśli przekładamy kartę do posortowanej talii to ją jeszcze raz tasujemy
         output_list->shulfe_list();             //używane do muliganu
     else
         output_list->sort_list();               //jeśli dodajemy do innego to listę układamy w kolejności
@@ -27,6 +28,19 @@ void kontener_kart::delete_card(int pozycja){
 }
 
 void kontener_kart::shulfe_list(){
+
+    int size = getDeckSize();
+
+    qDebug() << "Tasowanie talii";
+    for (int i = 0 ; i < size * 5 ; i++) {      // ten algorytm znalazłem w internecie ale mu nie ufam
+        int swap = std::rand() % size;          // więc wykonuje go kilka razy żeby był bardziej losowy
+        karta* temp = Ciag_kart[i % size];
+        Ciag_kart[i % size] = Ciag_kart[swap];
+        Ciag_kart[swap] = temp;
+    }
+
+    qDebug() << "Pierwsza karta: " + Ciag_kart[0]->getNazwa();
+
     return;
 }
 
