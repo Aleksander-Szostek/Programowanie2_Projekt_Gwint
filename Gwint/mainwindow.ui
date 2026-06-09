@@ -39,7 +39,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="menu">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -47,6 +47,13 @@
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <layout class="QFormLayout" name="formLayout">
+            <item row="1" column="1">
+             <widget class="QPushButton" name="Start_Button">
+              <property name="text">
+               <string>Start</string>
+              </property>
+             </widget>
+            </item>
             <item row="2" column="0">
              <spacer name="horizontalSpacer">
               <property name="orientation">
@@ -59,6 +66,13 @@
                </size>
               </property>
              </spacer>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="Talia_Button">
+              <property name="text">
+               <string>Tworzenie Tali</string>
+              </property>
+             </widget>
             </item>
             <item row="3" column="1">
              <spacer name="verticalSpacer">
@@ -76,7 +90,10 @@
               </property>
              </spacer>
             </item>
-            <item row="4" column="0">
+            <item row="4" column="1">
+             <widget class="QComboBox" name="talie"/>
+            </item>
+            <item row="5" column="0">
              <spacer name="horizontalSpacer_2">
               <property name="orientation">
                <enum>Qt::Orientation::Horizontal</enum>
@@ -90,25 +107,7 @@
              </spacer>
             </item>
             <item row="5" column="1">
-             <widget class="QLabel" name="label">
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="1">
-             <widget class="QPushButton" name="Talia_Button">
-              <property name="text">
-               <string>Tworzenie Tali</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QPushButton" name="Start_Button">
-              <property name="text">
-               <string>Start</string>
-              </property>
-             </widget>
+             <widget class="QComboBox" name="talie_bot"/>
             </item>
            </layout>
           </item>
@@ -661,24 +660,7 @@
              </property>
              <layout class="QGridLayout" name="gridLayout_7">
               <item row="0" column="0">
-               <layout class="QGridLayout" name="layout_lewy">
-                <item row="0" column="0">
-                 <spacer name="horizontalSpacer_3">
-                  <property name="orientation">
-                   <enum>Qt::Orientation::Horizontal</enum>
-                  </property>
-                  <property name="sizeType">
-                   <enum>QSizePolicy::Policy::Fixed</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>500</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
+               <layout class="QGridLayout" name="layout_lewy"/>
               </item>
              </layout>
             </widget>

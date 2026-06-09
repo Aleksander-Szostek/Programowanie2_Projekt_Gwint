@@ -14,7 +14,9 @@ gra::gra() {
 void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
     std::srand(time(NULL));
     gracz_1->getDeck()->makeDeck(nazwa_talii_1);
+    qDebug()<<"talia gracza to: "<<nazwa_talii_1;
     gracz_2->getDeck()->makeDeck(nazwa_talii_2);
+    qDebug()<<"talia bota to: "<<nazwa_talii_1;
 //    gracz_1->getDeck()->validifyDeck();
 //    gracz_2->getDeck()->validifyDeck();
     if (true){  //gracz_1->getDeck()->DeckValid && gracz_2->getDeck()->DeckValid) {

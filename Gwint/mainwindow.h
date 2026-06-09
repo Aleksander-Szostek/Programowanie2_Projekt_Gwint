@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "card_button_talia.h"
 #include "gra.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -41,11 +42,18 @@ private slots:
 
     void on_comboBox_currentIndexChanged(int index);
 
+
+    void obslugaDodaniaDoTalii(karta* daneKarty);
+    void odswiezListeTalii();
+    //void usunZTalii(Card_Button_Talia* przycisk);
+
 private:
     Ui::MainWindow *ui;
    // std::vector<Card_Button*> kartyNaPlanszy; // dodaje karty ktore są już na planszy do vectora
     //std::vector<karta*> daneKartNaPlanszy; // zapisuje dane kart obecnie na planszy aby moc je na nowo narysowac
     gra *Gra; // dodaje tutaj Gra aby nie znikała tak jak to zrobiłem wcześniej
+
+    std::vector<karta*> wybraneKarty;
 
     void resizeEvent(QResizeEvent *a) override;
     //void obsugaDodanejKarty(karta* daneKarty, gra::RzadPlanszy rzad);

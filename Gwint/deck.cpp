@@ -48,7 +48,7 @@ void deck::validifyDeck(){
             }
         }
     }
-
+/*
     if (indeksLidera >= 0) {
         move_card(indeksLidera, Leader);
     }
@@ -67,8 +67,7 @@ void deck::validifyDeck(){
         returnVal->setName("Error: unknown leader in deck validity error");
         add_card_to(returnVal, 0);
     }
-
-
+*/
 
 //    Ciag_kart.clear();
 //
@@ -83,4 +82,17 @@ void deck::validifyDeck(){
 //    FrakcjaTalii = Frakcja::Neutral;
 //
 //    DeckValid = false;
+}
+void deck::makeDeckZUI(const std::vector<karta*>& wybraneKarty) {
+
+    Ciag_kart.clear();
+
+    for (karta* k : wybraneKarty) {
+        if (k) {
+            karta* nowaKarta = new karta(*k);
+            Ciag_kart.push_back(nowaKarta);
+        }
+    }
+
+    validifyDeck();
 }
