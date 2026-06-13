@@ -21,6 +21,7 @@ public:
 
     void delete_card(int pozycja);
 
+    std::vector<karta*> getWszystkieKarty();
 protected:
 
     std::vector<karta*> Ciag_kart;

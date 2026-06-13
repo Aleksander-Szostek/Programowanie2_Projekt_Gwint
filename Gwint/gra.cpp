@@ -11,6 +11,8 @@ gra::gra() {
     gracz_1 = new human_player; // musimy zrbic klase np gracz_player
     gracz_2 = new bot_player;
     pogoda = new efekty_pogodowe;
+
+    static_cast<bot_player*>(gracz_2)->setPogodaStol(pogoda);
 }
 
 void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
@@ -930,7 +932,7 @@ void gra::clearLimbo() {
         }
 
         else {
-            Limbo->move_card(i, getKontenerByEnum(P1_Graveyard));
+            Limbo->move_card(i, getKontenerByEnum(P2_Graveyard));
         }
     }
 

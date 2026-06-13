@@ -51,7 +51,6 @@ public:
     void setFlavor(QString flavor_s);
 
     void updateSila(bool pogoda, bool horn, int boost, int moc_braterstwa = 0);
-
     unsigned int getID();
     QString getNazwa();
     Frakcja getFrakcja();

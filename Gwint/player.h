@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "deck.h"
+#include "efekty_pogodowe.h"
 #include "player_hand.h"
 #include "plansza_linia.h"
 #include "graveyard.h"
@@ -56,6 +57,8 @@ public:
     int getPunktyK();
     void setPunktyK(int a);
 
+    int getSumaPunktow(bool pogoda[3]);
+
 private:
 
     int punkty=0;
@@ -73,6 +76,8 @@ private:
     bool czyPas = false;
 
     int PendingSelection = -1;
+
+    efekty_pogodowe* aktualnaPogoda = nullptr;
 };
 
 #endif // PLAYER_H
