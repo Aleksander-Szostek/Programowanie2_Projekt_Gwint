@@ -3,5 +3,6 @@
 
 Card_Button_Talia::Card_Button_Talia(karta* daneKarty, QWidget *parent): Card_Button(daneKarty, parent){
     //setFixedSize(wysokosc_karty/proporcje_karty,wysokosc_karty); // rozmiar karty
-    setFixedSize(80,110);
+    int h = 80;
+    setFixedSize(h,h*proporcje_karty);
 }

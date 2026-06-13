@@ -22,21 +22,33 @@ void deck::validifyDeck(){
 
     DeckValid = true;
 
-    int indeksLidera = -1;   //wartość -1 oznacza że nie ma w talii, wartość -2 oznacza że jest więcej niż 1
+    int IloscJednostek = 0;
+    int IloscKartSpecjalnych = 0;
+    for (int i = 0; i < Ciag_kart.size(); i++) {
+        if (Ciag_kart[i]->getKategoria() == (Kategoria::Melee || Kategoria::Ranged || Kategoria::Siege))
+            IloscJednostek++;
+        if (Ciag_kart[i]->getLeg())
+            IloscKartSpecjalnych++;
+    }
+
+    if (IloscJednostek < 22 || IloscKartSpecjalnych > 10)
+        DeckValid = false;
+
+//    int indeksLidera = -1;   //wartość -1 oznacza że nie ma w talii, wartość -2 oznacza że jest więcej niż 1
 
     for (int i = 0; i < Ciag_kart.size(); i++) {
         if (Ciag_kart[i]->getKategoria() == Kategoria::Undefined)
             DeckValid = false;
         if (Ciag_kart[i]->getFrakcja() != Frakcja::Neutral) {
-            if (Ciag_kart[i]->getKategoria() == Kategoria::Leader){
-                if (indeksLidera == -1) {
-                    indeksLidera = i;
-                }
-                else {
-                    indeksLidera = -2;
-                    DeckValid = false;
-                }
-            }
+//            if (Ciag_kart[i]->getKategoria() == Kategoria::Leader){
+//                if (indeksLidera == -1) {
+//                    indeksLidera = i;
+//                }
+//                else {
+//                    indeksLidera = -2;
+//                    DeckValid = false;
+//                }
+//            }
             if (FrakcjaTalii == Frakcja::Neutral)
                 FrakcjaTalii = Ciag_kart[i]->getFrakcja();
             else if (FrakcjaTalii != Ciag_kart[i]->getFrakcja()) {
@@ -49,40 +61,19 @@ void deck::validifyDeck(){
             }
         }
     }
-/*
-    if (indeksLidera >= 0) {
-        move_card(indeksLidera, Leader);
-    }
-    else if(indeksLidera == -1) {
-        karta *returnVal = new karta;
-        returnVal->setName("Error: no leader in deck");
-        add_card_to(returnVal, 0);
-    }
-    else if(indeksLidera == -2) {
-        karta *returnVal = new karta;
-        returnVal->setName("Error: multiple leaders in deck");
-        add_card_to(returnVal, 0);
-    }
-    else {
-        karta *returnVal = new karta;
-        returnVal->setName("Error: unknown leader in deck validity error");
-        add_card_to(returnVal, 0);
-    }
-*/
 
-//    Ciag_kart.clear();
-//
-//    karta *returnVal = new karta;
-//
-//    returnVal->setName("Error: invalid deck");
-//
-//    Ciag_kart.push_back(returnVal);
-//
-//    karta* Leader = nullptr;
-//
-//    FrakcjaTalii = Frakcja::Neutral;
-//
-//    DeckValid = false;
+    for (int baza = 0; baza < Ciag_kart.size() && DeckValid; baza++) {
+        int suma = 0;
+
+        for (int test = 0; test < Ciag_kart.size(); test++) {
+            if (Ciag_kart[test]->getID() == Ciag_kart[baza]->getID())
+                suma++;
+        }
+
+        if (suma > Ciag_kart[baza]->getMax()) {
+            DeckValid = false;
+        }
+    }
 }
 
 kontener_kart* deck::getLeader() {

@@ -279,6 +279,8 @@ void gra::redrawBoard() {
 
     countPoints();
 
+    if (GameState != KoniecGry) {
+
     qDebug() << "Przerysowywanie planszy";
 
     redrawLine(P1_Melee);
@@ -307,6 +309,8 @@ void gra::redrawBoard() {
     qDebug() << "Narysowano wszystko";
 
     countPoints();
+
+    }
 }
 
 void gra::redrawLine(RzadPlanszy gdzieRysowac) {

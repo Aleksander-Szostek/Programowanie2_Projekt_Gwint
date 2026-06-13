@@ -82,9 +82,7 @@ void karta::setKeyword(QString efekt_s){
 }
 
 void karta::setCele(QString cele_s){
-    qDebug() << "Wywołano setCele";
     if (cele_s == "") {
-        qDebug() << "Brak celi";
         return;
     }
 
@@ -98,7 +96,6 @@ void karta::setCele(QString cele_s){
 
     for (int i = 0 ; i < dane.size() ; i++)
     {
-        qDebug() << "Zapisywanie celu: " + dane[i];
         if (dane[i] == "MELEE")
             cele.push_back(-1);
         else if (dane[i] == "RANGED")
@@ -106,15 +103,12 @@ void karta::setCele(QString cele_s){
         else if (dane[i] == "SIEGE")
             cele.push_back(-3);
         else {
-            qDebug() << "Zapisywanie tego";
             int ID = dane[i].toInt(nullptr, 10);
             cele.push_back(ID);
             //dane[i].toInt(nullptr, 10)
-            qDebug() << "Zapisało";
         }
     }
 
-    qDebug() << "Koniec setCele";
     return;
 }
 void karta::setMax(unsigned int max_w_talii_s){

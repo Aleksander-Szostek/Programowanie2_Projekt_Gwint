@@ -4,6 +4,7 @@ Card_Button::Card_Button(karta* daneKarty, QWidget *parent) : QPushButton(parent
 {
     setFixedSize(wysokosc_karty/proporcje_karty,wysokosc_karty); // rozmiar karty
 }
+
 void Card_Button::refresh(){
     if(!k_dane)
         return;

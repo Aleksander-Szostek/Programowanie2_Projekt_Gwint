@@ -17,7 +17,6 @@ card_loader::card_loader() {}
 //  funkcja odczytuje kartę z pliku i zwraca do funkcji która wywołała
 void card_loader::zaladuj_karte(int id, karta* Karta) {
 
-    qDebug() << "Ładowanie karty";
     QString fileName = "cards_list.txt";
     QFile file(fileName);
 
