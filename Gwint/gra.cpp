@@ -115,7 +115,7 @@ void gra::koniec_gry(){
 
     if (p1_gamescore == 0 && p2_gamescore == 0) {
         nakazZmianyStrony(0);
-        qDebug() << "Gra nierozpoczęta ze względu na niewłaściewośc 1 z talii";
+        qDebug() << "Gra nierozpoczęta ze względu na niewłaściewość 1 z talii";
         return;
     }
     else {

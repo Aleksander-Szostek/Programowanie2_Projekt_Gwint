@@ -3,7 +3,7 @@
 
 #endif // I_CONSTANT_VALUSE_H
 
-const int wysokosc_karty = 75;
+const int wysokosc_karty = 80;
 const double proporcje_karty = 1.4;
     // wymiary karty
 

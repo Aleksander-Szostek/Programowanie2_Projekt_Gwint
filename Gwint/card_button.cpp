@@ -10,20 +10,86 @@ void Card_Button::refresh(){
     QString nazwa = k_dane->getNazwa();
     int sila = k_dane->getSila();
     bool isLeg = k_dane->getLeg();
+    Kategoria typKarty = k_dane->getKategoria();
+    Efekt efektKarty = k_dane->getKeyword();
     //na razie to zostawiam, potem możemy zmienić na jakas grafikę
     QString borderStyle;
-    if(isLeg==true){
+    if(isLeg==true) {
         borderStyle = "#91873a";
-    }else{
-        borderStyle = "#2c3e50";
     }
+    else {
+        switch (efektKarty) {
+
+        case Szpieg: {
+            borderStyle = "#1e1e1e";
+            break;
+        }
+
+        case Przyzwij: {
+            borderStyle = "#2f3980";
+            break;
+        }
+
+        case Linked: {
+            borderStyle = "#79aba7";
+            break;
+        }
+
+        case Reborn: {
+            borderStyle = "#ff213b";
+            break;
+        }
+
+        case Pogoda: {
+            borderStyle = "#7ebdfc";
+            break;
+        }
+
+        case Porzoga: {
+            borderStyle = "#5eb04c";
+            break;
+        }
+
+        case Horn: {
+            borderStyle = "#a65a28";
+            break;
+        }
+
+        case Boost: {
+            borderStyle = "#8a555c";
+            break;
+        }
+
+        case Morph: {
+            borderStyle = "#661a5f";
+            break;
+        }
+
+        case Grzyb: {
+            borderStyle = "#095700";
+            break;
+        }
+
+        case Kukla: {
+            borderStyle = "#b8b693";
+            break;
+        }
+
+        default: {
+            borderStyle = "#787878";
+            break;
+        }
+
+        }
+    }
+
     QString style = QString(
                         "QPushButton {"
                         "  background-color: %1;"
                         "  color: white;"
                         "  border: 2px solid black;"
                         "  border-radius: 5px;"
-                        //"font: 10px;"
+                        "font: 10px;"
                         "}"
                         ":hover { border:#ffffff ; }"
                         "QPushButton:hover {"
@@ -32,7 +98,40 @@ void Card_Button::refresh(){
                         ).arg(borderStyle);
 
     this->setStyleSheet(style);
-    this->setText(k_dane->getNazwa() + "\nSiła: " + QString::number(k_dane->getSila()));
+
+    QString name = "";
+    QString sila_text = "";
+    QString kategoria_text;
+    for (int i = 0 ; i < k_dane->getNazwa().size() ; i++) {
+        if (k_dane->getNazwa()[i].isSpace())        //nie wiem o co się śmieć pulta ale działa
+            name = name + '\n';
+        else
+            name = name + k_dane->getNazwa()[i];
+    }
+
+    switch ( typKarty ) {
+        case Melee: {
+            kategoria_text = "Wręcz";
+            break;
+        }
+        case Ranged: {
+            kategoria_text = "Dystans";
+            break;
+        }
+        case Siege: {
+            kategoria_text = "Oblężenie";
+            break;
+        }
+        default: {
+            kategoria_text = "";
+            break;
+        }
+    }
+
+    if (k_dane->getKategoria() != Spell && k_dane->getKategoria() != Leader)
+        sila_text = "Siła: " + QString::number( sila );
+
+    this->setText( name + "\n\n" + kategoria_text + "\n" + sila_text);
 }
 
 int Card_Button::getIndeks(){

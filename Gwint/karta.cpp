@@ -37,7 +37,7 @@ void karta::setKategoria(QString Nazwa_kategorii){
     else if (Nazwa_kategorii == "LEADER")
         kategoria = Kategoria::Leader;
     else if (Nazwa_kategorii == "AGILE")
-        kategoria = Kategoria::Agile;
+        kategoria = Kategoria::Melee;       //nie ma już czasu się tym zajmować więc będą po prostu melee
     else {
         kategoria = Kategoria::Undefined;
         setName("Error: niezdefiniowany typ karty");
@@ -61,7 +61,7 @@ void karta::setKeyword(QString efekt_s){
     else if (efekt_s == "REBIRTH")
         keyword = Reborn;
     else if (efekt_s == "MEDIC")
-        keyword = Medyk;
+        keyword = Brak;            //nie ma czasu na medyków
     else if (efekt_s == "WEATHER")
         keyword = Pogoda;
     else if (efekt_s == "SCORCH")

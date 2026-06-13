@@ -209,6 +209,8 @@ void MainWindow::zmianaStrony(int indeks) {
                 "}"
             );
 
+            odswiezListeTalii();
+
             ui->WRundy_1->setText("");
             ui->WRundy_2->setText("");
             ui->WRundy_3->setText("");
@@ -224,6 +226,8 @@ void MainWindow::zmianaStrony(int indeks) {
 
             break;
         }
+
+
 
         case 1: {
             this->setStyleSheet(
@@ -258,6 +262,8 @@ void MainWindow::zmianaStrony(int indeks) {
             ui->player1_siege_nr->setMinimumSize(0 , (wier1_6 * Size.rheight()));
             break;
         }
+
+
 
         case 2: {
             this->setStyleSheet(
@@ -336,6 +342,16 @@ void MainWindow::zmianaStrony(int indeks) {
                 ui->nextRundaBtn->setText("Następna runda");
             }
         }
+
+
+
+        case 3: {
+            odswierzanieKartWTalii();
+            odswiezListeTalii();
+        }
+
+
+
         default:
             break;
 }
@@ -463,7 +479,9 @@ void MainWindow::odswierzanieKartWTalii(){
         karta* sprawdzanaKarta = new karta();
         zaladuj.zaladuj_karte(idKarty, sprawdzanaKarta);
 
-        if(sprawdzanaKarta->getFrakcja() == szukanaFrakcja || sprawdzanaKarta->getFrakcja() == Frakcja::Neutral){
+        if((sprawdzanaKarta->getFrakcja() == szukanaFrakcja || sprawdzanaKarta->getFrakcja() == Frakcja::Neutral)
+            && sprawdzanaKarta->getNazwa() != "Error: niezdefiniowany typ karty"
+            && sprawdzanaKarta->getMax() != 0) {
 
 
             Card_Button_Talia* nowaKartaFrakcji = new Card_Button_Talia(sprawdzanaKarta, this);
@@ -510,16 +528,13 @@ void MainWindow::odswiezListeTalii()
 
 void MainWindow::on_Talia_Button_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
-    odswierzanieKartWTalii();
-    odswiezListeTalii();
-
+    zmianaStrony(3);
 }
 
 
 void MainWindow::on_powrot_Button_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(0);
+    zmianaStrony(0);
 }
 
 

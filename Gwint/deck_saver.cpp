@@ -16,8 +16,6 @@ void deck_saver::save_deck(deck& talia_do_zapisania, QString fileName){
 
     std::string file_string = "";
 
-    file_string += std::to_string(talia_do_zapisania.getKartaFromList(0)->getID());
-
     if (talia_do_zapisania.getDeckSize() > 0) {
         file_string += std::to_string(talia_do_zapisania.getKartaFromList(0)->getID());
 
