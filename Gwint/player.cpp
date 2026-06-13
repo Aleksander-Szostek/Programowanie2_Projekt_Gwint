@@ -152,3 +152,8 @@ void player::setPendingSelection(int indeks) {
     PendingSelection = indeks;
     return;
 }
+int player::getSumaPunktow(bool pogoda[3]){
+    int punkty[3];
+    this->getPoints(punkty, pogoda);
+    return punkty[0] + punkty[1] + punkty[2];
+}

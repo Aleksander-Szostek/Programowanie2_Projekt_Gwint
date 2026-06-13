@@ -60,3 +60,7 @@ int kontener_kart::getDeckSize(){
 karta* kontener_kart::getKartaFromList(int poz) {
     return Ciag_kart[poz];
 }
+
+std::vector<karta*> kontener_kart::getWszystkieKarty(){
+    return Ciag_kart;
+}
