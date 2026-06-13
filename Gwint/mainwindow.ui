@@ -39,7 +39,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="menu">
        <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -492,7 +492,6 @@
         </item>
        </layout>
       </widget>
-
       <widget class="QWidget" name="page">
        <widget class="QWidget" name="verticalLayoutWidget">
         <property name="geometry">
@@ -665,7 +664,6 @@
         </layout>
        </widget>
       </widget>
-
       <widget class="QWidget" name="ekran_tworzenia_talii">
        <layout class="QGridLayout" name="gridLayout_5">
         <item row="14" column="0">
@@ -787,7 +785,6 @@
         </item>
        </layout>
       </widget>
-
      </widget>
     </item>
    </layout>

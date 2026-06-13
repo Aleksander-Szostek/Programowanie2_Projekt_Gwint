@@ -96,7 +96,7 @@ void MainWindow::on_Start_Button_clicked()
     //this->showMaximized();
     zmianaStrony(1);
 
-    Gra->zainicjalizuj_gre(ui->talie->currentText(),"deck1.txt");
+    Gra->zainicjalizuj_gre(ui->talie->currentText(),ui->talie_bot->currentText());
 }
 
 // Funkcja pomocnicza zwracająca wskaźnik do layoutu na podstawie enuma
@@ -510,7 +510,7 @@ void MainWindow::odswiezListeTalii()
 
 void MainWindow::on_Talia_Button_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->stackedWidget->setCurrentIndex(3);
     odswierzanieKartWTalii();
     odswiezListeTalii();
 
