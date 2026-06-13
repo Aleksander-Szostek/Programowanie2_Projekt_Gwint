@@ -399,6 +399,8 @@ void MainWindow::on_player1_siege_nr_clicked() {
     Gra->wybranoLinie(P1_Siege);
     return;
 }
+
+
 void MainWindow::obslugaDodaniaDoTalii(karta* daneKarty)
 {
 
@@ -414,9 +416,9 @@ void MainWindow::obslugaDodaniaDoTalii(karta* daneKarty)
 
     Card_Button* przyciskDodany = new Card_Button(kopiaKarty, this);
     przyciskDodany->refresh();
+    kartyWTalii.push_back(przyciskDodany);
 
     ui->layout_lewy->addWidget(przyciskDodany,wybraneKarty.size()/7,wybraneKarty.size()%7);
-
 
     connect(przyciskDodany, &Card_Button::clicked, this, [=]() {
         ui->layout_lewy->removeWidget(przyciskDodany);
@@ -429,11 +431,20 @@ void MainWindow::obslugaDodaniaDoTalii(karta* daneKarty)
         delete kopiaKarty;
         przyciskDodany->deleteLater();
 
+        auto it = std::find(kartyWTalii.begin(),kartyWTalii.end(),przyciskDodany);
+        if (it != kartyWTalii.end()){
+            kartyWTalii.erase(it);
+        }
+
         if (wybraneKarty.empty()) {
             ui->comboBox->setEnabled(true);
         }
 
     });
+    for (int i = 0; i < kartyWTalii.size(); ++i)
+    {
+        ui->layout_lewy->addWidget(kartyWTalii[i],i/7,i%7);
+    }
 
     qDebug() << "Dodano do tworzonej talii: " << kopiaKarty->getNazwa()<< " Rozmiar talii: " << wybraneKarty.size();
 }

@@ -56,6 +56,7 @@ private slots:
 
     void obslugaDodaniaDoTalii(karta* daneKarty);
     void odswiezListeTalii();
+
     //void usunZTalii(Card_Button_Talia* przycisk);
 
 private:
@@ -72,7 +73,7 @@ private:
     int pointsStorage[12];
 
     std::vector<karta*> wybraneKarty;
-
+    std::vector<Card_Button*> kartyWTalii;
     //void resizeEvent(QResizeEvent *a) override;
     //void obsugaDodanejKarty(karta* daneKarty, gra::RzadPlanszy rzad);
     //void obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
