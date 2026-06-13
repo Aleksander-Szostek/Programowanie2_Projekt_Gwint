@@ -37,6 +37,7 @@ qt_add_executable(Gwint
     rzedy_enum.h rzedy_enum.cpp
 
 
+    card_button_talia.h card_button_talia.cpp
 
 )
 

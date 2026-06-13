@@ -26,7 +26,7 @@
 25;Deszcz Ognia;NORTHERN;SPELL;;SCORCH;;1;;
 26;;;;;;;;;
 27;Ciri;NEUTRAL;AGILE;15;;;1;;
-28;Płotka;NEUTRAL;MELEE;0;;;1;;
+28;Płotka;NEUTRAL;MELEE;3;;;1;;
 29;Wody Brokilonu;SCOIA'TAEL;SPELL;;HORN;;1;;
 30;Krwawy Księżyc;MONSTERS;SPELL;;HORN;;1;;
 31;Jaskinia Snów;SKELLIGE;SPELL;;HORN;;1;;

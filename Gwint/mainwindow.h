@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "card_button_talia.h"
 #include "gra.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -41,13 +42,28 @@ private slots:
     void on_player1_ranged_nr_clicked();
 
     void on_player1_siege_nr_clicked();
+    void on_Talia_Button_clicked();
+
+    void on_powrot_Button_clicked();
+
+    void on_zapisz_Button_clicked();
+
+    void odswierzanieKartWTalii();
+
+
+    void on_comboBox_currentIndexChanged(int index);
+
+
+    void obslugaDodaniaDoTalii(karta* daneKarty);
+    void odswiezListeTalii();
+    //void usunZTalii(Card_Button_Talia* przycisk);
 
 private:
     Ui::MainWindow *ui;
     gra *Gra; // dodaje tutaj Gra aby nie znikała tak jak to zrobiłem wcześniej
 
     void obslugaRysowaniaKarty(karta* nowaKarta, RzadPlanszy rzad, int indeks, int nr_gr);
-    void obslugaCzyszczeniaLayoutu(RzadPlanszy rzad);
+    //void obslugaCzyszczeniaLayoutu(RzadPlanszy rzad);
     void obslugaAktualizacjiPunkt(int punkty[6]);
     QLayout* getLayoutByEnum(RzadPlanszy rzad);
     void zmianaStrony(int indeks);
@@ -55,5 +71,14 @@ private:
 
     int pointsStorage[12];
 
+    std::vector<karta*> wybraneKarty;
+
+    void resizeEvent(QResizeEvent *a) override;
+    //void obsugaDodanejKarty(karta* daneKarty, gra::RzadPlanszy rzad);
+    void obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
+    
+
+    void obslugaRysowaniaKartDoTalii(); //to do zrobienia jeszcze
+    
 };
 #endif // MAINWINDOW_H

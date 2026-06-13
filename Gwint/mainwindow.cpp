@@ -4,8 +4,12 @@
 #include "deck_loader.h"
 #include "deck_saver.h"
 #include "card_button.h"
+#include "card_button_talia.h"
 #include "gra.h"
 #include "i_constant_valuse.h"
+// one sa do wczytywania plikow
+#include <QDir>
+#include <QFileInfoList>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -27,8 +31,39 @@ MainWindow::MainWindow(QWidget *parent)
     connect(Gra, &gra::nakazZmianyStrony, this, &MainWindow::zmianaStrony);
     connect(Gra, &gra::nakazShowGS, this, &MainWindow::zmianaGSLabel);
 
+    ui->comboBox->addItem("Królestwa Północy");
+    ui->comboBox->addItem("Nilfgard");
+    ui->comboBox->addItem("Potwory");
+    ui->comboBox->addItem("Scoia'tael");
+    ui->comboBox->addItem("Skelige");
+
+    //ui->layout_prawy->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+
+    //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
+    // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+    //  ui->layout_reki->layout()->setSpacing(20);
+    // QPixmap bg(":/plansza.jpg");
+
+    //do dodania odległości miedzy layooutami aby były na stałe plus skalowanie całej planszy łącznie z kartami
+    //ui->layout_plansza_test->addSpacing(150);
+
+    this->setStyleSheet(
+        "#centralwidget {"
+        "background-color: #686965;"
+        "}"
+        );
+
 
     qDebug() << QPixmap(":/plansza.jpg").isNull();
+
+    odswiezListeTalii();
+    //    ui->label->setText(karci.nazwa);
+    //else
+    //    ui->label->setText("To nie melee");
+    //testowałem czy odczyt kategorii i frakcji działa (działa)
+
 
                     // ten frakment daje nam vernona rocha, co za temerię zrobi wszystko
     int test = 42;
@@ -37,7 +72,7 @@ MainWindow::MainWindow(QWidget *parent)
     karta* testowa_karta = new karta;
     zaladuj.zaladuj_karte(test, testowa_karta);
 
-    ui->label->setText(testowa_karta->getNazwa() + " " + QString::number(testowa_karta->getSila()) + " " + testowa_karta->getFlavor());
+    //ui->label->setText(testowa_karta->getNazwa() + " " + QString::number(testowa_karta->getSila()) + " " + testowa_karta->getFlavor());
 
 }
 
@@ -61,7 +96,7 @@ void MainWindow::on_Start_Button_clicked()
     //this->showMaximized();
     zmianaStrony(1);
 
-    Gra->zainicjalizuj_gre("deck1.txt","deck1.txt");
+    Gra->zainicjalizuj_gre(ui->talie->currentText(),"deck1.txt");
 }
 
 // Funkcja pomocnicza zwracająca wskaźnik do layoutu na podstawie enuma
@@ -348,3 +383,188 @@ void MainWindow::on_player1_siege_nr_clicked() {
     Gra->wybranoLinie(P1_Siege);
     return;
 }
+void MainWindow::obslugaDodaniaDoTalii(karta* daneKarty)
+{
+
+    if (!daneKarty) return;
+    //dodaje aby nie dalo się zmieniać typu talii w trakcie robienia swojej
+    if (wybraneKarty.empty()) {
+        ui->comboBox->setEnabled(false);
+    }
+
+    karta* kopiaKarty = new karta(*daneKarty);
+    wybraneKarty.push_back(kopiaKarty);
+
+
+    Card_Button* przyciskDodany = new Card_Button(kopiaKarty, this);
+    przyciskDodany->refresh();
+
+    ui->layout_lewy->addWidget(przyciskDodany,wybraneKarty.size()/7,wybraneKarty.size()%7);
+
+
+    connect(przyciskDodany, &Card_Button::clicked, this, [=]() {
+        ui->layout_lewy->removeWidget(przyciskDodany);
+        //to auto sam przypisuje tym zmiennej, tak jest łatwiej
+        auto iterator = std::find(wybraneKarty.begin(), wybraneKarty.end(), kopiaKarty);
+        if (iterator != wybraneKarty.end()) {
+            wybraneKarty.erase(iterator);
+        }
+         qDebug()<<"Usunieto z talii: "<<kopiaKarty->getNazwa();
+        delete kopiaKarty;
+        przyciskDodany->deleteLater();
+
+        if (wybraneKarty.empty()) {
+            ui->comboBox->setEnabled(true);
+        }
+
+    });
+
+    qDebug() << "Dodano do tworzonej talii: " << kopiaKarty->getNazwa()<< " Rozmiar talii: " << wybraneKarty.size();
+}
+
+
+void MainWindow::odswierzanieKartWTalii(){
+    QString wybranaFrakcja = ui->comboBox->currentText();
+    Frakcja szukanaFrakcja=Frakcja::Polnoc;
+    if(wybranaFrakcja=="Królestwa Północy"){
+        szukanaFrakcja = Frakcja::Polnoc;
+    }
+    else if(wybranaFrakcja=="Nilfgard"){
+        szukanaFrakcja = Frakcja::Nilfgard;
+    }
+    else if(wybranaFrakcja=="Potwory"){
+        szukanaFrakcja = Frakcja::Potwory;
+    }
+    else if(wybranaFrakcja=="Scoia'tael"){
+        szukanaFrakcja = Frakcja::Elfy;
+    }
+    else if(wybranaFrakcja=="Skelige"){
+        szukanaFrakcja = Frakcja::Skelige;
+    }
+    QGridLayout* layoutPrawy = ui->layout_prawy;
+
+    if (!layoutPrawy) return;
+
+
+    QLayoutItem* item;
+    while ((item = layoutPrawy->takeAt(0)) != nullptr) {
+        if (item->widget()) {
+            QWidget* widget = item->widget();
+            widget->hide();
+            widget->deleteLater();
+        }
+        delete item;
+    }
+
+    card_loader zaladuj;
+    int i=0;
+    for(int idKarty=0; idKarty<=328;idKarty++){
+
+        karta* sprawdzanaKarta = new karta();
+        zaladuj.zaladuj_karte(idKarty, sprawdzanaKarta);
+
+        if(sprawdzanaKarta->getFrakcja() == szukanaFrakcja || sprawdzanaKarta->getFrakcja() == Frakcja::Neutral){
+
+
+            Card_Button_Talia* nowaKartaFrakcji = new Card_Button_Talia(sprawdzanaKarta, this);
+            nowaKartaFrakcji->refresh();
+
+
+            connect(nowaKartaFrakcji, &Card_Button_Talia::clicked, this, [=]() {
+                obslugaDodaniaDoTalii(sprawdzanaKarta);
+            });
+
+            layoutPrawy->addWidget(nowaKartaFrakcji, i / 7, i % 7);
+            i++;
+            // -------------------------
+
+        }
+        else{
+            delete sprawdzanaKarta;
+        }
+    }
+
+}
+
+void MainWindow::odswiezListeTalii()
+{
+    ui->talie->clear();
+    ui->talie_bot->clear();
+    QDir katalog(QDir::currentPath());
+
+    QFileInfoList pliki = katalog.entryInfoList(
+        QStringList() << "*.txt",
+        QDir::Files
+        );
+
+    for (const QFileInfo &plik : pliki)
+    {
+        if (plik.fileName() != "cards_list.txt" && plik.fileName() != "CMakeCache.txt")
+        {
+            ui->talie->addItem(plik.fileName());
+            ui->talie_bot->addItem(plik.fileName());
+        }
+    }
+}
+
+
+void MainWindow::on_Talia_Button_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(2);
+    odswierzanieKartWTalii();
+    odswiezListeTalii();
+
+}
+
+
+void MainWindow::on_powrot_Button_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_zapisz_Button_clicked()
+{
+    QString nazwa_pliku = ui->zapisz_tekst->toPlainText().trimmed(); //to trimmed powoduje usuniecie białych znakow spacja /n itp
+    qDebug()<<"Nazwa pliku: "<<nazwa_pliku;
+
+    //tu jeszcze musze zrobic sprawdzanie poprawnosci nazwy pliku czy np nie ma enterow, spacji albo czy w ogole jest
+    if (nazwa_pliku.isEmpty() || nazwa_pliku.contains('/') || nazwa_pliku.contains('\\')) {
+        ui->zapisz_tekst->setStyleSheet("background-color: #a63535; color: white;");
+        qDebug() << "Niepoprawna nazwa pliku!";
+        return;
+    }
+
+    if (!nazwa_pliku.endsWith(".txt")) {
+        nazwa_pliku += ".txt";
+    }
+
+    if (wybraneKarty.empty()) {
+        qDebug() << "Nie można zapisać pustej talii";
+        return;
+    }
+    deck nowaTalia;
+
+    nowaTalia.makeDeckZUI(wybraneKarty);
+    if (nowaTalia.DeckValid) {
+        qDebug() << "Talia poprawna";
+        deck_saver saver;
+        saver.save_deck(nowaTalia, nazwa_pliku);
+    }
+    else {
+        qDebug() << "Talia niepoprawna";
+        ui->zapisz_tekst->setStyleSheet("background-color: #a63535;");
+    }
+
+}
+
+void MainWindow::obslugaRysowaniaKartDoTalii(){
+    //bedzie rysowalo wszystkie karty z danej talii
+}
+
+
+void MainWindow::on_comboBox_currentIndexChanged(int index)
+{
+    odswierzanieKartWTalii();
+}
+

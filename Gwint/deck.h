@@ -10,11 +10,15 @@ public:
 
     void makeDeck(QString deckFile);
 
+    void makeDeckZUI(const std::vector<karta*>& wybraneKarty);
+
     void validifyDeck();
 
     kontener_kart* getLeader();      //pomimo że to pole nie powinno zawierać więcej niż 1 karta
                                 //to jest kontenerem żeby kożystało z tych samych funkcji co każdy inny kontener kart
     bool DeckValid = true; //false;
+
+
 
 private:
 

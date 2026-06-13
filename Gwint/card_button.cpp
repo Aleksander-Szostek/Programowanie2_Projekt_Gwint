@@ -23,6 +23,7 @@ void Card_Button::refresh(){
                         "  color: white;"
                         "  border: 2px solid black;"
                         "  border-radius: 5px;"
+                        //"font: 10px;"
                         "}"
                         ":hover { border:#ffffff ; }"
                         "QPushButton:hover {"
