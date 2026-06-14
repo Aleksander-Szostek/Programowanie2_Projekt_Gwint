@@ -31,14 +31,19 @@ void deck::validifyDeck(){
             IloscKartSpecjalnych++;
     }
 
-    if (IloscJednostek < 22 || IloscKartSpecjalnych > 10)
+    if (IloscJednostek < 15 || IloscKartSpecjalnych > 10){
+        qDebug()<<"Zla ilosc kart";
         DeckValid = false;
+    }
+
 
 //    int indeksLidera = -1;   //wartość -1 oznacza że nie ma w talii, wartość -2 oznacza że jest więcej niż 1
 
     for (int i = 0; i < Ciag_kart.size(); i++) {
-        if (Ciag_kart[i]->getKategoria() == Kategoria::Undefined)
+        if (Ciag_kart[i]->getKategoria() == Kategoria::Undefined){
+            qDebug()<<"KAtegoria Undefined";
             DeckValid = false;
+        }
         if (Ciag_kart[i]->getFrakcja() != Frakcja::Neutral) {
 //            if (Ciag_kart[i]->getKategoria() == Kategoria::Leader){
 //                if (indeksLidera == -1) {

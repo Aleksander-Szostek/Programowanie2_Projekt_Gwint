@@ -38,6 +38,11 @@ std::vector<karta*> deck_loader::load_deck(QString fileName){
     card_loader wtasowyacz_kart;
 
     for (int i = 0; i < dane.size(); i++) {
+        QString pojedynczeID = dane[i].trimmed();
+        if(pojedynczeID.isEmpty()==true){
+            continue;
+        }
+
         karta* z_karta = new karta;
         wtasowyacz_kart.zaladuj_karte(dane[i].toInt(nullptr, 10), z_karta);
         Zaladowane.push_back(z_karta);

@@ -7,7 +7,9 @@ class Card_Button_Talia : public Card_Button
 {
 public:
     explicit Card_Button_Talia(karta* daneKarty, QWidget *parent);
-
+    ~Card_Button_Talia();
+private:
+    karta* przechowywanaKarta;
 };
 
 #endif // CARD_BUTTON_TALIA_H

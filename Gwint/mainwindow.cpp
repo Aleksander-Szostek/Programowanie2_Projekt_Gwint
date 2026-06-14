@@ -490,10 +490,7 @@ void MainWindow::odswierzanieKartWTalii(){
         karta* sprawdzanaKarta = new karta();
         zaladuj.zaladuj_karte(idKarty, sprawdzanaKarta);
 
-        if((sprawdzanaKarta->getFrakcja() == szukanaFrakcja || sprawdzanaKarta->getFrakcja() == Frakcja::Neutral)
-            && sprawdzanaKarta->getNazwa() != "Error: niezdefiniowany typ karty"
-            && sprawdzanaKarta->getMax() != 0) {
-
+        if((sprawdzanaKarta->getFrakcja() == szukanaFrakcja || sprawdzanaKarta->getFrakcja() == Frakcja::Neutral)&& sprawdzanaKarta->getNazwa() != "Error: niezdefiniowany typ karty"&& sprawdzanaKarta->getMax() != 0) {
 
             Card_Button_Talia* nowaKartaFrakcji = new Card_Button_Talia(sprawdzanaKarta, this);
             nowaKartaFrakcji->refresh();
@@ -505,7 +502,7 @@ void MainWindow::odswierzanieKartWTalii(){
 
             layoutPrawy->addWidget(nowaKartaFrakcji, i / 7, i % 7);
             i++;
-            // -------------------------
+
 
         }
         else{

@@ -29,7 +29,6 @@ void card_loader::zaladuj_karte(int id, karta* Karta) {
     QTextStream in(&file);
 
     QString line;
-
     for (int i = 0; i <= id; i++)
     {
         if (in.atEnd()){
@@ -56,7 +55,7 @@ void card_loader::zaladuj_karte(int id, karta* Karta) {
     if (dane[8] == '1') Karta->setLeg(true);
     Karta->setFlavor(dane[9]);
 
-    qDebug() << "Załadowano z pliku karte: " + dane[1];
+    //qDebug() << "Załadowano z pliku karte: " + dane[1];
 
     return;
 }

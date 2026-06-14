@@ -240,12 +240,12 @@ bool bot_player::czyPorzoga(karta* k, player* przeciwnik) {
     int maxSila = 0;
 
     for(auto* i : kartyBota){
-        if(i->getSila() > maxSila){
+        if(i->getSila() > maxSila && i->getLeg()==false){
             maxSila = i->getSila();
         }
     }
     for(auto* j : kartyPrzeciwnika){
-        if(j->getSila() > maxSila){
+        if(j->getSila() > maxSila && j->getLeg()==false){
             maxSila = j->getSila();
         }
     }
@@ -294,7 +294,7 @@ bool bot_player::czyKukla(karta* k, player* przeciwnik) {
 
     int maxSila = 0;
     for(auto* i : kartyBota){
-        if(i->getSila() > maxSila){
+        if(i->getSila() > maxSila && i->getLeg()==false){
             maxSila = i->getSila();
         }
     }

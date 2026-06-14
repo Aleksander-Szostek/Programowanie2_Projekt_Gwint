@@ -5,4 +5,12 @@ Card_Button_Talia::Card_Button_Talia(karta* daneKarty, QWidget *parent): Card_Bu
     //setFixedSize(wysokosc_karty/proporcje_karty,wysokosc_karty); // rozmiar karty
     int h = 80;
     setFixedSize(h,h*proporcje_karty);
+
+    przechowywanaKarta = daneKarty;
+}
+Card_Button_Talia::~Card_Button_Talia(){
+    if (przechowywanaKarta != nullptr) {
+        delete przechowywanaKarta;
+        przechowywanaKarta = nullptr;
+    }
 }

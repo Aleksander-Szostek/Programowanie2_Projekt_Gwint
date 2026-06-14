@@ -28,10 +28,12 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
             if (losowanie_start == 1) {
                 GameState = Tura1;
                 qDebug() << "Tura 1";
+
             }
             else {
                 GameState = Tura2;
                 qDebug() << "Tura 2";
+                QTimer::singleShot(1000, this, &gra::tura_bota);
             }
     }
     else {
@@ -42,9 +44,9 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
     dobierzKarte(1, startHand);
     dobierzKarte(2, startHand);
 
-    if (GameState == Tura2) {
-        QTimer::singleShot(1000, this, &gra::tura_bota);
-    }
+    // if (GameState == Tura2) {
+
+    // }
 }
 
 void gra::koniec_rundy(){
@@ -235,9 +237,57 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
 
         case Kukla:{
             player* gracz = getGracz(nr_gracza);
+            if(nr_gracza == 1){
+                qDebug() << "Ustawianie selekcji";
+                gracz->setPendingSelection(0);
+            }
+            //dodaje to bo bot wczesniej nie mial fizycznie jak zagrac kukly
+            else if(nr_gracza==2){
+                qDebug()<<"Bot zagrywa kukle";
+                bot_player* bot = static_cast<bot_player*>(gracz);
+                std::vector<karta*> kartyBota = bot->pobierzWszyskieKarty(bot);
+                if (kartyBota.empty()==true){
+                    return;
+                }
+                karta* celKarty = nullptr;
+                for (auto* j : kartyBota) {
+                    if (j->getKeyword() == Szpieg) {
+                        celKarty = j;
+                        break;
+                    }
+                }
 
-            qDebug() << "Ustawianie selekcji";
-            gracz->setPendingSelection(0);
+                // najpierw sprawdza czy nie ma szpiegow do podmiany
+                if (celKarty == nullptr) {
+                    int maxSila = -1;
+                    for (auto* i : kartyBota) {
+                        if (i->getSila() > maxSila && i->getLeg() != true && i->getKategoria() != Spell) {
+                            maxSila = i->getSila();
+                            celKarty = i;
+                        }
+                    }
+                }
+                if (celKarty != nullptr) {
+                    RzadPlanszy rzadCelu;
+                    int indeksCelu = -1;
+                    RzadPlanszy rzedyBota[] = { P2_Melee, P2_Range, P2_Siege };
+                    for (RzadPlanszy rzad : rzedyBota) {
+                        int idx = findCardByID(rzad, celKarty->getID());
+                        if (idx >= 0) {
+                            rzadCelu = rzad;
+                            indeksCelu = idx;
+                            break;
+                        }
+                    }
+
+                    if (indeksCelu >= 0) {
+                        int indeksKuklyWRece = gracz->getPendingSelection();
+                        kukla(indeksKuklyWRece, rzadCelu, indeksCelu, 2);
+
+                        gracz->setPendingSelection(-1);
+                    }
+                }
+            }
 
             break;
         }
