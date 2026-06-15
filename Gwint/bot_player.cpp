@@ -32,7 +32,9 @@ decyzjaRuchu bot_player::podjecieDecyzji(player* przeciwnik){
         int indeks_min = 0;
         int najszłabsza = 10000;
         for(int i = 0; i < getReka()->getDeckSize(); ++i){
-            if(getReka()->getKartaFromList(i)->getSila() < najszłabsza){
+            karta* ocenianaKarta = getReka()->getKartaFromList(i);
+            if(ocenianaKarta->getSila() < najszłabsza && ocenianaKarta->getKeyword()!=Szpieg &&ocenianaKarta->getKeyword()!=Pogoda && ocenianaKarta->getKeyword()!=Grzyb
+                                                           &&ocenianaKarta->getKeyword()!=Porzoga&& ocenianaKarta->getKeyword()!=Kukla){
                 najszłabsza = getReka()->getKartaFromList(i)->getSila();
                 indeks_min = i;
             }
@@ -115,6 +117,14 @@ int bot_player::ocenaKarty(karta* k, player* przeciwnik){
     }
     if(k->getKeyword()==Kukla){
         if(czyKukla(k,przeciwnik)){
+            return -100;
+        }
+        else{
+            return 1000;
+        }
+    }
+    if(k->getKeyword()==Grzyb){
+        if(czyGrzybiarz(k, przeciwnik)){
             return -100;
         }
         else{
@@ -223,7 +233,7 @@ bool bot_player::czySzpieg(karta* k, player* przeciwnik) {
 }
 std::vector<karta*> bot_player::pobierzWszyskieKarty(player* p){
     std::vector<karta*> jednostki;
-    kontener_kart* linie[] = { p->getMelee(), p->getRanged(), p->getSiege() };
+    kontener_kart* linie[] = { p->getMelee(), p->getRanged(), p->getSiege()};
 
     for (auto* linia : linie) {
         for (int i = 0; i < linia->getDeckSize(); i++) {
@@ -282,34 +292,44 @@ bool bot_player::czyPorzoga(karta* k, player* przeciwnik) {
 
 bool bot_player::czyKukla(karta* k, player* przeciwnik) {
     std::vector<karta*> kartyBota = pobierzWszyskieKarty(this);
-    if(kartyBota.empty()==true){
-        return false;
-    }
+    if(kartyBota.empty()) return false;
+
+
     for (auto* j : kartyBota) {
-       //tu mozna dodac np medyka pozniej
         if (j->getKeyword() == Szpieg) {
             return true;
         }
     }
 
+
     int maxSila = 0;
-    for(auto* i : kartyBota){
-        if(i->getSila() > maxSila && i->getLeg()==false){
-            maxSila = i->getSila();
+    bool znalezionoCel = false;
+    karta* naj;
+    for (auto* i : kartyBota) {
+        if (i->getLeg() != true && i->getKategoria() != Spell) {
+            if (i->getSila() > maxSila) {
+                maxSila = i->getSila();
+                naj=i;
+                znalezionoCel = true;
+            }
         }
     }
-    karta* najlepszaDoPodmiany;
-    for (auto* j : kartyBota) {
-        if (j->getSila() == maxSila) {
-            najlepszaDoPodmiany=j;
-            break;
-        }
-    }
-    if(najlepszaDoPodmiany->getSila()>6){
+    qDebug()<<"Bot znalazł: "<<naj->getNazwa();
+    if (znalezionoCel && maxSila > 6) {
         return true;
     }
+
     return false;
 }
-int bot_player::liniaDoAgile(karta* k){
-    return 1;
+bool bot_player::czyGrzybiarz(karta* k, player* przeciwnik) {
+    std::vector<karta*> kartyBota = pobierzWszyskieKarty(this);
+
+    for (auto* i : kartyBota) {
+
+        if (i->getKeyword() == Morph) {
+            return true;
+        }
+    }
+
+    return false;
 }

@@ -21,7 +21,7 @@ private:
     bool czyPorzoga(karta* k, player* przeciwnik);
     bool czyKukla(karta* k, player* przeciwnik);
     bool czyPogoda(karta* k, player* przeciwnik);
-    int liniaDoAgile(karta* k);
+    bool czyGrzybiarz(karta* k, player* przeciwnik);
     efekty_pogodowe* aktualnaPogoda = nullptr;
 };
 

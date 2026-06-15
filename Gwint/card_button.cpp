@@ -13,7 +13,7 @@ void Card_Button::refresh(){
     bool isLeg = k_dane->getLeg();
     Kategoria typKarty = k_dane->getKategoria();
     Efekt efektKarty = k_dane->getKeyword();
-    //na razie to zostawiam, potem możemy zmienić na jakas grafikę
+
     QString borderStyle;
     if(isLeg==true) {
         borderStyle = "#91873a";

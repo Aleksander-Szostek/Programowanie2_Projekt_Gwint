@@ -8,7 +8,7 @@
 
 
 gra::gra() {
-    gracz_1 = new human_player; // musimy zrbic klase np gracz_player
+    gracz_1 = new human_player;
     gracz_2 = new bot_player;
     pogoda = new efekty_pogodowe;
 
@@ -44,9 +44,7 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
     dobierzKarte(1, startHand);
     dobierzKarte(2, startHand);
 
-    // if (GameState == Tura2) {
 
-    // }
 }
 
 void gra::koniec_rundy(){
@@ -164,6 +162,7 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza) {
     else if (nr_gracza == 2 && GameState == Tura2){
 
         qDebug() << "Gracz 2 zagrywać bedzie";
+        //gracz_2->setPendingSelection(nr_w_rece);
         globalCardPlayed(gracz_2->zagrajKarte(nr_w_rece), 2);
 
         redrawBoard();
@@ -241,7 +240,6 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
                 qDebug() << "Ustawianie selekcji";
                 gracz->setPendingSelection(0);
             }
-            //dodaje to bo bot wczesniej nie mial fizycznie jak zagrac kukly
             else if(nr_gracza==2){
                 qDebug()<<"Bot zagrywa kukle";
                 bot_player* bot = static_cast<bot_player*>(gracz);
@@ -257,17 +255,25 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
                     }
                 }
 
-                // najpierw sprawdza czy nie ma szpiegow do podmiany
                 if (celKarty == nullptr) {
-                    int maxSila = -1;
+                    int maxSila = 0;
                     for (auto* i : kartyBota) {
-                        if (i->getSila() > maxSila && i->getLeg() != true && i->getKategoria() != Spell) {
+                        qDebug() << "Bot sprawdza karte " << i->getNazwa() << "| Siła: " << i->getSila()<< "| CzyLeg: " << i->getLeg();
+
+                        if (i->getSila() > maxSila && i->getLeg() == false) {
                             maxSila = i->getSila();
                             celKarty = i;
+                        } else {
+                            qDebug() << "Odrzucono kartę: " << i->getNazwa();
                         }
                     }
                 }
+                if(celKarty==nullptr){
+                    qDebug()<<"Bot nie znalazl celu: ";
+                }
+
                 if (celKarty != nullptr) {
+                    qDebug()<<"Bot podmienia: "<<celKarty->getNazwa();
                     RzadPlanszy rzadCelu;
                     int indeksCelu = -1;
                     RzadPlanszy rzedyBota[] = { P2_Melee, P2_Range, P2_Siege };
@@ -281,8 +287,21 @@ void gra::globalCardPlayed(karta* karta_g, int nr_gracza){
                     }
 
                     if (indeksCelu >= 0) {
-                        int indeksKuklyWRece = gracz->getPendingSelection();
-                        kukla(indeksKuklyWRece, rzadCelu, indeksCelu, 2);
+
+                        int indeksKuklyWRece = -1;
+                        for (int i = 0; i < gracz->getReka()->getDeckSize(); i++) {
+                            if (gracz->getReka()->getKartaFromList(i) == karta_g) {
+                                indeksKuklyWRece = i;
+                                break;
+                            }
+                        }
+
+
+                        if (indeksKuklyWRece >= 0) {
+                            kukla(indeksKuklyWRece, rzadCelu, indeksCelu, 2);
+                        } else {
+                            qDebug() << "BŁĄD: Nie znaleziono wskaźnika kukły w ręce bota!";
+                        }
 
                         gracz->setPendingSelection(-1);
                     }

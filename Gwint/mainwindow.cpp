@@ -37,17 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->comboBox->addItem("Scoia'tael");
     ui->comboBox->addItem("Skelige");
 
-    //ui->layout_prawy->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-
-    //testwalem wyrównanie od lewej do prawej przy dodawaniu zamiast tak jak jest bazowo
-    // ui->layout_reki->layout()->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-
-    //  ui->layout_reki->layout()->setSpacing(20);
-    // QPixmap bg(":/plansza.jpg");
-
-    //do dodania odległości miedzy layooutami aby były na stałe plus skalowanie całej planszy łącznie z kartami
-    //ui->layout_plansza_test->addSpacing(150);
 
     this->setStyleSheet(
         "#centralwidget {"
@@ -59,20 +49,14 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() << QPixmap(":/plansza.jpg").isNull();
 
     odswiezListeTalii();
-    //    ui->label->setText(karci.nazwa);
-    //else
-    //    ui->label->setText("To nie melee");
-    //testowałem czy odczyt kategorii i frakcji działa (działa)
 
-
-                    // ten frakment daje nam vernona rocha, co za temerię zrobi wszystko
     int test = 42;
 
     card_loader zaladuj;
     karta* testowa_karta = new karta;
     zaladuj.zaladuj_karte(test, testowa_karta);
 
-    //ui->label->setText(testowa_karta->getNazwa() + " " + QString::number(testowa_karta->getSila()) + " " + testowa_karta->getFlavor());
+
 
 }
 
@@ -400,7 +384,7 @@ void MainWindow::on_player1_siege_nr_clicked() {
     return;
 }
 
-
+//funkcja która dodaje karty do tworzonej talii
 void MainWindow::obslugaDodaniaDoTalii(karta* daneKarty)
 {
 
@@ -490,7 +474,7 @@ void MainWindow::odswierzanieKartWTalii(){
         karta* sprawdzanaKarta = new karta();
         zaladuj.zaladuj_karte(idKarty, sprawdzanaKarta);
 
-        if((sprawdzanaKarta->getFrakcja() == szukanaFrakcja || sprawdzanaKarta->getFrakcja() == Frakcja::Neutral)&& sprawdzanaKarta->getNazwa() != "Error: niezdefiniowany typ karty"&& sprawdzanaKarta->getMax() != 0) {
+        if((sprawdzanaKarta->getFrakcja() == szukanaFrakcja || sprawdzanaKarta->getFrakcja() == Frakcja::Neutral)&& sprawdzanaKarta->getNazwa() != "Error: niezdefiniowany typ karty") {
 
             Card_Button_Talia* nowaKartaFrakcji = new Card_Button_Talia(sprawdzanaKarta, this);
             nowaKartaFrakcji->refresh();
@@ -511,7 +495,7 @@ void MainWindow::odswierzanieKartWTalii(){
     }
 
 }
-
+//funkcja ktora pokazuje zapisane talie w combo boxie
 void MainWindow::odswiezListeTalii()
 {
     ui->talie->clear();
@@ -551,7 +535,7 @@ void MainWindow::on_zapisz_Button_clicked()
     QString nazwa_pliku = ui->zapisz_tekst->toPlainText().trimmed(); //to trimmed powoduje usuniecie białych znakow spacja /n itp
     qDebug()<<"Nazwa pliku: "<<nazwa_pliku;
 
-    //tu jeszcze musze zrobic sprawdzanie poprawnosci nazwy pliku czy np nie ma enterow, spacji albo czy w ogole jest
+
     if (nazwa_pliku.isEmpty() || nazwa_pliku.contains('/') || nazwa_pliku.contains('\\')) {
         ui->zapisz_tekst->setStyleSheet("background-color: #a63535; color: white;");
         qDebug() << "Niepoprawna nazwa pliku!";
@@ -581,9 +565,6 @@ void MainWindow::on_zapisz_Button_clicked()
 
 }
 
-void MainWindow::obslugaRysowaniaKartDoTalii(){
-    //bedzie rysowalo wszystkie karty z danej talii
-}
 
 
 void MainWindow::on_comboBox_currentIndexChanged(int index)

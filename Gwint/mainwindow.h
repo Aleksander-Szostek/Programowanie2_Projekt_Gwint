@@ -79,7 +79,7 @@ private:
     //void obslugaCzyszczeniaLayoutu(gra::RzadPlanszy rzad);
     
 
-    void obslugaRysowaniaKartDoTalii(); //to do zrobienia jeszcze
+
     
 };
 #endif // MAINWINDOW_H
