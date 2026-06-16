@@ -432,6 +432,7 @@ void MainWindow::obslugaDodaniaDoTalii(karta* daneKarty)
         ui->comboBox->setEnabled(false);
     }
 
+
     karta* kopiaKarty = new karta(*daneKarty);
     wybraneKarty.push_back(kopiaKarty);
 
@@ -441,7 +442,7 @@ void MainWindow::obslugaDodaniaDoTalii(karta* daneKarty)
     kartyWTalii.push_back(przyciskDodany);
 
     ui->layout_lewy->addWidget(przyciskDodany,wybraneKarty.size()/7,wybraneKarty.size()%7);
-
+    sprawdzanieIlosciWTalii();
     connect(przyciskDodany, &Card_Button::clicked, this, [=]() {
         ui->layout_lewy->removeWidget(przyciskDodany);
         //to auto sam przypisuje tym zmiennej, tak jest łatwiej
@@ -449,10 +450,10 @@ void MainWindow::obslugaDodaniaDoTalii(karta* daneKarty)
         if (iterator != wybraneKarty.end()) {
             wybraneKarty.erase(iterator);
         }
-         qDebug()<<"Usunieto z talii: "<<kopiaKarty->getNazwa();
+        qDebug()<<"Usunieto z talii: "<<kopiaKarty->getNazwa();
         delete kopiaKarty;
         przyciskDodany->deleteLater();
-
+        sprawdzanieIlosciWTalii();
         auto it = std::find(kartyWTalii.begin(),kartyWTalii.end(),przyciskDodany);
         if (it != kartyWTalii.end()){
             kartyWTalii.erase(it);
@@ -471,7 +472,39 @@ void MainWindow::obslugaDodaniaDoTalii(karta* daneKarty)
     qDebug() << "Dodano do tworzonej talii: " << kopiaKarty->getNazwa()<< " Rozmiar talii: " << wybraneKarty.size();
 }
 
+void MainWindow::sprawdzanieIlosciWTalii(){
+    for(int i=0;i<ui->layout_prawy->count();i++){
+        QLayoutItem* item = ui->layout_prawy->itemAt(i);
+        if (!item || !item->widget()) {
+            continue;
+        }
+        Card_Button_Talia* przyciskKarta = qobject_cast<Card_Button_Talia*>(item->widget());
+        if (przyciskKarta != nullptr) {
+            karta* sprawdzanaKarta = przyciskKarta->getCardData();
+            if (!sprawdzanaKarta){
+                continue;
+            }
 
+            int ile = 0;
+            for (int j=0;j<wybraneKarty.size();j++) {
+                karta* k = wybraneKarty[j];
+                if (k->getNazwa() == sprawdzanaKarta->getNazwa()) {
+                    ile++;
+                }
+            }
+
+
+            if (ile >= sprawdzanaKarta->getMax()) {
+                przyciskKarta->setEnabled(false);
+                przyciskKarta->setStyleSheet("background-color: grey");
+            } else {
+                przyciskKarta->setEnabled(true);
+                przyciskKarta->refresh();
+            }
+        }
+    }
+
+}
 void MainWindow::odswierzanieKartWTalii(){
     QString wybranaFrakcja = ui->comboBox->currentText();
     Frakcja szukanaFrakcja=Frakcja::Polnoc;

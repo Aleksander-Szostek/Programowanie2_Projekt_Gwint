@@ -5,6 +5,7 @@
 
 class Card_Button_Talia : public Card_Button
 {
+    Q_OBJECT
 public:
     explicit Card_Button_Talia(karta* daneKarty, QWidget *parent);
     ~Card_Button_Talia();

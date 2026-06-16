@@ -57,6 +57,7 @@ private slots:
     void obslugaDodaniaDoTalii(karta* daneKarty);
     void odswiezListeTalii();
 
+    void sprawdzanieIlosciWTalii();
     //void usunZTalii(Card_Button_Talia* przycisk);
 
 private:
