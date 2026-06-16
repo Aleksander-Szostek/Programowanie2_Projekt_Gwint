@@ -77,6 +77,8 @@ void deck::validifyDeck(){
 
         if (suma > Ciag_kart[baza]->getMax()) {
             DeckValid = false;
+            qDebug() << "Za dużo karty: " + Ciag_kart[baza]->getNazwa();
+            break;
         }
     }
 }

@@ -174,6 +174,44 @@ void MainWindow::obslugaAktualizacjiPunkt(int punkty[12]){
     for (int i = 0; i < 12; i++) {
         pointsStorage[i] = punkty[i];
     }
+
+    int P1_suma = pointsStorage[int(Pkt::p1_M)] + pointsStorage[int(Pkt::p1_R)] + pointsStorage[int(Pkt::p1_S)];
+    int P2_suma = pointsStorage[int(Pkt::p2_M)] + pointsStorage[int(Pkt::p2_R)] + pointsStorage[int(Pkt::p2_S)];
+
+    if (P1_suma > P2_suma) {
+        qDebug() << "Kolorowanie P1";
+        ui->player1_melee_nr->setStyleSheet("color: green");
+        ui->player1_ranged_nr->setStyleSheet("color: green");
+        ui->player1_siege_nr->setStyleSheet("color: green");
+        ui->player2_melee_nr->setStyleSheet("color: white");
+        ui->player2_ranged_nr->setStyleSheet("color: white");
+        ui->player2_siege_nr->setStyleSheet("color: white");
+    }
+    else if (P1_suma < P2_suma) {
+        ui->player2_melee_nr->setStyleSheet("color: green");
+        ui->player2_ranged_nr->setStyleSheet("color: green");
+        ui->player2_siege_nr->setStyleSheet("color: green");
+        ui->player1_melee_nr->setStyleSheet("color: white");
+        ui->player1_ranged_nr->setStyleSheet("color: white");
+        ui->player1_siege_nr->setStyleSheet("color: white");
+    }
+    else {
+        ui->player1_melee_nr->setStyleSheet("color: white");
+        ui->player1_ranged_nr->setStyleSheet("color: white");
+        ui->player1_siege_nr->setStyleSheet("color: white");
+        ui->player2_melee_nr->setStyleSheet("color: white");
+        ui->player2_ranged_nr->setStyleSheet("color: white");
+        ui->player2_siege_nr->setStyleSheet("color: white");
+    }
+
+    if (Gra->getGameState() == StanGry::Tura1) {
+        ui->player1_name->setStyleSheet("color: green;");
+        ui->player2_name->setStyleSheet("color: white;");
+    }
+    else {
+        ui->player2_name->setStyleSheet("color: green;");
+        ui->player1_name->setStyleSheet("color: white;");
+    }
 }
 void MainWindow::on_p1_pas_clicked() {
     Gra->graczPas(1);
@@ -353,10 +391,10 @@ void MainWindow::zmianaGSLabel(StanGry GameState, bool p1_pas, bool p2_pas){
     else
         this->ui->p1_pas->setStyleSheet("background-color: white");
 
-    if (p2_pas)
-        this->ui->p2_pas->setStyleSheet("background-color: darkgray");
-    else
-        this->ui->p2_pas->setStyleSheet("background-color: white");
+//    if (p2_pas)
+//        this->ui->p2_pas->setStyleSheet("background-color: darkgray");
+//    else
+//        this->ui->p2_pas->setStyleSheet("background-color: white");
 }
 
 void MainWindow::on_player2_siege_nr_clicked() {
@@ -474,7 +512,10 @@ void MainWindow::odswierzanieKartWTalii(){
         karta* sprawdzanaKarta = new karta();
         zaladuj.zaladuj_karte(idKarty, sprawdzanaKarta);
 
-        if((sprawdzanaKarta->getFrakcja() == szukanaFrakcja || sprawdzanaKarta->getFrakcja() == Frakcja::Neutral)&& sprawdzanaKarta->getNazwa() != "Error: niezdefiniowany typ karty") {
+        if( (sprawdzanaKarta->getFrakcja() == szukanaFrakcja || sprawdzanaKarta->getFrakcja() == Frakcja::Neutral)
+            && sprawdzanaKarta->getNazwa() != "Error: niezdefiniowany typ karty"
+            && sprawdzanaKarta->getMax() != 0
+            && sprawdzanaKarta->getKategoria() != Leader) {
 
             Card_Button_Talia* nowaKartaFrakcji = new Card_Button_Talia(sprawdzanaKarta, this);
             nowaKartaFrakcji->refresh();

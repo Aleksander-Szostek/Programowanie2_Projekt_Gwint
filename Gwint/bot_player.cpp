@@ -128,7 +128,7 @@ int bot_player::ocenaKarty(karta* k, player* przeciwnik){
             return -100;
         }
         else{
-            return 1000;
+            return 10000;
         }
     }
     int suma_przeciwnika = przeciwnik->getSumaPunktow(pogoda);

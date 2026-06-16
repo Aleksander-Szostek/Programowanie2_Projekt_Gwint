@@ -44,6 +44,8 @@ void gra::zainicjalizuj_gre(QString nazwa_talii_1, QString nazwa_talii_2){
     dobierzKarte(1, startHand);
     dobierzKarte(2, startHand);
 
+    countPoints();
+
 
 }
 
@@ -152,7 +154,6 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza) {
         qDebug() << "Gracz 1 zagrywać bedzie";
         globalCardPlayed(gracz_1->zagrajKarte(nr_w_rece), 1);
 
-        redrawBoard();
 
         if ((!gracz_2->isPas()) && gracz_1->getPendingSelection() < 0){
             GameState = Tura2;
@@ -164,8 +165,6 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza) {
         qDebug() << "Gracz 2 zagrywać bedzie";
         //gracz_2->setPendingSelection(nr_w_rece);
         globalCardPlayed(gracz_2->zagrajKarte(nr_w_rece), 2);
-
-        redrawBoard();
 
         if ((!gracz_1->isPas()) && gracz_2->getPendingSelection() < 0){
             GameState = Tura1;
@@ -181,6 +180,8 @@ void gra::graczZagrajKarte(int nr_w_rece, int nr_gracza) {
             koniec_rundy();
         }
     }
+
+    redrawBoard();
 }
 
 void gra::globalCardPlayed(karta* karta_g, int nr_gracza){

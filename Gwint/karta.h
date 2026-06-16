@@ -56,6 +56,7 @@ public:
     Frakcja getFrakcja();
     Kategoria getKategoria();
     unsigned int getSila();
+    unsigned int getSilaBaz();
     std::vector<int> getCele();
 
     Efekt getKeyword();

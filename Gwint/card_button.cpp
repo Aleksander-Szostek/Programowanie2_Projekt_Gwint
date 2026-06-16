@@ -83,11 +83,22 @@ void Card_Button::refresh(){
 
         }
     }
+    QString fontcolor;
+
+    if (k_dane->getSila() > k_dane->getSilaBaz()) {
+        fontcolor = "color: green;";
+    }
+    else if (k_dane->getSila() < k_dane->getSilaBaz()) {
+        fontcolor = "color: red;";
+    }
+    else {
+        fontcolor = "color: white;";
+    }
 
     QString style = QString(
                         "QPushButton {"
-                        "  background-color: %1;"
-                        "  color: white;"
+                        "  background-color: %1;" +
+                        fontcolor +
                         "  border: 2px solid black;"
                         "  border-radius: 5px;"
                         "font: 10px;"

@@ -177,3 +177,7 @@ Efekt karta::getKeyword(){
 std::vector<int> karta::getCele(){
     return cele;
 }
+
+unsigned int karta::getSilaBaz() {
+    return sila_bazowa;
+}
