@@ -1,0 +1,253 @@
+\doxysection{karta.\+h File Reference}
+\label{karta_8h}\index{karta.h@{karta.h}}
+{\ttfamily \+\#include $<$QString$>$}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$QDebug$>$}\newline
+Include dependency graph for karta.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=261pt]{karta_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{karta_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ karta}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ Frakcja} \{ \newline
+\textbf{ Neutral}
+, \textbf{ Elfy}
+, \textbf{ Polnoc}
+, \textbf{ Nilfgard}
+, \newline
+\textbf{ Skelige}
+, \textbf{ Potwory}
+ \}
+\item 
+enum \textbf{ Kategoria} \{ \newline
+\textbf{ Spell}
+, \textbf{ Melee}
+, \textbf{ Siege}
+, \textbf{ Ranged}
+, \newline
+\textbf{ Agile}
+, \textbf{ Leader}
+, \textbf{ Undefined}
+ \}
+\item 
+enum \textbf{ Efekt} \{ \newline
+\textbf{ Brak}
+, \textbf{ Szpieg}
+, \textbf{ Przyzwij}
+, \textbf{ Linked}
+, \newline
+\textbf{ Medyk}
+, \textbf{ Reborn}
+, \textbf{ Pogoda}
+, \textbf{ Porzoga}
+, \newline
+\textbf{ Horn}
+, \textbf{ Boost}
+, \textbf{ Morph}
+, \textbf{ Grzyb}
+, \newline
+\textbf{ Kukla}
+ \}
+\end{DoxyCompactItemize}
+
+
+\label{karta_8h_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\index{karta.h@{karta.h}!Efekt@{Efekt}}
+\index{Efekt@{Efekt}!karta.h@{karta.h}}
+\doxysubsubsection{Efekt}
+{\footnotesize\ttfamily \label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09} 
+enum \textbf{ Efekt}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Brak@{Brak}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Brak@{Brak}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09a28989ed9b4c5145651ace124e3ff4d7b} 
+Brak&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Szpieg@{Szpieg}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Szpieg@{Szpieg}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09a5771aaedcf53fbfebb6c667ca2018258} 
+Szpieg&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Przyzwij@{Przyzwij}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Przyzwij@{Przyzwij}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09a2cae26c7c9bd04ad1e3c1d2e38042cf7} 
+Przyzwij&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linked@{Linked}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Linked@{Linked}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09af1439db3469f2684bf6430025f5b2a7c} 
+Linked&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Medyk@{Medyk}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Medyk@{Medyk}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09a3879442ecad8b02bec2f8a969f504f32} 
+Medyk&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Reborn@{Reborn}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Reborn@{Reborn}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09ac9f60c7bcd29af07066f6dd3689ea39d} 
+Reborn&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Pogoda@{Pogoda}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Pogoda@{Pogoda}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09ad90656aadc6bced90304070a2d3e199c} 
+Pogoda&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Porzoga@{Porzoga}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Porzoga@{Porzoga}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09abb3255dba28dd46cdf0f0f6e38faee2a} 
+Porzoga&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Horn@{Horn}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Horn@{Horn}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09a58628263ad36bc8614e92af3776c2435} 
+Horn&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Boost@{Boost}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Boost@{Boost}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09a5de3fb53b13912d67574f582c336afe8} 
+Boost&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Morph@{Morph}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Morph@{Morph}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09a399b3e2ff46ad17c7e7553568f03e862} 
+Morph&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Grzyb@{Grzyb}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Grzyb@{Grzyb}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09ac945876dde9f0e00acf5a2d912edfda6} 
+Grzyb&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Kukla@{Kukla}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Kukla@{Kukla}}
+}\label{karta_8h_a9d9006f0acf6b02d6ab48aeb76cb5e09a774eacc2d85f60588615d03a7380900a} 
+Kukla&\\
+\hline
+
+\end{DoxyEnumFields}
+\index{karta.h@{karta.h}!Frakcja@{Frakcja}}
+\index{Frakcja@{Frakcja}!karta.h@{karta.h}}
+\doxysubsubsection{Frakcja}
+{\footnotesize\ttfamily \label{karta_8h_aa6cce13b610e435461b5279ebf3ab136} 
+enum \textbf{ Frakcja}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Neutral@{Neutral}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Neutral@{Neutral}}
+}\label{karta_8h_aa6cce13b610e435461b5279ebf3ab136a32bb6c621f52f6a0932c646d5ed47f91} 
+Neutral&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Elfy@{Elfy}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Elfy@{Elfy}}
+}\label{karta_8h_aa6cce13b610e435461b5279ebf3ab136ac783a82ac9bfd045b8d529f1944f3986} 
+Elfy&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Polnoc@{Polnoc}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Polnoc@{Polnoc}}
+}\label{karta_8h_aa6cce13b610e435461b5279ebf3ab136a3f53ee6a0382c12a4be962b08c33db0a} 
+Polnoc&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Nilfgard@{Nilfgard}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Nilfgard@{Nilfgard}}
+}\label{karta_8h_aa6cce13b610e435461b5279ebf3ab136af588703460f2d6bcf98fd3a025207108} 
+Nilfgard&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Skelige@{Skelige}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Skelige@{Skelige}}
+}\label{karta_8h_aa6cce13b610e435461b5279ebf3ab136a59b0a86ae0c3ea7ac1cf61a586554675} 
+Skelige&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Potwory@{Potwory}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Potwory@{Potwory}}
+}\label{karta_8h_aa6cce13b610e435461b5279ebf3ab136a3f2a0263ccbca6873b628a377ecb667d} 
+Potwory&\\
+\hline
+
+\end{DoxyEnumFields}
+\index{karta.h@{karta.h}!Kategoria@{Kategoria}}
+\index{Kategoria@{Kategoria}!karta.h@{karta.h}}
+\doxysubsubsection{Kategoria}
+{\footnotesize\ttfamily \label{karta_8h_ac195c566dfdf18aded74c59e8e48fd1f} 
+enum \textbf{ Kategoria}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Spell@{Spell}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Spell@{Spell}}
+}\label{karta_8h_ac195c566dfdf18aded74c59e8e48fd1fa5f1bd86f285b1d5c205e1ab7eb19b304} 
+Spell&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Melee@{Melee}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Melee@{Melee}}
+}\label{karta_8h_ac195c566dfdf18aded74c59e8e48fd1fa529f9ed83ab5629953645901826698f3} 
+Melee&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Siege@{Siege}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Siege@{Siege}}
+}\label{karta_8h_ac195c566dfdf18aded74c59e8e48fd1faede48c4af918657c3179b11ead9469f8} 
+Siege&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ranged@{Ranged}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Ranged@{Ranged}}
+}\label{karta_8h_ac195c566dfdf18aded74c59e8e48fd1fa2d3a94a8bafdf7341d5eff2796682fd3} 
+Ranged&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Agile@{Agile}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Agile@{Agile}}
+}\label{karta_8h_ac195c566dfdf18aded74c59e8e48fd1facb4b814b5d30cc7a97c44e34d88d65de} 
+Agile&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Leader@{Leader}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Leader@{Leader}}
+}\label{karta_8h_ac195c566dfdf18aded74c59e8e48fd1fa2e8fd6ee71807a036c560119839683e3} 
+Leader&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Undefined@{Undefined}!karta.h@{karta.h}}
+\index{karta.h@{karta.h}!Undefined@{Undefined}}
+}\label{karta_8h_ac195c566dfdf18aded74c59e8e48fd1fa18f893264a00711081b62de694f99db4} 
+Undefined&\\
+\hline
+
+\end{DoxyEnumFields}

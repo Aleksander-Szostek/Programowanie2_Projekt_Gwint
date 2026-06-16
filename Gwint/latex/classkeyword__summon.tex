@@ -1,0 +1,94 @@
+\doxysection{keyword\+\_\+summon Class Reference}
+\label{classkeyword__summon}\index{keyword\_summon@{keyword\_summon}}
+
+
+{\ttfamily \+\#include $<$keyword\+\_\+summon.\+h$>$}
+
+
+
+Inheritance diagram for keyword\+\_\+summon:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classkeyword__summon__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for keyword\+\_\+summon:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classkeyword__summon__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ keyword\+\_\+summon} ()
+\item 
+void \textbf{ on\+Play\+Effekt} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ keyword}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ keyword} ()
+\item 
+virtual void \textbf{ when\+Played} ()=0
+\item 
+virtual void \textbf{ when\+Killed} ()=0
+\item 
+\textbf{ $\sim$keyword} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Signals inherited from \textbf{ keyword}}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ nakaz\+Rusz} (\textbf{ Rzad\+Planszy} poz\+\_\+start, int indeks, \textbf{ Rzad\+Planszy} poz\+\_\+kon)
+\item 
+int \textbf{ nakaz\+Szukaj} (int ID, \textbf{ Rzad\+Planszy} gdzie\+Szukac=\textbf{ Unknown})
+\item 
+void \textbf{ nakaz\+Grzybek} ()
+\item 
+void \textbf{ nakaz\+Dobierz} (int nr\+\_\+gracza, int liczba=1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \textbf{ keyword}}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ is\+Player1} (\textbf{ Rzad\+Planszy} rzad)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \textbf{ keyword}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ int $>$ \textbf{ Karty\+\_\+cele}
+\item 
+std::\+vector$<$ \textbf{ Rzad\+Planszy} $>$ \textbf{ Linie\+\_\+cele}
+\end{DoxyCompactItemize}
+
+
+\label{classkeyword__summon_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{keyword\_summon@{keyword\_summon}!keyword\_summon@{keyword\_summon}}
+\index{keyword\_summon@{keyword\_summon}!keyword\_summon@{keyword\_summon}}
+\doxysubsubsection{keyword\_summon()}
+{\footnotesize\ttfamily \label{classkeyword__summon_a41f5b9405518b8277abf62da46a02df7} 
+keyword\+\_\+summon::\+keyword\+\_\+summon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{classkeyword__summon_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{keyword\_summon@{keyword\_summon}!onPlayEffekt@{onPlayEffekt}}
+\index{onPlayEffekt@{onPlayEffekt}!keyword\_summon@{keyword\_summon}}
+\doxysubsubsection{onPlayEffekt()}
+{\footnotesize\ttfamily \label{classkeyword__summon_a4977adfba6fa50cc0f02bdf69366c403} 
+void keyword\+\_\+summon::\+on\+Play\+Effekt (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ keyword\+\_\+summon.\+h}\item 
+\textbf{ keyword\+\_\+summon.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,175 @@
+\doxysection{deck Class Reference}
+\label{classdeck}\index{deck@{deck}}
+
+
+{\ttfamily \+\#include $<$deck.\+h$>$}
+
+
+
+Inheritance diagram for deck:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classdeck__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for deck:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classdeck__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ deck} ()
+\item 
+void \textbf{ make\+Deck} (QString deck\+File)
+\item 
+void \textbf{ make\+Deck\+ZUI} (const std::\+vector$<$ \textbf{ karta} $\ast$ $>$ \&wybrane\+Karty)
+\item 
+void \textbf{ validify\+Deck} ()
+\item 
+\textbf{ kontener\+\_\+kart} $\ast$ \textbf{ get\+Leader} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ kontener\+\_\+kart}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ kontener\+\_\+kart} ()
+\item 
+void \textbf{ add\+\_\+card\+\_\+to} (\textbf{ karta} $\ast$dodawana\+\_\+karta, int pozycja)
+\item 
+void \textbf{ move\+\_\+card} (int poz\+\_\+start, \textbf{ kontener\+\_\+kart} $\ast$output\+\_\+list)
+\item 
+\textbf{ karta} $\ast$ \textbf{ get\+Karta\+From\+List} (int poz)
+\item 
+int \textbf{ get\+Deck\+Size} ()
+\item 
+void \textbf{ shulfe\+\_\+list} ()
+\item 
+void \textbf{ sort\+\_\+list} ()
+\item 
+void \textbf{ delete\+\_\+card} (int pozycja)
+\item 
+std::\+vector$<$ \textbf{ karta} $\ast$ $>$ \textbf{ get\+Wszystkie\+Karty} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ Deck\+Valid} = true
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \textbf{ kontener\+\_\+kart}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ \textbf{ karta} $\ast$ $>$ \textbf{ Ciag\+\_\+kart}
+\item 
+bool \textbf{ is\+Deck} = false
+\end{DoxyCompactItemize}
+
+
+\label{classdeck_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{deck@{deck}!deck@{deck}}
+\index{deck@{deck}!deck@{deck}}
+\doxysubsubsection{deck()}
+{\footnotesize\ttfamily \label{classdeck_a2ff8465ba7b13201bdf650fe461b442e} 
+deck::\+deck (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classdeck_a2ff8465ba7b13201bdf650fe461b442e_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{classdeck_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{deck@{deck}!getLeader@{getLeader}}
+\index{getLeader@{getLeader}!deck@{deck}}
+\doxysubsubsection{getLeader()}
+{\footnotesize\ttfamily \label{classdeck_a965803d37b9aa5ba8cda30807dafe2dd} 
+\textbf{ kontener\+\_\+kart} $\ast$ deck::\+get\+Leader (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classdeck_a965803d37b9aa5ba8cda30807dafe2dd_cgraph}
+\end{center}
+\end{figure}
+\index{deck@{deck}!makeDeck@{makeDeck}}
+\index{makeDeck@{makeDeck}!deck@{deck}}
+\doxysubsubsection{makeDeck()}
+{\footnotesize\ttfamily \label{classdeck_a3105a5e86207d41bdedca385dcaf3ba6} 
+void deck::\+make\+Deck (\begin{DoxyParamCaption}\item[{QString}]{deck\+File}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdeck_a3105a5e86207d41bdedca385dcaf3ba6_cgraph}
+\end{center}
+\end{figure}
+\index{deck@{deck}!makeDeckZUI@{makeDeckZUI}}
+\index{makeDeckZUI@{makeDeckZUI}!deck@{deck}}
+\doxysubsubsection{makeDeckZUI()}
+{\footnotesize\ttfamily \label{classdeck_ae845987109f6247ab15757ec2adc8076} 
+void deck::\+make\+Deck\+ZUI (\begin{DoxyParamCaption}\item[{const std::\+vector$<$ \textbf{ karta} $\ast$ $>$ \&}]{wybrane\+Karty}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classdeck_ae845987109f6247ab15757ec2adc8076_cgraph}
+\end{center}
+\end{figure}
+\index{deck@{deck}!validifyDeck@{validifyDeck}}
+\index{validifyDeck@{validifyDeck}!deck@{deck}}
+\doxysubsubsection{validifyDeck()}
+{\footnotesize\ttfamily \label{classdeck_a8f578e807119b1a639650743345a3399} 
+void deck::\+validify\+Deck (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classdeck_a8f578e807119b1a639650743345a3399_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{classdeck_a8f578e807119b1a639650743345a3399_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{classdeck_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{deck@{deck}!DeckValid@{DeckValid}}
+\index{DeckValid@{DeckValid}!deck@{deck}}
+\doxysubsubsection{DeckValid}
+{\footnotesize\ttfamily \label{classdeck_a494d3c8edb98943da71854bc5a508823} 
+bool deck::\+\+Deck\+Valid = true}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ deck.\+h}\item 
+\textbf{ deck.\+cpp}\end{DoxyCompactItemize}

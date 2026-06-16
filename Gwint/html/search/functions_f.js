@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['save_5fdeck_0',['save_deck',['../classdeck__saver.html#a762b3e40ec3780f979de81e0c51ba534',1,'deck_saver']]],
+  ['setcele_1',['setCele',['../classkarta.html#aa1ea741c85770973a0ab15ae1fe679a6',1,'karta']]],
+  ['setcloudy_2',['setCloudy',['../classplansza__linia.html#a8b99a710bbe221acb344f1732a11f828',1,'plansza_linia']]],
+  ['setflavor_3',['setFlavor',['../classkarta.html#af1156ef104979cb71cbdaf36ebcdc003',1,'karta']]],
+  ['setfrakcja_4',['setFrakcja',['../classkarta.html#ade547de3d3f87ebd4eabbcccdd55a401',1,'karta']]],
+  ['setid_5',['setID',['../classkarta.html#a00825526615d94f6bb5d769e4d31c66d',1,'karta']]],
+  ['setkategoria_6',['setKategoria',['../classkarta.html#a8f105f85c67c5f638279cfee690a07a0',1,'karta']]],
+  ['setkeyword_7',['setKeyword',['../classkarta.html#a65b4ae54d78ad8ddde61e5433669832e',1,'karta']]],
+  ['setleg_8',['setLeg',['../classkarta.html#a3db06d67d76a8234744451f0e33a2ab6',1,'karta']]],
+  ['setmax_9',['setMax',['../classkarta.html#a72ade54c11bb59002c238087cecdafea',1,'karta']]],
+  ['setname_10',['setName',['../classkarta.html#a4da45c4fbf3a3ac22f162a8ecfc280a9',1,'karta']]],
+  ['setpendingselection_11',['setPendingSelection',['../classplayer.html#af019b7af0a81bc965989ed3fe26521c4',1,'player']]],
+  ['setpogodastol_12',['setPogodaStol',['../classbot__player.html#acee792083d13038ee6092c4ff9b2d6d3',1,'bot_player']]],
+  ['setpunktyk_13',['setPunktyK',['../classplayer.html#a6374f329c7f5581df7c1960d85004506',1,'player']]],
+  ['setsilabaz_14',['setSilaBaz',['../classkarta.html#a49f152affb546911b9c6f36abfe6a6a7',1,'karta']]],
+  ['shulfe_5flist_15',['shulfe_list',['../classkontener__kart.html#a6eb6a521df4e7544428a641c9f3b3199',1,'kontener_kart']]],
+  ['sort_5flist_16',['sort_list',['../classkontener__kart.html#a8544069e13440dd5252bdd2ee0f05e8a',1,'kontener_kart']]],
+  ['spasuj_17',['Spasuj',['../classplayer.html#aae839a1b4203a90e1a0fc1f194f12787',1,'player']]],
+  ['stan_5fgry_18',['Stan_Gry',['../class_stan___gry.html#ad234bcf33f8961ecc8d78894d11b3e3f',1,'Stan_Gry']]],
+  ['startrundy_19',['startRundy',['../classplayer.html#a12a5062611774310a8924f737e88257b',1,'player']]],
+  ['szpieg_20',['szpieg',['../classszpieg.html#a08c692399593c15f5d98bc7be11f7c9c',1,'szpieg']]]
+];

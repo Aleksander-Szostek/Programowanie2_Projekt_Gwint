@@ -1,0 +1,12 @@
+<map id="karta::updateSila" name="karta::updateSila">
+<area shape="rect" id="Node000001" title=" " alt="" coords="586,43,706,69"/>
+<area shape="rect" id="Node000002" href="$classcard__loader.html#aab0d8b3e590eab07654dc50f48fddf0a" title=" " alt="" coords="401,35,538,77"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="568,56,539,59,539,53,573,56"/>
+<area shape="rect" id="Node000003" href="$classdeck__loader.html#ab03457e707c4a56eb28d59df8f2d4034" title=" " alt="" coords="184,5,342,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,41,341,35,341,30,388,41"/>
+<area shape="rect" id="Node000005" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title=" " alt="" coords="174,80,353,107"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="388,71,341,82,341,77,383,72"/>
+<area shape="rect" id="Node000004" href="$classdeck.html#a3105a5e86207d41bdedca385dcaf3ba6" title=" " alt="" coords="5,5,126,32"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="166,20,126,21,125,16,171,18"/>
+<area shape="poly" id="edge5_Node000005_Node000005" title=" " alt="" coords="296,64,285,61,263,59,243,61,232,65,229,71,234,81,229,79,224,71,228,62,241,55,263,53,287,56,301,65"/>
+</map>

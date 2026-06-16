@@ -1,0 +1,6 @@
+<map id="gra::nakazCzyszczeniaLayoutu" name="gra::nakazCzyszczeniaLayoutu">
+<area shape="rect" id="Node000001" title=" " alt="" coords="233,29,437,56"/>
+<area shape="rect" id="Node000002" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title=" " alt="" coords="5,29,185,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="214,43,185,45,185,40,220,43"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="135,15,123,10,95,8,70,10,56,15,53,20,60,29,54,29,47,21,52,11,69,5,95,3,124,5,141,14"/>
+</map>

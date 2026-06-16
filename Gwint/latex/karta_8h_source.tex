@@ -1,0 +1,122 @@
+\doxysection{karta.\+h}
+\label{karta_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ KARTA\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ KARTA\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{enum}\ Frakcja\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ Neutral,\ Elfy,\ Polnoc,\ Nilfgard,\ Skelige,\ Potwory}
+\DoxyCodeLine{00009\ \};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{enum}\ Kategoria\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ Spell,}
+\DoxyCodeLine{00013\ \ \ \ \ Melee,}
+\DoxyCodeLine{00014\ \ \ \ \ Siege,}
+\DoxyCodeLine{00015\ \ \ \ \ Ranged,}
+\DoxyCodeLine{00016\ \ \ \ \ Agile,}
+\DoxyCodeLine{00017\ \ \ \ \ Leader,}
+\DoxyCodeLine{00018\ \ \ \ \ Undefined}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{enum}\ Efekt\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ Brak,\ \ \ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00023\ \ \ \ \ Szpieg,\ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00024\ \ \ \ \ Przyzwij,\ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00025\ \ \ \ \ Linked,\ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00026\ \ \ \ \ Medyk,\ \ \ \ \ \ \textcolor{comment}{//}}
+\DoxyCodeLine{00027\ \ \ \ \ Reborn,\ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00028\ \ \ \ \ Pogoda,\ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00029\ \ \ \ \ Porzoga,\ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00030\ \ \ \ \ Horn,\ \ \ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00031\ \ \ \ \ Boost,\ \ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00032\ \ \ \ \ Morph,\ \ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00033\ \ \ \ \ Grzyb,\ \ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00034\ \ \ \ \ Kukla\ \ \ \ \ \ \ \textcolor{comment}{//\ zrobione}}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }karta}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ karta();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ setID(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id\_s);}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ setName(QString\ nazwa\_s);}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ setFrakcja(QString\ Nazwa\_frakcji);}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ setKategoria(QString\ Nazwa\_kategorii);}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ setSilaBaz(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ sila\_bazowa\_s);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ setKeyword(QString\ efekt\_s);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ setCele(QString\ cele\_s);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ setMax(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ max\_w\_talii\_s);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ setLeg(\textcolor{keywordtype}{bool}\ leg\_s);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ setFlavor(QString\ flavor\_s);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ updateSila(\textcolor{keywordtype}{bool}\ pogoda,\ \textcolor{keywordtype}{bool}\ horn,\ \textcolor{keywordtype}{int}\ boost,\ \textcolor{keywordtype}{int}\ moc\_braterstwa\ =\ 0);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getID();}
+\DoxyCodeLine{00055\ \ \ \ \ QString\ getNazwa();}
+\DoxyCodeLine{00056\ \ \ \ \ Frakcja\ getFrakcja();}
+\DoxyCodeLine{00057\ \ \ \ \ Kategoria\ getKategoria();}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getSila();}
+\DoxyCodeLine{00059\ \ \ \ \ std::vector<int>\ getCele();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ Efekt\ getKeyword();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ getMax();}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ getLeg();}
+\DoxyCodeLine{00065\ \ \ \ \ QString\ getFlavor();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00069\ \ \ \ \ QString\ nazwa\ =\ \textcolor{stringliteral}{"{}null"{}};}
+\DoxyCodeLine{00070\ \ \ \ \ Frakcja\ frakcja\ =\ Frakcja::Neutral;}
+\DoxyCodeLine{00071\ \ \ \ \ Kategoria\ kategoria\ =\ Kategoria::Undefined;}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ sila\_bazowa\ =\ 0;}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ sila\ =\ 0;}
+\DoxyCodeLine{00074\ \ \ \ \ Efekt\ keyword\ =\ Brak;}
+\DoxyCodeLine{00075\ \ \ \ \ std::vector<int>\ cele;}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ max\_w\_talii\ =\ 0;}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{bool}\ legendarna\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00078\ \ \ \ \ QString\ flavor\_text\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{comment}{//\string~karta();}}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{//}}
+\DoxyCodeLine{00084\ \textcolor{comment}{//\ \ dla\ uniknięcia\ pomyłek\ stuktury\ z\ klasą\ stuktura\ ma\ nazwę\ po\ angielsku}}
+\DoxyCodeLine{00085\ \textcolor{comment}{//}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ \ struktura\ card\ to\ odczytywana\ z\ pliku\ karta\ która\ będzie\ obsługiwana\ przez}}
+\DoxyCodeLine{00087\ \textcolor{comment}{//\ \ wszystkie\ inne\ obiekty\ (odpowiednik\ bloczka\ FBD\ z\ poprzedniego\ projektu)}}
+\DoxyCodeLine{00088\ \textcolor{comment}{//}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ \ opis\ wszystkich\ pól:}}
+\DoxyCodeLine{00090\ \textcolor{comment}{//}}
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ \ id\ -\/\ jest\ to\ unikalny\ numer\ karty\ używany\ do\ szybkiego\ odczytywania\ karty}}
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ \ z\ pliku\ cards\_list.txt\ gdzie\ są\ przechowywane\ wszystkie\ karty}}
+\DoxyCodeLine{00093\ \textcolor{comment}{//}}
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ \ nazwa\ -\/\ nazwa\ karty\ która\ się\ będzie\ wyświetlać\ dla\ użytkownika}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//}}
+\DoxyCodeLine{00096\ \textcolor{comment}{//\ \ frakcja\ -\/\ definiuje\ do\ której\ talii\ może\ należeć\ karta}}
+\DoxyCodeLine{00097\ \textcolor{comment}{//\ \ Neutral\ może\ należeć\ do\ dowolnej}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ \ siła\_bazowa\ -\/\ liczbowa\ siła\ karty\ odczytana\ z\ pliku}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ \ sila\ -\/\ sila\ karty\ po\ uwzglednieniu\ efektów\ innych\ kart\ na\ tą\ kartę}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//}}
+\DoxyCodeLine{00103\ \textcolor{comment}{//\ \ efekt\ -\/\ adres\ do\ obiektu\ dziedziczącego\ po\ klasie\ keyword}}
+\DoxyCodeLine{00104\ \textcolor{comment}{//\ \ określa\ jaki\ efekt\ będzie\ miała\ karta}}
+\DoxyCodeLine{00105\ \textcolor{comment}{//}}
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ \ cele\ -\/\ wektor\ kart,\ i\ obszarów\ gry\ na\ które\ działa\ dany\ efekt}}
+\DoxyCodeLine{00107\ \textcolor{comment}{//}}
+\DoxyCodeLine{00108\ \textcolor{comment}{//\ \ max\_w\_talii\ -\/\ określa\ ile\ maksymalnie\ można\ mieć\ kopii\ karty\ w\ talii\ w\ trakcie\ jej\ tworzenia}}
+\DoxyCodeLine{00109\ \textcolor{comment}{//}}
+\DoxyCodeLine{00110\ \textcolor{comment}{//\ \ legenda\ -\/\ ogreśla\ czy\ karta\ jest\ kartą\ legendarną\ czy\ nie}}
+\DoxyCodeLine{00111\ \textcolor{comment}{//\ \ czyli\ taką\ na\ którą\ nie\ działają\ efekty\ innych\ kart}}
+\DoxyCodeLine{00112\ \textcolor{comment}{//}}
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ \ flavor\_text\ -\/\ dodatkowy\ teks\ na\ karcie\ który\ na\ nią\ nie\ wpływa}}
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ \ ale\ po\ prostu\ jest\ dla\ ozdoby}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ KARTA\_H}}
+
+\end{DoxyCode}

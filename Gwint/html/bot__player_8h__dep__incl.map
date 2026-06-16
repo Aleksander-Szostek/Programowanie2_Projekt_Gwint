@@ -1,0 +1,7 @@
+<map id="bot_player.h" name="bot_player.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="67,5,159,32"/>
+<area shape="rect" id="Node000002" href="$bot__player_8cpp.html" title=" " alt="" coords="5,80,112,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,44,70,81,66,78,92,46"/>
+<area shape="rect" id="Node000003" href="$gra_8cpp.html" title=" " alt="" coords="136,80,200,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,42,161,80,156,79,131,47"/>
+</map>

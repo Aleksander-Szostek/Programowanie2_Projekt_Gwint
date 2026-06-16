@@ -1,0 +1,5 @@
+<map id="human_player::podjecieDecyzji" name="human_player::podjecieDecyzji">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,208,32"/>
+<area shape="rect" id="Node000002" href="$classplayer.html#a97de83bce15f880241f561b55b016b02" title=" " alt="" coords="256,5,355,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,16,243,19,238,19,208,21"/>
+</map>

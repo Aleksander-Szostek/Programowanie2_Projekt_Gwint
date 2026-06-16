@@ -1,0 +1,7 @@
+<map id="deck::validifyDeck" name="deck::validifyDeck">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,43,135,69"/>
+<area shape="rect" id="Node000002" href="$classkontener__kart.html#a6f4cd5593700c9b0b42cc95a04a5d5fd" title=" " alt="" coords="183,5,312,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,43,170,39,165,41,136,48"/>
+<area shape="rect" id="Node000003" href="$classkarta.html#a4da45c4fbf3a3ac22f162a8ecfc280a9" title=" " alt="" coords="192,72,303,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="135,64,179,73,174,74,135,69"/>
+</map>

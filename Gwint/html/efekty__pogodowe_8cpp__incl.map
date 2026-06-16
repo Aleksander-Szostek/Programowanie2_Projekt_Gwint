@@ -1,0 +1,15 @@
+<map id="efekty_pogodowe.cpp" name="efekty_pogodowe.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="49,5,198,32"/>
+<area shape="rect" id="Node000002" href="$efekty__pogodowe_8h.html" title=" " alt="" coords="56,80,190,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,30,126,65,121,64,123,35"/>
+<area shape="rect" id="Node000003" href="$kontener__kart_8h.html" title=" " alt="" coords="68,155,179,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="124,105,126,140,121,138,122,110"/>
+<area shape="rect" id="Node000004" href="$karta_8h.html" title=" " alt="" coords="93,229,154,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="125,180,126,214,121,213,122,184"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,304,71,331"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="111,256,66,296,62,292,106,257"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="95,304,152,331"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="125,255,126,289,121,287,122,259"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="177,304,246,331"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="140,254,187,294,182,294,138,259"/>
+</map>

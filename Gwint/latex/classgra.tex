@@ -1,0 +1,390 @@
+\doxysection{gra Class Reference}
+\label{classgra}\index{gra@{gra}}
+
+
+{\ttfamily \+\#include $<$gra.\+h$>$}
+
+
+
+Inheritance diagram for gra:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classgra__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for gra:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{classgra__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ nakaz\+Rysowania\+Karty} (\textbf{ karta} $\ast$nowa\+Karta, \textbf{ Rzad\+Planszy} rzad, int indeks, int nr\+\_\+gr)
+\item 
+void \textbf{ nakaz\+Czyszczenia\+Layoutu} (\textbf{ Rzad\+Planszy} rzad)
+\item 
+void \textbf{ nakaz\+Aktualizacji\+Punkt} (int punkty[12])
+\item 
+void \textbf{ nakaz\+Zmiany\+Strony} (int indeks)
+\item 
+void \textbf{ nakaz\+Show\+GS} (\textbf{ Stan\+Gry} Game\+State, bool p1\+\_\+pas, bool p2\+\_\+pas)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ gra} ()
+\item 
+void \textbf{ zainicjalizuj\+\_\+gre} (QString nazwa\+\_\+talii\+\_\+1, QString nazwa\+\_\+talii\+\_\+2)
+\item 
+void \textbf{ koniec\+\_\+rundy} ()
+\item 
+void \textbf{ koniec\+\_\+gry} ()
+\item 
+void \textbf{ dobierz\+Karte} (int nr\+\_\+gracza, int n=1)
+\item 
+void \textbf{ gracz\+Zagraj\+Karte} (int nr\+\_\+w\+\_\+rece, int nr\+\_\+gracza)
+\item 
+void \textbf{ global\+Card\+Played} (\textbf{ karta} $\ast$karta\+\_\+g, int nr\+\_\+gracza)
+\item 
+void \textbf{ zagrano\+Karte} (int indeks, int nr\+\_\+gracza)
+\item 
+void \textbf{ game\+Clear} ()
+\item 
+void \textbf{ tura\+\_\+bota} ()
+\item 
+void \textbf{ wybrano\+Karte} (\textbf{ Rzad\+Planszy} lokacja, int indeks)
+\item 
+void \textbf{ wybrano\+Linie} (\textbf{ Rzad\+Planszy} lokacja)
+\item 
+void \textbf{ count\+Points} ()
+\item 
+void \textbf{ gracz\+Pas} (int nr\+\_\+gr)
+\item 
+\textbf{ Stan\+Gry} \textbf{ get\+Game\+State} ()
+\item 
+int \textbf{ get\+Nr\+Rundy} ()
+\end{DoxyCompactItemize}
+
+
+\label{classgra_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{gra@{gra}!gra@{gra}}
+\index{gra@{gra}!gra@{gra}}
+\doxysubsubsection{gra()}
+{\footnotesize\ttfamily \label{classgra_af82783b3eb7e993a5e9c763c55c5fb59} 
+gra::\+gra (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{classgra_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{gra@{gra}!countPoints@{countPoints}}
+\index{countPoints@{countPoints}!gra@{gra}}
+\doxysubsubsection{countPoints()}
+{\footnotesize\ttfamily \label{classgra_ad75981822228e9bf2d8650e5bdc0d19c} 
+void gra::\+count\+Points (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=341pt]{classgra_ad75981822228e9bf2d8650e5bdc0d19c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_ad75981822228e9bf2d8650e5bdc0d19c_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!dobierzKarte@{dobierzKarte}}
+\index{dobierzKarte@{dobierzKarte}!gra@{gra}}
+\doxysubsubsection{dobierzKarte()}
+{\footnotesize\ttfamily \label{classgra_a05336246d9034293f6ae870efa6884f6} 
+void gra::\+dobierz\+Karte (\begin{DoxyParamCaption}\item[{int}]{nr\+\_\+gracza}{, }\item[{int}]{n}{ = {\ttfamily 1}}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{classgra_a05336246d9034293f6ae870efa6884f6_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!gameClear@{gameClear}}
+\index{gameClear@{gameClear}!gra@{gra}}
+\doxysubsubsection{gameClear()}
+{\footnotesize\ttfamily \label{classgra_a2e9542edbfeb969ceddc6e3942bb05d6} 
+void gra::\+game\+Clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{gra@{gra}!getGameState@{getGameState}}
+\index{getGameState@{getGameState}!gra@{gra}}
+\doxysubsubsection{getGameState()}
+{\footnotesize\ttfamily \label{classgra_a585fbd390339e16be07bc9ebb7262f96} 
+\textbf{ Stan\+Gry} gra::\+get\+Game\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{gra@{gra}!getNrRundy@{getNrRundy}}
+\index{getNrRundy@{getNrRundy}!gra@{gra}}
+\doxysubsubsection{getNrRundy()}
+{\footnotesize\ttfamily \label{classgra_a6ac134b9eb28823855e7abff97ae16a4} 
+int gra::\+get\+Nr\+Rundy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{gra@{gra}!globalCardPlayed@{globalCardPlayed}}
+\index{globalCardPlayed@{globalCardPlayed}!gra@{gra}}
+\doxysubsubsection{globalCardPlayed()}
+{\footnotesize\ttfamily \label{classgra_a7f922226bd08d019bd4f86ce5bb7632b} 
+void gra::\+global\+Card\+Played (\begin{DoxyParamCaption}\item[{\textbf{ karta} $\ast$}]{karta\+\_\+g}{, }\item[{int}]{nr\+\_\+gracza}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a7f922226bd08d019bd4f86ce5bb7632b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a7f922226bd08d019bd4f86ce5bb7632b_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!graczPas@{graczPas}}
+\index{graczPas@{graczPas}!gra@{gra}}
+\doxysubsubsection{graczPas()}
+{\footnotesize\ttfamily \label{classgra_a91ad93e440c03463bb672295641942de} 
+void gra::\+gracz\+Pas (\begin{DoxyParamCaption}\item[{int}]{nr\+\_\+gr}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a91ad93e440c03463bb672295641942de_cgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!graczZagrajKarte@{graczZagrajKarte}}
+\index{graczZagrajKarte@{graczZagrajKarte}!gra@{gra}}
+\doxysubsubsection{graczZagrajKarte()}
+{\footnotesize\ttfamily \label{classgra_a6180f85df4105445f4433e5eb0fb1791} 
+void gra::\+gracz\+Zagraj\+Karte (\begin{DoxyParamCaption}\item[{int}]{nr\+\_\+w\+\_\+rece}{, }\item[{int}]{nr\+\_\+gracza}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a6180f85df4105445f4433e5eb0fb1791_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a6180f85df4105445f4433e5eb0fb1791_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!koniec\_gry@{koniec\_gry}}
+\index{koniec\_gry@{koniec\_gry}!gra@{gra}}
+\doxysubsubsection{koniec\_gry()}
+{\footnotesize\ttfamily \label{classgra_aa0ac1f5c7211aa75f9a9ec8aa13a87b0} 
+void gra::\+koniec\+\_\+gry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{classgra_aa0ac1f5c7211aa75f9a9ec8aa13a87b0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_aa0ac1f5c7211aa75f9a9ec8aa13a87b0_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!koniec\_rundy@{koniec\_rundy}}
+\index{koniec\_rundy@{koniec\_rundy}!gra@{gra}}
+\doxysubsubsection{koniec\_rundy()}
+{\footnotesize\ttfamily \label{classgra_a69a85b097fa2ef972184ecd53044eadf} 
+void gra::\+koniec\+\_\+rundy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a69a85b097fa2ef972184ecd53044eadf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a69a85b097fa2ef972184ecd53044eadf_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!nakazAktualizacjiPunkt@{nakazAktualizacjiPunkt}}
+\index{nakazAktualizacjiPunkt@{nakazAktualizacjiPunkt}!gra@{gra}}
+\doxysubsubsection{nakazAktualizacjiPunkt}
+{\footnotesize\ttfamily \label{classgra_a48e29f77028ec8d8301293aacdb1171b} 
+void gra::\+nakaz\+Aktualizacji\+Punkt (\begin{DoxyParamCaption}\item[{int}]{punkty}{[12]}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a48e29f77028ec8d8301293aacdb1171b_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!nakazCzyszczeniaLayoutu@{nakazCzyszczeniaLayoutu}}
+\index{nakazCzyszczeniaLayoutu@{nakazCzyszczeniaLayoutu}!gra@{gra}}
+\doxysubsubsection{nakazCzyszczeniaLayoutu}
+{\footnotesize\ttfamily \label{classgra_a466b959f6e47eaa08fc83c59658bab5e} 
+void gra::\+nakaz\+Czyszczenia\+Layoutu (\begin{DoxyParamCaption}\item[{\textbf{ Rzad\+Planszy}}]{rzad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a466b959f6e47eaa08fc83c59658bab5e_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!nakazRysowaniaKarty@{nakazRysowaniaKarty}}
+\index{nakazRysowaniaKarty@{nakazRysowaniaKarty}!gra@{gra}}
+\doxysubsubsection{nakazRysowaniaKarty}
+{\footnotesize\ttfamily \label{classgra_a54743b18eb859360d18f027b99793f97} 
+void gra::\+nakaz\+Rysowania\+Karty (\begin{DoxyParamCaption}\item[{\textbf{ karta} $\ast$}]{nowa\+Karta}{, }\item[{\textbf{ Rzad\+Planszy}}]{rzad}{, }\item[{int}]{indeks}{, }\item[{int}]{nr\+\_\+gr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a54743b18eb859360d18f027b99793f97_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!nakazShowGS@{nakazShowGS}}
+\index{nakazShowGS@{nakazShowGS}!gra@{gra}}
+\doxysubsubsection{nakazShowGS}
+{\footnotesize\ttfamily \label{classgra_a11deee8586ec090af9a6af604717d8a0} 
+void gra::\+nakaz\+Show\+GS (\begin{DoxyParamCaption}\item[{\textbf{ Stan\+Gry}}]{Game\+State}{, }\item[{bool}]{p1\+\_\+pas}{, }\item[{bool}]{p2\+\_\+pas}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a11deee8586ec090af9a6af604717d8a0_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!nakazZmianyStrony@{nakazZmianyStrony}}
+\index{nakazZmianyStrony@{nakazZmianyStrony}!gra@{gra}}
+\doxysubsubsection{nakazZmianyStrony}
+{\footnotesize\ttfamily \label{classgra_a85bf25719a5f0f40a35623e61ba83aa3} 
+void gra::\+nakaz\+Zmiany\+Strony (\begin{DoxyParamCaption}\item[{int}]{indeks}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a85bf25719a5f0f40a35623e61ba83aa3_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!tura\_bota@{tura\_bota}}
+\index{tura\_bota@{tura\_bota}!gra@{gra}}
+\doxysubsubsection{tura\_bota()}
+{\footnotesize\ttfamily \label{classgra_a8c2d7fd5afb60208e7eea8fbe7ddab46} 
+void gra::\+tura\+\_\+bota (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a8c2d7fd5afb60208e7eea8fbe7ddab46_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a8c2d7fd5afb60208e7eea8fbe7ddab46_icgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!wybranoKarte@{wybranoKarte}}
+\index{wybranoKarte@{wybranoKarte}!gra@{gra}}
+\doxysubsubsection{wybranoKarte()}
+{\footnotesize\ttfamily \label{classgra_ab41815afebc70d215b59dec83362ef21} 
+void gra::\+wybrano\+Karte (\begin{DoxyParamCaption}\item[{\textbf{ Rzad\+Planszy}}]{lokacja}{, }\item[{int}]{indeks}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_ab41815afebc70d215b59dec83362ef21_cgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!wybranoLinie@{wybranoLinie}}
+\index{wybranoLinie@{wybranoLinie}!gra@{gra}}
+\doxysubsubsection{wybranoLinie()}
+{\footnotesize\ttfamily \label{classgra_a2bfc132e55eed744b89015080a99767b} 
+void gra::\+wybrano\+Linie (\begin{DoxyParamCaption}\item[{\textbf{ Rzad\+Planszy}}]{lokacja}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a2bfc132e55eed744b89015080a99767b_cgraph}
+\end{center}
+\end{figure}
+\index{gra@{gra}!zagranoKarte@{zagranoKarte}}
+\index{zagranoKarte@{zagranoKarte}!gra@{gra}}
+\doxysubsubsection{zagranoKarte()}
+{\footnotesize\ttfamily \label{classgra_a29739d451b1e082768b8b96efcf90be0} 
+void gra::\+zagrano\+Karte (\begin{DoxyParamCaption}\item[{int}]{indeks}{, }\item[{int}]{nr\+\_\+gracza}{}\end{DoxyParamCaption})}
+
+\index{gra@{gra}!zainicjalizuj\_gre@{zainicjalizuj\_gre}}
+\index{zainicjalizuj\_gre@{zainicjalizuj\_gre}!gra@{gra}}
+\doxysubsubsection{zainicjalizuj\_gre()}
+{\footnotesize\ttfamily \label{classgra_a77be3f83ca2f52f5396a0cbee587b3a0} 
+void gra::\+zainicjalizuj\+\_\+gre (\begin{DoxyParamCaption}\item[{QString}]{nazwa\+\_\+talii\+\_\+1}{, }\item[{QString}]{nazwa\+\_\+talii\+\_\+2}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgra_a77be3f83ca2f52f5396a0cbee587b3a0_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ gra.\+h}\item 
+\textbf{ gra.\+cpp}\end{DoxyCompactItemize}

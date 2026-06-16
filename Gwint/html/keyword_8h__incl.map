@@ -1,0 +1,17 @@
+<map id="keyword.h" name="keyword.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="82,5,164,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="14,229,72,256"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,34,48,53,32,66,20,81,13,98,9,115,11,151,20,185,32,215,27,216,15,187,5,152,4,114,8,96,15,79,28,62,45,48,83,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="30,80,104,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="112,35,88,69,83,66,114,30"/>
+<area shape="rect" id="Node000004" href="$rzedy__enum_8h.html" title=" " alt="" coords="129,80,232,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="133,30,164,67,158,68,133,35"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="235,229,304,256"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="164,27,208,46,229,60,246,78,264,112,273,148,276,184,275,215,270,212,270,184,267,149,259,114,242,82,226,64,206,51,165,32"/>
+<area shape="rect" id="Node000005" href="$karta_8h.html" title=" " alt="" coords="148,155,210,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="181,105,182,140,177,138,179,109"/>
+<area shape="poly" id="edge6_Node000005_Node000002" title=" " alt="" coords="157,183,81,224,79,219,153,180"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="145,229,210,256"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="180,180,180,215,176,212,177,184"/>
+<area shape="poly" id="edge7_Node000005_Node000007" title=" " alt="" coords="196,179,245,220,240,220,194,184"/>
+</map>

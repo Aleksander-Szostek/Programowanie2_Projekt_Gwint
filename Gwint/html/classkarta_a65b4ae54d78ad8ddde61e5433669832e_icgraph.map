@@ -1,0 +1,14 @@
+<map id="karta::setKeyword" name="karta::setKeyword">
+<area shape="rect" id="Node000001" title=" " alt="" coords="586,35,714,61"/>
+<area shape="rect" id="Node000002" href="$classgra.html#a2bfc132e55eed744b89015080a99767b" title=" " alt="" coords="408,5,531,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="568,35,532,31,532,26,574,35"/>
+<area shape="rect" id="Node000003" href="$classcard__loader.html#aab0d8b3e590eab07654dc50f48fddf0a" title=" " alt="" coords="401,56,538,99"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="574,60,539,69,538,64,568,61"/>
+<area shape="rect" id="Node000004" href="$classdeck__loader.html#ab03457e707c4a56eb28d59df8f2d4034" title=" " alt="" coords="184,27,342,53"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="383,62,341,57,341,51,388,62"/>
+<area shape="rect" id="Node000006" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title=" " alt="" coords="174,101,353,128"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="388,92,341,103,341,98,383,93"/>
+<area shape="rect" id="Node000005" href="$classdeck.html#a3105a5e86207d41bdedca385dcaf3ba6" title=" " alt="" coords="5,27,126,53"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="166,41,126,43,125,37,171,39"/>
+<area shape="poly" id="edge6_Node000006_Node000006" title=" " alt="" coords="296,86,285,82,263,80,243,82,232,87,229,92,234,102,229,100,224,93,228,83,241,77,263,75,287,77,301,86"/>
+</map>

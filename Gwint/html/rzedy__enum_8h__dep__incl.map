@@ -1,0 +1,28 @@
+<map id="rzedy_enum.h" name="rzedy_enum.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="339,5,442,32"/>
+<area shape="rect" id="Node000002" href="$gra_8h.html" title=" " alt="" coords="127,80,177,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="333,39,179,87,177,82,336,35"/>
+<area shape="rect" id="Node000007" href="$keyword_8h.html" title=" " alt="" coords="350,80,432,107"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="392,46,393,81,389,78,389,50"/>
+<area shape="rect" id="Node000013" href="$rzedy__enum_8cpp.html" title=" " alt="" coords="456,80,574,107"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="425,37,496,79,490,79,425,43"/>
+<area shape="rect" id="Node000003" href="$gra_8cpp.html" title=" " alt="" coords="5,155,70,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="118,118,59,156,56,152,120,113"/>
+<area shape="rect" id="Node000004" href="$mainwindow_8cpp.html" title=" " alt="" coords="48,229,166,256"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="145,119,135,155,113,230,108,228,130,154,141,123"/>
+<area shape="rect" id="Node000005" href="$mainwindow_8h.html" title=" " alt="" coords="144,155,248,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="169,118,191,154,186,154,167,123"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="171,191,124,231,121,227,166,192"/>
+<area shape="rect" id="Node000006" href="$main_8cpp.html" title=" " alt="" coords="190,229,264,256"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="209,194,224,230,219,228,206,198"/>
+<area shape="rect" id="Node000008" href="$keyword_8cpp.html" title=" " alt="" coords="272,155,368,181"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="370,117,334,156,331,152,366,119"/>
+<area shape="rect" id="Node000009" href="$keyword__summon_8h.html" title=" " alt="" coords="392,155,531,181"/>
+<area shape="poly" id="edge9_Node000007_Node000009" title=" " alt="" coords="415,115,452,155,447,154,413,120"/>
+<area shape="rect" id="Node000011" href="$kw__szpieg_8h.html" title=" " alt="" coords="561,155,655,181"/>
+<area shape="poly" id="edge11_Node000007_Node000011" title=" " alt="" coords="443,109,573,154,567,154,443,115"/>
+<area shape="rect" id="Node000010" href="$keyword__summon_8cpp.html" title=" " alt="" coords="381,229,534,256"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="462,195,460,231,456,227,458,199"/>
+<area shape="rect" id="Node000012" href="$kw__szpieg_8cpp.html" title=" " alt="" coords="558,229,666,256"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="612,195,614,231,609,227,608,199"/>
+</map>

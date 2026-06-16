@@ -1,0 +1,5 @@
+<map id="gra::dobierzKarte" name="gra::dobierzKarte">
+<area shape="rect" id="Node000001" title=" " alt="" coords="193,5,313,32"/>
+<area shape="rect" id="Node000002" href="$classgra.html#a77be3f83ca2f52f5396a0cbee587b3a0" title=" " alt="" coords="5,5,145,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,19,145,21,145,16,180,19"/>
+</map>

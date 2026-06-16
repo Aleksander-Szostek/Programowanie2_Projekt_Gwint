@@ -1,0 +1,12 @@
+<map id="card_button_talia.h" name="card_button_talia.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="123,5,254,32"/>
+<area shape="rect" id="Node000002" href="$card__button__talia_8cpp.html" title=" " alt="" coords="5,80,151,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="155,43,99,81,96,77,159,39"/>
+<area shape="rect" id="Node000003" href="$mainwindow_8cpp.html" title=" " alt="" coords="130,155,247,181"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="191,46,191,155,186,153,186,49"/>
+<area shape="rect" id="Node000004" href="$mainwindow_8h.html" title=" " alt="" coords="226,80,330,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="217,40,265,79,260,80,216,45"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="253,116,205,157,203,152,248,118"/>
+<area shape="rect" id="Node000005" href="$main_8cpp.html" title=" " alt="" coords="272,155,346,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="291,119,306,155,301,153,288,124"/>
+</map>

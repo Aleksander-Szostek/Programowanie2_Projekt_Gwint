@@ -1,0 +1,122 @@
+\doxysection{human\+\_\+player Class Reference}
+\label{classhuman__player}\index{human\_player@{human\_player}}
+
+
+{\ttfamily \+\#include $<$human\+\_\+player.\+h$>$}
+
+
+
+Inheritance diagram for human\+\_\+player:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{classhuman__player__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for human\+\_\+player:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{classhuman__player__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ human\+\_\+player} ()
+\item 
+\textbf{ decyzja\+Ruchu} \textbf{ podjecie\+Decyzji} (\textbf{ player} $\ast$przeciwnik) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ player}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ player} ()
+\item 
+void \textbf{ get\+Points} (int return\+\_\+val[3], bool Pogoda[3])
+\item 
+virtual \textbf{ $\sim$player} ()=default
+\item 
+\textbf{ plansza\+\_\+linia} $\ast$ \textbf{ get\+Melee} ()
+\item 
+\textbf{ plansza\+\_\+linia} $\ast$ \textbf{ get\+Ranged} ()
+\item 
+\textbf{ plansza\+\_\+linia} $\ast$ \textbf{ get\+Siege} ()
+\item 
+\textbf{ deck} $\ast$ \textbf{ get\+Deck} ()
+\item 
+\textbf{ player\+\_\+hand} $\ast$ \textbf{ get\+Reka} ()
+\item 
+\textbf{ graveyard} $\ast$ \textbf{ get\+Graveyard} ()
+\item 
+\textbf{ kontener\+\_\+kart} $\ast$ \textbf{ get\+Limbo} ()
+\item 
+int \textbf{ get\+Pending\+Selection} ()
+\item 
+void \textbf{ set\+Pending\+Selection} (int indeks=-\/1)
+\item 
+void \textbf{ dobierz\+Karte} ()
+\item 
+\textbf{ karta} $\ast$ \textbf{ zagraj\+Karte} (int nr\+\_\+w\+\_\+rece)
+\item 
+void \textbf{ uzyj\+Lidera} ()
+\item 
+void \textbf{ Spasuj} (bool reverse=false)
+\item 
+void \textbf{ Reset\+Pasa} ()
+\item 
+void \textbf{ Pasuj} ()
+\item 
+bool \textbf{ is\+Pas} ()
+\item 
+void \textbf{ start\+Rundy} ()
+\item 
+void \textbf{ wyczysc} ()
+\item 
+int \textbf{ get\+PunktyK} ()
+\item 
+void \textbf{ set\+PunktyK} (int a)
+\item 
+int \textbf{ get\+Suma\+Punktow} (bool pogoda[3])
+\end{DoxyCompactItemize}
+
+
+\label{classhuman__player_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{human\_player@{human\_player}!human\_player@{human\_player}}
+\index{human\_player@{human\_player}!human\_player@{human\_player}}
+\doxysubsubsection{human\_player()}
+{\footnotesize\ttfamily \label{classhuman__player_ae05986c3f0b0ae2adf6470ecc5e00207} 
+human\+\_\+player::\+human\+\_\+player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{classhuman__player_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{human\_player@{human\_player}!podjecieDecyzji@{podjecieDecyzji}}
+\index{podjecieDecyzji@{podjecieDecyzji}!human\_player@{human\_player}}
+\doxysubsubsection{podjecieDecyzji()}
+{\footnotesize\ttfamily \label{classhuman__player_a9df1bc4f6814f7d6b4103531653c2c92} 
+\textbf{ decyzja\+Ruchu} human\+\_\+player::\+podjecie\+Decyzji (\begin{DoxyParamCaption}\item[{\textbf{ player} $\ast$}]{przeciwnik}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \textbf{ player} \doxyref{}{p.}{classplayer_ab9268a6cb9a73b0cc32b8806a96a8d31}.
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{classhuman__player_a9df1bc4f6814f7d6b4103531653c2c92_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ human\+\_\+player.\+h}\item 
+\textbf{ human\+\_\+player.\+cpp}\end{DoxyCompactItemize}

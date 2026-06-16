@@ -1,0 +1,28 @@
+var classplayer =
+[
+    [ "player", "classplayer.html#a97de83bce15f880241f561b55b016b02", null ],
+    [ "~player", "classplayer.html#af57b666d63737ad74fa7eddb7a377baf", null ],
+    [ "dobierzKarte", "classplayer.html#a2d63867bec77cac050b59cabce5a5c48", null ],
+    [ "getDeck", "classplayer.html#a3fca9899503cf513b71e7847671ed53c", null ],
+    [ "getGraveyard", "classplayer.html#a7e95e1e6307b875255e3dc8863bd77a2", null ],
+    [ "getLimbo", "classplayer.html#ac32469747a93dd35b35edb6a899ef83e", null ],
+    [ "getMelee", "classplayer.html#a582ef4e7f38d1cbbc08d771a85089e58", null ],
+    [ "getPendingSelection", "classplayer.html#a8471e8ddbe28a701aa831b9dbe862931", null ],
+    [ "getPoints", "classplayer.html#a08d9f45645cf7273e00a1768a21aba7a", null ],
+    [ "getPunktyK", "classplayer.html#a02d230db10c7a39d8634f243d8dd95ad", null ],
+    [ "getRanged", "classplayer.html#aa34ace68fba959b8f53f7423128228dc", null ],
+    [ "getReka", "classplayer.html#af36dba2b67a08433fe44099e0bf36430", null ],
+    [ "getSiege", "classplayer.html#ada7e0072cc11c302c471eb5b1f669693", null ],
+    [ "getSumaPunktow", "classplayer.html#ac502e1bcc9ef1f590dee5f2e87472923", null ],
+    [ "isPas", "classplayer.html#ac9863b9867f7647d5fcc1fb14fd2c874", null ],
+    [ "Pasuj", "classplayer.html#a97edd769d9ddeacfa1f70362f4c32499", null ],
+    [ "podjecieDecyzji", "classplayer.html#ab9268a6cb9a73b0cc32b8806a96a8d31", null ],
+    [ "ResetPasa", "classplayer.html#a145c1244151070226a4faad3291a0ccd", null ],
+    [ "setPendingSelection", "classplayer.html#af019b7af0a81bc965989ed3fe26521c4", null ],
+    [ "setPunktyK", "classplayer.html#a6374f329c7f5581df7c1960d85004506", null ],
+    [ "Spasuj", "classplayer.html#aae839a1b4203a90e1a0fc1f194f12787", null ],
+    [ "startRundy", "classplayer.html#a12a5062611774310a8924f737e88257b", null ],
+    [ "uzyjLidera", "classplayer.html#a1442892c302752d27c0721c2bc9dd4b9", null ],
+    [ "wyczysc", "classplayer.html#a3b2f9907d922b607cc640ee14d109edc", null ],
+    [ "zagrajKarte", "classplayer.html#ac9bfb60fa5bcb922580af6049ff48b36", null ]
+];

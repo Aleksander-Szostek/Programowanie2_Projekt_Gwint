@@ -1,0 +1,47 @@
+var rzedy__enum_8h =
+[
+    [ "nakaz", "structnakaz.html", null ],
+    [ "rzedy_enum", "classrzedy__enum.html", "classrzedy__enum" ],
+    [ "Pkt", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883", [
+      [ "p1_M", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883ab6fba915c0a9685c88e7582731a30d1c", null ],
+      [ "p1_R", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883a42899bbe79e50b462196b32a5e8c1e97", null ],
+      [ "p1_S", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883a3444d89a2b5fb3551728b4bcf868e6f6", null ],
+      [ "p2_M", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883a872e26a86bef0e503e65d3658cff5ac7", null ],
+      [ "p2_R", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883a898b6db39c204f392b4ef658e11a39dd", null ],
+      [ "p2_S", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883a332d258ae324f82728398907396471fd", null ],
+      [ "p1_DS", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883a81acd8263e6eb1093b38b253ea204771", null ],
+      [ "p2_DS", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883a40033b9080d5e4453c0bbb2266b43a57", null ],
+      [ "p1_HS", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883aceba9961e5ec6f2506baf32bad1c9811", null ],
+      [ "p2_HS", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883a6b6361783c6d5c183d58ff38d186d350", null ],
+      [ "p1_GS", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883a997839334bbe2f220ac4dbd3d0631235", null ],
+      [ "p2_GS", "rzedy__enum_8h.html#a58b7761d4dc88d614b61c7ac93456883adf33167091ad3fae73be115c875874fe", null ]
+    ] ],
+    [ "RzadPlanszy", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491", [
+      [ "Unknown", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a4e81c184ac3ad48a389cd4454c4a05bb", null ],
+      [ "P1_Melee", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a25374875e4d551e6d9a1df54e01f9cc5", null ],
+      [ "P1_Range", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a7ebc6bbc50dfdac01e9af82e785a8413", null ],
+      [ "P1_Siege", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491ab8bea01fae75143a9abb3cad5a0ac538", null ],
+      [ "P2_Melee", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491af04ee9331834de0fd261850c09910f54", null ],
+      [ "P2_Range", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a3acd0a2c466efe0f87a76bf53dcf28a7", null ],
+      [ "P2_Siege", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a5333d9875fb4a5c7fff097289325525a", null ],
+      [ "P1_Spell", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491ad285cada00b58f6a0c53c0d2ae47c1cd", null ],
+      [ "P2_Spell", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491afb9226a880ea6119767f80edb25ca4b2", null ],
+      [ "P1_Leader", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491ab61cac160e83cc1a8d0dc8f89d19e5f0", null ],
+      [ "P2_Leader", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a876e2e0efc57c4fe86a4c8b51ce2065b", null ],
+      [ "P1_Hand", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491ad905f6a358e69296e4f09ff425dde555", null ],
+      [ "P2_Hand", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491aed4e863cfebc63bfb2831b27eeba7cfb", null ],
+      [ "P1_Deck", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a4426162ea63bcc6aa660f7877ab559cb", null ],
+      [ "P2_Deck", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a035d1b247510b3a8e11cc58ff1d21310", null ],
+      [ "P1_Graveyard", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a46981cd849bc821d875f029ec8463dc1", null ],
+      [ "P2_Graveyard", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a88dc3705697780e361afb4d01a57043c", null ],
+      [ "P1_Limbo", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a61170dd83539972603ee38e3eb50327c", null ],
+      [ "P2_Limbo", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a5b058ce845bc744c464be6f9e6a41d44", null ],
+      [ "Weather", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491aa98f19d01403bde62dfab9411bd1fc2a", null ],
+      [ "P1_Melee_Horn", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a317c2adc0f5f1f1fdd4bbd39b4ebeb2e", null ],
+      [ "P1_Range_Horn", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a9ce17468d9d5ea27aafa3bf3f2b56344", null ],
+      [ "P1_Siege_Horn", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491afaf31657a71695e28184fcb4b0f908ea", null ],
+      [ "P2_Melee_Horn", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a45d2b89d4fb48b4c02cec614c4cca423", null ],
+      [ "P2_Range_Horn", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491a4c8a94bda53a77d44c3d781b1ef2ae29", null ],
+      [ "P2_Siege_Horn", "rzedy__enum_8h.html#a80d768c47b7c614948fb407d3b248491ae7d981c1755542ba1fa0119c46aab9d4", null ]
+    ] ]
+];

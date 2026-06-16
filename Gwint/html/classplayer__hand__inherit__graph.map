@@ -1,0 +1,5 @@
+<map id="player_hand" name="player_hand">
+<area shape="rect" id="Node000001" title=" " alt="" coords="26,315,128,384"/>
+<area shape="rect" id="Node000002" href="$classkontener__kart.html" title=" " alt="" coords="5,5,148,267"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,279,79,315,74,314,75,284"/>
+</map>

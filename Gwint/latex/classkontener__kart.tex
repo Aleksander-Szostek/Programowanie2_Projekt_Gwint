@@ -1,0 +1,218 @@
+\doxysection{kontener\+\_\+kart Class Reference}
+\label{classkontener__kart}\index{kontener\_kart@{kontener\_kart}}
+
+
+{\ttfamily \+\#include $<$kontener\+\_\+kart.\+h$>$}
+
+
+
+Inheritance diagram for kontener\+\_\+kart:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for kontener\+\_\+kart:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classkontener__kart__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ kontener\+\_\+kart} ()
+\item 
+void \textbf{ add\+\_\+card\+\_\+to} (\textbf{ karta} $\ast$dodawana\+\_\+karta, int pozycja)
+\item 
+void \textbf{ move\+\_\+card} (int poz\+\_\+start, \textbf{ kontener\+\_\+kart} $\ast$output\+\_\+list)
+\item 
+\textbf{ karta} $\ast$ \textbf{ get\+Karta\+From\+List} (int poz)
+\item 
+int \textbf{ get\+Deck\+Size} ()
+\item 
+void \textbf{ shulfe\+\_\+list} ()
+\item 
+void \textbf{ sort\+\_\+list} ()
+\item 
+void \textbf{ delete\+\_\+card} (int pozycja)
+\item 
+std::\+vector$<$ \textbf{ karta} $\ast$ $>$ \textbf{ get\+Wszystkie\+Karty} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ \textbf{ karta} $\ast$ $>$ \textbf{ Ciag\+\_\+kart}
+\item 
+bool \textbf{ is\+Deck} = false
+\end{DoxyCompactItemize}
+
+
+\label{classkontener__kart_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{kontener\_kart@{kontener\_kart}!kontener\_kart@{kontener\_kart}}
+\index{kontener\_kart@{kontener\_kart}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{kontener\_kart()}
+{\footnotesize\ttfamily \label{classkontener__kart_aa663fccd4615fce6f81889bb107176a4} 
+kontener\+\_\+kart::\+kontener\+\_\+kart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart_aa663fccd4615fce6f81889bb107176a4_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{classkontener__kart_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{kontener\_kart@{kontener\_kart}!add\_card\_to@{add\_card\_to}}
+\index{add\_card\_to@{add\_card\_to}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{add\_card\_to()}
+{\footnotesize\ttfamily \label{classkontener__kart_a6f4cd5593700c9b0b42cc95a04a5d5fd} 
+void kontener\+\_\+kart::\+add\+\_\+card\+\_\+to (\begin{DoxyParamCaption}\item[{\textbf{ karta} $\ast$}]{dodawana\+\_\+karta}{, }\item[{int}]{pozycja}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart_a6f4cd5593700c9b0b42cc95a04a5d5fd_icgraph}
+\end{center}
+\end{figure}
+\index{kontener\_kart@{kontener\_kart}!delete\_card@{delete\_card}}
+\index{delete\_card@{delete\_card}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{delete\_card()}
+{\footnotesize\ttfamily \label{classkontener__kart_aff159cc17c547c56a9b311047d31ab80} 
+void kontener\+\_\+kart::\+delete\+\_\+card (\begin{DoxyParamCaption}\item[{int}]{pozycja}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart_aff159cc17c547c56a9b311047d31ab80_icgraph}
+\end{center}
+\end{figure}
+\index{kontener\_kart@{kontener\_kart}!getDeckSize@{getDeckSize}}
+\index{getDeckSize@{getDeckSize}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{getDeckSize()}
+{\footnotesize\ttfamily \label{classkontener__kart_a133d36c56b0fea56d1d09412436ca2d6} 
+int kontener\+\_\+kart::\+get\+Deck\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart_a133d36c56b0fea56d1d09412436ca2d6_icgraph}
+\end{center}
+\end{figure}
+\index{kontener\_kart@{kontener\_kart}!getKartaFromList@{getKartaFromList}}
+\index{getKartaFromList@{getKartaFromList}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{getKartaFromList()}
+{\footnotesize\ttfamily \label{classkontener__kart_a3b37d82c7d622e08adb97b7668da63e9} 
+\textbf{ karta} $\ast$ kontener\+\_\+kart::\+get\+Karta\+From\+List (\begin{DoxyParamCaption}\item[{int}]{poz}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart_a3b37d82c7d622e08adb97b7668da63e9_icgraph}
+\end{center}
+\end{figure}
+\index{kontener\_kart@{kontener\_kart}!getWszystkieKarty@{getWszystkieKarty}}
+\index{getWszystkieKarty@{getWszystkieKarty}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{getWszystkieKarty()}
+{\footnotesize\ttfamily \label{classkontener__kart_ab146516d0a7cb05fdbaf45ac17263dfa} 
+std::\+vector$<$ \textbf{ karta} $\ast$ $>$ kontener\+\_\+kart::\+get\+Wszystkie\+Karty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{kontener\_kart@{kontener\_kart}!move\_card@{move\_card}}
+\index{move\_card@{move\_card}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{move\_card()}
+{\footnotesize\ttfamily \label{classkontener__kart_a35f5cb2c67494d5f880ad1c09b2f73aa} 
+void kontener\+\_\+kart::\+move\+\_\+card (\begin{DoxyParamCaption}\item[{int}]{poz\+\_\+start}{, }\item[{\textbf{ kontener\+\_\+kart} $\ast$}]{output\+\_\+list}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart_a35f5cb2c67494d5f880ad1c09b2f73aa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classkontener__kart_a35f5cb2c67494d5f880ad1c09b2f73aa_icgraph}
+\end{center}
+\end{figure}
+\index{kontener\_kart@{kontener\_kart}!shulfe\_list@{shulfe\_list}}
+\index{shulfe\_list@{shulfe\_list}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{shulfe\_list()}
+{\footnotesize\ttfamily \label{classkontener__kart_a6eb6a521df4e7544428a641c9f3b3199} 
+void kontener\+\_\+kart::\+shulfe\+\_\+list (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart_a6eb6a521df4e7544428a641c9f3b3199_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart_a6eb6a521df4e7544428a641c9f3b3199_icgraph}
+\end{center}
+\end{figure}
+\index{kontener\_kart@{kontener\_kart}!sort\_list@{sort\_list}}
+\index{sort\_list@{sort\_list}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{sort\_list()}
+{\footnotesize\ttfamily \label{classkontener__kart_a8544069e13440dd5252bdd2ee0f05e8a} 
+void kontener\+\_\+kart::\+sort\+\_\+list (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkontener__kart_a8544069e13440dd5252bdd2ee0f05e8a_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{classkontener__kart_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{kontener\_kart@{kontener\_kart}!Ciag\_kart@{Ciag\_kart}}
+\index{Ciag\_kart@{Ciag\_kart}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{Ciag\_kart}
+{\footnotesize\ttfamily \label{classkontener__kart_ae782255c2dc661bb58b8a0d086d5830b} 
+std::\+vector$<$\textbf{ karta}$\ast$$>$ kontener\+\_\+kart::\+\+Ciag\+\_\+kart\hspace{0.3cm}{\ttfamily [protected]}}
+
+\index{kontener\_kart@{kontener\_kart}!isDeck@{isDeck}}
+\index{isDeck@{isDeck}!kontener\_kart@{kontener\_kart}}
+\doxysubsubsection{isDeck}
+{\footnotesize\ttfamily \label{classkontener__kart_a0e65c0c2827f0dbdd1719e8409ef09d9} 
+bool kontener\+\_\+kart::\+is\+Deck = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ kontener\+\_\+kart.\+h}\item 
+\textbf{ kontener\+\_\+kart.\+cpp}\end{DoxyCompactItemize}

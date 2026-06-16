@@ -1,0 +1,19 @@
+<map id="kw_szpieg.h" name="kw_szpieg.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="76,5,170,32"/>
+<area shape="rect" id="Node000002" href="$keyword_8h.html" title=" " alt="" coords="82,80,164,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="123,30,125,65,120,64,122,35"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="14,304,72,331"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,109,48,127,32,140,20,156,13,172,9,189,11,226,20,260,32,290,27,291,15,262,5,226,4,189,8,171,15,153,28,137,45,123,83,104"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="30,155,104,181"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="112,110,88,144,83,141,114,105"/>
+<area shape="rect" id="Node000005" href="$rzedy__enum_8h.html" title=" " alt="" coords="129,155,232,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="133,105,164,142,158,143,133,110"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="235,304,304,331"/>
+<area shape="poly" id="edge9_Node000002_Node000008" title=" " alt="" coords="164,102,208,121,229,135,246,153,264,186,273,223,276,258,275,290,270,287,270,259,267,224,259,188,242,156,226,139,206,125,165,107"/>
+<area shape="rect" id="Node000006" href="$karta_8h.html" title=" " alt="" coords="148,229,210,256"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="181,180,182,215,177,213,179,184"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="157,258,81,299,79,294,153,255"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="145,304,210,331"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="180,255,180,290,176,287,177,258"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="196,254,245,294,240,294,194,259"/>
+</map>

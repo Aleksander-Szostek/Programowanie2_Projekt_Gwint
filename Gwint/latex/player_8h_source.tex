@@ -1,0 +1,88 @@
+\doxysection{player.\+h}
+\label{player_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ PLAYER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ PLAYER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}deck.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}efekty\_pogodowe.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}player\_hand.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}plansza\_linia.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}graveyard.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{enum}\ kontener\{talia,\ reka,\ linia\_melee,\ linia\_ranged,\ linia\_siege,\ cmentarz,\ lider\};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }decyzjaRuchu\{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{bool}\ pasuje;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{int}\ nr\_karty;}
+\DoxyCodeLine{00015\ \};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }player}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ player();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ getPoints(\textcolor{keywordtype}{int}\ return\_val[3],\ \textcolor{keywordtype}{bool}\ Pogoda[3]);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{virtual}\ \string~player()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{virtual}\ decyzjaRuchu\ podjecieDecyzji(player*\ przeciwnik)\ =\ 0;\ \textcolor{comment}{//przekazuje\ wskaźnik\ do\ planszy\ gracza,a\ by\ bot\ mógł\ sobie\ policzyć\ co\ zagra}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ plansza\_linia*\ getMelee();}
+\DoxyCodeLine{00029\ \ \ \ \ plansza\_linia*\ getRanged();}
+\DoxyCodeLine{00030\ \ \ \ \ plansza\_linia*\ getSiege();}
+\DoxyCodeLine{00031\ \ \ \ \ deck*\ getDeck();}
+\DoxyCodeLine{00032\ \ \ \ \ player\_hand*\ getReka();}
+\DoxyCodeLine{00033\ \ \ \ \ graveyard*\ getGraveyard();}
+\DoxyCodeLine{00034\ \ \ \ \ kontener\_kart*\ getLimbo();}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//tutaj\ wysyłam\ karty\ które\ będą\ coś\ robić\ po\ śmierci}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//wysyłam\ je\ do\ limbo\ żeby\ przyzywane\ karty\ nie\ przeszkadzały\ przy\ eksterminowaniu\ kart\ 😅}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ getPendingSelection();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ setPendingSelection(\textcolor{keywordtype}{int}\ indeks\ =\ -\/1);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ dobierzKarte();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ karta*\ zagrajKarte(\textcolor{keywordtype}{int}\ nr\_w\_rece);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ uzyjLidera();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ Spasuj(\textcolor{keywordtype}{bool}\ reverse\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ ResetPasa();}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ Pasuj();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPas();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ startRundy();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ wyczysc();}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ getPunktyK();}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ setPunktyK(\textcolor{keywordtype}{int}\ a);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ getSumaPunktow(\textcolor{keywordtype}{bool}\ pogoda[3]);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ punkty=0;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ deck\ *Talia;}
+\DoxyCodeLine{00067\ \ \ \ \ player\_hand\ *reka;}
+\DoxyCodeLine{00068\ \ \ \ \ plansza\_linia\ *melee\_l;}
+\DoxyCodeLine{00069\ \ \ \ \ plansza\_linia\ *ranged\_l;}
+\DoxyCodeLine{00070\ \ \ \ \ plansza\_linia\ *siege\_l;}
+\DoxyCodeLine{00071\ \ \ \ \ graveyard\ *cmentarzysko;}
+\DoxyCodeLine{00072\ \ \ \ \ kontener\_kart\ *limbo;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ wyczysc\_linia(kontener\_kart*\ linia);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ czyPas\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ PendingSelection\ =\ -\/1;}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ efekty\_pogodowe*\ aktualnaPogoda\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ PLAYER\_H}}
+
+\end{DoxyCode}

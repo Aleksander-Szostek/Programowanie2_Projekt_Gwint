@@ -1,0 +1,37 @@
+\doxysection{deck.\+h}
+\label{deck_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ DECK\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ DECK\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}kontener\_kart.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}deck\_loader.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }deck\ :\ \textcolor{keyword}{public}\ kontener\_kart\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ deck();}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ makeDeck(QString\ deckFile);}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ makeDeckZUI(\textcolor{keyword}{const}\ std::vector<karta*>\&\ wybraneKarty);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ validifyDeck();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ kontener\_kart*\ getLeader();\ \ \ \ \ \ \textcolor{comment}{//pomimo\ że\ to\ pole\ nie\ powinno\ zawierać\ więcej\ niż\ 1\ karta}}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//to\ jest\ kontenerem\ żeby\ kożystało\ z\ tych\ samych\ funkcji\ co\ każdy\ inny\ kontener\ kart}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ DeckValid\ =\ \textcolor{keyword}{true};\ \textcolor{comment}{//false;}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ kontener\_kart\ *Leader;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ isDeck\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ Frakcja\ FrakcjaTalii\ =\ Frakcja::Neutral;}
+\DoxyCodeLine{00030\ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ DECK\_H}}
+
+\end{DoxyCode}

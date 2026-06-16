@@ -1,0 +1,11 @@
+<map id="kontener_kart::shulfe_list" name="kontener_kart::shulfe_list">
+<area shape="rect" id="Node000001" title=" " alt="" coords="411,31,578,57"/>
+<area shape="rect" id="Node000002" href="$classdeck.html#a3105a5e86207d41bdedca385dcaf3ba6" title=" " alt="" coords="217,5,337,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="393,33,338,28,337,23,398,32"/>
+<area shape="rect" id="Node000003" href="$classkontener__kart.html#a35f5cb2c67494d5f880ad1c09b2f73aa" title=" " alt="" coords="191,56,363,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="393,56,364,62,363,57,398,55"/>
+<area shape="rect" id="Node000004" href="$classplayer.html#a2d63867bec77cac050b59cabce5a5c48" title=" " alt="" coords="5,31,143,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="172,57,143,55,143,50,177,56"/>
+<area shape="rect" id="Node000005" href="$classgra.html#a2bfc132e55eed744b89015080a99767b" title=" " alt="" coords="12,81,136,108"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="172,82,137,90,136,84,178,82"/>
+</map>

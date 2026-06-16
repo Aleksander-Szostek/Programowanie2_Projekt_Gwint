@@ -1,0 +1,22 @@
+<map id="deck_loader.cpp" name="deck_loader.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="168,5,284,32"/>
+<area shape="rect" id="Node000002" href="$deck__loader_8h.html" title=" " alt="" coords="74,80,176,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,35,157,72,153,69,210,30"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="200,80,252,107"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="227,30,229,65,224,64,225,35"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="277,80,376,107"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="244,30,299,70,294,71,244,35"/>
+<area shape="rect" id="Node000003" href="$kontener__kart_8h.html" title=" " alt="" coords="5,155,117,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="113,110,84,144,80,141,115,105"/>
+<area shape="rect" id="Node000008" href="$card__loader_8h.html" title=" " alt="" coords="141,155,240,181"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="137,105,172,143,166,144,136,110"/>
+<area shape="rect" id="Node000004" href="$karta_8h.html" title=" " alt="" coords="94,229,156,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="73,179,106,217,101,218,72,185"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="7,304,72,331"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="113,256,67,296,64,292,108,257"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="96,304,154,331"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="127,255,127,289,123,287,123,259"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="178,304,248,331"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="141,254,189,294,184,294,139,259"/>
+<area shape="poly" id="edge8_Node000008_Node000004" title=" " alt="" coords="181,180,148,220,144,216,177,184"/>
+</map>

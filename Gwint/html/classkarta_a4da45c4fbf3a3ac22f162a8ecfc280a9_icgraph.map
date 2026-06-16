@@ -1,0 +1,22 @@
+<map id="karta::setName" name="karta::setName">
+<area shape="rect" id="Node000001" title=" " alt="" coords="788,81,899,108"/>
+<area shape="rect" id="Node000002" href="$classdeck__loader.html#ab03457e707c4a56eb28d59df8f2d4034" title=" " alt="" coords="184,5,342,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="805,73,774,59,739,47,633,26,526,16,426,14,344,16,343,11,426,9,526,11,634,21,740,41,777,54,810,74"/>
+<area shape="rect" id="Node000004" href="$classkarta.html#a8f105f85c67c5f638279cfee690a07a0" title=" " alt="" coords="608,56,740,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="770,84,740,82,740,76,775,84"/>
+<area shape="rect" id="Node000005" href="$classcard__loader.html#aab0d8b3e590eab07654dc50f48fddf0a" title=" " alt="" coords="412,64,549,107"/>
+<area shape="poly" id="edge11_Node000001_Node000005" title=" " alt="" coords="769,96,608,97,550,94,549,89,608,92,775,96"/>
+<area shape="rect" id="Node000007" href="$classdeck.html#a8f578e807119b1a639650743345a3399" title=" " alt="" coords="609,157,739,184"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="800,114,706,159,705,154,795,116"/>
+<area shape="rect" id="Node000003" href="$classdeck.html#a3105a5e86207d41bdedca385dcaf3ba6" title=" " alt="" coords="5,5,126,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="166,20,127,21,125,16,171,17"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="590,77,550,82,549,77,595,76"/>
+<area shape="poly" id="edge5_Node000005_Node000002" title=" " alt="" coords="397,59,352,47,314,35,314,30,354,41,402,58"/>
+<area shape="rect" id="Node000006" href="$class_main_window.html#a996c5a2b6f77944776856f08ec30858d" title=" " alt="" coords="174,80,353,107"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="394,89,354,93,353,87,399,88"/>
+<area shape="poly" id="edge7_Node000006_Node000006" title=" " alt="" coords="296,65,285,61,263,59,243,61,232,65,229,71,235,80,229,79,224,71,228,62,241,55,263,53,287,56,301,65"/>
+<area shape="rect" id="Node000008" href="$classdeck.html#ae845987109f6247ab15757ec2adc8076" title=" " alt="" coords="410,148,552,175"/>
+<area shape="poly" id="edge9_Node000007_Node000008" title=" " alt="" coords="591,167,552,167,552,162,597,167"/>
+<area shape="rect" id="Node000009" href="$classdeck__saver.html#a762b3e40ec3780f979de81e0c51ba534" title=" " alt="" coords="401,199,560,225"/>
+<area shape="poly" id="edge10_Node000007_Node000009" title=" " alt="" coords="597,187,547,201,546,195,592,188"/>
+</map>

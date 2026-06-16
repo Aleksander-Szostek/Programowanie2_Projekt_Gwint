@@ -1,0 +1,29 @@
+<map id="deck_loader::load_deck" name="deck_loader::load_deck">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,109,164,136"/>
+<area shape="rect" id="Node000002" href="$classkarta.html#a4da45c4fbf3a3ac22f162a8ecfc280a9" title=" " alt="" coords="576,8,688,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,107,234,55,314,28,397,8,433,3,462,3,529,8,563,12,558,14,528,13,462,8,434,9,397,13,315,33,236,60,116,111"/>
+<area shape="rect" id="Node000003" href="$classcard__loader.html#aab0d8b3e590eab07654dc50f48fddf0a" title=" " alt="" coords="212,228,349,271"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,134,236,218,231,221,107,139"/>
+<area shape="poly" id="edge12_Node000003_Node000002" title=" " alt="" coords="285,226,297,187,319,136,351,86,372,63,396,44,435,25,478,14,521,10,564,12,559,14,521,15,479,20,437,30,398,49,376,67,356,89,324,139,302,188,289,229"/>
+<area shape="rect" id="Node000004" href="$classkarta.html#aa1ea741c85770973a0ab15ae1fe679a6" title=" " alt="" coords="411,59,514,85"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="291,226,332,162,361,127,395,95,405,91,401,95,399,99,365,130,336,166,295,229"/>
+<area shape="rect" id="Node000005" href="$classkarta.html#af1156ef104979cb71cbdaf36ebcdc003" title=" " alt="" coords="406,109,519,136"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="300,226,342,186,396,146,408,141,404,145,398,150,346,190,304,229"/>
+<area shape="rect" id="Node000006" href="$classkarta.html#ade547de3d3f87ebd4eabbcccdd55a401" title=" " alt="" coords="403,160,522,187"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="329,225,396,196,413,192,409,194,398,201,332,230"/>
+<area shape="rect" id="Node000007" href="$classkarta.html#a00825526615d94f6bb5d769e4d31c66d" title=" " alt="" coords="418,211,508,237"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="349,237,405,231,400,234,351,242"/>
+<area shape="rect" id="Node000008" href="$classkarta.html#a8f105f85c67c5f638279cfee690a07a0" title=" " alt="" coords="397,261,528,288"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="349,256,384,263,379,264,350,262"/>
+<area shape="rect" id="Node000009" href="$classkarta.html#a65b4ae54d78ad8ddde61e5433669832e" title=" " alt="" coords="399,312,526,339"/>
+<area shape="poly" id="edge9_Node000003_Node000009" title=" " alt="" coords="330,269,398,298,414,306,408,306,396,302,330,274"/>
+<area shape="rect" id="Node000010" href="$classkarta.html#a3db06d67d76a8234744451f0e33a2ab6" title=" " alt="" coords="414,363,511,389"/>
+<area shape="poly" id="edge10_Node000003_Node000010" title=" " alt="" coords="302,269,346,309,398,348,409,356,403,356,396,353,342,313,302,274"/>
+<area shape="rect" id="Node000011" href="$classkarta.html#a72ade54c11bb59002c238087cecdafea" title=" " alt="" coords="412,413,513,440"/>
+<area shape="poly" id="edge11_Node000003_Node000011" title=" " alt="" coords="294,268,336,333,365,368,399,399,406,406,401,405,395,403,361,372,332,336,292,274"/>
+<area shape="rect" id="Node000012" href="$classkarta.html#a49f152affb546911b9c6f36abfe6a6a7" title=" " alt="" coords="402,464,523,491"/>
+<area shape="poly" id="edge13_Node000003_Node000012" title=" " alt="" coords="289,268,305,308,328,356,359,406,399,450,405,457,400,456,395,454,355,409,323,359,301,310,288,273"/>
+<area shape="rect" id="Node000013" href="$classkarta.html#ad505f759c7945f06a206f30cf6fac8ad" title=" " alt="" coords="403,515,522,541"/>
+<area shape="poly" id="edge14_Node000003_Node000013" title=" " alt="" coords="287,269,300,318,321,379,354,444,375,474,399,501,404,507,399,506,395,505,370,477,349,447,317,381,295,319,285,274"/>
+<area shape="poly" id="edge8_Node000008_Node000002" title=" " alt="" coords="510,259,527,247,547,225,564,200,592,145,611,93,624,52,627,48,616,94,597,148,569,203,551,228,530,251,513,263"/>
+</map>

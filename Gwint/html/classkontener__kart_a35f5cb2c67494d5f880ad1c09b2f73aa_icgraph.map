@@ -1,0 +1,7 @@
+<map id="kontener_kart::move_card" name="kontener_kart::move_card">
+<area shape="rect" id="Node000001" title=" " alt="" coords="191,31,363,57"/>
+<area shape="rect" id="Node000002" href="$classplayer.html#a2d63867bec77cac050b59cabce5a5c48" title=" " alt="" coords="5,5,143,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,32,143,30,143,25,177,31"/>
+<area shape="rect" id="Node000003" href="$classgra.html#a2bfc132e55eed744b89015080a99767b" title=" " alt="" coords="12,56,136,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,57,137,64,136,59,178,56"/>
+</map>

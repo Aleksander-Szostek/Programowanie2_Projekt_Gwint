@@ -1,0 +1,144 @@
+\doxysection{plansza\+\_\+linia Class Reference}
+\label{classplansza__linia}\index{plansza\_linia@{plansza\_linia}}
+
+
+{\ttfamily \+\#include $<$plansza\+\_\+linia.\+h$>$}
+
+
+
+Inheritance diagram for plansza\+\_\+linia:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classplansza__linia__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for plansza\+\_\+linia:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{classplansza__linia__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ plansza\+\_\+linia} ()
+\item 
+int \textbf{ get\+Points} (bool Pogoda)
+\item 
+void \textbf{ empty\+Linia} ()
+\item 
+\textbf{ kontener\+\_\+kart} $\ast$ \textbf{ get\+Horn} ()
+\item 
+bool \textbf{ is\+Cloudy} ()
+\item 
+void \textbf{ set\+Cloudy} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \textbf{ kontener\+\_\+kart}}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ kontener\+\_\+kart} ()
+\item 
+void \textbf{ add\+\_\+card\+\_\+to} (\textbf{ karta} $\ast$dodawana\+\_\+karta, int pozycja)
+\item 
+void \textbf{ move\+\_\+card} (int poz\+\_\+start, \textbf{ kontener\+\_\+kart} $\ast$output\+\_\+list)
+\item 
+\textbf{ karta} $\ast$ \textbf{ get\+Karta\+From\+List} (int poz)
+\item 
+int \textbf{ get\+Deck\+Size} ()
+\item 
+void \textbf{ shulfe\+\_\+list} ()
+\item 
+void \textbf{ sort\+\_\+list} ()
+\item 
+void \textbf{ delete\+\_\+card} (int pozycja)
+\item 
+std::\+vector$<$ \textbf{ karta} $\ast$ $>$ \textbf{ get\+Wszystkie\+Karty} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \textbf{ kontener\+\_\+kart}}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ \textbf{ karta} $\ast$ $>$ \textbf{ Ciag\+\_\+kart}
+\item 
+bool \textbf{ is\+Deck} = false
+\end{DoxyCompactItemize}
+
+
+\label{classplansza__linia_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{plansza\_linia@{plansza\_linia}!plansza\_linia@{plansza\_linia}}
+\index{plansza\_linia@{plansza\_linia}!plansza\_linia@{plansza\_linia}}
+\doxysubsubsection{plansza\_linia()}
+{\footnotesize\ttfamily \label{classplansza__linia_a7835d78f8fd2893826ea8b5e785f7120} 
+plansza\+\_\+linia::\+plansza\+\_\+linia (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplansza__linia_a7835d78f8fd2893826ea8b5e785f7120_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{classplansza__linia_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{plansza\_linia@{plansza\_linia}!emptyLinia@{emptyLinia}}
+\index{emptyLinia@{emptyLinia}!plansza\_linia@{plansza\_linia}}
+\doxysubsubsection{emptyLinia()}
+{\footnotesize\ttfamily \label{classplansza__linia_a5ecc374242944c0c0b09ceef7b253725} 
+void plansza\+\_\+linia::\+empty\+Linia (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{plansza\_linia@{plansza\_linia}!getHorn@{getHorn}}
+\index{getHorn@{getHorn}!plansza\_linia@{plansza\_linia}}
+\doxysubsubsection{getHorn()}
+{\footnotesize\ttfamily \label{classplansza__linia_a465ab8a77ff8c89e6ea66cea8369eb9c} 
+\textbf{ kontener\+\_\+kart} $\ast$ plansza\+\_\+linia::\+get\+Horn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplansza__linia_a465ab8a77ff8c89e6ea66cea8369eb9c_cgraph}
+\end{center}
+\end{figure}
+\index{plansza\_linia@{plansza\_linia}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!plansza\_linia@{plansza\_linia}}
+\doxysubsubsection{getPoints()}
+{\footnotesize\ttfamily \label{classplansza__linia_a49264077e7a887622246b7febf32f702} 
+int plansza\+\_\+linia::\+get\+Points (\begin{DoxyParamCaption}\item[{bool}]{Pogoda}{}\end{DoxyParamCaption})}
+
+\index{plansza\_linia@{plansza\_linia}!isCloudy@{isCloudy}}
+\index{isCloudy@{isCloudy}!plansza\_linia@{plansza\_linia}}
+\doxysubsubsection{isCloudy()}
+{\footnotesize\ttfamily \label{classplansza__linia_a7ef931a22a484abf4793d929b27580fc} 
+bool plansza\+\_\+linia::\+is\+Cloudy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{plansza\_linia@{plansza\_linia}!setCloudy@{setCloudy}}
+\index{setCloudy@{setCloudy}!plansza\_linia@{plansza\_linia}}
+\doxysubsubsection{setCloudy()}
+{\footnotesize\ttfamily \label{classplansza__linia_a8b99a710bbe221acb344f1732a11f828} 
+void plansza\+\_\+linia::\+set\+Cloudy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplansza__linia_a8b99a710bbe221acb344f1732a11f828_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ plansza\+\_\+linia.\+h}\item 
+\textbf{ plansza\+\_\+linia.\+cpp}\end{DoxyCompactItemize}

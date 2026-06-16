@@ -1,0 +1,82 @@
+\doxysection{rzedy\+\_\+enum.\+h}
+\label{rzedy__enum_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ RZEDY\_ENUM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ RZEDY\_ENUM\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}karta.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{enum}\ RzadPlanszy\{}
+\DoxyCodeLine{00006\ \ \ \ \ Unknown,}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \ \ \ \ P1\_Melee,}
+\DoxyCodeLine{00009\ \ \ \ \ P1\_Range,}
+\DoxyCodeLine{00010\ \ \ \ \ P1\_Siege,}
+\DoxyCodeLine{00011\ \ \ \ \ P2\_Melee,}
+\DoxyCodeLine{00012\ \ \ \ \ P2\_Range,}
+\DoxyCodeLine{00013\ \ \ \ \ P2\_Siege,}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ P1\_Spell,}
+\DoxyCodeLine{00016\ \ \ \ \ P2\_Spell,}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ P1\_Leader,}
+\DoxyCodeLine{00019\ \ \ \ \ P2\_Leader,}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ P1\_Hand,}
+\DoxyCodeLine{00022\ \ \ \ \ P2\_Hand,}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ P1\_Deck,}
+\DoxyCodeLine{00025\ \ \ \ \ P2\_Deck,}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ P1\_Graveyard,}
+\DoxyCodeLine{00028\ \ \ \ \ P2\_Graveyard,}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ P1\_Limbo,}
+\DoxyCodeLine{00031\ \ \ \ \ P2\_Limbo,}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ Weather,}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ P1\_Melee\_Horn,}
+\DoxyCodeLine{00036\ \ \ \ \ P1\_Range\_Horn,}
+\DoxyCodeLine{00037\ \ \ \ \ P1\_Siege\_Horn,}
+\DoxyCodeLine{00038\ \ \ \ \ P2\_Melee\_Horn,}
+\DoxyCodeLine{00039\ \ \ \ \ P2\_Range\_Horn,}
+\DoxyCodeLine{00040\ \ \ \ \ P2\_Siege\_Horn}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{enum\ class}\ Pkt\{}
+\DoxyCodeLine{00044\ \ \ \ \ p1\_M\ =\ 0,}
+\DoxyCodeLine{00045\ \ \ \ \ p1\_R\ =\ 1,}
+\DoxyCodeLine{00046\ \ \ \ \ p1\_S\ =\ 2,}
+\DoxyCodeLine{00047\ \ \ \ \ p2\_M\ =\ 3,}
+\DoxyCodeLine{00048\ \ \ \ \ p2\_R\ =\ 4,}
+\DoxyCodeLine{00049\ \ \ \ \ p2\_S\ =\ 5,}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ p1\_DS\ =\ 6,}
+\DoxyCodeLine{00052\ \ \ \ \ p2\_DS\ =\ 7,}
+\DoxyCodeLine{00053\ \ \ \ \ p1\_HS\ =\ 8,}
+\DoxyCodeLine{00054\ \ \ \ \ p2\_HS\ =\ 9,}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ p1\_GS\ =\ 10,}
+\DoxyCodeLine{00057\ \ \ \ \ p2\_GS\ =\ 11}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{struct\ }nakaz\ \{}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{class\ }rzedy\_enum}
+\DoxyCodeLine{00066\ \{}
+\DoxyCodeLine{00067\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00068\ \ \ \ \ rzedy\_enum();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ isPlayer1(RzadPlanszy\ rzad);}
+\DoxyCodeLine{00071\ \ \ \ \ RzadPlanszy\ reverseRzad(RzadPlanszy\ rzad);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ RzadPlanszy\ convertTypToRzad(Kategoria\ typ,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RZEDY\_ENUM\_H}}
+
+\end{DoxyCode}

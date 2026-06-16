@@ -1,0 +1,11 @@
+<map id="bot_player::pobierzWszyskieKarty" name="bot_player::pobierzWszyskieKarty">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,73,195,116"/>
+<area shape="rect" id="Node000002" href="$classplayer.html#a582ef4e7f38d1cbbc08d771a85089e58" title=" " alt="" coords="248,5,365,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,70,256,36,252,39,161,75"/>
+<area shape="rect" id="Node000003" href="$classplayer.html#aa34ace68fba959b8f53f7423128228dc" title=" " alt="" coords="243,56,370,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,80,230,78,225,80,196,86"/>
+<area shape="rect" id="Node000004" href="$classplayer.html#ada7e0072cc11c302c471eb5b1f669693" title=" " alt="" coords="249,107,364,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="195,104,236,111,230,112,195,109"/>
+<area shape="rect" id="Node000005" href="$classplayer.html#a97de83bce15f880241f561b55b016b02" title=" " alt="" coords="257,157,356,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="161,114,256,151,251,152,160,119"/>
+</map>

@@ -1,0 +1,33 @@
+\doxysection{bot\+\_\+player.\+h}
+\label{bot__player_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BOT\_PLAYER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BOT\_PLAYER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}efekty\_pogodowe.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}player.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }bot\_player\ :\ \textcolor{keyword}{public}\ player}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ bot\_player();}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ decyzjaRuchu\ podjecieDecyzji(player*\ przeciwnik)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ setPogodaStol(efekty\_pogodowe*\ p)\ \{\ aktualnaPogoda\ =\ p;\ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ std::vector<karta*>\ pobierzWszyskieKarty(player*\ p);}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{bool}\ czyPasowac(player*\ przeciwnik);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ ocenaKarty(karta*\ k,\ player*\ przeciwnik);}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ czySzpieg(karta*\ k,\ player*\ przeciwnik);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ czyPorzoga(karta*\ k,\ player*\ przeciwnik);}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{bool}\ czyKukla(karta*\ k,\ player*\ przeciwnik);}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{bool}\ czyPogoda(karta*\ k,\ player*\ przeciwnik);}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{bool}\ czyGrzybiarz(karta*\ k,\ player*\ przeciwnik);}
+\DoxyCodeLine{00025\ \ \ \ \ efekty\_pogodowe*\ aktualnaPogoda\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ BOT\_PLAYER\_H}}
+
+\end{DoxyCode}

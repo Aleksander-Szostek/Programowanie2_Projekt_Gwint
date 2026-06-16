@@ -1,0 +1,7 @@
+<map id="player" name="player">
+<area shape="rect" id="Node000001" title=" " alt="" coords="109,5,233,288"/>
+<area shape="rect" id="Node000002" href="$classbot__player.html" title=" " alt="" coords="5,336,168,469"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,300,111,338,106,335,118,304"/>
+<area shape="rect" id="Node000003" href="$classhuman__player.html" title=" " alt="" coords="193,357,317,448"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="223,300,243,358,238,357,221,304"/>
+</map>

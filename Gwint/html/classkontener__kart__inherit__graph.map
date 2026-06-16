@@ -1,0 +1,13 @@
+<map id="kontener_kart" name="kontener_kart">
+<area shape="rect" id="Node000001" title=" " alt="" coords="278,5,421,267"/>
+<area shape="rect" id="Node000002" href="$classdeck.html" title=" " alt="" coords="5,325,122,480"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="264,202,202,256,136,317,124,329,120,326,133,313,198,252,268,198"/>
+<area shape="rect" id="Node000003" href="$classefekty__pogodowe.html" title=" " alt="" coords="146,325,280,480"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="278,278,254,327,250,324,274,282"/>
+<area shape="rect" id="Node000004" href="$classgraveyard.html" title=" " alt="" coords="305,368,394,437"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="351,280,352,369,347,367,347,284"/>
+<area shape="rect" id="Node000005" href="$classplansza__linia.html" title=" " alt="" coords="418,315,525,491"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="417,278,434,316,429,314,415,283"/>
+<area shape="rect" id="Node000006" href="$classplayer__hand.html" title=" " alt="" coords="549,368,651,437"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="432,206,487,258,539,313,581,369,575,367,535,316,483,262,431,212"/>
+</map>

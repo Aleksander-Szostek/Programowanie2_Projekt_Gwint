@@ -1,0 +1,25 @@
+var classkarta =
+[
+    [ "karta", "classkarta.html#a08e627be9dd12ca58222008c50ce7c7e", null ],
+    [ "getCele", "classkarta.html#a57be3424cf84f7c83b2615464a78a7ce", null ],
+    [ "getFlavor", "classkarta.html#a71032ae7d7c763fc197be7ce84fa1214", null ],
+    [ "getFrakcja", "classkarta.html#a3c560b5ee9924cbac4e407d7a5877cfd", null ],
+    [ "getID", "classkarta.html#a6c8769a575e836a9bd2f9907242fdbf4", null ],
+    [ "getKategoria", "classkarta.html#a32eaeede83a88b0b41751767f7b46f40", null ],
+    [ "getKeyword", "classkarta.html#a03294c74fc1639bf21f3ca41f0f0b8da", null ],
+    [ "getLeg", "classkarta.html#a4bf3a4f41aea67c3e6cc2b803004d20f", null ],
+    [ "getMax", "classkarta.html#a814991f41086b810d1ce818bde8c3c64", null ],
+    [ "getNazwa", "classkarta.html#a84290b29fbb3ac861db976f3c1defe1f", null ],
+    [ "getSila", "classkarta.html#a85ce32e60fe32c4a2f89e7ca0f7f3908", null ],
+    [ "setCele", "classkarta.html#aa1ea741c85770973a0ab15ae1fe679a6", null ],
+    [ "setFlavor", "classkarta.html#af1156ef104979cb71cbdaf36ebcdc003", null ],
+    [ "setFrakcja", "classkarta.html#ade547de3d3f87ebd4eabbcccdd55a401", null ],
+    [ "setID", "classkarta.html#a00825526615d94f6bb5d769e4d31c66d", null ],
+    [ "setKategoria", "classkarta.html#a8f105f85c67c5f638279cfee690a07a0", null ],
+    [ "setKeyword", "classkarta.html#a65b4ae54d78ad8ddde61e5433669832e", null ],
+    [ "setLeg", "classkarta.html#a3db06d67d76a8234744451f0e33a2ab6", null ],
+    [ "setMax", "classkarta.html#a72ade54c11bb59002c238087cecdafea", null ],
+    [ "setName", "classkarta.html#a4da45c4fbf3a3ac22f162a8ecfc280a9", null ],
+    [ "setSilaBaz", "classkarta.html#a49f152affb546911b9c6f36abfe6a6a7", null ],
+    [ "updateSila", "classkarta.html#ad505f759c7945f06a206f30cf6fac8ad", null ]
+];

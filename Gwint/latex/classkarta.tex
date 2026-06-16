@@ -1,0 +1,337 @@
+\doxysection{karta Class Reference}
+\label{classkarta}\index{karta@{karta}}
+
+
+{\ttfamily \+\#include $<$karta.\+h$>$}
+
+
+
+Collaboration diagram for karta:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=161pt]{classkarta__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ karta} ()
+\item 
+void \textbf{ set\+ID} (unsigned int id\+\_\+s)
+\item 
+void \textbf{ set\+Name} (QString nazwa\+\_\+s)
+\item 
+void \textbf{ set\+Frakcja} (QString Nazwa\+\_\+frakcji)
+\item 
+void \textbf{ set\+Kategoria} (QString Nazwa\+\_\+kategorii)
+\item 
+void \textbf{ set\+Sila\+Baz} (unsigned int sila\+\_\+bazowa\+\_\+s)
+\item 
+void \textbf{ set\+Keyword} (QString efekt\+\_\+s)
+\item 
+void \textbf{ set\+Cele} (QString cele\+\_\+s)
+\item 
+void \textbf{ set\+Max} (unsigned int max\+\_\+w\+\_\+talii\+\_\+s)
+\item 
+void \textbf{ set\+Leg} (bool leg\+\_\+s)
+\item 
+void \textbf{ set\+Flavor} (QString flavor\+\_\+s)
+\item 
+void \textbf{ update\+Sila} (bool pogoda, bool horn, int boost, int moc\+\_\+braterstwa=0)
+\item 
+unsigned int \textbf{ get\+ID} ()
+\item 
+QString \textbf{ get\+Nazwa} ()
+\item 
+\textbf{ Frakcja} \textbf{ get\+Frakcja} ()
+\item 
+\textbf{ Kategoria} \textbf{ get\+Kategoria} ()
+\item 
+unsigned int \textbf{ get\+Sila} ()
+\item 
+std::\+vector$<$ int $>$ \textbf{ get\+Cele} ()
+\item 
+\textbf{ Efekt} \textbf{ get\+Keyword} ()
+\item 
+unsigned int \textbf{ get\+Max} ()
+\item 
+bool \textbf{ get\+Leg} ()
+\item 
+QString \textbf{ get\+Flavor} ()
+\end{DoxyCompactItemize}
+
+
+\label{classkarta_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{karta@{karta}!karta@{karta}}
+\index{karta@{karta}!karta@{karta}}
+\doxysubsubsection{karta()}
+{\footnotesize\ttfamily \label{classkarta_a08e627be9dd12ca58222008c50ce7c7e} 
+karta::\+karta (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{classkarta_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{karta@{karta}!getCele@{getCele}}
+\index{getCele@{getCele}!karta@{karta}}
+\doxysubsubsection{getCele()}
+{\footnotesize\ttfamily \label{classkarta_a57be3424cf84f7c83b2615464a78a7ce} 
+std::\+vector$<$ int $>$ karta::\+get\+Cele (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{karta@{karta}!getFlavor@{getFlavor}}
+\index{getFlavor@{getFlavor}!karta@{karta}}
+\doxysubsubsection{getFlavor()}
+{\footnotesize\ttfamily \label{classkarta_a71032ae7d7c763fc197be7ce84fa1214} 
+QString karta::\+get\+Flavor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{karta@{karta}!getFrakcja@{getFrakcja}}
+\index{getFrakcja@{getFrakcja}!karta@{karta}}
+\doxysubsubsection{getFrakcja()}
+{\footnotesize\ttfamily \label{classkarta_a3c560b5ee9924cbac4e407d7a5877cfd} 
+\textbf{ Frakcja} karta::\+get\+Frakcja (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{karta@{karta}!getID@{getID}}
+\index{getID@{getID}!karta@{karta}}
+\doxysubsubsection{getID()}
+{\footnotesize\ttfamily \label{classkarta_a6c8769a575e836a9bd2f9907242fdbf4} 
+unsigned int karta::\+get\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a6c8769a575e836a9bd2f9907242fdbf4_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!getKategoria@{getKategoria}}
+\index{getKategoria@{getKategoria}!karta@{karta}}
+\doxysubsubsection{getKategoria()}
+{\footnotesize\ttfamily \label{classkarta_a32eaeede83a88b0b41751767f7b46f40} 
+\textbf{ Kategoria} karta::\+get\+Kategoria (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{karta@{karta}!getKeyword@{getKeyword}}
+\index{getKeyword@{getKeyword}!karta@{karta}}
+\doxysubsubsection{getKeyword()}
+{\footnotesize\ttfamily \label{classkarta_a03294c74fc1639bf21f3ca41f0f0b8da} 
+\textbf{ Efekt} karta::\+get\+Keyword (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a03294c74fc1639bf21f3ca41f0f0b8da_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!getLeg@{getLeg}}
+\index{getLeg@{getLeg}!karta@{karta}}
+\doxysubsubsection{getLeg()}
+{\footnotesize\ttfamily \label{classkarta_a4bf3a4f41aea67c3e6cc2b803004d20f} 
+bool karta::\+get\+Leg (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{karta@{karta}!getMax@{getMax}}
+\index{getMax@{getMax}!karta@{karta}}
+\doxysubsubsection{getMax()}
+{\footnotesize\ttfamily \label{classkarta_a814991f41086b810d1ce818bde8c3c64} 
+unsigned int karta::\+get\+Max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{karta@{karta}!getNazwa@{getNazwa}}
+\index{getNazwa@{getNazwa}!karta@{karta}}
+\doxysubsubsection{getNazwa()}
+{\footnotesize\ttfamily \label{classkarta_a84290b29fbb3ac861db976f3c1defe1f} 
+QString karta::\+get\+Nazwa (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a84290b29fbb3ac861db976f3c1defe1f_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!getSila@{getSila}}
+\index{getSila@{getSila}!karta@{karta}}
+\doxysubsubsection{getSila()}
+{\footnotesize\ttfamily \label{classkarta_a85ce32e60fe32c4a2f89e7ca0f7f3908} 
+unsigned int karta::\+get\+Sila (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{classkarta_a85ce32e60fe32c4a2f89e7ca0f7f3908_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setCele@{setCele}}
+\index{setCele@{setCele}!karta@{karta}}
+\doxysubsubsection{setCele()}
+{\footnotesize\ttfamily \label{classkarta_aa1ea741c85770973a0ab15ae1fe679a6} 
+void karta::\+set\+Cele (\begin{DoxyParamCaption}\item[{QString}]{cele\+\_\+s}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_aa1ea741c85770973a0ab15ae1fe679a6_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setFlavor@{setFlavor}}
+\index{setFlavor@{setFlavor}!karta@{karta}}
+\doxysubsubsection{setFlavor()}
+{\footnotesize\ttfamily \label{classkarta_af1156ef104979cb71cbdaf36ebcdc003} 
+void karta::\+set\+Flavor (\begin{DoxyParamCaption}\item[{QString}]{flavor\+\_\+s}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_af1156ef104979cb71cbdaf36ebcdc003_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setFrakcja@{setFrakcja}}
+\index{setFrakcja@{setFrakcja}!karta@{karta}}
+\doxysubsubsection{setFrakcja()}
+{\footnotesize\ttfamily \label{classkarta_ade547de3d3f87ebd4eabbcccdd55a401} 
+void karta::\+set\+Frakcja (\begin{DoxyParamCaption}\item[{QString}]{Nazwa\+\_\+frakcji}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_ade547de3d3f87ebd4eabbcccdd55a401_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setID@{setID}}
+\index{setID@{setID}!karta@{karta}}
+\doxysubsubsection{setID()}
+{\footnotesize\ttfamily \label{classkarta_a00825526615d94f6bb5d769e4d31c66d} 
+void karta::\+set\+ID (\begin{DoxyParamCaption}\item[{unsigned int}]{id\+\_\+s}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a00825526615d94f6bb5d769e4d31c66d_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setKategoria@{setKategoria}}
+\index{setKategoria@{setKategoria}!karta@{karta}}
+\doxysubsubsection{setKategoria()}
+{\footnotesize\ttfamily \label{classkarta_a8f105f85c67c5f638279cfee690a07a0} 
+void karta::\+set\+Kategoria (\begin{DoxyParamCaption}\item[{QString}]{Nazwa\+\_\+kategorii}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{classkarta_a8f105f85c67c5f638279cfee690a07a0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a8f105f85c67c5f638279cfee690a07a0_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setKeyword@{setKeyword}}
+\index{setKeyword@{setKeyword}!karta@{karta}}
+\doxysubsubsection{setKeyword()}
+{\footnotesize\ttfamily \label{classkarta_a65b4ae54d78ad8ddde61e5433669832e} 
+void karta::\+set\+Keyword (\begin{DoxyParamCaption}\item[{QString}]{efekt\+\_\+s}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a65b4ae54d78ad8ddde61e5433669832e_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setLeg@{setLeg}}
+\index{setLeg@{setLeg}!karta@{karta}}
+\doxysubsubsection{setLeg()}
+{\footnotesize\ttfamily \label{classkarta_a3db06d67d76a8234744451f0e33a2ab6} 
+void karta::\+set\+Leg (\begin{DoxyParamCaption}\item[{bool}]{leg\+\_\+s}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a3db06d67d76a8234744451f0e33a2ab6_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setMax@{setMax}}
+\index{setMax@{setMax}!karta@{karta}}
+\doxysubsubsection{setMax()}
+{\footnotesize\ttfamily \label{classkarta_a72ade54c11bb59002c238087cecdafea} 
+void karta::\+set\+Max (\begin{DoxyParamCaption}\item[{unsigned int}]{max\+\_\+w\+\_\+talii\+\_\+s}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a72ade54c11bb59002c238087cecdafea_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setName@{setName}}
+\index{setName@{setName}!karta@{karta}}
+\doxysubsubsection{setName()}
+{\footnotesize\ttfamily \label{classkarta_a4da45c4fbf3a3ac22f162a8ecfc280a9} 
+void karta::\+set\+Name (\begin{DoxyParamCaption}\item[{QString}]{nazwa\+\_\+s}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a4da45c4fbf3a3ac22f162a8ecfc280a9_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!setSilaBaz@{setSilaBaz}}
+\index{setSilaBaz@{setSilaBaz}!karta@{karta}}
+\doxysubsubsection{setSilaBaz()}
+{\footnotesize\ttfamily \label{classkarta_a49f152affb546911b9c6f36abfe6a6a7} 
+void karta::\+set\+Sila\+Baz (\begin{DoxyParamCaption}\item[{unsigned int}]{sila\+\_\+bazowa\+\_\+s}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_a49f152affb546911b9c6f36abfe6a6a7_icgraph}
+\end{center}
+\end{figure}
+\index{karta@{karta}!updateSila@{updateSila}}
+\index{updateSila@{updateSila}!karta@{karta}}
+\doxysubsubsection{updateSila()}
+{\footnotesize\ttfamily \label{classkarta_ad505f759c7945f06a206f30cf6fac8ad} 
+void karta::\+update\+Sila (\begin{DoxyParamCaption}\item[{bool}]{pogoda}{, }\item[{bool}]{horn}{, }\item[{int}]{boost}{, }\item[{int}]{moc\+\_\+braterstwa}{ = {\ttfamily 0}}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classkarta_ad505f759c7945f06a206f30cf6fac8ad_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ karta.\+h}\item 
+\textbf{ karta.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,351 @@
+\doxysection{player Class Reference}
+\label{classplayer}\index{player@{player}}
+
+
+{\ttfamily \+\#include $<$player.\+h$>$}
+
+
+
+Inheritance diagram for player:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{classplayer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for player:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=173pt]{classplayer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ player} ()
+\item 
+void \textbf{ get\+Points} (int return\+\_\+val[3], bool Pogoda[3])
+\item 
+virtual \textbf{ $\sim$player} ()=default
+\item 
+virtual \textbf{ decyzja\+Ruchu} \textbf{ podjecie\+Decyzji} (\textbf{ player} $\ast$przeciwnik)=0
+\item 
+\textbf{ plansza\+\_\+linia} $\ast$ \textbf{ get\+Melee} ()
+\item 
+\textbf{ plansza\+\_\+linia} $\ast$ \textbf{ get\+Ranged} ()
+\item 
+\textbf{ plansza\+\_\+linia} $\ast$ \textbf{ get\+Siege} ()
+\item 
+\textbf{ deck} $\ast$ \textbf{ get\+Deck} ()
+\item 
+\textbf{ player\+\_\+hand} $\ast$ \textbf{ get\+Reka} ()
+\item 
+\textbf{ graveyard} $\ast$ \textbf{ get\+Graveyard} ()
+\item 
+\textbf{ kontener\+\_\+kart} $\ast$ \textbf{ get\+Limbo} ()
+\item 
+int \textbf{ get\+Pending\+Selection} ()
+\item 
+void \textbf{ set\+Pending\+Selection} (int indeks=-\/1)
+\item 
+void \textbf{ dobierz\+Karte} ()
+\item 
+\textbf{ karta} $\ast$ \textbf{ zagraj\+Karte} (int nr\+\_\+w\+\_\+rece)
+\item 
+void \textbf{ uzyj\+Lidera} ()
+\item 
+void \textbf{ Spasuj} (bool reverse=false)
+\item 
+void \textbf{ Reset\+Pasa} ()
+\item 
+void \textbf{ Pasuj} ()
+\item 
+bool \textbf{ is\+Pas} ()
+\item 
+void \textbf{ start\+Rundy} ()
+\item 
+void \textbf{ wyczysc} ()
+\item 
+int \textbf{ get\+PunktyK} ()
+\item 
+void \textbf{ set\+PunktyK} (int a)
+\item 
+int \textbf{ get\+Suma\+Punktow} (bool pogoda[3])
+\end{DoxyCompactItemize}
+
+
+\label{classplayer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{player@{player}!player@{player}}
+\index{player@{player}!player@{player}}
+\doxysubsubsection{player()}
+{\footnotesize\ttfamily \label{classplayer_a97de83bce15f880241f561b55b016b02} 
+player::\+player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplayer_a97de83bce15f880241f561b55b016b02_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!````~player@{$\sim$player}}
+\index{````~player@{$\sim$player}!player@{player}}
+\doxysubsubsection{$\sim$player()}
+{\footnotesize\ttfamily \label{classplayer_af57b666d63737ad74fa7eddb7a377baf} 
+virtual player::\+$\sim$player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\label{classplayer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{player@{player}!dobierzKarte@{dobierzKarte}}
+\index{dobierzKarte@{dobierzKarte}!player@{player}}
+\doxysubsubsection{dobierzKarte()}
+{\footnotesize\ttfamily \label{classplayer_a2d63867bec77cac050b59cabce5a5c48} 
+void player::\+dobierz\+Karte (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplayer_a2d63867bec77cac050b59cabce5a5c48_cgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!getDeck@{getDeck}}
+\index{getDeck@{getDeck}!player@{player}}
+\doxysubsubsection{getDeck()}
+{\footnotesize\ttfamily \label{classplayer_a3fca9899503cf513b71e7847671ed53c} 
+\textbf{ deck} $\ast$ player::\+get\+Deck (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!getGraveyard@{getGraveyard}}
+\index{getGraveyard@{getGraveyard}!player@{player}}
+\doxysubsubsection{getGraveyard()}
+{\footnotesize\ttfamily \label{classplayer_a7e95e1e6307b875255e3dc8863bd77a2} 
+\textbf{ graveyard} $\ast$ player::\+get\+Graveyard (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!getLimbo@{getLimbo}}
+\index{getLimbo@{getLimbo}!player@{player}}
+\doxysubsubsection{getLimbo()}
+{\footnotesize\ttfamily \label{classplayer_ac32469747a93dd35b35edb6a899ef83e} 
+\textbf{ kontener\+\_\+kart} $\ast$ player::\+get\+Limbo (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{classplayer_ac32469747a93dd35b35edb6a899ef83e_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!getMelee@{getMelee}}
+\index{getMelee@{getMelee}!player@{player}}
+\doxysubsubsection{getMelee()}
+{\footnotesize\ttfamily \label{classplayer_a582ef4e7f38d1cbbc08d771a85089e58} 
+\textbf{ plansza\+\_\+linia} $\ast$ player::\+get\+Melee (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplayer_a582ef4e7f38d1cbbc08d771a85089e58_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!getPendingSelection@{getPendingSelection}}
+\index{getPendingSelection@{getPendingSelection}!player@{player}}
+\doxysubsubsection{getPendingSelection()}
+{\footnotesize\ttfamily \label{classplayer_a8471e8ddbe28a701aa831b9dbe862931} 
+int player::\+get\+Pending\+Selection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{classplayer_a8471e8ddbe28a701aa831b9dbe862931_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!player@{player}}
+\doxysubsubsection{getPoints()}
+{\footnotesize\ttfamily \label{classplayer_a08d9f45645cf7273e00a1768a21aba7a} 
+void player::\+get\+Points (\begin{DoxyParamCaption}\item[{int}]{return\+\_\+val}{[3], }\item[{bool}]{Pogoda}{[3]}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplayer_a08d9f45645cf7273e00a1768a21aba7a_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!getPunktyK@{getPunktyK}}
+\index{getPunktyK@{getPunktyK}!player@{player}}
+\doxysubsubsection{getPunktyK()}
+{\footnotesize\ttfamily \label{classplayer_a02d230db10c7a39d8634f243d8dd95ad} 
+int player::\+get\+PunktyK (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!getRanged@{getRanged}}
+\index{getRanged@{getRanged}!player@{player}}
+\doxysubsubsection{getRanged()}
+{\footnotesize\ttfamily \label{classplayer_aa34ace68fba959b8f53f7423128228dc} 
+\textbf{ plansza\+\_\+linia} $\ast$ player::\+get\+Ranged (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplayer_aa34ace68fba959b8f53f7423128228dc_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!getReka@{getReka}}
+\index{getReka@{getReka}!player@{player}}
+\doxysubsubsection{getReka()}
+{\footnotesize\ttfamily \label{classplayer_af36dba2b67a08433fe44099e0bf36430} 
+\textbf{ player\+\_\+hand} $\ast$ player::\+get\+Reka (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplayer_af36dba2b67a08433fe44099e0bf36430_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!getSiege@{getSiege}}
+\index{getSiege@{getSiege}!player@{player}}
+\doxysubsubsection{getSiege()}
+{\footnotesize\ttfamily \label{classplayer_ada7e0072cc11c302c471eb5b1f669693} 
+\textbf{ plansza\+\_\+linia} $\ast$ player::\+get\+Siege (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplayer_ada7e0072cc11c302c471eb5b1f669693_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!getSumaPunktow@{getSumaPunktow}}
+\index{getSumaPunktow@{getSumaPunktow}!player@{player}}
+\doxysubsubsection{getSumaPunktow()}
+{\footnotesize\ttfamily \label{classplayer_ac502e1bcc9ef1f590dee5f2e87472923} 
+int player::\+get\+Suma\+Punktow (\begin{DoxyParamCaption}\item[{bool}]{pogoda}{[3]}\end{DoxyParamCaption})}
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=331pt]{classplayer_ac502e1bcc9ef1f590dee5f2e87472923_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplayer_ac502e1bcc9ef1f590dee5f2e87472923_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!isPas@{isPas}}
+\index{isPas@{isPas}!player@{player}}
+\doxysubsubsection{isPas()}
+{\footnotesize\ttfamily \label{classplayer_ac9863b9867f7647d5fcc1fb14fd2c874} 
+bool player::\+is\+Pas (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!Pasuj@{Pasuj}}
+\index{Pasuj@{Pasuj}!player@{player}}
+\doxysubsubsection{Pasuj()}
+{\footnotesize\ttfamily \label{classplayer_a97edd769d9ddeacfa1f70362f4c32499} 
+void player::\+\+Pasuj (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!podjecieDecyzji@{podjecieDecyzji}}
+\index{podjecieDecyzji@{podjecieDecyzji}!player@{player}}
+\doxysubsubsection{podjecieDecyzji()}
+{\footnotesize\ttfamily \label{classplayer_ab9268a6cb9a73b0cc32b8806a96a8d31} 
+virtual \textbf{ decyzja\+Ruchu} player::\+podjecie\+Decyzji (\begin{DoxyParamCaption}\item[{\textbf{ player} $\ast$}]{przeciwnik}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ bot\+\_\+player} \doxyref{}{p.}{classbot__player_af3b49dfecca59095f037d2a595317116}, and \textbf{ human\+\_\+player} \doxyref{}{p.}{classhuman__player_a9df1bc4f6814f7d6b4103531653c2c92}.
+
+Here is the call graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{classplayer_ab9268a6cb9a73b0cc32b8806a96a8d31_cgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!ResetPasa@{ResetPasa}}
+\index{ResetPasa@{ResetPasa}!player@{player}}
+\doxysubsubsection{ResetPasa()}
+{\footnotesize\ttfamily \label{classplayer_a145c1244151070226a4faad3291a0ccd} 
+void player::\+\+Reset\+Pasa (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!setPendingSelection@{setPendingSelection}}
+\index{setPendingSelection@{setPendingSelection}!player@{player}}
+\doxysubsubsection{setPendingSelection()}
+{\footnotesize\ttfamily \label{classplayer_af019b7af0a81bc965989ed3fe26521c4} 
+void player::\+set\+Pending\+Selection (\begin{DoxyParamCaption}\item[{int}]{indeks}{ = {\ttfamily -\/1}}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classplayer_af019b7af0a81bc965989ed3fe26521c4_icgraph}
+\end{center}
+\end{figure}
+\index{player@{player}!setPunktyK@{setPunktyK}}
+\index{setPunktyK@{setPunktyK}!player@{player}}
+\doxysubsubsection{setPunktyK()}
+{\footnotesize\ttfamily \label{classplayer_a6374f329c7f5581df7c1960d85004506} 
+void player::\+set\+PunktyK (\begin{DoxyParamCaption}\item[{int}]{a}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!Spasuj@{Spasuj}}
+\index{Spasuj@{Spasuj}!player@{player}}
+\doxysubsubsection{Spasuj()}
+{\footnotesize\ttfamily \label{classplayer_aae839a1b4203a90e1a0fc1f194f12787} 
+void player::\+\+Spasuj (\begin{DoxyParamCaption}\item[{bool}]{reverse}{ = {\ttfamily false}}\end{DoxyParamCaption})}
+
+\index{player@{player}!startRundy@{startRundy}}
+\index{startRundy@{startRundy}!player@{player}}
+\doxysubsubsection{startRundy()}
+{\footnotesize\ttfamily \label{classplayer_a12a5062611774310a8924f737e88257b} 
+void player::\+start\+Rundy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!uzyjLidera@{uzyjLidera}}
+\index{uzyjLidera@{uzyjLidera}!player@{player}}
+\doxysubsubsection{uzyjLidera()}
+{\footnotesize\ttfamily \label{classplayer_a1442892c302752d27c0721c2bc9dd4b9} 
+void player::\+uzyj\+Lidera (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!wyczysc@{wyczysc}}
+\index{wyczysc@{wyczysc}!player@{player}}
+\doxysubsubsection{wyczysc()}
+{\footnotesize\ttfamily \label{classplayer_a3b2f9907d922b607cc640ee14d109edc} 
+void player::\+wyczysc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{player@{player}!zagrajKarte@{zagrajKarte}}
+\index{zagrajKarte@{zagrajKarte}!player@{player}}
+\doxysubsubsection{zagrajKarte()}
+{\footnotesize\ttfamily \label{classplayer_ac9bfb60fa5bcb922580af6049ff48b36} 
+\textbf{ karta} $\ast$ player::\+zagraj\+Karte (\begin{DoxyParamCaption}\item[{int}]{nr\+\_\+w\+\_\+rece}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ player.\+h}\item 
+\textbf{ player.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,112 @@
+\doxysection{gra.\+h}
+\label{gra_8h_source}\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GRA\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GRA\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}player.h"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}efekty\_pogodowe.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}karta.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QTimer>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}stan\_gry.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}rzedy\_enum.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ enum\ StanGry\ \{}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ \ \ \ \ Tura1,\ Tura2,\ KoniecRundy,\ KoniecGry,\ Nierozpoczeta}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \};}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{class\ }gra\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ gra();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{void}\ zainicjalizuj\_gre(QString\ nazwa\_talii\_1,\ QString\ nazwa\_talii\_2);}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ koniec\_rundy();}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ koniec\_gry();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ dobierzKarte(\textcolor{keywordtype}{int}\ nr\_gracza,\ \textcolor{keywordtype}{int}\ n\ =\ 1);}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ graczZagrajKarte(\textcolor{keywordtype}{int}\ nr\_w\_rece,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//jeśli\ zostanie\ zagrana\ karta\ która\ ma\ effekt\ globalny\ to\ musi\ zostać\ resolvowana\ w\ tym\ obiekcie}}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ globalCardPlayed(karta*\ karta\_g,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ zagranoKarte(\textcolor{keywordtype}{int}\ indeks,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ gameClear();}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ tura\_bota();}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ wybranoKarte(RzadPlanszy\ lokacja,\ \textcolor{keywordtype}{int}\ indeks);}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ wybranoLinie(RzadPlanszy\ lokacja);}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ countPoints();}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ graczPas(\textcolor{keywordtype}{int}\ nr\_gr);}
+\DoxyCodeLine{00040\ \ \ \ \ StanGry\ getGameState();}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{int}\ getNrRundy();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ player\ *gracz\_1;}
+\DoxyCodeLine{00046\ \ \ \ \ player\ *gracz\_2;}
+\DoxyCodeLine{00047\ \ \ \ \ efekty\_pogodowe\ *pogoda;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{struct\ }Lokacje\{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ RzadPlanszy\ rzad;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ indeks;}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ p1\_pkt\ =\ 0;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ p2\_pkt\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ p1\_gamescore\ =\ 0;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ p2\_gamescore\ =\ 0;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ StanGry\ GameState\ =\ Nierozpoczeta;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ clearBoard();}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ redrawBoard();}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{void}\ redrawLine(RzadPlanszy\ gdzieRysowac);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ clearPlansza();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ nr\_rundy\ =\ 0;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ moveCardByEnum(RzadPlanszy\ rzad\_start,\ RzadPlanszy\ rzad\_end,\ \textcolor{keywordtype}{int}\ ID);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{int}\ findCardByID(RzadPlanszy\ rzad,\ \textcolor{keywordtype}{int}\ ID);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ kontener\_kart*\ getKontenerByEnum(RzadPlanszy\ rzad);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ szpieg(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ przyzwij(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ linked(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ medyk(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ rebornDEAD(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ porzoga(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ pogodaPlay(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ horn(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ boost(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ grzyb(karta*\ active,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{void}\ kukla(\textcolor{keywordtype}{int}\ indeks\_reki,\ RzadPlanszy\ miejsce\_celu,\ \textcolor{keywordtype}{int}\ indeks\_celu,\ \textcolor{keywordtype}{int}\ nr\_gracza);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ porzogaTestLinia(RzadPlanszy\ badane,\ std::vector<Lokacje>\ \&lista,\ \textcolor{keywordtype}{int}\ \&sila\_max);}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ kill(RzadPlanszy\ rzad,\ \textcolor{keywordtype}{int}\ indeks);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ clearLimbo();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ player*\ getGracz(\textcolor{keywordtype}{int}\ nr);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ signals:}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{comment}{//void\ dodanieKarty(karta*\ nowaKarta,\ gra::RzadPlanszy\ rzad);}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ nakazRysowaniaKarty(karta*\ nowaKarta,\ RzadPlanszy\ rzad,\ \textcolor{keywordtype}{int}\ indeks,\ \textcolor{keywordtype}{int}\ nr\_gr);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Rozkaz:\ "{}Wyczyść\ fizycznie\ ten\ konkretny\ rząd/layout\ z\ przycisków"{}}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ nakazCzyszczeniaLayoutu(RzadPlanszy\ rzad);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{void}\ nakazAktualizacjiPunkt(\textcolor{keywordtype}{int}\ punkty[12]);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ nakazZmianyStrony(\textcolor{keywordtype}{int}\ indeks);}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ nakazShowGS(StanGry\ GameState,\ \textcolor{keywordtype}{bool}\ p1\_pas,\ \textcolor{keywordtype}{bool}\ p2\_pas);}
+\DoxyCodeLine{00105\ \};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GRA\_H}}
+
+\end{DoxyCode}

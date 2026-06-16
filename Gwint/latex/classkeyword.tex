@@ -1,0 +1,165 @@
+\doxysection{keyword Class Reference}
+\label{classkeyword}\index{keyword@{keyword}}
+
+
+{\ttfamily \+\#include $<$keyword.\+h$>$}
+
+
+
+Inheritance diagram for keyword:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{classkeyword__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for keyword:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{classkeyword__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ lokacja\+Karty}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ nakaz\+Rusz} (\textbf{ Rzad\+Planszy} poz\+\_\+start, int indeks, \textbf{ Rzad\+Planszy} poz\+\_\+kon)
+\item 
+int \textbf{ nakaz\+Szukaj} (int ID, \textbf{ Rzad\+Planszy} gdzie\+Szukac=\textbf{ Unknown})
+\item 
+void \textbf{ nakaz\+Grzybek} ()
+\item 
+void \textbf{ nakaz\+Dobierz} (int nr\+\_\+gracza, int liczba=1)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ keyword} ()
+\item 
+virtual void \textbf{ when\+Played} ()=0
+\item 
+virtual void \textbf{ when\+Killed} ()=0
+\item 
+\textbf{ $\sim$keyword} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \textbf{ is\+Player1} (\textbf{ Rzad\+Planszy} rzad)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::\+vector$<$ int $>$ \textbf{ Karty\+\_\+cele}
+\item 
+std::\+vector$<$ \textbf{ Rzad\+Planszy} $>$ \textbf{ Linie\+\_\+cele}
+\end{DoxyCompactItemize}
+
+
+\label{classkeyword_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\index{keyword@{keyword}!keyword@{keyword}}
+\index{keyword@{keyword}!keyword@{keyword}}
+\doxysubsubsection{keyword()}
+{\footnotesize\ttfamily \label{classkeyword_a908bf7af5c29f4feff13a0d52e46a1e3} 
+keyword::\+keyword (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\index{keyword@{keyword}!````~keyword@{$\sim$keyword}}
+\index{````~keyword@{$\sim$keyword}!keyword@{keyword}}
+\doxysubsubsection{$\sim$keyword()}
+{\footnotesize\ttfamily \label{classkeyword_ae0d20cd5283de5fa6d19dc6cf4a8989a} 
+keyword::\+$\sim$keyword (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{classkeyword_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\index{keyword@{keyword}!isPlayer1@{isPlayer1}}
+\index{isPlayer1@{isPlayer1}!keyword@{keyword}}
+\doxysubsubsection{isPlayer1()}
+{\footnotesize\ttfamily \label{classkeyword_a397117d1a3148f1322e0b2753c215199} 
+bool keyword::\+is\+Player1 (\begin{DoxyParamCaption}\item[{\textbf{ Rzad\+Planszy}}]{rzad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Here is the caller graph for this function:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{classkeyword_a397117d1a3148f1322e0b2753c215199_icgraph}
+\end{center}
+\end{figure}
+\index{keyword@{keyword}!nakazDobierz@{nakazDobierz}}
+\index{nakazDobierz@{nakazDobierz}!keyword@{keyword}}
+\doxysubsubsection{nakazDobierz}
+{\footnotesize\ttfamily \label{classkeyword_ada2df7e7deb4f0db5f05a2a24c82ca8d} 
+void keyword::\+nakaz\+Dobierz (\begin{DoxyParamCaption}\item[{int}]{nr\+\_\+gracza}{, }\item[{int}]{liczba}{ = {\ttfamily 1}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\index{keyword@{keyword}!nakazGrzybek@{nakazGrzybek}}
+\index{nakazGrzybek@{nakazGrzybek}!keyword@{keyword}}
+\doxysubsubsection{nakazGrzybek}
+{\footnotesize\ttfamily \label{classkeyword_ad2a602d90bd1107965c87c753cabf9cf} 
+void keyword::\+nakaz\+Grzybek (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\index{keyword@{keyword}!nakazRusz@{nakazRusz}}
+\index{nakazRusz@{nakazRusz}!keyword@{keyword}}
+\doxysubsubsection{nakazRusz}
+{\footnotesize\ttfamily \label{classkeyword_adc6449ff9a368b062b4a42a060baa831} 
+void keyword::\+nakaz\+Rusz (\begin{DoxyParamCaption}\item[{\textbf{ Rzad\+Planszy}}]{poz\+\_\+start}{, }\item[{int}]{indeks}{, }\item[{\textbf{ Rzad\+Planszy}}]{poz\+\_\+kon}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\index{keyword@{keyword}!nakazSzukaj@{nakazSzukaj}}
+\index{nakazSzukaj@{nakazSzukaj}!keyword@{keyword}}
+\doxysubsubsection{nakazSzukaj}
+{\footnotesize\ttfamily \label{classkeyword_a41807a717f6359b70a1c275f5537f2cf} 
+int keyword::\+nakaz\+Szukaj (\begin{DoxyParamCaption}\item[{int}]{ID}{, }\item[{\textbf{ Rzad\+Planszy}}]{gdzie\+Szukac}{ = {\ttfamily \textbf{ Unknown}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\index{keyword@{keyword}!whenKilled@{whenKilled}}
+\index{whenKilled@{whenKilled}!keyword@{keyword}}
+\doxysubsubsection{whenKilled()}
+{\footnotesize\ttfamily \label{classkeyword_a0738011197fc066464e310e23e38db42} 
+virtual void keyword::\+when\+Killed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ szpieg} \doxyref{}{p.}{classszpieg_a35285bf95981cc48882ccc8e87724dae}.
+
+\index{keyword@{keyword}!whenPlayed@{whenPlayed}}
+\index{whenPlayed@{whenPlayed}!keyword@{keyword}}
+\doxysubsubsection{whenPlayed()}
+{\footnotesize\ttfamily \label{classkeyword_a6ece34ef98c6b1fbb02b6e25a9dcf852} 
+virtual void keyword::\+when\+Played (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \textbf{ szpieg} \doxyref{}{p.}{classszpieg_a945167bc0261439622caea89b34edaa5}.
+
+
+
+\label{classkeyword_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\index{keyword@{keyword}!Karty\_cele@{Karty\_cele}}
+\index{Karty\_cele@{Karty\_cele}!keyword@{keyword}}
+\doxysubsubsection{Karty\_cele}
+{\footnotesize\ttfamily \label{classkeyword_a9515381c30637e83e6c0a33c3d3a3b91} 
+std::\+vector$<$int$>$ keyword::\+\+Karty\+\_\+cele\hspace{0.3cm}{\ttfamily [protected]}}
+
+\index{keyword@{keyword}!Linie\_cele@{Linie\_cele}}
+\index{Linie\_cele@{Linie\_cele}!keyword@{keyword}}
+\doxysubsubsection{Linie\_cele}
+{\footnotesize\ttfamily \label{classkeyword_a0fc57095e47e526dbe6e86d35ff4f24a} 
+std::\+vector$<$\textbf{ Rzad\+Planszy}$>$ keyword::\+\+Linie\+\_\+cele\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files:\+\begin{DoxyCompactItemize}
+\item 
+\textbf{ keyword.\+h}\item 
+\textbf{ keyword.\+cpp}\end{DoxyCompactItemize}

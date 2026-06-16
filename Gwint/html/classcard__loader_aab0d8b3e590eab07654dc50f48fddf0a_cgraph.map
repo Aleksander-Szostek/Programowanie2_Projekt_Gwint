@@ -1,0 +1,26 @@
+<map id="card_loader::zaladuj_karte" name="card_loader::zaladuj_karte">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,251,143,293"/>
+<area shape="rect" id="Node000002" href="$classkarta.html#aa1ea741c85770973a0ab15ae1fe679a6" title=" " alt="" coords="205,5,308,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,250,91,207,114,151,146,93,166,66,189,42,197,38,194,43,192,46,170,70,150,96,118,154,96,208,83,251"/>
+<area shape="rect" id="Node000003" href="$classkarta.html#af1156ef104979cb71cbdaf36ebcdc003" title=" " alt="" coords="200,56,312,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="82,249,121,174,152,131,189,93,198,89,194,93,192,97,156,134,126,176,87,251"/>
+<area shape="rect" id="Node000004" href="$classkarta.html#ade547de3d3f87ebd4eabbcccdd55a401" title=" " alt="" coords="197,107,316,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="88,249,130,197,158,168,189,143,200,139,196,143,192,148,162,172,134,200,92,252"/>
+<area shape="rect" id="Node000005" href="$classkarta.html#a00825526615d94f6bb5d769e4d31c66d" title=" " alt="" coords="211,157,302,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="103,248,143,221,189,194,204,189,200,192,192,198,146,225,107,252"/>
+<area shape="rect" id="Node000006" href="$classkarta.html#a8f105f85c67c5f638279cfee690a07a0" title=" " alt="" coords="191,208,322,235"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="142,251,193,238,189,241,145,255"/>
+<area shape="rect" id="Node000007" href="$classkarta.html#a4da45c4fbf3a3ac22f162a8ecfc280a9" title=" " alt="" coords="370,233,481,260"/>
+<area shape="poly" id="edge10_Node000001_Node000007" title=" " alt="" coords="142,265,356,250,353,254,144,270"/>
+<area shape="rect" id="Node000008" href="$classkarta.html#a65b4ae54d78ad8ddde61e5433669832e" title=" " alt="" coords="193,309,320,336"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="143,289,193,303,189,306,144,294"/>
+<area shape="rect" id="Node000009" href="$classkarta.html#a3db06d67d76a8234744451f0e33a2ab6" title=" " alt="" coords="208,360,305,387"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="104,291,146,319,192,346,205,353,199,354,189,350,143,323,105,296"/>
+<area shape="rect" id="Node000010" href="$classkarta.html#a72ade54c11bb59002c238087cecdafea" title=" " alt="" coords="206,411,307,437"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="90,291,134,344,162,372,192,396,201,403,196,404,189,401,158,376,130,347,90,296"/>
+<area shape="rect" id="Node000011" href="$classkarta.html#a49f152affb546911b9c6f36abfe6a6a7" title=" " alt="" coords="196,461,317,488"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="85,291,126,368,156,410,192,447,199,454,193,453,189,451,152,413,121,370,83,296"/>
+<area shape="rect" id="Node000012" href="$classkarta.html#ad505f759c7945f06a206f30cf6fac8ad" title=" " alt="" coords="197,512,316,539"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="81,291,96,336,118,390,150,448,170,474,192,498,198,504,192,503,189,502,166,478,146,451,114,393,91,337,80,296"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="322,229,357,235,352,237,323,234"/>
+</map>

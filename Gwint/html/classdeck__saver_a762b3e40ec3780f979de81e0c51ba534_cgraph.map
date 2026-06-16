@@ -1,0 +1,15 @@
+<map id="deck_saver::save_deck" name="deck_saver::save_deck">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,81,165,108"/>
+<area shape="rect" id="Node000002" href="$classkontener__kart.html#a133d36c56b0fea56d1d09412436ca2d6" title=" " alt="" coords="225,5,408,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,78,212,41,241,35,236,38,214,47,119,83"/>
+<area shape="rect" id="Node000003" href="$classkarta.html#a6c8769a575e836a9bd2f9907242fdbf4" title=" " alt="" coords="272,56,362,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="165,83,258,74,254,77,166,89"/>
+<area shape="rect" id="Node000004" href="$classkontener__kart.html#a3b37d82c7d622e08adb97b7668da63e9" title=" " alt="" coords="213,107,421,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="165,101,200,106,194,108,166,106"/>
+<area shape="rect" id="Node000005" href="$classdeck.html#a8f578e807119b1a639650743345a3399" title=" " alt="" coords="252,157,382,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="118,106,214,143,241,153,236,153,212,148,117,111"/>
+<area shape="rect" id="Node000006" href="$classkontener__kart.html#a6f4cd5593700c9b0b42cc95a04a5d5fd" title=" " alt="" coords="469,120,598,163"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="381,159,451,153,456,152,382,165"/>
+<area shape="rect" id="Node000007" href="$classkarta.html#a4da45c4fbf3a3ac22f162a8ecfc280a9" title=" " alt="" coords="478,187,589,213"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="382,177,465,190,460,190,382,182"/>
+</map>

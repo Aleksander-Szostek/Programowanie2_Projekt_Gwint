@@ -1,0 +1,20 @@
+<map id="kontener_kart::getDeckSize" name="kontener_kart::getDeckSize">
+<area shape="rect" id="Node000001" title=" " alt="" coords="642,107,826,133"/>
+<area shape="rect" id="Node000002" href="$classbot__player.html#af3b49dfecca59095f037d2a595317116" title=" " alt="" coords="412,5,593,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="696,98,649,73,593,46,561,35,562,30,595,42,651,68,701,99"/>
+<area shape="rect" id="Node000003" href="$classdeck__saver.html#a762b3e40ec3780f979de81e0c51ba534" title=" " alt="" coords="423,56,582,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="652,103,567,86,567,81,658,103"/>
+<area shape="rect" id="Node000004" href="$classkontener__kart.html#a6eb6a521df4e7544428a641c9f3b3199" title=" " alt="" coords="419,107,586,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="624,120,587,123,586,117,630,120"/>
+<area shape="rect" id="Node000008" href="$classgra.html#a2bfc132e55eed744b89015080a99767b" title=" " alt="" coords="12,157,136,184"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="649,137,595,148,467,160,340,167,136,173,136,168,340,162,467,154,594,143,654,136"/>
+<area shape="rect" id="Node000009" href="$classefekty__pogodowe.html#aa56c301fe76140fa4fda760da6a39c4b" title=" " alt="" coords="411,208,594,235"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="697,140,595,192,547,210,546,205,593,187,692,141"/>
+<area shape="rect" id="Node000005" href="$classdeck.html#a3105a5e86207d41bdedca385dcaf3ba6" title=" " alt="" coords="217,56,337,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="423,103,338,85,338,80,428,102"/>
+<area shape="rect" id="Node000006" href="$classkontener__kart.html#a35f5cb2c67494d5f880ad1c09b2f73aa" title=" " alt="" coords="191,107,363,133"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="401,120,364,123,363,117,407,120"/>
+<area shape="rect" id="Node000007" href="$classplayer.html#a2d63867bec77cac050b59cabce5a5c48" title=" " alt="" coords="5,107,143,133"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="172,121,144,123,142,117,177,119"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="203,139,131,159,130,154,208,136"/>
+</map>
